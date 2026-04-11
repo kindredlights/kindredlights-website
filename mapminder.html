@@ -292,7 +292,7 @@
   <div class="hero-inner">
     <span class="hero-eyebrow">The Map Minder</span>
     <h1 class="hero-h1">Sometimes things go off course.</h1>
-    <p class="hero-sub">It's a good map. It's just the wrong one. The Map Minder helps you keep the one that actually matters — your Karmariculum. Your soul's custom plan for this lifetime.</p>
+    <p <p class="hero-sub">We each have a subconscious script of how everything should be. But situations and people are always going off script &mdash; because they all have their own. The Map Minder reveals the next steps on the path that aligns with your life&rsquo;s divine plan and is the highest good for everyone.</p>
     <p class="hero-note">Your higher self guides the way &#10022;</p><p style="font-family:var(--font-body);font-size:0.9rem;color:rgba(255,255,255,0.6);margin-top:8px;font-style:italic;">These two dream metaphors will show you how the Map Minder works.</p>
   </div>
 </section>
@@ -302,7 +302,7 @@
   <div class="tool-inner">
 
     <!-- TWO CAVES DREAM -->
-    <div class="resonance-card" style="margin-bottom:24px;">
+    <div class="resonance-card" id="caves-dream" style="margin-bottom:24px;">
       <span class="map-section-label">The Two Caves</span>
       <p style="font-family:var(--font-soul);font-size:1.08rem;color:var(The Two Caves</span>
       <p style="font-family:var(--font-soul);font-size:1.08rem;color:var(--midnight);line-height:1.75;margin-bottom:14px;">I had a dream that I was bouncing back and forth between two caves: the first is dark and scary and the other is OK &mdash; not great, but OK. I didn&rsquo;t understand why I kept bouncing back and forth, so I tried to crack the code so that I could stay in the OK cave. As children, this is how we start to build a script to keep us in the OK cave. It seems to work. Until it doesn&rsquo;t.</p>
@@ -313,6 +313,11 @@
       <p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.72;margin-bottom:12px;">All because I cast my opinions and fears upon the divine perfection that I did not see or understand.</p>
       <p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.72;margin-bottom:16px;">Our lower self judges according to our script where lions are vegetarian. Our higher self sees the next lesson in our life&rsquo;s divine plan. The situation you want to fix might be doing exactly what it is supposed to do &mdash; in ways you cannot yet see.</p>
       <p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;text-align:center;">What if the world is already perfect &mdash; and your inner state is where the work is?</p>
+    </div>
+
+    <!-- WILLINGNESS -->
+    <div id="willingness-card" style="background:#f0edf8;border-radius:8px;padding:18px 24px;margin-bottom:24px;border-left:3px solid var(--periwinkle);">
+      <p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.72;">This works best if you are open to the possibility that what is happening might be part of a larger plan &mdash; even when it doesn&rsquo;t feel that way. Willingness and receptivity are the only prerequisites.</p>
     </div>
 
     <!-- Input -->
@@ -618,6 +623,11 @@ async function submitToMapMinder() {
   const shouldText = shouldEl ? shouldEl.value.trim() : '';
   userSituation = text + (shouldText ? '\n\nWhat I think should be happening: ' + shouldText : '');
   hideError();
+  // Hide the onboarding dreams to clear the screen
+  ['caves-dream', 'paradise-dream', 'willingness-card'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
   renderRecognizeRelax();
 }
 
@@ -627,7 +637,7 @@ function renderRecognizeRelax() {
   const html = '<div class="resonance-card" id="recognize-card">'
     + '<span class="map-section-label">Step One &mdash; Recognize</span>'
     + '<h3 style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:12px">There is a conflict amongst your script, others&rsquo; scripts and the divine script.</h3>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:24px">Before you see the script conflict, the world is just wrong. After you see it, you realize the world isn&rsquo;t the problem &mdash; the world just doesn&rsquo;t match your script.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:24px">Before you see the script conflict, the world is just wrong. After you see it, you realize that others are reading from their own scripts &mdash; and the divine plan is different still. Suddenly you have options you didn&rsquo;t have before.</p>'
     + '<div class="map-section" style="border:none;padding:0;margin-bottom:24px;">'
     + '<span class="map-section-label">Step Two &mdash; Relax</span>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:12px">Your first instinct is to fix this &mdash; right now. That impulse comes from the same script that created the problem.</p>'
@@ -769,6 +779,7 @@ function renderReleaseReceive(data) {
     + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:8px;">' + escHtml(s3.bridge || '') + '</p>'
     + '<p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:20px;">' + escHtml(s3.reframe || '') + '</p>'
     + '<div class="resonance-options">' + buttonsHtml + '</div>'
+
     + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-top:20px;line-height:1.72;">Before you choose — this probably isn\'t the first time you\'ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. <em>One will find you.</em></p>'
     + '<p style="font-family:var(--font-body);font-size:0.9rem;color:var(--text-mid);margin-top:12px;font-style:italic;">' + escHtml(s3.prompt || 'Which feels like your emotional experience &mdash; not in your mind &mdash; in your heart and body?') + '</p>'
     + '</div>';
