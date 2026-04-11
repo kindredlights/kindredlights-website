@@ -633,8 +633,8 @@ function renderRecognizeRelax() {
     + '<div class="map-section" style="border:none;padding:0;margin-bottom:24px;">'
     + '<span class="map-section-label">Step Two &mdash; Relax</span>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:16px">What if this situation is already doing exactly what it&rsquo;s supposed to do &mdash; and you just can&rsquo;t see it yet? A woman once walked through paradise with the Creator and made the monkeys extinct. Watch what happened.</p>'
-    + '<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;margin-bottom:20px;">'
-    + '<iframe src="https://www.youtube.com/embed/5aXAmPWkr9w?rel=0&modestbranding=1" title="A Mystical Dream About Returning to Paradise" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;"></iframe>'
+    + '<div style="background:#f0edf8;border-radius:8px;padding:20px 24px;margin-bottom:20px;border-left:3px solid var(--periwinkle);">'
+    + '<p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;text-align:center;margin-bottom:0;">Don&rsquo;t make the monkeys extinct.</p>'
     + '</div>'
     + '<p style="font-family:var(--font-soul);font-size:1.08rem;color:var(--midnight);line-height:1.72;margin-bottom:20px;font-style:italic">Can you hold the possibility &mdash; just enough &mdash; that this situation might be perfect in ways you can&rsquo;t yet see? That your inner state, not the outer situation, is where the work is?</p>'
     + '<button class="btn-submit" onclick="userClickedWilling()" style="width:100%;">'
@@ -704,7 +704,7 @@ function handleResonanceClick(btnEl) {
 // ══════════════════════════════════════════════════════════════
 async function callAPI(messages) {
   // Call through Netlify Function proxy (keeps API key secure)
-  const response = await fetch('/.netlify/functions/mapminder-api', {
+  const response = await fetch('/.netlify/functions/mapminder', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
