@@ -682,18 +682,41 @@ async function userClickedWilling() {
 // ══════════════════════════════════════════════════════════════
 // PHASE 2 — RESONANCE SELECTED
 // ══════════════════════════════════════════════════════════════
-function handleResonanceClick(btnEl) {
+async function handleResonanceClick(btnEl) {
   const index = parseInt(btnEl.getAttribute('data-index'));
   const option = window._resonanceOptions[index];
+  
   // Mark selected
   document.querySelectorAll('.resonance-btn').forEach(b => b.classList.remove('selected'));
   btnEl.classList.add('selected');
   document.querySelectorAll('.resonance-btn').forEach(b => b.disabled = true);
-  
-  // Render the full map with the stored data
-  const data = window._fullMapData;
-  if (data) {
-    setTimeout(function() { renderFullMap(data, option); }, 400);
+
+  // Show loading below resonance card
+  const resonanceCard = document.getElementById('resonance-card');
+  const loadingDiv = document.createElement('div');
+  loadingDiv.id = 'resonance-loading';
+  loadingDiv.style.cssText = 'text-align:center;padding:28px;';
+  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 14px;"></div><p class="loading-text">The Wise One is reading your map...</p>';
+  if (resonanceCard) resonanceCard.after(loadingDiv);
+
+  // Make a NEW API call with the selected resonance
+  const messages = [
+    { role: 'user', content: userSituation },
+    { role: 'assistant', content: JSON.stringify(window._step3Data) },
+    { role: 'user', content: 'I selected this resonance: "' + option + '". Please now deliver the full map (steps 4 and 5) for this specific resonance.' }
+  ];
+
+  try {
+    const response = await callAPI(messages);
+    const data = JSON.parse(response);
+    window._fullMapData = data;
+    renderFullMap(data, option);
+  } catch(e) {
+    showError('Error: ' + e.message);
+    document.querySelectorAll('.resonance-btn').forEach(b => b.disabled = false);
+  } finally {
+    const ld = document.getElementById('resonance-loading');
+    if (ld) ld.remove();
   }
 }
 
@@ -730,6 +753,7 @@ async function callAPI(messages) {
 function renderReleaseReceive(data) {
   // Step 3: Release — show the reframed resonance check
   window._resonanceOptions = data.step3_release ? data.step3_release.options : [];
+  window._step3Data = data.step3_release || {};
   window._fullMapData = data;
 
   const s3 = data.step3_release || {};
@@ -865,6 +889,13 @@ function tryDifferentResonance() {
   const data = window._fullMapData;
   if (data) {
     renderReleaseReceive(data);
+    // Re-enable all buttons for fresh selection
+    setTimeout(function() {
+      document.querySelectorAll('.resonance-btn').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('selected');
+      });
+    }, 100);
     document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
