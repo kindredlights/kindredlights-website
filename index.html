@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kindred Lights — Your Heart is the Portal</title>
+  <meta name="description" content="The Age of Ego is ending. The Age of Love is arising. The Map Minder helps you keep the Karmariculum that actually matters." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══ KINDRED LIGHTS V2 ═══ */
+    :root {
+      /* ── Brand Style Guide v2 — exact values ── */
+      --cream:         #F4F0EC;   /* Moonbeam Cream — page bg */
+      --cream-dark:    #EAE4DA;   /* slightly deeper cream for alt sections */
+      --midnight:      #1C1D40;   /* Midnight Indigo — nav, dark headers */
+      --deep-blue:     #2C4A7C;   /* Mid Blue — links, buttons */
+      --gold:          #C9A84C;   /* Sacred Gold — CTAs, dividers, web only */
+      --gold-light:    #E8D48A;
+      --gold-dark:     #8B6914;
+      --ego-red:       #8B3A3A;   /* Sir Ego Red — web only */
+      --wise-green:    #2C6B5A;   /* Wise One Green — web only */
+      --text-dark:     #2b2b2b;   /* Deep Charcoal — body text */
+      --text-mid:      #4a4a4a;   /* slightly lighter body */
+      --periwinkle:    #adafdf;   /* Wisdom / home neutral — dividers, UI chrome */
+      --galaxy-lilac:  #B39DDB;   /* secondary accent */
+      --star-rose:     #F3D6DA;   /* hover states, soft accents */
+      --ether-blue:    #B9DAF3;   /* link highlights */
+      /* Eight Aspect Colors — locked to their aspects */
+      --calm:   #f4a3a2;  /* CALM — Root — Soft Ruby Coral */
+      --peace:  #ffbea0;  /* PEACE — Sacral — Warm Peach */
+      --power:  #fee19f;  /* POWER — Solar Plexus — Golden Yellow */
+      --love:   #bde7b7;  /* LOVE — Heart — Fresh Green */
+      --joy:    #a3dbe8;  /* JOY — Throat — Sky Blue */
+      --wisdom: #adafdf;  /* WISDOM — Third Eye — Periwinkle */
+      --light:  #d3b6e2;  /* LIGHT — Crown — Lavender Violet */
+      --voice:  #ede8f5;  /* VOICE — All/Nada — Ethereal White-Violet */
+      --font-display: "Cinzel", serif;
+      --font-soul:    "Cormorant Garamond", serif;
+      --font-body:    "Lato", sans-serif;
+      --font-nav:     "Raleway", sans-serif;
+      --nav-h: 64px; --max: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: #2b2b2b; background: #F4F0EC; overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.08s; } .reveal.d2 { transition-delay: 0.18s; }
+    .reveal.d3 { transition-delay: 0.28s; } .reveal.d4 { transition-delay: 0.38s; }
+
+    /* NAV */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(247,243,238,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
+    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(28,29,64,0.10); }
+    .nav-brand { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: center; white-space: nowrap; margin-right: 40px; flex-shrink: 0; }
+    .nav-brand em { color: var(--gold-dark); font-style: normal; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 0; flex: 1; list-style: none; }
+    .nav-item { position: relative; }
+    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--midnight); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .panel-role { font-family: var(--font-nav); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+    .panel-title { font-family: var(--font-display); font-size: 0.88rem; font-weight: 400; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.04em; }
+    .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
+    .panel-link { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
+    .panel-link:hover { color: var(--gold-light); }
+
+    /* DROPDOWN */
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
+    .dropdown-link:last-child { border-bottom: none; }
+    .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
+    /* MAP MINDER TAB */
+    .mm-tab { position: fixed; right: 0; top: 50%; writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg); background: var(--gold); color: var(--midnight); font-family: var(--font-nav); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 10px; z-index: 800; white-space: nowrap; border-radius: 4px 0 0 4px; box-shadow: -3px 0 18px rgba(201,168,76,0.25); transition: background 0.2s; }
+    .mm-tab:hover { background: var(--gold-light); }
+
+    /* MOBILE NAV */
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(247,243,238,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-brand { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--midnight); }
+    .mobile-brand em { color: var(--gold-dark); font-style: normal; }
+    .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--midnight); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--midnight); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu.open { display: block; }
+    .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mob-link:hover, .mob-link.gold { color: var(--gold); }
+
+    /* BUTTONS */
+    .btn-gold { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 15px 32px; background: var(--gold); color: var(--midnight); border-radius: 2px; display: inline-block; box-shadow: 0 4px 18px rgba(201,168,76,0.3); transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 14px 28px; border: 1.5px solid rgba(28,29,64,0.3); color: var(--midnight); border-radius: 2px; display: inline-block; background: rgba(247,243,238,0.55); transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--gold-dark); color: var(--gold-dark); }
+    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 14px 28px; border: 1.5px solid rgba(247,243,238,0.35); color: rgba(247,243,238,0.8); border-radius: 2px; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-midnight { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 16px 36px; background: var(--midnight); color: var(--cream); border-radius: 2px; display: inline-block; box-shadow: 0 4px 18px rgba(28,29,64,0.25); transition: background 0.2s, transform 0.15s; }
+    .btn-midnight:hover { background: var(--deep-blue); transform: translateY(-2px); }
+    .btn-primary { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 15px 32px; background: var(--deep-blue); color: var(--cream); border-radius: 2px; display: inline-block; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--midnight); transform: translateY(-2px); }
+
+    /* SHARED */
+    .eyebrow { font-family: var(--font-nav); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: #8B7EC8; display: block; margin-bottom: 11px; }
+    .eyebrow.pale { color: #8B7EC8; }
+    .eyebrow.on-gold { color: rgba(28,29,64,0.65); font-size: 0.72rem; }
+    h2.sh { font-family: var(--font-display); font-size: clamp(1.6rem,2.7vw,2.2rem); font-weight: 700; letter-spacing: 0.04em; line-height: 1.18; margin-bottom: 15px; }
+    h2.sh.on-light { color: var(--midnight); } h2.sh.on-dark { color: var(--cream); } h2.sh.on-mid { color: #1C1D40; } h2.sh.on-gold { color: var(--midnight); }
+    .lede { font-family: var(--font-body); font-size: 1.08rem; line-height: 1.76; }
+    .lede.on-light { color: var(--text-mid); } .lede.on-dark { color: rgba(247,243,238,0.65); }
+
+    /* TOOLTIPS */
+    .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
+    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--midnight); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 240px; z-index: 200; pointer-events: none; }
+    .tip:hover .tip-box { display: block; }
+
+    /* HERO */
+    .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 40px; padding-left: 40px; padding-right: 80px; background: linear-gradient(150deg, #2a4494 0%, #3d6abf 50%, #1e2d6e 100%); min-height: auto; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun_angel_bright.png"); background-size: cover; background-position: 28% top; opacity: 0.5; z-index: 0; pointer-events: none; }
+    .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
+    .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: center; }
+    .hero-meter img { width: 100%; max-width: 300px; filter: drop-shadow(0 12px 40px rgba(28,29,64,0.15)); }
+    .meter-subtext { margin-top: 20px; max-width: 300px; }
+    .meter-subtext p { font-family: var(--font-body); font-size: 1rem; color: rgba(247,243,238,0.7); line-height: 1.72; margin-bottom: 10px; }
+    .meter-question { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 6px; }
+    .hero-tagline { font-family: var(--font-soul); font-size: clamp(1.6rem,3.2vw,2.6rem); font-style: italic; line-height: 1.4; color: var(--cream); margin-bottom: 28px; font-weight: 300; }
+    .hero-tagline em { color: var(--gold-light); }
+    .hero-rule { width: 48px; height: 1px; background: var(--gold); margin-bottom: 16px; }
+    .hero-body { font-family: var(--font-body); font-size: 1.12rem; color: rgba(247,243,238,0.8); line-height: 1.82; margin-bottom: 36px; }
+    .hero-body p { margin-bottom: 14px; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* BENEFITS */
+    .benefits { background: #3d5faa; padding: 80px 32px; }
+    .benefits-inner { max-width: var(--max); margin: 0 auto; }
+    .benefits-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+    .benefits-intro { font-family: var(--font-body); font-size: 1.06rem; color: rgba(255,255,255,0.82); line-height: 1.82; margin-top: 18px; }
+    .b-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 8px; }
+    .b-card { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 36px 28px 32px; border-top: 3px solid rgba(255,255,255,0.2); transition: background 0.2s, border-color 0.2s; }
+    .b-card:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.4); }
+    .b-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; color: #ffffff; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .b-body { font-family: var(--font-body); font-size: 1rem; color: rgba(255,255,255,0.78); line-height: 1.72; }
+    .benefits-compare { margin-top: 56px; text-align: center; }
+    .benefits-compare img { max-width: 560px; margin: 0 auto; border-radius: 2px; opacity: 0.88; }
+
+    /* MAP MINDER BAND */
+    .mm-band { background: #5578c4; padding: 64px 32px; text-align: center; position: relative; overflow: hidden; }
+    .mm-band::before { content: "✦  ✦  ✦"; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.4em; color: rgba(255,255,255,0.35); }
+    .mm-band h2 { font-family: var(--font-display); font-size: clamp(1.8rem,3.2vw,2.6rem); font-weight: 600; color: #1C1D40; letter-spacing: 0.03em; line-height: 1.15; margin-bottom: 16px; }
+    .mm-band p { font-family: var(--font-body); font-size: 1.1rem; color: rgba(28,29,64,0.8); max-width: 460px; margin: 0 auto 28px; line-height: 1.68; }
+    .mm-sub { font-family: var(--font-nav); font-size: 0.58rem; letter-spacing: 0.14em; color: rgba(28,29,64,0.45); margin-top: 14px; display: block; }
+
+    /* FIVE STEPS */
+    .fivesteps { background: #a8c4e8; padding: 80px 32px; }
+    .fs-inner { max-width: var(--max); margin: 0 auto; }
+    .fs-head { text-align: center; max-width: 620px; margin: 0 auto 40px; }
+    .fs-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; }
+    .fs-tile { padding: 36px 16px 32px; background: rgba(255,255,255,0.03); text-align: center; border-top: 2px solid transparent; transition: background 0.2s, border-color 0.2s; }
+    .fs-tile:hover { background: rgba(255,255,255,0.06); border-color: var(--gold); }
+    .fs-n { font-family: var(--font-nav); font-size: 0.51rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 9px; }
+    .fs-name { font-family: var(--font-display); font-size: 0.96rem; font-weight: 400; color: var(--cream); letter-spacing: 0.06em; margin-bottom: 9px; }
+    .fs-truth { font-family: var(--font-body); font-size: 0.92rem; color: rgba(247,243,238,0.68); line-height: 1.6; }
+    .fs-tile:nth-child(1) .fs-name { color: #d3b6e2; } .fs-tile:nth-child(2) .fs-name { color: #f4a3a2; }
+    .fs-tile:nth-child(3) .fs-name { color: #ffbea0; } .fs-tile:nth-child(4) .fs-name { color: #adafdf; }
+    .fs-tile:nth-child(5) .fs-name { color: #bde7b7; }
+
+    /* LUMINOLOGY */
+    .luminology { background: #c4d8f2; padding: 80px 32px; }
+    .lum-inner { max-width: var(--max); margin: 0 auto; }
+    .lum-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
+    .lum-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+    .lum-card { background: rgba(255,255,255,0.65); border-radius: 8px; padding: 32px 28px; border-top: 3px solid rgba(28,29,64,0.15); box-shadow: 0 2px 12px rgba(28,29,64,0.06); transition: border-color 0.2s, box-shadow 0.2s; }
+    .lum-card:hover { border-color: var(--periwinkle); box-shadow: 0 6px 24px rgba(100,80,180,0.15); }
+    .lum-icon { font-family: var(--font-display); font-size: 1.4rem; color: var(--periwinkle); display: block; margin-bottom: 14px; }
+    .lum-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 12px; }
+    .lum-body { font-family: var(--font-body); font-size: 1rem; color: var(--text-mid); line-height: 1.72; }
+    .lum-pull { max-width: 640px; margin: 52px auto 0; text-align: center; }
+    .lum-pull blockquote { font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; color: #4a4a6a; line-height: 1.72; border-left: 3px solid var(--periwinkle); padding-left: 22px; text-align: left; margin-bottom: 28px; }
+
+    /* BOOKS */
+    .books { background: #dce8f8; padding: 80px 32px; }
+    .books-inner { max-width: var(--max); margin: 0 auto; }
+    .books-head { text-align: center; margin-bottom: 56px; }
+    .books-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .book-card { display: grid; grid-template-columns: 150px 1fr; gap: 28px; background: rgba(255,255,255,0.7); border-radius: 8px; padding: 32px; box-shadow: 0 2px 12px rgba(28,29,64,0.06); transition: box-shadow 0.2s; }
+    .book-card:hover { box-shadow: 0 8px 36px rgba(28,29,64,0.1); }
+    .book-cover-wrap { position: relative; }
+    .book-cover { width: 100%; border-radius: 2px; box-shadow: 0 8px 28px rgba(28,29,64,0.18); }
+    .book-badge { position: absolute; top: -10px; right: -10px; background: var(--gold); color: var(--midnight); font-family: var(--font-nav); font-size: 0.44rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 9px; border-radius: 2px; }
+    .book-date { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 8px; }
+    .book-title { font-family: var(--font-display); font-size: clamp(1rem,1.7vw,1.3rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; line-height: 1.25; margin-bottom: 5px; }
+    .book-sub { font-family: var(--font-soul); font-size: 1rem; color: var(--text-mid); margin-bottom: 12px; }
+    .book-hook { font-family: var(--font-body); font-size: 1rem; color: var(--text-mid); line-height: 1.72; margin-bottom: 14px; }
+    .book-review { font-family: var(--font-body); font-size: 0.92rem; color: rgba(28,29,64,0.55); border-left: 2px solid var(--gold); padding-left: 12px; margin-bottom: 20px; line-height: 1.6; }
+    .kit-band { margin-top: 48px; background: #2d2b5e; border-radius: 8px; padding: 44px 48px; text-align: center; position: relative; overflow: hidden; }
+    .kit-band::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right,transparent,var(--gold),transparent); }
+    .kit-h { font-family: var(--font-display); font-size: clamp(1.2rem,2.2vw,1.7rem); font-weight: 400; color: var(--cream); letter-spacing: 0.04em; margin-bottom: 10px; }
+    .kit-p { font-family: var(--font-body); font-size: 1rem; color: rgba(247,243,238,0.65); margin-bottom: 24px; line-height: 1.65; }
+    .kit-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .kit-input { flex: 1; min-width: 220px; max-width: 300px; padding: 13px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(247,243,238,0.15); background: rgba(255,255,255,0.06); color: var(--cream); border-radius: 2px; outline: none; transition: border-color 0.2s; }
+    .kit-input:focus { border-color: var(--gold); }
+    .kit-input::placeholder { color: rgba(247,243,238,0.25); }
+    .kit-fine { font-family: var(--font-nav); font-size: 0.58rem; color: rgba(247,243,238,0.2); margin-top: 12px; letter-spacing: 0.06em; }
+
+    /* AWARDS */
+    .awards { background: #F4F0EC; padding: 64px 32px; }
+    .awards-inner { max-width: var(--max); margin: 0 auto; }
+    .awards-eyebrow { font-family: var(--font-nav); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8B7EC8; text-align: center; display: block; margin-bottom: 40px; }
+    .awards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-bottom: 32px; }
+    .award-item { text-align: center; padding: 28px 20px; background: rgba(255,255,255,0.75); border-radius: 8px; box-shadow: 0 2px 10px rgba(28,29,64,0.06); }
+    .award-badge { font-family: var(--font-display); font-size: 1.6rem; color: var(--gold); display: block; margin-bottom: 10px; }
+    .award-title { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.07em; color: var(--midnight); margin-bottom: 3px; }
+    .award-source { font-family: var(--font-body); font-size: 0.88rem; color: var(--text-mid); margin-bottom: 10px; }
+    .award-quote { font-family: var(--font-body); font-size: 0.95rem; color: rgba(28,29,64,0.62); line-height: 1.62; }
+    .colin-card { background: rgba(255,255,255,0.75); border-radius: 8px; padding: 28px 36px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; border-left: 4px solid var(--deep-blue); box-shadow: 0 2px 10px rgba(28,29,64,0.06); }
+    .colin-text { font-family: var(--font-body); font-size: 1rem; color: var(--text-mid); line-height: 1.72; }
+    .colin-attr { font-family: var(--font-nav); font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: #8B7EC8; white-space: nowrap; }
+
+    /* BARBIES */
+    .barbies { background: #f4f8fd; padding: 80px 32px; }
+    .barbies-inner { max-width: var(--max); margin: 0 auto; }
+    .barbies-head { text-align: center; max-width: 560px; margin: 0 auto 52px; }
+    .barbies-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+    .barbie-card { background: rgba(255,255,255,0.04); overflow: hidden; position: relative; aspect-ratio: 4/5; display: flex; align-items: flex-end; }
+    .barbie-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.3s; }
+    .barbie-card:hover .barbie-img { opacity: 0.8; }
+    .barbie-info { position: relative; z-index: 2; padding: 24px 20px; background: linear-gradient(to top, rgba(28,29,64,0.88) 0%, transparent 100%); width: 100%; }
+    .barbie-label { font-family: var(--font-nav); font-size: 0.48rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 5px; }
+    .barbie-title { font-family: var(--font-display); font-size: 0.88rem; font-weight: 400; color: var(--cream); }
+    .barbie-coming { font-family: var(--font-body); font-size: 0.82rem; color: rgba(247,243,238,0.35); margin-top: 4px; display: block; }
+
+    /* FOOTER */
+    footer { background: var(--midnight); padding: 56px 32px 30px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 24px; }
+    .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: var(--cream); margin-bottom: 8px; }
+    .foot-brand em { color: var(--gold); font-style: normal; }
+    .foot-tag { font-family: var(--font-body); font-size: 0.95rem; color: rgba(247,243,238,0.42); line-height: 1.65; max-width: 210px; }
+    .foot-h { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.6); margin-bottom: 14px; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-family: var(--font-body); font-size: 0.9rem; color: rgba(247,243,238,0.36); transition: color 0.2s; }
+    .foot-links a:hover { color: var(--gold); }
+    .foot-bottom { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-family: var(--font-nav); font-size: 0.66rem; color: rgba(247,243,238,0.2); }
+    .foot-sigil { font-family: var(--font-display); font-size: 0.64rem; letter-spacing: 0.18em; color: rgba(201,168,76,0.28); }
+
+    /* RESPONSIVE */
+    @media (max-width:1024px) { .hero-inner { grid-template-columns: 260px 1fr; gap: 48px; } .meet-inner { grid-template-columns: 1fr; } .foot-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width:768px) { #main-nav { display: none; } .mobile-nav { display: flex; } :root { --nav-h: 58px; } .hero { padding-top: calc(58px + 32px); padding-right: 32px; } .hero-inner { grid-template-columns: 1fr; gap: 40px; } .hero-meter img { max-width: 220px; margin: 0 auto; } .b-grid { grid-template-columns: 1fr 1fr; } .fs-row { grid-template-columns: repeat(2,1fr); } .fs-tile:last-child { grid-column: 1/-1; } .lum-grid { grid-template-columns: 1fr; } .books-grid { grid-template-columns: 1fr; } .awards-grid { grid-template-columns: 1fr; } .colin-card { grid-template-columns: 1fr; } .barbies-grid { grid-template-columns: 1fr; } .tball-players { grid-template-columns: 1fr; } .tball-divider { display: none; } .foot-grid { grid-template-columns: 1fr; gap: 24px; } .mm-tab { display: none; } }
+    @media (max-width:480px) { .b-grid { grid-template-columns: 1fr; } .book-card { grid-template-columns: 1fr; } }
+
+    /* ── SECTION QUESTIONS ── */
+    .section-question {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-align: center;
+      display: block;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    .section-question.on-light { color: #3d5faa; }
+    .section-question.on-dark  { color: rgba(255,255,255,0.75); }
+  </style>
+</head>
+<body>
+
+<a href="mapminder.html" class="mm-tab">Sir Ego has a map. It needs minding. →</a>
+
+<nav id="main-nav">
+  <div class="nav-brand">Kindred<em>Lights</em></div>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="index.html" class="nav-link active">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item"><a href="mapminder.html" class="nav-link" style="color:var(--gold-dark)">Map Minder</a><div class="nav-panel"><span class="panel-role">The Practice</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Sir Ego has a map. It needs minding. Free. Five minutes.</p><a href="mapminder.html" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item nav-has-dropdown"><a href="wh2u.html" class="nav-link">The Books ▾</a>
+      <div class="nav-dropdown">
+        <a href="wh2u.html" class="dropdown-link">What Happened to Us?</a>
+        <a href="lh.html" class="dropdown-link">Love Heroically</a>
+        <a href="books-coming.html" class="dropdown-link">Coming Soon</a>
+      </div><div class="nav-panel"><span class="panel-role">The Maps</span><div class="panel-title">Two Books. One Practice.</div><p class="panel-desc">What Happened to Us? May 15. Love Heroically May 22.</p><a href="book.html" class="panel-link">See the Books →</a></div></li>
+    <li class="nav-item"><a href="luminology.html" class="nav-link">Luminology</a><div class="nav-panel"><span class="panel-role">The Framework</span><div class="panel-title">Luminology</div><p class="panel-desc">Sir Ego, the Wise One, the Eight Aspects, the Karmariculum. Free forever.</p><a href="luminology.html" class="panel-link">Explore →</a></div></li>
+    <li class="nav-item"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent, 90 seconds. Sir Ego meets the Wise One.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">The Credential</span><div class="panel-title">A Life, Not a Degree</div><p class="panel-desc">Three DUIs to the Thanksgiving table. The proof is a life.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
+  </ul>
+</nav>
+
+<div class="mobile-nav">
+  <div class="mobile-brand">Kindred <em>Lights</em></div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mobile-menu">
+  <a href="index.html" class="mob-link">Home</a>
+  <a href="mapminder.html" class="mob-link gold">✦ Map Minder — Free</a>
+  <a href="wh2u.html" class="mob-link">What Happened to Us?</a>
+  <a href="lh.html" class="mob-link">Love Heroically</a>
+  <a href="books-coming.html" class="mob-link">Coming Soon</a>
+  <a href="luminology.html" class="mob-link">Luminology</a>
+  <a href="barbies.html" class="mob-link">Barbies</a>
+  <a href="about.html" class="mob-link">About</a>
+</div>
+
+<!-- SECTION 1 — HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-meter reveal">
+      <img src="images/trigger_meter_v2.png" alt="The Trigger-meter — Sir Ego's Heat Index" />
+      <div class="meter-subtext">
+        <p class="meter-question">Where are you on the meter?</p>
+        <p>Think of something that triggers you. A person. A situation. That thing that fired last week and you're still carrying. Where do you land?</p>
+        <p>That spot on the meter is your entry point. The Five Steps meet you right there.</p>
+      </div>
+    </div>
+    <div class="hero-copy reveal d2">
+      <p class="hero-tagline"><em>Your heart is the portal.</em><br>Love is the path.</p>
+      <div class="hero-rule"></div>
+      <div class="hero-body">
+        <p>If you've survived a trauma, a narcissist, a breakdown, an addiction, a grief that nearly broke you — and you're still here, still searching for the way through — you already know the terrain this work was built in.</p>
+        <p>If you're watching the world unravel and wondering how to hold your light steady while everything around you seems to be losing its mind — this map was made for exactly this moment.</p>
+        <p>We didn't find the way through by having it easy. We found it by going all the way through the fire. The map exists because someone walked it first — and left it here for you. Because we are all Kindred Lights. And none of us walks alone.</p>
+      </div>
+      <div class="hero-ctas">
+        <a href="mapminder.html" class="btn-gold">Try the Map Minder — Free →</a>
+        <a href="#find-your-door" class="btn-outline-cream">Find Your Door</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 — BENEFITS -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-head reveal">
+      <span class="section-question on-dark">Do you recognize yourself here?</span>
+      <span class="eyebrow" style="color:rgba(255,255,255,0.85);font-size:0.72rem">What Actually Changes</span>
+      <h2 class="sh on-dark">You have a problem that shouldn't still be a problem.</h2>
+      <p class="benefits-intro">You've read the books. Done the therapy. Made the vision boards. Had the hard conversations. And here it is again — the same pattern, different day. Here is very good news.<br><br>You have an inner guide who knows how to walk through this challenge and come out freer, wiser, empowered, and radiating love. You came here to conquer this challenge. These practices will teach you to listen for her — in the most mundane moments and the most triggering moments.<br><br>What actually changes — and how — when you stop fighting your triggers and start listening to what they're trying to tell you.</p>
+    </div>
+    <div class="b-grid">
+      <div class="b-card reveal d1" style="border-top-color:rgba(211,182,226,0.6)">
+        <div class="b-title" style="color:rgba(255,255,255,0.9)">The Loop Loses Its Grip</div>
+        <p class="b-body">When we are triggered by a challenge, our heart and mind clamp down on a specific solution and outcome. The reason the problem doesn't resolve is this outcome doesn't match the unfolding reality. The mismatch is the problem — and we have an inner guide who knows the solution.</p>
+      </div>
+      <div class="b-card reveal d2" style="border-top-color:rgba(163,219,232,0.6)">
+        <div class="b-title" style="color:rgba(255,255,255,0.9)">The Choice Point Appears</div>
+        <p class="b-body">Right there, in the trigger, before the automatic response fires — there is a choice point. The <span class="tip">Wise One<span class="tip-box">You, operating from your truest nature. One foot in the eternal, one foot in this particular life. She keeps the master plan and is always available.</span></span> lives there. She has always been there.</p>
+      </div>
+      <div class="b-card reveal d3" style="border-top-color:rgba(189,231,183,0.6)">
+        <div class="b-title" style="color:rgba(255,255,255,0.9)">The Heart Actually Opens</div>
+        <p class="b-body">These practices open your heart in the moment it wants to close — and this changes everything. The open heart allows the mental and emotional imprints from the past to dissolve, and new insights, options, and responses to arise.</p>
+      </div>
+      <div class="b-card reveal d1" style="border-top-color:rgba(173,175,223,0.6)">
+        <div class="b-title" style="color:rgba(255,255,255,0.9)">The Lie Dissolves</div>
+        <p class="b-body">As the light of love shines through your open heart it illuminates your wisdom, power, and love. Every persistent trigger is held in place by a false belief about your true nature — which dissolves in the light of Truth.</p>
+      </div>
+      <div class="b-card reveal d2" style="border-top-color:rgba(255,190,160,0.6)">
+        <div class="b-title" style="color:rgba(255,255,255,0.9)">The Outer World Shifts</div>
+        <p class="b-body">Now that you have returned to your untriggered state, with wisdom and calm, you are present in the moment, attuned to others, and confident in your words and actions. This is how the <span class="tip">Wise One<span class="tip-box">You, operating from your truest nature. One foot in the eternal, one foot in this particular life. She keeps the master plan and is always available.</span></span> moves through the world. You are returning to yourself.</p>
+      </div>
+      <div class="b-card reveal d3" style="border-top-color:rgba(244,163,162,0.6)">
+        <div class="b-title" style="color:rgba(255,255,255,0.9)">You Find Your Version of Heroic</div>
+        <p class="b-body">The clouds were never the sky. When the mental and emotional weather clears, what remains is the light you came here with. Your most noble self — not earned, not achieved. Remembered.</p>
+      </div>
+    </div>
+    <div class="benefits-compare reveal" style="text-align:center;margin-top:48px;">
+      <img src="images/flowchart_lh.png"
+           alt="Five Steps. Two Paths. Heart Consciousness Changes Everything."
+           style="max-width:680px;width:100%;margin:0 auto;display:block;border-radius:8px;box-shadow:0 12px 44px rgba(100,80,180,0.12);" />
+      <div style="margin-top:28px;text-align:center;">
+        <a href="mapminder.html" class="btn-gold">Find Your Path — Try the Map Minder →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — MAP MINDER BAND -->
+<section class="mm-band">
+  <div class="reveal">
+    <span class="section-question on-dark">Where do you start?</span>
+      
+    <h2>Sir Ego has a map.<br>It needs minding.</h2>
+    <p>Describe something not moving in your life — two sentences. The Map Minder reads Sir Ego's script, names your Karmariculum, and walks you through what the Wise One sees.</p>
+    <a href="mapminder.html" class="btn-midnight">Meet Your Map Minder ✦</a>
+    <span class="mm-sub">Keeping the Karmariculum · Always free · Your Wise One is waiting</span>
+  </div>
+</section>
+
+<!-- SECTION 5 — MEET KINDRED -->
+<section class="video-section" style="background:#7090d4; padding:72px 32px;">
+  <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:center;">
+    <div class="reveal" style="text-align:center;">
+      <img src="images/author_photo.jpg" alt="Kindred Lights"
+           style="width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:0 8px 32px rgba(0,0,0,0.25);margin:0 auto;display:block;border:3px solid rgba(255,255,255,0.3);" />
+      <p style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.16em;color:rgba(255,255,255,0.7);margin-top:14px;text-transform:uppercase">Kindred Lights</p>
+      <p style="font-family:var(--font-body);font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:0.04em">Spiritual Teacher · Author</p>
+    </div>
+    <div class="reveal d2">
+      <span class="section-question on-dark">Who built this map?</span>
+      <span class="eyebrow" style="color:rgba(255,255,255,0.6)">The Credential Is a Life</span>
+      <h2 class="sh on-dark" style="margin-bottom:20px">My journey from many messes to many miracles.</h2>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.78;margin-bottom:16px">The Five Steps and the Eight Aspects were not developed in a retreat center or a graduate program. They were built in custody courtrooms, in supervised visitation rooms, beside a teenager in crisis, and in ten thousand ordinary moments where the lower self wanted to burn the world down and the higher self said: <em style="color:rgba(255,255,255,0.95)">open your heart. I'll show you what to do.</em></p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.78;margin-bottom:24px">Twenty years of sobriety. Three children thriving. A Thanksgiving table rebuilt from wreckage — including a seat for the man who had once been the adversary. That is what the Five Steps made possible. The actual table.</p>
+      <a href="about.html" class="btn-outline-cream">Read the Full Story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — PARADISE DREAM VIDEO -->
+<section class="video-section" style="background:#8aaee0;padding:88px 32px;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:url('images/sun_angel_bright.png');background-size:cover;background-position:center 60%;opacity:0.18;pointer-events:none;"></div>
+  <div style="max-width:var(--max);margin:0 auto;position:relative;z-index:1;">
+    <div style="text-align:center;max-width:660px;margin:0 auto 48px;" class="reveal">
+      <span class="section-question on-light">Why should I trust this?</span>
+      <span class="eyebrow" style="color:rgba(28,29,64,0.5)">A Dream That Changed Everything</span>
+      <h2 class="sh on-light">I made the monkeys extinct.</h2>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.8);line-height:1.75;margin-top:16px;">Walking through paradise with the Creator, I encountered screeching monkeys and a lion crouching over a gazelle. Each time something disturbed me, I wished it away — until I realized what I'd done. Every judgment, every tiny wish for control, had repercussions I could not see or imagine. And paradise was barren.</p>
+    </div>
+    <div style="max-width:820px;margin:0 auto;" class="reveal d2">
+      <div style="position:relative;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+          <iframe
+            src="https://www.youtube.com/embed/5aXAmPWkr9w?rel=0&modestbranding=1"
+            title="A Mystical Dream About Returning to Paradise"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;">
+          </iframe>
+        </div>
+        <div style="padding:16px 24px;background:#0f1a3a;">
+          <p style="font-family:var(--font-nav);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">5 min 52 sec · Voiceover &amp; nature film</p>
+          <p style="font-family:var(--font-display);font-size:1.1rem;color:#fff;letter-spacing:0.04em">A Mystical Dream About Returning to Paradise</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;" class="reveal d3">
+      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(28,29,64,0.65);margin-bottom:20px;font-style:italic">"The divine plan with screeching monkeys and carnivorous lions was perfect in a way that I hadn't seen."</p>
+      <a href="mapminder.html" class="btn-gold">Try the Map Minder →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — FIVE STEPS OVERVIEW -->
+<section class="fivesteps" id="find-your-door">
+  <div class="fs-inner">
+    <div class="fs-head reveal">
+      <span class="section-question on-light">What are the five steps?</span>
+      <span class="eyebrow" style="color:#8B7EC8">The Practice</span>
+      <h2 class="sh on-dark" style="color:var(--midnight)">The Five Steps to Freedom</h2>
+      <p class="lede" style="color:rgba(28,29,64,0.7)">A field guide for the fiery crucible — the moment when everything in you wants to react, and something deeper knows there's another way. The Five Steps connect you to that deeper knowing. They work on your nervous system. They meet you exactly where you are.</p>
+    </div>
+    <div class="reveal" style="margin-top:40px;text-align:center;">
+      <img src="images/five_steps_louise.jpg"
+           alt="The Five Steps to Freedom — The Hero's Path to Love"
+           style="max-width:800px;width:100%;margin:0 auto;display:block;border-radius:8px;box-shadow:0 12px 44px rgba(0,0,0,0.3);" />
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:36px;">
+      <a href="mapminder.html" class="btn-gold">Try the Map Minder — Meet Your Wise One →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 — LUMINOLOGY OVERVIEW -->
+<section class="luminology">
+  <div class="lum-inner">
+    <div class="lum-head reveal">
+      <span class="section-question on-light">How deep does this go?</span>
+      <span class="eyebrow">The Framework</span>
+      <h2 class="sh on-light">Sir Ego is not the problem. His script is.</h2>
+      <p class="lede on-light">Luminology gives you the full map — who's running what, and why. The complete cosmology of human consciousness, ego, and the soul's journey home.</p>
+    </div>
+    <div class="lum-grid">
+      <div class="lum-card reveal d1">
+        <span class="lum-icon">⚔</span>
+        <div class="lum-title">Sir Ego</div>
+        <p class="lum-body">Sir Ego is noble. He is a brave knight who said yes to the adventure of incarnation and has been doing his absolute best ever since — with incomplete information and a script he wrote himself. He is not the enemy. His script is.</p>
+      </div>
+      <div class="lum-card reveal d2">
+        <span class="lum-icon">✦</span>
+        <div class="lum-title">the Wise One</div>
+        <p class="lum-body">The Wise One is you, operating from your truest nature. One foot in the eternal, one foot in this particular life. She keeps the master plan. She sees the perfection in every curveball. The moment Sir Ego quiets, even a little, she is already speaking.</p>
+      </div>
+      <div class="lum-card reveal d3">
+        <span class="lum-icon">❖</span>
+        <div class="lum-title">The Karmariculum</div>
+        <p class="lum-body">Karma + curriculum. Your soul's custom-designed blueprint for this lifetime — not fate, not punishment, but a sacred plan for remembrance and liberation. When you see your life through this lens, the shame dissolves. What remains is the story of a brave soul on a remarkable quest.</p>
+      </div>
+    </div>
+    <div class="lum-pull reveal">
+      <blockquote>"You didn't come here to transcend the world. You came here to illuminate it. One trigger at a time, one layer at a time, one act of radical forgiveness at a time — until the ray has cleared enough of itself that the sun can shine through without obstruction."</blockquote>
+      <a href="luminology.html" class="btn-primary">Explore the Full Framework →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8 — BOOKS -->
+<section class="books">
+  <div class="books-inner">
+    <div class="books-head reveal" style="max-width:820px;margin:0 auto 56px;text-align:center;">
+      <span class="section-question on-light">How do I go deeper?</span>
+      <span class="eyebrow">The Books</span>
+      <h2 class="sh on-light">I've seen this pattern before.</h2>
+      <p style="font-family:var(--font-body);font-size:1.06rem;color:#2b3a6a;line-height:1.82;margin-top:16px;">In my personal life I crashed into the wall — the jail floor, actually — and had to find the Wise One immediately to rebuild everything from nothing. The Five Steps are how I did it. And I have the miracles to prove it.</p>
+      <p style="font-family:var(--font-body);font-size:1.06rem;color:#2b3a6a;line-height:1.82;margin-top:12px;">As I've watched the world expose the egoic patterns at the root of all our problems, I felt the familiar sting. We are on the collective jail floor now. I know what beauty can come from this. Miracles in our inner world, our outer worlds, our relationships. Humanity is headed for a Thanksgiving reunion that blesses everyone — just like in my family.</p>
+      <p style="font-family:var(--font-soul);font-size:1.1rem;color:#3d5faa;line-height:1.75;margin-top:14px;font-style:italic;">These are the two books that carry the map and the practice.</p>
+    </div>
+    <div class="books-grid">
+      <div class="book-card reveal d1">
+        <div class="book-cover-wrap"><img class="book-cover" src="images/cover_wh2u.png" alt="What Happened to Us?" /></div>
+        <div>
+          <span class="book-date">Coming This Year</span>
+          <div class="book-title">What Happened to Us?</div>
+          <div class="book-sub">From the Age of Ego to the Age of Love</div>
+          <p class="book-hook">Something happened to us. Not just to you — to all of us. There is a reason nothing is working. And it is not the reason you think.</p>
+          <p class="book-review">"Thoughtful, engaging, and a beautiful symphony of hope within the struggle of life." — Hollywood Book Reviews</p>
+          <a href="book.html#wh2u" class="btn-primary" style="font-size:0.62rem;padding:11px 20px;">Learn More →</a>
+        </div>
+      </div>
+      <div class="book-card reveal d2">
+        <div class="book-cover-wrap"><img class="book-cover" src="images/cover_love_heroically_louise.png" alt="Love Heroically — Five Steps to Freedom by Kindred Lights" /><img src="images/pbr_notable_book.png" alt="Pacific Book Review Notable Book" style="position:absolute;bottom:-14px;right:-14px;width:72px;height:auto;" /></div>
+        <div>
+          <span class="book-date">Coming This Year</span>
+          <div class="book-title">Love Heroically</div>
+          <div class="book-sub">Five Steps to Freedom</div>
+          <p class="book-hook">You know what to do. You've done the therapy. And you still blow it in the moment. What if the moment just before the freight train leaves the station is actually a choice point?</p>
+          <p class="book-review">"She is humble and accepting within her inner peace — and above all, you trust her intentions to teach." — Pacific Book Review ★ Notable Book</p>
+          <a href="book.html#lh" class="btn-primary" style="font-size:0.62rem;padding:11px 20px;">Learn More →</a>
+        </div>
+      </div>
+    </div>
+    <div class="kit-band reveal">
+      <div class="kit-h">Be the First to Know</div>
+      <p class="kit-p">Leave your email and we'll be in touch when something worth sharing arrives.</p>
+      <div class="kit-form">
+        <input class="kit-input" type="email" placeholder="your@email.com" aria-label="Email address" />
+        <a href="#" class="btn-gold">Yes, stay in touch →</a>
+      </div>
+      <p class="kit-fine">Powered by Kit. The Wise One doesn't pursue.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9 — AWARDS -->
+<section class="awards">
+  <div class="awards-inner">
+    <span class="section-question on-light">Who else has walked this path?</span>
+      <span class="awards-eyebrow">Recognition</span>
+    <div class="awards-grid">
+      <div class="award-item reveal d1"><span class="award-badge">★</span><div class="award-title">Pacific Book Review</div><div class="award-source">Notable Book — Both Titles</div><p class="award-quote">"Here is a teacher who believes in you."</p></div>
+      <div class="award-item reveal d2"><span class="award-badge">✦</span><div class="award-title">Hollywood Book Reviews</div><div class="award-source">Featured Review</div><p class="award-quote">"A beautiful symphony of hope within the struggle of life."</p></div>
+      <div class="award-item reveal d3"><span class="award-badge">❖</span><div class="award-title">The Work Itself</div><div class="award-source">The credential is a life</div><p class="award-quote">Three DUIs to the Thanksgiving table. Not perfectly. But heroically.</p></div>
+    </div>
+    <div class="colin-card reveal">
+      <p class="colin-text">Colin Tipping — creator of Radical Forgiveness and author of the international bestseller — called this story one of the most powerful demonstrations of his work he had ever witnessed. The forgiveness circle that appears in these pages is his. The Thanksgiving table that resulted from it is hers.</p>
+      <div class="colin-attr">Colin Tipping<br>Radical Forgiveness</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10 — BARBIES PLACEHOLDER -->
+<section class="barbies">
+  <div class="barbies-inner">
+    <div class="barbies-head reveal">
+      <span class="eyebrow">Sacred · Irreverent</span>
+      <h2 class="sh on-light">Sir Ego Meets the Wise One</h2>
+      <p class="lede on-light">In plastic. With feeling. Coming soon.</p>
+    </div>
+    <div class="barbies-grid">
+      <div class="barbie-card reveal d1"><img class="barbie-img" src="images/pic_barbie.png" alt="Barbie episode" /><div class="barbie-info"><span class="barbie-label">Episode One</span><div class="barbie-title">Coming May 2026</div><span class="barbie-coming">Episode title arriving soon</span></div></div>
+      <div class="barbie-card reveal d2"><img class="barbie-img" src="images/pic_barbie.png" alt="Barbie episode" /><div class="barbie-info"><span class="barbie-label">Episode Two</span><div class="barbie-title">Coming May 2026</div><span class="barbie-coming">Episode title arriving soon</span></div></div>
+      <div class="barbie-card reveal d3"><img class="barbie-img" src="images/pic_barbie.png" alt="Barbie episode" /><div class="barbie-info"><span class="barbie-label">Episode Three</span><div class="barbie-title">Coming May 2026</div><span class="barbie-coming">Episode title arriving soon</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Kindred <em>Lights</em></div>
+      <div class="foot-tag"><p>The Age of Ego is ending.</p><p>The Age of Love is arising.</p><p>One trigger at a time.</p></div>
+    </div>
+    <div>
+      <p class="foot-h">Practice</p>
+      <ul class="foot-links">
+        <li><a href="mapminder.html">Map Minder — Free</a></li>
+        <li><a href="#find-your-door">Five Steps</a></li>
+        <li><a href="downloads/five-steps-to-freedom-soul-guide.pdf">Soul Guide PDF</a></li>
+        <li><a href="luminology.html">Luminology</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Explore</p>
+      <ul class="foot-links">
+        <li><a href="wh2u.html">What Happened to Us?</a></li>
+        <li><a href="lh.html">Love Heroically</a></li>
+        <li><a href="narc.html">Relationships</a></li>
+        <li><a href="world.html">The World</a></li>
+        <li><a href="addiction.html">Addiction</a></li>
+        <li><a href="grief.html">Grief &amp; Loss</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Connect</p>
+      <ul class="foot-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="barbies.html">Barbies</a></li>
+        <li><a href="mapminder.html">Map Minder</a></li>
+        <li><a href="mailto:kindred@kindredlights.org">kindred@kindredlights.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="foot-copy">© 2026 Kindred Lights · kindredlights.org</p>
+    <div class="foot-sigil">Not perfectly. But heroically. ✦</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById("main-nav");
+  window.addEventListener("scroll", () => { nav && nav.classList.toggle("scrolled", window.scrollY > 20); }, { passive: true });
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener("click", () => { const open = hamburger.classList.toggle("open"); mobileMenu.classList.toggle("open", open); document.body.style.overflow = open ? "hidden" : ""; });
+    mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { hamburger.classList.remove("open"); mobileMenu.classList.remove("open"); document.body.style.overflow = ""; }));
+  }
+  const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
