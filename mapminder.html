@@ -318,9 +318,9 @@
       <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;">Our lower self judges according to our script where lions are vegetarian. Our higher self sees the next lesson in our life&rsquo;s divine plan. The situation you want to fix might be doing exactly what it is supposed to do &mdash; in ways you cannot yet see.</p>
     </div>
 
-    <!-- WILLINGNESS -->
-    <div id="willingness-card" style="background:#f0edf8;border-radius:8px;padding:18px 24px;margin-bottom:24px;border-left:3px solid var(--periwinkle);">
-      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.72;">What if what is happening is already part of a larger plan &mdash; even when it doesn&rsquo;t feel that way? Willingness to consider this is the only thing required to use this tool.</p>
+    <!-- CLOSING QUESTION -->
+    <div id="willingness-card" style="text-align:center;padding:20px 24px 28px;margin-bottom:8px;">
+      <p style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;">What if the world is already perfect &mdash; and your inner state is where the work is?</p>
     </div>
 
     <!-- Input -->
@@ -780,9 +780,9 @@ function renderReleaseReceive(data) {
     + '<span class="map-section-label">Step Three &mdash; Find Your Vibe</span>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:16px;">' + escHtml(s3.bridge || '') + '</p>'
     + '<p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:20px;">' + escHtml(s3.reframe || '') + '</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-bottom:20px;line-height:1.72;">Before you choose &mdash; this probably isn&rsquo;t the first time you&rsquo;ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. One will find you.</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-bottom:16px;line-height:1.72;">Before you choose &mdash; this probably isn&rsquo;t the first time you&rsquo;ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. One will find you.</p>'
+    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:16px;">Which feels like your emotional experience &mdash; not in your mind &mdash; in your heart and body?</p>'
     + '<div class="resonance-options">' + buttonsHtml + '</div>'
-    + '<p style="font-family:var(--font-body);font-size:0.9rem;color:var(--text-mid);margin-top:16px;font-style:italic;">Which feels like your emotional experience &mdash; not in your mind &mdash; in your heart and body?</p>'
     + '</div>';
 
   const responseArea = document.getElementById('response-area');
@@ -791,6 +791,7 @@ function renderReleaseReceive(data) {
   document.getElementById('start-over').style.display = 'block';
   responseArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
 
 
 // ══════════════════════════════════════════════════════════════
