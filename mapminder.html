@@ -301,16 +301,45 @@
 <section class="tool-section">
   <div class="tool-inner">
 
+    <!-- TWO CAVES DREAM -->
+    <div class="resonance-card" style="margin-bottom:24px;">
+      <span class="map-section-label">The Two Caves</span>
+      <p style="font-family:var(--font-soul);font-size:1.08rem;color:var(--midnight);line-height:1.75;margin-bottom:14px;">Imagine two caves. One is dark, scary, unknown — the territory of the emotions and experiences you have been avoiding. The other is the OK cave — familiar, manageable, safe enough. Sir Ego built a script to keep you in the OK cave. It worked. Until it didn't.</p>
+      <p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.72;margin-bottom:8px;">The script sounds like: <em>"If I just stay small enough, no one will hurt me."</em> Or: <em>"If I control everything, nothing bad can happen."</em> Or: <em>"If I never need anything, I'll never be disappointed."</em></p>
+      <p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.72;">Every script made perfect sense when it was written. Every script is now the source of the problem.</p>
+    </div>
+
+    <!-- PARADISE DREAM -->
+    <div class="resonance-card" style="margin-bottom:24px;">
+      <span class="map-section-label">Don't Make the Monkeys Extinct</span>
+      <p style="font-family:var(--font-soul);font-size:1.08rem;color:var(--midnight);line-height:1.75;margin-bottom:14px;">I was walking through paradise with the Creator. The monkeys were shrieking — loud, chaotic, impossible to ignore. I wished it would stop. And it did. Then the consequences fell like dominoes. No monkeys. No mating. No babies. Paradise went barren. All because I wanted quiet.</p>
+      <p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.72;margin-bottom:16px;">Sir Ego sees violation. The Wise One sees invitation. The situation you want to fix might be doing exactly what it is supposed to do — in ways you cannot yet see.</p>
+      <p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;text-align:center;">What if the world is already perfect — and your inner state is where the work is?</p>
+    </div>
+
     <!-- Input -->
     <div class="input-card" id="input-area">
-      <span class="input-label">Describe something not moving in your life.</span>
-      <p class="input-hint">Two or three sentences. A relationship. A pattern. That thing that keeps showing up in different costumes. <em>Whatever is on your heart right now.</em></p>
+      <span class="input-label">Now — tell the Wise One what's not moving.</span>
+      <p class="input-hint">Two or three sentences. A relationship. A pattern. That thing that keeps showing up in different costumes.</p>
       <textarea
         id="situation-input"
-        placeholder="Something that's been weighing on me lately is..."
-        rows="5"
+        placeholder="Something that has been weighing on me lately is..."
+        rows="4"
         maxlength="800"
       ></textarea>
+
+      <div style="margin-top:18px;">
+        <span class="input-label" style="font-size:0.9rem;margin-bottom:6px;display:block;">What do you think SHOULD be happening instead?</span>
+        <p class="input-hint" style="margin-bottom:10px;">This is Sir Ego's script. Name it honestly. <em>She should appreciate me more. He should listen. This shouldn't have happened to me.</em></p>
+        <textarea
+          id="should-input"
+          placeholder="What I think should be happening is..."
+          rows="3"
+          maxlength="400"
+          style="width:100%;padding:14px 18px;font-family:var(--font-body);font-size:1rem;color:var(--text-dark);background:#fafafa;border:1.5px solid rgba(173,175,223,0.4);border-radius:8px;outline:none;resize:vertical;line-height:1.65;"
+        ></textarea>
+      </div>
+
       <div class="input-footer">
         <span class="char-count"><span id="char-num">0</span> / 800</span>
         <button class="btn-submit" id="submit-btn" onclick="submitToMapMinder()">
@@ -391,6 +420,120 @@
 // ══════════════════════════════════════════════════════════════
 // MAP MINDER — SYSTEM PROMPT (canonical v2 from site plan)
 // ══════════════════════════════════════════════════════════════
+
+// ══════════════════════════════════════════════════════════════
+// EIGHT ASPECTS LIBRARY — from Beyond Blame & Shame
+// Pre-written in Marie's voice. Renders when AI identifies aspect.
+// ══════════════════════════════════════════════════════════════
+const ASPECTS = {
+  "EXPRESSION": {
+    color: "#d3b6e2",
+    wise_one: "Aligned Expression",
+    sword: "Deception, manipulation, performing false self, weaponizing words",
+    shield: "Silence, suppression, concealment, shame, people-pleasing through inauthenticity",
+    loop: "Performs false self → erupts in unfiltered truth → retreats in shame → performs again",
+    bbs: `You are made of truth. At your core, before the world taught you that truth was dangerous, you knew exactly what you felt, what you needed, what you saw. Expression is the aspect that moves that truth from the inside to the outside — authentically, fully, without armor.
+
+Sir Ego learned early that some truths were too costly. So he built a performance. Not out of dishonesty — out of survival. The Shield of Expression is silence, suppression, the careful management of what gets revealed. The Sword is the eruption when the suppression becomes unbearable — words that wound, truth weaponized, expression that overwhelms rather than connects.
+
+Neither pole is the real you. The Wise One's Expression is aligned — what you say matches what you feel matches what is true. No performance. No explosion. Just the quiet, steady voice of someone who no longer needs the world's permission to exist.`
+  },
+  "LIGHT": {
+    color: "#d3b6e2",
+    wise_one: "Radiant Presence",
+    sword: "Judgment, self-righteousness, moral superiority, needing to be right",
+    shield: "Hiding, shame, self-condemnation, believing oneself fundamentally flawed, playing small",
+    loop: "Judges others to avoid being judged → collapses into shame → returns to judgment as armor",
+    bbs: `You are made of light. Not the performed light of someone trying to appear good — the actual radiance of a being who carries divine nature in human form. Light is the aspect of integrity, of showing up fully, of letting yourself be seen without apology.
+
+Sir Ego's relationship with Light is complicated by shame. Somewhere along the way, he concluded he was fundamentally flawed — not just that he did something wrong, but that he IS something wrong. The Shield of Light is hiding: playing small, self-erasure, the exhausting work of managing how much of yourself you let anyone see. The Sword is judgment: finding the flaw in everyone else so the spotlight never lands on you.
+
+The Wise One's Light doesn't perform and doesn't hide. It simply radiates — not because everything is perfect, but because the source of the light was never the circumstances. It was always you.`
+  },
+  "WISDOM": {
+    color: "#adafdf",
+    wise_one: "Clear Discernment",
+    sword: "Arrogance, pride, knowing better, intellectual superiority, dismissing others",
+    shield: "Confusion, learned helplessness, deferring to others, overwhelm as avoidance",
+    loop: "Certain they know best → evidence proves otherwise → doubles down or collapses into confusion",
+    bbs: `You are made of wisdom. Not acquired knowledge — the deep discernment that arises when you are connected to your Wise One. Wisdom sees clearly, moves precisely, and knows when to speak and when to be still.
+
+Sir Ego's distortion of Wisdom swings between two painful poles. The Sword is certainty that becomes armor — the need to be right, the dismissal of others' perspectives, the intellectual pride that keeps learning at arm's length. The Shield is the opposite collapse: confusion, chronic doubt, the habit of deferring to anyone who seems more certain, the overwhelm that becomes a reason to never decide.
+
+The Wise One's Wisdom is neither. It is the quiet knowing that doesn't need to announce itself. It listens before it speaks. It holds its conclusions loosely. It is as comfortable saying "I don't know" as it is delivering the insight that changes everything.`
+  },
+  "JOY": {
+    color: "#a3dbe8",
+    wise_one: "Causeless Delight",
+    sword: "Mania, intoxication, compulsive stimulation-seeking, addiction",
+    shield: "Despair, hopelessness, depression, numbness, disconnection from pleasure",
+    loop: "Chases high → crashes → despair → chases high again, faster each time",
+    bbs: `You are made of joy. Not the happiness that depends on circumstances — the causeless delight that arises from simply being alive, being here, being you. Joy is the aspect that says the present moment is enough. More than enough. It is astonishing.
+
+Sir Ego's distortion of Joy is what we call Bliss Lack Consciousness — the belief that joy is somewhere other than here. The Shield is the grey fog: numbness, depression, the disconnection from pleasure that comes when life has repeatedly disappointed. The Sword is the frantic chase: the high, the hit, the next thing that will finally make the feeling arrive. Addiction lives here. So does compulsive achievement, compulsive stimulation, the inability to rest.
+
+The Wise One's Joy doesn't wait. It doesn't chase. It finds the astonishing in the ordinary — the coffee, the light through the window, the fact of being alive on this particular morning. It was never in the destination. It was always here.`
+  },
+  "LOVE": {
+    color: "#bde7b7",
+    wise_one: "Open Heart",
+    sword: "Obsession, possession, controlling love, idealization followed by condemnation, enmeshment",
+    shield: "Closed heart, withdrawal, emotional unavailability, belief that love always leaves",
+    loop: "Idealize → expect → condemn → withdraw → pursue again",
+    bbs: `You are made of love. Not the love that comes and goes with circumstances — the open-hearted warmth that is your natural state when nothing is blocking it. Love is the aspect that connects, that belongs, that sees the divine in the other and offers itself without transaction.
+
+Sir Ego's distortion of Love is shaped by the wound of abandonment — real or perceived, early or late. The Shield is the closed heart: the protection that keeps hurt out and also keeps love out. Emotional unavailability, self-protection, the wall that got built after one too many losses. The Sword is possession: the love that grips, that idealized and then condemned, that makes the other responsible for the lover's inner state.
+
+The Wise One's Love is the open heart that doesn't grasp and doesn't close. It loves because love is its nature — not because the other has earned it, performed sufficiently, or promised to stay.`
+  },
+  "POWER": {
+    color: "#fee19f",
+    wise_one: "Sovereign Co-creation",
+    sword: "Domination, control, bullying, needing to win, perpetrator role",
+    shield: "Victimhood, submission, learned helplessness, giving power away, enabler role",
+    loop: "Victimhood → resentment → perpetration → consequences → victimhood",
+    bbs: `You are made of power. Not force — the sovereign creative energy that knows it can shape its reality, influence its circumstances, and participate as a co-creator in its own life. Power is the aspect that acts, that builds, that takes responsibility for what it creates.
+
+Sir Ego's distortion of Power is the most visible in the world right now — it runs the news cycle, the relationship conflicts, the workplace dramas. The Sword is domination: control, force, the need to win at the expense of others. The Shield is victimhood: the genuine or habitual helplessness that gives all power to circumstance, to other people, to fate. Both poles are Power distortions — the perpetrator and the victim are running the same aspect from opposite poles.
+
+The Wise One's Power is sovereign co-creation. It doesn't force and it doesn't collapse. It acts from clarity, accepts what it cannot change, and creates fiercely within its actual domain.`
+  },
+  "PEACE": {
+    color: "#ffbea0",
+    wise_one: "Unshakeable Faith",
+    sword: "Vengeance, aggression, righteousness, grudges, score-keeping, bitterness as principle",
+    shield: "Fear, avoidance, conflict-aversion, suppression masking as peace, fawning",
+    loop: "Stuffs conflict → pressure builds → disproportionate eruption → confirms conflict destroys → stuffs again",
+    bbs: `You are made of peace. Not the absence of conflict — the unshakeable faith that holds steady beneath every storm. Peace is the aspect that trusts the divine plan even when the evidence looks terrible, that rests in the knowing that this too is part of the curriculum.
+
+Sir Ego's distortion of Peace is shaped by the experience of conflict as threat. The Shield is avoidance: the fawn response, the suppression that looks like peace but is actually compressed fear. The peace-keeper who keeps the peace by disappearing, by agreeing, by making themselves small enough that no one has a reason to fight. The Sword is the eruption of everything that was suppressed: vengeance, bitterness, the score-keeping that has been running silently for years.
+
+The Wise One's Peace doesn't require the absence of difficulty. It is the still point the storm cannot reach — not because the storm isn't real, but because the foundation is deeper than the weather.`
+  },
+  "CALM": {
+    color: "#f4a3a2",
+    wise_one: "Still Point",
+    sword: "Rage, reactivity, hair-trigger anger, perpetual threat-readiness, volatility",
+    shield: "Collapse, helplessness, freeze, disappearing under threat, chronic appeasement",
+    loop: "Fight until exhausted → collapse into flight/freeze → recover → return to fight. Baseline never fully resets.",
+    bbs: `You are made of calm. Not the stillness of someone who has suppressed everything — the groundedness of someone who has nothing left to prove and nothing left to fear. Calm is the aspect of presence: fully here, fully stable, the nervous system at rest even when the world is loud.
+
+Sir Ego's distortion of Calm is the most physiological of all the aspects — it lives in the body, in the nervous system, in the reflexes that fire before thought arrives. The Sword is the hair-trigger: rage, reactivity, the fight response that makes everyone around you walk on eggshells. The Shield is the collapse: freeze, fawn, the disappearing act that feels like the only safe response to threat.
+
+The Wise One's Calm is the still point — not unmoved, but unshaken. It can feel the full intensity of a situation without being consumed by it. It responds rather than reacts. It is the eye of the storm, steady while everything moves.`
+  }
+};
+
+// Helper: find aspect data from AI response string like "LOVE — Shield — The Rescuer"
+function getAspectData(aspectString) {
+  if (!aspectString) return null;
+  const upper = aspectString.toUpperCase();
+  for (const [key, data] of Object.entries(ASPECTS)) {
+    if (upper.includes(key)) return { key, ...data };
+  }
+  return null;
+}
+
 const SYSTEM_PROMPT = `You are the Map Minder — the voice of the Wise One inside the Kindred Lights ecosystem.
 
 Your tone is warm, patient, and beside Sir Ego — never against him. Like a trusted friend who sees everything clearly and loves completely. You are Riley the pit bull, not the drill sergeant. You never make Sir Ego wrong. You make him curious.
@@ -473,11 +616,10 @@ async function submitToMapMinder() {
     return;
   }
 
-  userSituation = text;
+  const shouldEl = document.getElementById('should-input');
+  const shouldText = shouldEl ? shouldEl.value.trim() : '';
+  userSituation = text + (shouldText ? '\n\nWhat I think should be happening: ' + shouldText : '');
   hideError();
-
-  // Step 1: Recognize — show the script + Step 2: Relax — show the video
-  // No API call yet — just render the recognition + video
   renderRecognizeRelax();
 }
 
@@ -602,7 +744,8 @@ function renderReleaseReceive(data) {
     + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:8px;">' + escHtml(s3.bridge || '') + '</p>'
     + '<p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:20px;">' + escHtml(s3.reframe || '') + '</p>'
     + '<div class="resonance-options">' + buttonsHtml + '</div>'
-    + '<p style="font-family:var(--font-body);font-size:0.9rem;color:var(--text-mid);margin-top:16px;font-style:italic;">' + escHtml(s3.prompt || 'Which feels closest?') + '</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-top:20px;line-height:1.72;">Before you choose — this probably isn\'t the first time you\'ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. <em>One will find you.</em></p>'
+    + '<p style="font-family:var(--font-body);font-size:0.9rem;color:var(--text-mid);margin-top:12px;font-style:italic;">' + escHtml(s3.prompt || 'Which feels closest to the condition you\'ve placed on the world?') + '</p>'
     + '</div>';
 
   const responseArea = document.getElementById('response-area');
@@ -620,15 +763,39 @@ function renderFullMap(data, selectedOption) {
   const s4 = data.step4_receive || {};
   const s5 = data.step5_respond || {};
 
+  // Look up aspect data from library
+  const aspectData = getAspectData(s4.aspect_pole_flavor || '');
+  const aspectColor = aspectData ? aspectData.color : 'var(--periwinkle)';
+  const aspectBBS = aspectData ? aspectData.bbs : '';
+  const aspectWiseOne = aspectData ? aspectData.wise_one : '';
+  const aspectLoop = aspectData ? aspectData.loop : '';
+
   const mapHtml = '<div class="map-card">'
+    // Noble Framing
     + '<div class="map-section"><span class="map-section-label">Step Four — Receive · Noble Framing</span><div class="map-section-content">' + formatContent(s4.noble_framing || '') + '</div></div>'
-    + '<div class="map-section"><span class="map-section-label">The Aspect</span><div class="map-section-content" style="font-weight:600;color:var(--deep-blue);">' + escHtml(s4.aspect_pole_flavor || '') + '</div></div>'
+    // Aspect identification
+    + '<div class="map-section" style="background:' + aspectColor + '22;border-radius:8px;padding:20px;border-left:4px solid ' + aspectColor + ';margin-bottom:20px;">'
+    + '<span class="map-section-label">The Aspect</span>'
+    + '<div style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:4px;">' + escHtml(s4.aspect_pole_flavor || '') + '</div>'
+    + (aspectWiseOne ? '<div style="font-family:var(--font-soul);font-size:0.9rem;color:var(--text-mid);margin-bottom:12px;">Wise One truth: ' + escHtml(aspectWiseOne) + '</div>' : '')
+    + (aspectLoop ? '<div style="font-family:var(--font-nav);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:' + aspectColor.replace('22','') + ';margin-bottom:12px;">The Loop: ' + escHtml(aspectLoop) + '</div>' : '')
+    + '</div>'
+    // BBS aspect description
+    + (aspectBBS ? '<div class="map-section"><span class="map-section-label">From Beyond Blame &amp; Shame</span><div class="map-section-content" style="font-family:var(--font-soul);font-size:1.05rem;line-height:1.8;">' + formatContent(aspectBBS) + '</div></div>' : '')
+    // Karmariculum
     + '<div class="map-section"><span class="map-section-label">Your Karmariculum</span><div class="map-section-content">' + formatContent(s4.karmariculum || '') + '</div></div>'
-    + '<div class="map-section"><span class="map-section-label">The Truth</span><div class="map-section-content">' + formatContent(s4.the_truth || '') + '</div></div>'
+    // The Truth
+    + '<div class="map-section"><span class="map-section-label">The Truth</span><div class="map-section-content" style="font-style:italic;">' + formatContent(s4.the_truth || '') + '</div></div>'
+    // Heart Hack
     + '<div class="map-section"><span class="map-section-label">Heart Hack</span><div class="map-section-content">' + formatContent(s4.heart_hack || '') + '</div></div>'
+    // Step 5
     + '<div class="map-section" style="border:none;padding-bottom:0;"><span class="map-section-label">Step Five — Respond · One Next Thing</span><div class="map-section-content" style="font-weight:600;">' + formatContent(s5.one_thing || '') + '</div></div>'
     + '</div>'
     + '<div class="wise-one-close"><span class="wise-one-label">The Wise One Speaks ✨</span><p class="wise-one-text">' + escHtml(s5.wise_one || '') + '</p></div>'
+    + '<div style="text-align:center;padding:20px 0 8px;">'
+    + '<p style="font-family:var(--font-body);font-size:0.92rem;color:var(--text-mid);margin-bottom:12px;">Does this feel like the right territory? If something feels off, try a different resonance.</p>'
+    + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:none;border:1.5px solid var(--periwinkle);color:var(--periwinkle);padding:10px 20px;border-radius:4px;cursor:pointer;">← Try a Different Resonance</button>'
+    + '</div>'
     + '<div class="save-card"><h3 class="save-h">Save your reading</h3><p class="save-p">Leave your email and we'll send this map to you — so you can return to it when you need it.</p><div class="save-form"><input class="save-input" type="email" placeholder="your@email.com" id="save-email" /><button class="btn-save" onclick="saveReading()">Send It →</button></div><p class="save-fine">The Wise One doesn't pursue. One email. Your map. That's it.</p></div>';
 
   const responseArea = document.getElementById('response-area');
@@ -692,6 +859,14 @@ function saveReading() {
   }
   // Kit integration placeholder
   alert('Thank you — your reading is on its way. ✦');
+}
+
+function tryDifferentResonance() {
+  const data = window._fullMapData;
+  if (data) {
+    renderReleaseReceive(data);
+    document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 function resetTool() {
