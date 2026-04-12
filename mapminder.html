@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- KL Map Minder v7 — aspect card: sword/shield/yours framing 2026-04-12 -->
+<!-- KL Map Minder v8 — immersive redesign, aspect content restored, recognize polish, Sir Ego fix, start over fix 2026-04-12 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -125,75 +125,84 @@
     #response-area { display: none; }
     #response-area.visible { display: block; }
 
-    /* Resonance check */
-    .resonance-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 36px 40px;
-      box-shadow: 0 8px 48px rgba(28,29,64,0.08);
-      border: 1px solid rgba(173,175,223,0.2);
+    /* ── IMMERSIVE READING CONTAINER ── */
+    /* All reading content sits inside one midnight room */
+    .resonance-card, .map-card {
+      background: var(--midnight);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 16px 64px rgba(28,29,64,0.22);
       margin-bottom: 24px;
       animation: fadeUp 0.5s ease;
     }
     @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
-    .resonance-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 6px; }
-    .resonance-intro { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px; }
+
+    /* Section dividers inside the room */
+    .map-section { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .map-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    /* Step labels — gold caps */
+    .map-section-label { font-family: var(--font-nav); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+
+    /* Body text inside the room */
+    .map-section-content { font-family: var(--font-body); font-size: 1rem; color: rgba(255,255,255,0.78); line-height: 1.82; }
+    .map-section-content p { margin-bottom: 12px; }
+    .map-section-content p:last-child { margin-bottom: 0; }
+
+    /* Vibe buttons — on dark ground */
     .resonance-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
     .resonance-btn {
       text-align: left; padding: 14px 18px;
-      background: #fafafa; border: 1.5px solid rgba(173,175,223,0.3);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(173,175,223,0.2);
       border-radius: 8px; cursor: pointer;
-      font-family: var(--font-body); font-size: 0.96rem; color: var(--text-dark);
+      font-family: var(--font-body); font-size: 0.96rem;
+      color: rgba(255,255,255,0.75);
       line-height: 1.55; transition: all 0.18s;
     }
-    .resonance-btn:hover { border-color: var(--periwinkle); background: rgba(173,175,223,0.08); }
-    .resonance-btn.selected { border-color: var(--periwinkle); background: rgba(173,175,223,0.12); color: var(--midnight); font-weight: 600; }
+    .resonance-btn:hover { border-color: var(--periwinkle); background: rgba(173,175,223,0.1); color: #fff; }
+    .resonance-btn.selected { border-color: var(--periwinkle); background: rgba(173,175,223,0.15); color: #fff; font-weight: 600; }
 
-    /* Full map */
-    .map-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 8px 48px rgba(28,29,64,0.08);
-      border: 1px solid rgba(173,175,223,0.2);
-      margin-bottom: 24px;
-      animation: fadeUp 0.5s ease;
+    /* Emotion card — glows inside the room */
+    .emotion-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      border: 1px solid rgba(173,175,223,0.25);
+      padding: 20px 22px;
+      margin: 18px 0;
     }
-    .map-section { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(173,175,223,0.15); }
-    .map-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .map-section-label { font-family: var(--font-nav); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--periwinkle); display: block; margin-bottom: 8px; }
-    .map-section-content { font-family: var(--font-body); font-size: 1rem; color: var(--text-dark); line-height: 1.78; }
-    .map-section-content p { margin-bottom: 10px; }
-    .map-section-content p:last-child { margin-bottom: 0; }
+    .emotion-label { font-family: var(--font-nav); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--periwinkle); margin-bottom: 12px; display: block; }
+    .emotion-ego { font-family: var(--font-soul); font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.72; font-style: italic; margin-bottom: 10px; }
+    .emotion-wise { font-family: var(--font-body); font-size: 0.96rem; color: rgba(255,255,255,0.88); line-height: 1.72; margin-bottom: 14px; }
+    .emotion-question { font-family: var(--font-soul); font-size: 1rem; color: var(--gold); line-height: 1.72; font-style: italic; }
 
-    /* Wise One closing */
+    /* Wise One closing — deepens the room */
     .wise-one-close {
-      background: linear-gradient(135deg, #2a4494, #1e2d6e);
-      border-radius: 12px;
-      padding: 32px 36px;
+      background: linear-gradient(135deg, rgba(42,68,148,0.6), rgba(30,45,110,0.8));
+      border-radius: 10px;
+      padding: 28px 32px;
       margin-top: 8px;
       position: relative;
-      overflow: hidden;
+      border: 1px solid rgba(173,175,223,0.15);
     }
-    .wise-one-close::before { content: '✨'; position: absolute; top: 20px; right: 24px; font-size: 1.4rem; opacity: 0.4; }
+    .wise-one-close::before { content: '\2728'; position: absolute; top: 20px; right: 24px; font-size: 1.2rem; opacity: 0.35; }
     .wise-one-label { font-family: var(--font-nav); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 12px; }
-    .wise-one-text { font-family: var(--font-soul); font-size: 1.12rem; color: rgba(255,255,255,0.92); line-height: 1.75; font-style: italic; }
+    .wise-one-text { font-family: var(--font-soul); font-size: 1.12rem; color: rgba(255,255,255,0.92); line-height: 1.78; font-style: italic; }
 
     /* Loading state */
     .loading-state {
       display: none;
       text-align: center;
       padding: 48px 32px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 48px rgba(28,29,64,0.08);
-      border: 1px solid rgba(173,175,223,0.2);
+      background: var(--midnight);
+      border-radius: 16px;
+      box-shadow: 0 16px 64px rgba(28,29,64,0.22);
     }
     .loading-state.visible { display: block; animation: fadeUp 0.4s ease; }
     .loading-orb { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--periwinkle), var(--deep-blue)); margin: 0 auto 20px; animation: pulse 1.8s ease-in-out infinite; }
     @keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
-    .loading-text { font-family: var(--font-display); font-size: 0.9rem; color: var(--midnight); letter-spacing: 0.08em; margin-bottom: 6px; }
-    .loading-sub { font-family: var(--font-body); font-size: 0.88rem; color: var(--text-mid); font-style: italic; }
+    .loading-text { font-family: var(--font-display); font-size: 0.9rem; color: rgba(255,255,255,0.85); letter-spacing: 0.08em; margin-bottom: 6px; }
+    .loading-sub { font-family: var(--font-body); font-size: 0.88rem; color: rgba(255,255,255,0.45); font-style: italic; }
 
     /* Error state */
     .error-card { background: #fff5f5; border-radius: 8px; padding: 20px 24px; border-left: 3px solid #e57373; margin-bottom: 20px; display: none; }
@@ -201,7 +210,7 @@
     .error-text { font-family: var(--font-body); font-size: 0.96rem; color: #b71c1c; line-height: 1.6; }
 
     /* Save reading */
-    .save-card { background: #2d2b5e; border-radius: 12px; padding: 32px 36px; margin-top: 24px; text-align: center; }
+    .save-card { background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid rgba(201,168,76,0.2); padding: 32px 36px; margin-top: 8px; text-align: center; }
     .save-h { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: #fff; letter-spacing: 0.04em; margin-bottom: 8px; }
     .save-p { font-family: var(--font-body); font-size: 0.96rem; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 22px; }
     .save-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -304,18 +313,18 @@
     <!-- TWO CAVES DREAM -->
     <div class="resonance-card" id="caves-dream" style="margin-bottom:24px;">
       <span class="map-section-label">The Two Caves</span>
-      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-dark);line-height:1.78;margin-bottom:14px;">I had a dream that I was bouncing back and forth between two caves: the first is dark and scary and the other is OK &mdash; not great, but OK. I didn&rsquo;t understand why I kept bouncing back and forth, so I tried to crack the code so that I could stay in the OK cave. As children, this is how we start to build a script to keep us in the OK cave. It seems to work. Until it doesn&rsquo;t.</p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;margin-bottom:8px;">The script sounds like: <em>&ldquo;If I just please people, they will love me.&rdquo;</em> Or: <em>&ldquo;This is how good people act.&rdquo;</em> Or: <em>&ldquo;This is how I get what I want.&rdquo;</em></p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;margin-bottom:12px;">This was our programming and social conditioning, and it taught us to mold ourselves into acceptable versions of our true self. Every script is now the source of the problem.</p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;">But there is a place beyond the two caves &mdash; a better life. Our life&rsquo;s divine plan offers us opportunities to cast off this script, reveal our true selves and live our highest path. Our inner guide knows the way. When we follow her.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.82;margin-bottom:14px;">I had a dream that I was bouncing back and forth between two caves: the first is dark and scary and the other is OK &mdash; not great, but OK. I didn&rsquo;t understand why I kept bouncing back and forth, so I tried to crack the code so that I could stay in the OK cave. As children, this is how we start to build a script to keep us in the OK cave. It seems to work. Until it doesn&rsquo;t.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:8px;">The script sounds like: <em>&ldquo;If I just please people, they will love me.&rdquo;</em> Or: <em>&ldquo;This is how good people act.&rdquo;</em> Or: <em>&ldquo;This is how I get what I want.&rdquo;</em></p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">This was our programming and social conditioning, and it taught us to mold ourselves into acceptable versions of our true self. Every script is now the source of the problem.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;">But there is a place beyond the two caves &mdash; a better life. Our life&rsquo;s divine plan offers us opportunities to cast off this script, reveal our true selves and live our highest path. Our inner guide knows the way. When we follow her.</p>
     </div>
 
     <!-- PARADISE DREAM -->
     <div class="resonance-card" id="paradise-dream" style="margin-bottom:24px;">
       <span class="map-section-label">Don&rsquo;t Make the Monkeys Extinct</span>
-      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-dark);line-height:1.78;margin-bottom:14px;">I was walking through paradise with the Creator. The monkeys were shrieking &mdash; loud, chaotic, impossible to ignore. I wished it would stop. And it did. Then the consequences fell like dominoes. No monkeys. No mating. No babies. Next, I wished the nearby lion wouldn&rsquo;t eat the gazelle. Lions starved. Gazelles overpopulated and ate everything green. Paradise went barren.</p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;margin-bottom:12px;">All because I cast my opinions and fears upon the divine perfection that I did not see or understand.</p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;">Our lower self judges according to our script where lions are vegetarian. Our higher self sees the next lesson in our life&rsquo;s divine plan. The situation you want to fix might be doing exactly what it is supposed to do &mdash; in ways you cannot yet see.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.82;margin-bottom:14px;">I was walking through paradise with the Creator. The monkeys were shrieking &mdash; loud, chaotic, impossible to ignore. I wished it would stop. And it did. Then the consequences fell like dominoes. No monkeys. No mating. No babies. Next, I wished the nearby lion wouldn&rsquo;t eat the gazelle. Lions starved. Gazelles overpopulated and ate everything green. Paradise went barren.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">All because I cast my opinions and fears upon the divine perfection that I did not see or understand.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;">Our lower self judges according to our script where lions are vegetarian. Our higher self sees the next lesson in our life&rsquo;s divine plan. The situation you want to fix might be doing exactly what it is supposed to do &mdash; in ways you cannot yet see.</p>
     </div>
 
     <!-- CLOSING QUESTION -->
@@ -336,7 +345,7 @@
 
       <div style="margin-top:18px;">
         <span class="input-label" style="font-size:0.9rem;margin-bottom:6px;display:block;">What do you think SHOULD be happening instead?</span>
-        <p class="input-hint" style="margin-bottom:10px;">This is Sir Ego's script. Name it honestly. <em>She should appreciate me more. He should listen. This shouldn't have happened to me.</em></p>
+        <p class="input-hint" style="margin-bottom:10px;">This is your ego's script. Name it honestly. <em>She should appreciate me more. He should listen. This shouldn't have happened to me.</em></p>
         <textarea
           id="should-input"
           placeholder="What I think should be happening is..."
@@ -730,15 +739,15 @@ function renderRecognizeRelax() {
 
   const html = '<div class="resonance-card" id="recognize-card">'
     + '<span class="map-section-label">Step One &mdash; Recognize</span>'
-    + '<h3 style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:12px">There is a conflict amongst your script, others&rsquo; scripts and the divine script.</h3>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:24px">Before you see the script conflict, the world is just wrong. After you see it, you realize that others are reading from their own scripts &mdash; and the divine plan is different still. Suddenly you have options you didn&rsquo;t have before.</p>'
-    + '<div class="map-section" style="border:none;padding:0;margin-bottom:24px;">'
+    + '<p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.04em;line-height:1.55;margin-bottom:14px;">You have a script for how things should go. So does everyone else. And underneath both, there&rsquo;s a third &mdash; the one the universe is actually running.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:24px;">That&rsquo;s where the friction comes from. Not because something is wrong &mdash; but because three scripts are running at once and only one of them knows the whole picture.</p>'
+    + '<div style="border-top:1px solid rgba(173,175,223,0.2);padding-top:24px;margin-bottom:0;">'
     + '<span class="map-section-label">Step Two &mdash; Relax</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:12px">Your first instinct is to fix this &mdash; right now. That impulse comes from the same script that created the problem.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:12px">But now you&rsquo;ve seen the conflict. That means you have a choice you didn&rsquo;t have before. You can follow the familiar reaction &mdash; you know where that leads. Or you can pause long enough for something wiser to come through.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:16px">When the heart closes, it can only see the problem. When it opens, it can see the way through.</p>'
-    + '<div style="background:#f0edf8;border-radius:8px;padding:20px 24px;margin-bottom:20px;border-left:3px solid var(--periwinkle);">'
-    + '<p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;text-align:center;margin-bottom:0;">Don&rsquo;t make the monkeys extinct.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">Your first instinct is to fix this right now. That impulse is your ego reading from his script. It got you here. It won&rsquo;t get you out.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:16px;">But you just saw the conflict. That means there&rsquo;s a crack. Something wiser can come through &mdash; if you&rsquo;re willing to pause long enough to let it.</p>'
+
+    + '<div style="background:rgba(173,175,223,0.12);border-radius:8px;padding:20px 24px;margin-bottom:20px;">'
+    + '<p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.06em;text-align:center;margin-bottom:0;">Don&rsquo;t make the monkeys extinct.</p>'
     + '</div>'
 
     + '<button class="btn-submit" onclick="userClickedWilling()" style="width:100%;">'
@@ -763,7 +772,7 @@ async function userClickedWilling() {
 
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'phase2-loading';
-  loadingDiv.style.cssText = 'text-align:center;padding:32px;';
+  loadingDiv.style.cssText = 'text-align:center;padding:32px;background:var(--midnight);border-radius:16px;';
   loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 16px;"></div><p class="loading-text">The Wise One is reading your map...</p><p class="loading-sub">This takes about 20 seconds. She reads carefully.</p>';
   if (recognizeCard) recognizeCard.after(loadingDiv);
 
@@ -799,7 +808,7 @@ async function handleResonanceClick(btnEl) {
   const resonanceCard = document.getElementById('resonance-card');
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'resonance-loading';
-  loadingDiv.style.cssText = 'text-align:center;padding:28px;';
+  loadingDiv.style.cssText = 'text-align:center;padding:28px;background:var(--midnight);border-radius:16px;';
   loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 14px;"></div><p class="loading-text">The Wise One is reading your map...</p>';
   if (resonanceCard) resonanceCard.after(loadingDiv);
 
@@ -869,7 +878,7 @@ function renderReleaseReceive(data) {
 
   const html = '<div class="resonance-card" id="resonance-card">'
     + '<span class="map-section-label">Step Three &mdash; Find Your Vibe</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:16px;">' + escHtml(s3.bridge || '') + '</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:16px;">' + escHtml(s3.bridge || '') + '</p>'
     + '<p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:20px;">' + escHtml(s3.reframe || '') + '</p>'
     + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-bottom:16px;line-height:1.72;">Before you choose &mdash; this probably isn&rsquo;t the first time you&rsquo;ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. One will find you.</p>'
     + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:16px;">Which feels like your emotional experience &mdash; not in your mind &mdash; in your heart and body?</p>'
@@ -909,29 +918,39 @@ function renderFullMap(data, selectedOption) {
     + '</div>'
 
     // Aspect card -- normalizing framing with Sword, Shield, Wise One
-    + '<div class="map-section" style="background:' + aspectColor + '22;border-radius:8px;padding:22px 24px;border-left:4px solid ' + aspectColor + ';margin-bottom:4px;">'
+    + '<div class="map-section" style="background:rgba(255,255,255,0.04);border-radius:10px;padding:22px 24px;border-left:4px solid ' + aspectColor + ';margin-bottom:4px;">'
     + '<span class="map-section-label">The Aspect</span>'
-    + '<p style="font-family:var(--font-body);font-size:0.9rem;color:var(--text-mid);line-height:1.72;margin-bottom:16px;">This isn\'t a flaw in your life. It\'s one of eight soul themes every human navigates. Here\'s how the <strong>' + escHtml(aspectWiseOne || '') + '</strong> theme shows up:</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.9rem;color:rgba(255,255,255,0.72);line-height:1.72;margin-bottom:16px;">This isn\'t a flaw in your life. It\'s one of eight soul themes every human navigates. Here\'s how the <strong>' + escHtml(aspectWiseOne || '') + '</strong> theme shows up:</p>'
     + '<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px;">'
     + (aspectData ? '<div style="display:flex;gap:14px;align-items:flex-start;">'
       + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B3A3A;min-width:58px;padding-top:3px;">Sword</span>'
-      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-dark);line-height:1.72;">' + escHtml(aspectData.sword) + '</p>'
+      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.85);line-height:1.72;">' + escHtml(aspectData.sword) + '</p>'
       + '</div>'
       + '<div style="display:flex;gap:14px;align-items:flex-start;">'
       + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#2C6B5A;min-width:58px;padding-top:3px;">Shield</span>'
-      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-dark);line-height:1.72;">' + escHtml(aspectData.shield) + '</p>'
+      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.85);line-height:1.72;">' + escHtml(aspectData.shield) + '</p>'
       + '</div>'
       + '<div style="display:flex;gap:14px;align-items:flex-start;border-top:1px solid ' + aspectColor + '66;padding-top:12px;">'
       + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dark);min-width:58px;padding-top:3px;">Yours</span>'
-      + '<p style="font-family:var(--font-soul);font-size:1rem;color:var(--midnight);line-height:1.72;font-style:italic;">' + escHtml(aspectData.wise_one) + ' &mdash; this is what you already are underneath the swing.</p>'
+      + '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.88);line-height:1.72;font-style:italic;">' + escHtml(aspectData.wise_one) + ' &mdash; this is what you already are underneath the swing.</p>'
       + '</div>' : '')
     + '</div>'
-    + '<div style="font-family:var(--font-display);font-size:0.75rem;font-weight:600;color:var(--text-mid);letter-spacing:0.08em;opacity:0.7;margin-top:8px;">' + escHtml(s4.aspect_pole_flavor || '') + '</div>'
+    + '<div style="font-family:var(--font-display);font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.08em;margin-top:8px;">' + escHtml(s4.aspect_pole_flavor || '') + '</div>'
     + '</div>'
 
+    // Karmariculum + The Truth
+    + (s4.karmariculum ? '<div class="map-section">'
+      + '<span class="map-section-label">The Curriculum</span>'
+      + '<div class="map-section-content">' + formatContent(s4.karmariculum) + '</div>'
+      + '</div>' : '')
+    + (s4.the_truth ? '<div class="map-section">'
+      + '<span class="map-section-label">The Truth</span>'
+      + '<p style="font-family:var(--font-soul);font-size:1.12rem;color:rgba(255,255,255,0.92);line-height:1.82;font-style:italic;">' + escHtml(s4.the_truth) + '</p>'
+      + '</div>' : '')
+
     // Does this feel right?
-    + '<div class="map-section" style="text-align:center;border:none;padding:20px 0 8px;">'
-    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;margin-bottom:16px;">Does this feel right?</p>'
+    + '<div class="map-section" style="text-align:center;border:none;padding:24px 0 8px;">'
+    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.06em;margin-bottom:16px;">Does this feel right?</p>'
     + '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">'
     + '<button onclick="continueToFullMap()" style="font-family:var(--font-nav);font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:12px 24px;background:var(--gold);color:var(--midnight);border:none;border-radius:4px;cursor:pointer;">Yes &mdash; Show Me My Map ✦</button>'
     + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:12px 24px;background:none;border:1.5px solid var(--periwinkle);color:var(--periwinkle);border-radius:4px;cursor:pointer;">Try a Different Vibe</button>'
@@ -960,37 +979,37 @@ function continueToFullMap() {
   const fullHtml = '<div class="map-card">'
 
     // Step 3 — Release
-    + '<div class="map-section" style="background:#f0edf8;border-radius:8px;padding:20px 24px;border-left:3px solid var(--periwinkle);">'
+    + '<div class="map-section" style="background:rgba(255,255,255,0.03);border-radius:10px;padding:20px 24px;border-left:3px solid var(--periwinkle);">'
     + '<span class="map-section-label">Step Three &mdash; Release</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;margin-bottom:14px;">Sit with this for a moment before you read on. You don&rsquo;t need to understand it. You just need to feel it.</p>'
-    + (emotionData ? '<div style="margin:18px 0;padding:18px 22px;background:#fff;border-radius:8px;border:1.5px solid var(--periwinkle);">'
-      + '<p style="font-family:var(--font-body);font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--periwinkle);margin-bottom:10px;">What&rsquo;s present right now</p>'
-      + '<p style="font-family:var(--font-soul);font-size:1.05rem;color:var(--text-mid);line-height:1.72;font-style:italic;margin-bottom:10px;">' + escHtml(emotionData.ego) + '</p>'
-      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--midnight);line-height:1.72;margin-bottom:14px;">' + emotionData.wise_one + '</p>'
-      + '<p style="font-family:var(--font-soul);font-size:1rem;color:var(--gold-dark);line-height:1.72;font-style:italic;">' + emotionData.question + '</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:14px;">Sit with this for a moment before you read on. You don&rsquo;t need to understand it. You just need to feel it.</p>'
+    + (emotionData ? '<div class="emotion-card">'
+      + '<span class="emotion-label">What&rsquo;s present right now</span>'
+      + '<p class="emotion-ego">' + escHtml(emotionData.ego) + '</p>'
+      + '<p class="emotion-wise">' + emotionData.wise_one + '</p>'
+      + '<p class="emotion-question">' + emotionData.question + '</p>'
       + '</div>' : '')
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.78;">If you want to go deeper: take a few minutes to write. Not the story &mdash; the feeling itself. Sit with that question. Write without editing until something shifts. Then stop.</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.82;">If you want to go deeper: take a few minutes to write. Not the story &mdash; the feeling itself. Sit with that question. Write without editing until something shifts. Then stop.</p>'
     + '</div>'
 
     // Step 4 — Receive (contemplation seed)
     + (seed ? '<div class="map-section">'
     + '<span class="map-section-label">Step Four &mdash; Receive</span>'
-    + '<p style="font-family:var(--font-soul);font-size:1.18rem;color:var(--midnight);line-height:1.75;font-style:italic;">&ldquo;' + escHtml(seed) + '&rdquo;</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-top:12px;line-height:1.72;">Sit with this question. Open your heart. Trust that the insight you need will come &mdash; not from thinking harder, but from listening more quietly.</p>'
+    + '<p style="font-family:var(--font-soul);font-size:1.18rem;color:rgba(255,255,255,0.9);line-height:1.75;font-style:italic;">&ldquo;' + escHtml(seed) + '&rdquo;</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.55);margin-top:12px;line-height:1.72;">Sit with this question. Open your heart. Trust that the insight you need will come &mdash; not from thinking harder, but from listening more quietly.</p>'
     + '</div>' : '')
 
     // Step 5 — Respond (heart hack)
     + (hack ? '<div class="map-section">'
     + '<span class="map-section-label">Step Five &mdash; Respond</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-dark);line-height:1.78;margin-bottom:8px;">' + escHtml(hack) + '</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-mid);font-style:italic;">Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.82;margin-bottom:8px;">' + escHtml(hack) + '</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:rgba(255,255,255,0.45);font-style:italic;">Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.</p>'
     + '</div>' : '')
 
     + '</div>'
 
     // Blessing
-    + '<div style="text-align:center;padding:20px 24px;background:#f8f6ff;border-radius:8px;margin-bottom:8px;">'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.75;">You have just walked the Five Steps to Freedom. This is the practice &mdash; not perfectly, but actually. <em>Love Heroically</em> takes you deeper into what you just experienced, with the tools to find your way back here every time you lose your center.</p>'
+    + '<div style="text-align:center;padding:20px 0;margin-bottom:8px;">'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.8;">You have just walked the Five Steps to Freedom. This is the practice &mdash; not perfectly, but actually. <em>Love Heroically</em> takes you deeper into what you just experienced, with the tools to find your way back here every time you lose your center.</p>'
     + '</div>'
     + '<div class="wise-one-close">'
     + '<p class="wise-one-text">Whatever brought you here today was not a mistake. The pain is real. The love underneath it is more real. You are held by something that has never once lost track of you. ✨</p>'
@@ -998,8 +1017,8 @@ function continueToFullMap() {
 
     // Try different vibe
     + '<div style="text-align:center;padding:20px 0 8px;">'
-    + '<p style="font-family:var(--font-body);font-size:0.92rem;color:var(--text-mid);margin-bottom:12px;">Something feel off? Go back and try a different vibe.</p>'
-    + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:none;border:1.5px solid var(--periwinkle);color:var(--periwinkle);padding:10px 20px;border-radius:4px;cursor:pointer;">\u2190 Try a Different Vibe</button>'
+    + '<p style="font-family:var(--font-body);font-size:0.92rem;color:rgba(255,255,255,0.45);margin-bottom:12px;">Something feel off? Go back and try a different vibe.</p>'
+    + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:none;border:1.5px solid rgba(173,175,223,0.4);color:rgba(173,175,223,0.75);background:none;padding:10px 20px;border-radius:4px;cursor:pointer;">\u2190 Try a Different Vibe</button>'
     + '</div>'
 
     // Save card
@@ -1096,9 +1115,12 @@ function resetTool() {
   document.getElementById('response-area').classList.remove('visible');
   document.getElementById('start-over').style.display = 'none';
   document.getElementById('situation-input').value = '';
+  var shouldEl = document.getElementById('should-input');
+  if (shouldEl) shouldEl.value = '';
   document.getElementById('char-num').textContent = '0';
   conversationHistory = [];
   phase1Response = null;
+  userSituation = '';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
