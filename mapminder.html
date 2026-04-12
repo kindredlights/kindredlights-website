@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- KL Map Minder v5 -->
+<!-- KL Map Minder v7 — aspect card: sword/shield/yours framing 2026-04-12 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -431,6 +431,80 @@
 // EIGHT ASPECTS LIBRARY — from Beyond Blame & Shame
 // Pre-written in Marie's voice. Renders when AI identifies aspect.
 // ══════════════════════════════════════════════════════════════
+const EMOTIONS = {
+  shame: {
+    ego: "Your ego decided the evidence was in and the verdict was you.",
+    wise_one: "What you are is whole. It has always been whole.",
+    question: "Can I believe that I am an eternally divine, beloved of the perfect Creator?"
+  },
+  guilt: {
+    ego: "Your ego is doing time for something it can\'t undo.",
+    wise_one: "Every choice you have ever made was the only choice available to you at that level of awareness. Growth is the curriculum. You are in it.",
+    question: "Can I trust that every step I have ever taken is part of a perfect curriculum designed for my awakening?"
+  },
+  fear: {
+    ego: "Your ego is white-knuckling a world it never learned to trust.",
+    wise_one: "You are held by something that has never once failed to meet the moment when it arrived.",
+    question: "Can I rest in the truth that I am held by an intelligence that has never once failed to meet the moment?"
+  },
+  anger: {
+    ego: "Your ego found something that feels like power when everything else feels like helplessness.",
+    wise_one: "Underneath this is something that matters deeply to you. That mattering is real.",
+    question: "Can I trust that what matters to me matters &mdash; and that the divine plan has accounted for it?"
+  },
+  frustration: {
+    ego: "Your ego is doing the same thing harder and calling it trying.",
+    wise_one: "The right door opens. That is how you will know it &mdash; not by force, but by the quality of the opening.",
+    question: "Can I believe that what is meant for me will open naturally, and that I will recognize it by the quality of the opening?"
+  },
+  disappointment: {
+    ego: "Your ego is sitting in the rubble of something it really wanted and trying to figure out what it did wrong.",
+    wise_one: "What is meant for you is still in motion. The timing is precise even when it doesn\'t feel like it.",
+    question: "Can I trust that what is meant for me is still in motion &mdash; and that the timing is as precise as everything else the Creator has made?"
+  },
+  jealousy: {
+    ego: "Your ego saw what they have and felt the specific pain of someone who doesn\'t believe they\'re allowed the same.",
+    wise_one: "Love is what you are made of. It cannot be taken from you by where else it flows.",
+    question: "Can I believe that I am made of the same love I am afraid of losing?"
+  },
+  envy: {
+    ego: "Your ego looked at someone else\'s life and felt smaller for it.",
+    wise_one: "What you see in them is evidence of what the Creator has made available. Including for you.",
+    question: "Can I trust that the abundance I see in another is evidence of what the Creator has made available &mdash; including for me?"
+  },
+  anxiety: {
+    ego: "Your ego has been running disaster simulations so long it\'s forgotten they\'re simulations.",
+    wise_one: "You have met every moment that has ever actually arrived. That intelligence is present in this one too.",
+    question: "Can I trust that the intelligence that has met every moment of my life so far is present in this one too?"
+  },
+  boredom: {
+    ego: "Your ego is drumming its fingers waiting for life to get interesting enough to deserve its attention.",
+    wise_one: "Presence is where everything you are actually looking for lives. It is available right now.",
+    question: "Can I believe that this exact moment contains everything I am actually looking for?"
+  },
+  grief: {
+    ego: "Your ego is still at the scene because leaving feels like the final betrayal.",
+    wise_one: "Love is eternal. What was real is still real &mdash; just differently.",
+    question: "Can I trust that love is eternal &mdash; and that what was real is still real, just differently?"
+  },
+  sadness: {
+    ego: "Your ego has finally stopped performing and doesn\'t know what to do with its hands.",
+    wise_one: "You are whole and beloved, even here, even in this.",
+    question: "Can I believe that I am whole and beloved, even here, even in this?"
+  },
+  loneliness: {
+    ego: "Your ego has been sending out signals and getting nothing back.",
+    wise_one: "You are already in contact with everything. The Creator has never once lost track of you.",
+    question: "Can I trust that I am already in contact with everything &mdash; and that the Creator has never once lost track of me?"
+  }
+};
+
+function getEmotionData(emotionString) {
+  if (!emotionString) return null;
+  const key = emotionString.toLowerCase().trim();
+  return EMOTIONS[key] || null;
+}
+
 const ASPECTS = {
   "EXPRESSION": {
     color: "#d3b6e2",
@@ -584,6 +658,7 @@ CRITICAL: Name not just the aspect and pole but the specific archetype — the F
 OUTPUT EXACTLY THIS JSON — no markdown fences, no preamble, just the raw JSON object:
 
 {
+  "dominant_emotion": "One word only — the single most present emotion in their story. Must be exactly one of: shame, guilt, fear, anger, frustration, disappointment, jealousy, envy, anxiety, boredom, grief, sadness, loneliness",
   "step3_release": {
     "bridge": "One brief warm sentence acknowledging what they are carrying, without referencing the monkey dream",
     "reframe": "One sentence: Something in you believes the world needs to be different for you to be OK. Let's find what that is.",
@@ -823,19 +898,7 @@ function renderFullMap(data, selectedOption) {
   // Look up aspect data from library
   const aspectData = getAspectData(s4.aspect_pole_flavor || '');
   const aspectColor = aspectData ? aspectData.color : 'var(--periwinkle)';
-  const aspectBBS = aspectData ? aspectData.bbs : '';
   const aspectWiseOne = aspectData ? aspectData.wise_one : '';
-
-  // Determine sword or shield from aspect string
-  const aspectStr = (s4.aspect_pole_flavor || '').toUpperCase();
-  const isSword = aspectStr.includes('SWORD');
-  const isShield = aspectStr.includes('SHIELD');
-  const poleLabel = isSword ? 'Sword' : isShield ? 'Shield' : '';
-  const poleExplanation = isSword
-    ? 'In <strong>Sword</strong> mode the ego pushes outward &mdash; controlling, demanding, taking. This is the active distortion, swinging toward excess.'
-    : isShield
-    ? 'In <strong>Shield</strong> mode the ego retreats &mdash; withdrawing, protecting, going quiet. This is the defensive distortion, pulling toward deficiency.'
-    : '';
 
   const mapHtml = '<div class="map-card">'
 
@@ -845,21 +908,25 @@ function renderFullMap(data, selectedOption) {
     + '<div class="map-section-content">' + formatContent(s4.noble_framing || '') + '</div>'
     + '</div>'
 
-    // Transition paragraph
-    + '<div class="map-section" style="background:#f8f6ff;border-radius:8px;padding:20px 24px;border:none;">'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.82;margin-bottom:14px;">Our life&rsquo;s divine plan unfolds through exactly these moments &mdash; the script conflicts that point to where we have become blocked or wounded. The ego has accumulated limiting beliefs, past hurts, and blocked emotions, and mistakes these for who he is.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.82;margin-bottom:14px;">Our higher self knows differently. Beneath this conflict is a divine quality you were born with &mdash; love, joy, wisdom, power, peace, calm &mdash; whole and unchanged. What gets distorted in the ego&rsquo;s hands is the very quality your soul came here to embody fully.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.82;">The pain of reaching for that quality through other people, outcomes, or control gets stored as emotional blockage. Both the distorted belief and the blocked emotion need to release before your higher self can come through clearly.</p>'
-    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;margin-top:18px;">Here is the aspect at the heart of your challenge:</p>'
-    + '</div>'
-
-    // Aspect card
-    + '<div class="map-section" style="background:' + aspectColor + '22;border-radius:8px;padding:22px 24px;border-left:4px solid ' + aspectColor + ';border-bottom:none;">'
+    // Aspect card -- normalizing framing with Sword, Shield, Wise One
+    + '<div class="map-section" style="background:' + aspectColor + '22;border-radius:8px;padding:22px 24px;border-left:4px solid ' + aspectColor + ';margin-bottom:4px;">'
     + '<span class="map-section-label">The Aspect</span>'
-    + '<div style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:8px;">' + escHtml(s4.aspect_pole_flavor || '') + '</div>'
-    + (aspectWiseOne ? '<div style="font-family:var(--font-body);font-size:0.9rem;color:var(--text-mid);margin-bottom:14px;">Higher self truth: <em>' + escHtml(aspectWiseOne) + '</em></div>' : '')
-    + (poleExplanation ? '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-dark);line-height:1.72;margin-bottom:14px;">' + poleExplanation + ' Both are the ego&rsquo;s attempt to find a divine quality through its own limited resources. Neither works for long.</p>' : '')
-    + (aspectBBS ? '<div style="font-family:var(--font-soul);font-size:1.05rem;color:var(--midnight);line-height:1.82;border-top:1px solid ' + aspectColor + '44;padding-top:16px;margin-top:4px;">' + formatContent(aspectBBS) + '</div>' : '')
+    + '<p style="font-family:var(--font-body);font-size:0.9rem;color:var(--text-mid);line-height:1.72;margin-bottom:16px;">This isn\'t a flaw in your life. It\'s one of eight soul themes every human navigates. Here\'s how the <strong>' + escHtml(aspectWiseOne || '') + '</strong> theme shows up:</p>'
+    + '<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px;">'
+    + (aspectData ? '<div style="display:flex;gap:14px;align-items:flex-start;">'
+      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B3A3A;min-width:58px;padding-top:3px;">Sword</span>'
+      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-dark);line-height:1.72;">' + escHtml(aspectData.sword) + '</p>'
+      + '</div>'
+      + '<div style="display:flex;gap:14px;align-items:flex-start;">'
+      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#2C6B5A;min-width:58px;padding-top:3px;">Shield</span>'
+      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-dark);line-height:1.72;">' + escHtml(aspectData.shield) + '</p>'
+      + '</div>'
+      + '<div style="display:flex;gap:14px;align-items:flex-start;border-top:1px solid ' + aspectColor + '66;padding-top:12px;">'
+      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dark);min-width:58px;padding-top:3px;">Yours</span>'
+      + '<p style="font-family:var(--font-soul);font-size:1rem;color:var(--midnight);line-height:1.72;font-style:italic;">' + escHtml(aspectData.wise_one) + ' &mdash; this is what you already are underneath the swing.</p>'
+      + '</div>' : '')
+    + '</div>'
+    + '<div style="font-family:var(--font-display);font-size:0.75rem;font-weight:600;color:var(--text-mid);letter-spacing:0.08em;opacity:0.7;margin-top:8px;">' + escHtml(s4.aspect_pole_flavor || '') + '</div>'
     + '</div>'
 
     // Does this feel right?
@@ -888,6 +955,7 @@ function continueToFullMap() {
   const aspectData = getAspectData((data.step4_receive || {}).aspect_pole_flavor || '');
   const seed = aspectData ? aspectData.seed : '';
   const hack = aspectData ? aspectData.hack : '';
+  const emotionData = getEmotionData(data.dominant_emotion || '');
 
   const fullHtml = '<div class="map-card">'
 
@@ -895,7 +963,13 @@ function continueToFullMap() {
     + '<div class="map-section" style="background:#f0edf8;border-radius:8px;padding:20px 24px;border-left:3px solid var(--periwinkle);">'
     + '<span class="map-section-label">Step Three &mdash; Release</span>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;margin-bottom:14px;">Sit with this for a moment before you read on. You don&rsquo;t need to understand it. You just need to feel it.</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.78;">If you want to go deeper: take a few minutes to write. Not the story &mdash; the feeling itself. What does this feel like right now? Does it have a weight, a location, a temperature? Write without editing until something shifts. Then stop.</p>'
+    + (emotionData ? '<div style="margin:18px 0;padding:18px 22px;background:#fff;border-radius:8px;border:1.5px solid var(--periwinkle);">'
+      + '<p style="font-family:var(--font-body);font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--periwinkle);margin-bottom:10px;">What&rsquo;s present right now</p>'
+      + '<p style="font-family:var(--font-soul);font-size:1.05rem;color:var(--text-mid);line-height:1.72;font-style:italic;margin-bottom:10px;">' + escHtml(emotionData.ego) + '</p>'
+      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--midnight);line-height:1.72;margin-bottom:14px;">' + emotionData.wise_one + '</p>'
+      + '<p style="font-family:var(--font-soul);font-size:1rem;color:var(--gold-dark);line-height:1.72;font-style:italic;">' + emotionData.question + '</p>'
+      + '</div>' : '')
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.78;">If you want to go deeper: take a few minutes to write. Not the story &mdash; the feeling itself. Sit with that question. Write without editing until something shifts. Then stop.</p>'
     + '</div>'
 
     // Step 4 — Receive (contemplation seed)
