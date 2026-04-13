@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- KL Map Minder v11 — sun angel colors matched to home page 2026-04-13 -->
+<!-- KL Map Minder v12 — other_scripts: early API fire, three perspectives in Recognize step 2026-04-13 -->
 <!-- was v10 — film strips added 2026-04-12 <!--
 <!-- was v9 — deep blue gradient room, missing beat, monkey framing, Higher Self, burn ritual, Step Five reframe 2026-04-12 -->
 <html lang="en">
@@ -666,11 +666,18 @@ POWER (solar plexus): Sword=domination/control/bullying. Shield=victimhood/helpl
 PEACE (sacral): Sword=vengeance/grudges/bitterness. Shield=fear/fawning/conflict-avoidance. Wise One=Faith. Condition sounds like: "I need this to be resolved before I can feel safe."
 CALM (root): Sword=reactivity/hair-trigger anger/fight. Shield=freeze/fawn/disappear. Wise One=Presence. Condition sounds like: "I need the chaos to stop before I can breathe."
 
+CRITICAL ADDITION — other_scripts: Before anything else, generate three compassionate possibilities for what script the other person or situation might be running. These are NOT corrections of the visitor — they are gentle windows into a reality the visitor has not considered. Each begins with "It could be that..." and is specific to their exact situation. They should open the mind, soften certainty, introduce genuine curiosity. They are offered without judgment and without telling the visitor which is true — only the other person knows.
+
 CRITICAL: Name not just the aspect and pole but the specific archetype — the Fixer, the Martyr, the Peacekeeper, the Hider, the Performer, the Righteous One, the Achiever, the Rescuer. Describe exactly how that archetype shows up in THIS person's specific story.
 
 OUTPUT EXACTLY THIS JSON — no markdown fences, no preamble, just the raw JSON object:
 
 {
+  "other_scripts": [
+    "It could be that [specific possible script the other person/situation is running — curious, compassionate, no judgement, specific to their story]",
+    "It could be that [a different possible script — opens a completely different perspective]",
+    "It could be that [a third possibility — perhaps something they would never have thought of]"
+  ],
   "dominant_emotion": "One word only — the single most present emotion in their story. Must be exactly one of: shame, guilt, fear, anger, frustration, disappointment, jealousy, envy, anxiety, boredom, grief, sadness, loneliness",
   "step3_release": {
     "bridge": "One brief warm sentence acknowledging what they are carrying, without referencing the monkey dream",
@@ -736,6 +743,45 @@ async function submitToMapMinder() {
     if (el) el.style.display = 'none';
   });
   renderRecognizeRelax();
+  // Fire API immediately — response will fill in when ready
+  fireEarlyAPI();
+}
+
+// ── EARLY API FIRE ──────────────────────────────────────────────────────────
+window._earlyApiData = null;
+window._earlyApiPending = true;
+
+async function fireEarlyAPI() {
+  const messages = [{ role: 'user', content: userSituation }];
+  try {
+    const response = await callAPI(messages);
+    const data = JSON.parse(response);
+    window._earlyApiData = data;
+    window._earlyApiPending = false;
+    injectOtherScripts(data.other_scripts || []);
+  } catch(e) {
+    window._earlyApiPending = false;
+    window._earlyApiError = e.message;
+    injectOtherScripts([]);
+  }
+}
+
+function injectOtherScripts(scripts) {
+  var placeholder = document.getElementById('other-scripts-placeholder');
+  var btn = document.getElementById('open-btn-container');
+  if (!placeholder) return;
+  if (scripts.length > 0) {
+    var items = scripts.map(function(s) {
+      return '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.82);line-height:1.78;margin-bottom:10px;padding-left:14px;border-left:2px solid rgba(169,208,231,0.4);">' + escHtml(s) + '</p>';
+    }).join('');
+    placeholder.innerHTML = '<div style="margin-bottom:20px;">'
+      + '<p style="font-family:var(--font-nav);font-size:0.64rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(169,208,231,0.7);margin-bottom:14px;">We don&rsquo;t know their script &mdash; only they do. But it might sound like:</p>'
+      + items
+      + '</div>';
+  } else {
+    placeholder.innerHTML = '';
+  }
+  if (btn) btn.style.display = 'block';
 }
 
 function renderRecognizeRelax() {
@@ -744,20 +790,24 @@ function renderRecognizeRelax() {
   const html = '<div class="resonance-card" id="recognize-card">'
     + '<span class="map-section-label">Step One &mdash; Recognize</span>'
     + '<p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.04em;line-height:1.55;margin-bottom:14px;">You have a script for how things should go. So does everyone else. And underneath both, there&rsquo;s a third &mdash; the one the universe is actually running.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:24px;">That&rsquo;s where the friction comes from. Not because something is wrong &mdash; but because three scripts are running at once and only one of them knows the whole picture.</p>'
-    + '<div style="border-top:1px solid rgba(173,175,223,0.2);padding-top:24px;margin-bottom:0;">'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:20px;">That&rsquo;s where the friction comes from. Not because something is wrong &mdash; but because three scripts are running at once and only one of them knows the whole picture.</p>'
+    + '<div id="other-scripts-placeholder" style="margin-bottom:4px;">'
+    + '<div style="display:flex;align-items:center;gap:10px;padding:14px 0;opacity:0.45;">'
+    + '<div class="loading-orb" style="width:18px;height:18px;margin:0;flex-shrink:0;"></div>'
+    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:rgba(255,255,255,0.5);font-style:italic;">Exploring what other scripts might be running...</p>'
+    + '</div></div>'
+    + '<div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;margin-bottom:0;">'
     + '<span class="map-section-label">Step Two &mdash; Relax</span>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">Your first instinct is to fix this right now. That impulse is your ego reading from his script. It got you here. It won&rsquo;t get you out.</p>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:16px;">But you just saw the conflict. That means there&rsquo;s a crack. Something wiser can come through &mdash; if you&rsquo;re willing to pause long enough to let it.</p>'
-
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.78;margin-bottom:16px;">The universe already has a plan for this. Before you go fix it, consider:</p>'
     + '<div style="background:rgba(173,175,223,0.12);border-radius:8px;padding:20px 24px;margin-bottom:20px;">'
     + '<p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.06em;text-align:center;margin-bottom:0;">Don&rsquo;t make the monkeys extinct.</p>'
     + '</div>'
-
+    + '<div id="open-btn-container" style="display:none;">'
     + '<button class="btn-submit" onclick="userClickedWilling()" style="width:100%;">'
     + '<span class="btn-text">I&rsquo;m open &mdash; show me what&rsquo;s really happening &#10022;</span>'
-    + '</button>'
+    + '</button></div>'
     + '</div>'
     + '</div>';
 
@@ -768,24 +818,39 @@ function renderRecognizeRelax() {
 }
 
 async function userClickedWilling() {
-  // Step 3: Release — now call the API
   const recognizeCard = document.getElementById('recognize-card');
   if (recognizeCard) {
-    recognizeCard.querySelector('button').disabled = true;
-    recognizeCard.querySelector('button').textContent = 'Opening the map...';
+    const btn = recognizeCard.querySelector('button');
+    if (btn) { btn.disabled = true; btn.textContent = 'Opening the map...'; }
   }
 
+  // If API already returned — use cached data immediately
+  if (window._earlyApiData) {
+    if (recognizeCard) recognizeCard.remove();
+    renderReleaseReceive(window._earlyApiData);
+    return;
+  }
+
+  // Still loading — show loading indicator and wait
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'phase2-loading';
   loadingDiv.style.cssText = 'text-align:center;padding:32px;background:linear-gradient(160deg,#1e3a5a,#3C8ABC);border-radius:16px;';
-  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 16px;"></div><p class="loading-text">The Wise One is reading your map...</p><p class="loading-sub">This takes about 20 seconds. She reads carefully.</p>';
+  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 16px;"></div><p class="loading-text">Almost there...</p><p class="loading-sub">The Wise One is finishing your map.</p>';
   if (recognizeCard) recognizeCard.after(loadingDiv);
 
-  const messages = [{ role: 'user', content: userSituation }];
+  // Poll until ready
+  const waitForData = new Promise(function(resolve, reject) {
+    var attempts = 0;
+    var interval = setInterval(function() {
+      attempts++;
+      if (window._earlyApiData) { clearInterval(interval); resolve(window._earlyApiData); }
+      else if (!window._earlyApiPending) { clearInterval(interval); reject(new Error(window._earlyApiError || 'API error')); }
+      else if (attempts > 120) { clearInterval(interval); reject(new Error('Timeout')); }
+    }, 500);
+  });
 
   try {
-    const response = await callAPI(messages);
-    const data = JSON.parse(response);
+    const data = await waitForData;
     if (recognizeCard) recognizeCard.remove();
     renderReleaseReceive(data);
   } catch(e) {
