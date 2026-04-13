@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- KL Map Minder v8 — immersive redesign, aspect content restored, recognize polish, Sir Ego fix, start over fix 2026-04-12 -->
+<!-- KL Map Minder v9 — deep blue gradient room, missing beat, monkey framing, Higher Self, burn ritual, Step Five reframe 2026-04-12 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -128,10 +128,10 @@
     /* ── IMMERSIVE READING CONTAINER ── */
     /* All reading content sits inside one midnight room */
     .resonance-card, .map-card {
-      background: var(--midnight);
+      background: linear-gradient(160deg, #1c2a4a 0%, #253872 60%, #1e2d5e 100%);
       border-radius: 16px;
       padding: 40px;
-      box-shadow: 0 16px 64px rgba(28,29,64,0.22);
+      box-shadow: 0 16px 64px rgba(28,29,64,0.28);
       margin-bottom: 24px;
       animation: fadeUp 0.5s ease;
     }
@@ -194,9 +194,9 @@
       display: none;
       text-align: center;
       padding: 48px 32px;
-      background: var(--midnight);
+      background: linear-gradient(160deg, #1c2a4a 0%, #253872 60%, #1e2d5e 100%);
       border-radius: 16px;
-      box-shadow: 0 16px 64px rgba(28,29,64,0.22);
+      box-shadow: 0 16px 64px rgba(28,29,64,0.28);
     }
     .loading-state.visible { display: block; animation: fadeUp 0.4s ease; }
     .loading-orb { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--periwinkle), var(--deep-blue)); margin: 0 auto 20px; animation: pulse 1.8s ease-in-out infinite; }
@@ -329,7 +329,7 @@
 
     <!-- CLOSING QUESTION -->
     <div id="willingness-card" style="text-align:center;padding:20px 24px 28px;margin-bottom:8px;">
-      <p style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;">What if the world is already perfect &mdash; and your inner state is where the work is?</p>
+      <p style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;">What if the world is already perfect &mdash;<br>and your inner state is where the work is?</p>
     </div>
 
     <!-- Input -->
@@ -746,6 +746,7 @@ function renderRecognizeRelax() {
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">Your first instinct is to fix this right now. That impulse is your ego reading from his script. It got you here. It won&rsquo;t get you out.</p>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:16px;">But you just saw the conflict. That means there&rsquo;s a crack. Something wiser can come through &mdash; if you&rsquo;re willing to pause long enough to let it.</p>'
 
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.78;margin-bottom:16px;">The universe already has a plan for this. Before you go fix it, consider:</p>'
     + '<div style="background:rgba(173,175,223,0.12);border-radius:8px;padding:20px 24px;margin-bottom:20px;">'
     + '<p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.06em;text-align:center;margin-bottom:0;">Don&rsquo;t make the monkeys extinct.</p>'
     + '</div>'
@@ -772,7 +773,7 @@ async function userClickedWilling() {
 
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'phase2-loading';
-  loadingDiv.style.cssText = 'text-align:center;padding:32px;background:var(--midnight);border-radius:16px;';
+  loadingDiv.style.cssText = 'text-align:center;padding:32px;background:linear-gradient(160deg,#1c2a4a,#253872);border-radius:16px;';
   loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 16px;"></div><p class="loading-text">The Wise One is reading your map...</p><p class="loading-sub">This takes about 20 seconds. She reads carefully.</p>';
   if (recognizeCard) recognizeCard.after(loadingDiv);
 
@@ -808,7 +809,7 @@ async function handleResonanceClick(btnEl) {
   const resonanceCard = document.getElementById('resonance-card');
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'resonance-loading';
-  loadingDiv.style.cssText = 'text-align:center;padding:28px;background:var(--midnight);border-radius:16px;';
+  loadingDiv.style.cssText = 'text-align:center;padding:28px;background:linear-gradient(160deg,#1c2a4a,#253872);border-radius:16px;';
   loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 14px;"></div><p class="loading-text">The Wise One is reading your map...</p>';
   if (resonanceCard) resonanceCard.after(loadingDiv);
 
@@ -879,9 +880,10 @@ function renderReleaseReceive(data) {
   const html = '<div class="resonance-card" id="resonance-card">'
     + '<span class="map-section-label">Step Three &mdash; Find Your Vibe</span>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:16px;">' + escHtml(s3.bridge || '') + '</p>'
-    + '<p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:20px;">' + escHtml(s3.reframe || '') + '</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-bottom:16px;line-height:1.72;">Before you choose &mdash; this probably isn&rsquo;t the first time you&rsquo;ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. One will find you.</p>'
-    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:16px;">Which feels like your emotional experience &mdash; not in your mind &mdash; in your heart and body?</p>'
+    + '<p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.04em;margin-bottom:20px;">' + escHtml(s3.reframe || '') + '</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:16px;">Consider the other people in your situation. They have their own scripts running &mdash; scripts that make complete sense from inside their own story, just as yours does from inside yours. The conflict isn&rsquo;t because someone is wrong. It&rsquo;s because the scripts don&rsquo;t match.</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);margin-bottom:16px;line-height:1.72;">Before you choose &mdash; this probably isn&rsquo;t the first time you&rsquo;ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. One will find you.</p>'
+    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:0.04em;margin-bottom:16px;">Which feels like your emotional experience &mdash; not in your mind &mdash; in your heart and body?</p>'
     + '<div class="resonance-options">' + buttonsHtml + '</div>'
     + '</div>';
 
@@ -931,8 +933,8 @@ function renderFullMap(data, selectedOption) {
       + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.85);line-height:1.72;">' + escHtml(aspectData.shield) + '</p>'
       + '</div>'
       + '<div style="display:flex;gap:14px;align-items:flex-start;border-top:1px solid ' + aspectColor + '66;padding-top:12px;">'
-      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dark);min-width:58px;padding-top:3px;">Yours</span>'
-      + '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.88);line-height:1.72;font-style:italic;">' + escHtml(aspectData.wise_one) + ' &mdash; this is what you already are underneath the swing.</p>'
+      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);min-width:58px;padding-top:3px;">Higher Self</span>'
+      + '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.88);line-height:1.72;font-style:italic;">' + escHtml(aspectData.wise_one) + ' &mdash; this is where you are headed.</p>'
       + '</div>' : '')
     + '</div>'
     + '<div style="font-family:var(--font-display);font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.08em;margin-top:8px;">' + escHtml(s4.aspect_pole_flavor || '') + '</div>'
@@ -989,6 +991,7 @@ function continueToFullMap() {
       + '<p class="emotion-question">' + emotionData.question + '</p>'
       + '</div>' : '')
     + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.82;">If you want to go deeper: take a few minutes to write. Not the story &mdash; the feeling itself. Sit with that question. Write without editing until something shifts. Then stop.</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:rgba(255,255,255,0.4);line-height:1.72;margin-top:10px;font-style:italic;">Some people find it helps to burn what they wrote. The writing names it. The fire releases it.</p>'
     + '</div>'
 
     // Step 4 — Receive (contemplation seed)
@@ -998,12 +1001,17 @@ function continueToFullMap() {
     + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.55);margin-top:12px;line-height:1.72;">Sit with this question. Open your heart. Trust that the insight you need will come &mdash; not from thinking harder, but from listening more quietly.</p>'
     + '</div>' : '')
 
-    // Step 5 — Respond (heart hack)
-    + (hack ? '<div class="map-section">'
+    // Step 5 — Respond
+    + '<div class="map-section">'
     + '<span class="map-section-label">Step Five &mdash; Respond</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.82;margin-bottom:8px;">' + escHtml(hack) + '</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:rgba(255,255,255,0.45);font-style:italic;">Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.</p>'
-    + '</div>' : '')
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.78);line-height:1.82;margin-bottom:16px;">Once the energy shifts, your natural wisdom comes through. You already know how to respond well &mdash; you do it every day. The distortion was the only thing in the way.</p>'
+    + (hack ? '<div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:18px 20px;border-left:3px solid var(--gold);">'
+      + '<p style="font-family:var(--font-nav);font-size:0.64rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Heart Hack &mdash; if you want to go further</p>'
+      + '<p style="font-family:var(--font-body);font-size:0.92rem;color:rgba(255,255,255,0.65);line-height:1.72;margin-bottom:10px;">If you want to cause an immediate energy shift in this exact area, step outside your comfort zone and try this:</p>'
+      + '<p style="font-family:var(--font-body);font-size:1rem;color:#fff;line-height:1.82;margin-bottom:8px;font-weight:500;">' + escHtml(hack) + '</p>'
+      + '<p style="font-family:var(--font-body);font-size:0.85rem;color:rgba(255,255,255,0.4);font-style:italic;">Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.</p>'
+      + '</div>' : '')
+    + '</div>'
 
     + '</div>'
 
