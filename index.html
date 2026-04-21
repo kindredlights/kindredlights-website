@@ -35,7 +35,7 @@
       --joy:    #a3dbe8;  /* JOY — Throat — Sky Blue */
       --wisdom: #adafdf;  /* WISDOM — Third Eye — Periwinkle */
       --light:  #d3b6e2;  /* LIGHT — Crown — Lavender Violet */
-      --voice:  #ede8f5;  /* VOICE — All/Nada — Ethereal White-Violet */
+      --expression:  #ede8f5;  /* EXPRESSION — All/Nada — Ethereal White-Violet */
       --font-display: "Cinzel", serif;
       --font-soul:    "Cormorant Garamond", serif;
       --font-body:    "Lato", sans-serif;
@@ -55,11 +55,16 @@
     /* NAV */
     #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(247,243,238,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
     #main-nav.scrolled { box-shadow: 0 4px 28px rgba(28,29,64,0.10); }
-    .nav-brand { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: center; white-space: nowrap; margin-right: 40px; flex-shrink: 0; }
-    .nav-brand em { color: var(--gold-dark); font-style: normal; display: block; }
+    .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 40px; flex-shrink: 0; text-decoration: none; }
+    .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; filter: drop-shadow(0 2px 6px rgba(188,137,220,0.35)); }
+    .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
+    .nav-brand-text em { color: var(--gold-dark); font-style: normal; display: block; }
     .nav-links { display: flex; align-items: center; gap: 0; flex: 1; list-style: none; }
     .nav-item { position: relative; }
     .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    /* Two-line nav labels: center the stacked text vertically in the nav height. */
+    .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
+    .nav-link br { display: block; }
     .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
     .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
@@ -75,6 +80,8 @@
     .nav-has-dropdown { position: relative; }
     .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
     .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    /* Dropdown items suppress the generic nav-panel to prevent overlap. */
+    .nav-has-dropdown .nav-panel { display: none !important; }
     .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
     .dropdown-link:last-child { border-bottom: none; }
     .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
@@ -84,8 +91,10 @@
 
     /* MOBILE NAV */
     .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(247,243,238,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
-    .mobile-brand { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--midnight); }
-    .mobile-brand em { color: var(--gold-dark); font-style: normal; }
+    .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .mob-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
+    .mob-brand-text { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
+    .mob-brand-text em { color: var(--gold-dark); font-style: normal; }
     .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--midnight); transition: all 0.3s; }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
@@ -95,6 +104,7 @@
     #mobile-menu.open { display: block; }
     .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
     .mob-link:hover, .mob-link.gold { color: var(--gold); }
+    .mob-link br { display: none; }
 
     /* BUTTONS */
     .btn-gold { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 15px 32px; background: var(--gold); color: var(--midnight); border-radius: 2px; display: inline-block; box-shadow: 0 4px 18px rgba(201,168,76,0.3); transition: background 0.2s, transform 0.15s; }
@@ -123,8 +133,8 @@
     .tip:hover .tip-box { display: block; }
 
     /* HERO */
-    .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 40px; padding-left: 40px; padding-right: 80px; background: linear-gradient(150deg, #2a4494 0%, #3d6abf 50%, #1e2d6e 100%); min-height: auto; display: flex; align-items: center; position: relative; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun_angel_bright.png"); background-size: cover; background-position: 28% top; opacity: 0.5; z-index: 0; pointer-events: none; }
+    .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 40px; padding-left: 40px; padding-right: 80px; background: linear-gradient(160deg, #1c2a4a 0%, #2a3d6e 60%, #1c2a4a 100%); min-height: auto; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun_angel_bright.png"); background-size: cover; background-position: 75% top; opacity: 0.45; z-index: 0; pointer-events: none; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: center; }
     .hero-meter img { width: 100%; max-width: 300px; filter: drop-shadow(0 12px 40px rgba(28,29,64,0.15)); }
@@ -139,54 +149,60 @@
     .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
     /* BENEFITS */
-    .benefits { background: #3d5faa; padding: 80px 32px; }
+    /* BENEFITS — palette slot 1: deep teal (dark section, cream text) */
+    .benefits { background: #3C8ABC; padding: 80px 32px; }
     .benefits-inner { max-width: var(--max); margin: 0 auto; }
     .benefits-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
     .benefits-intro { font-family: var(--font-body); font-size: 1.06rem; color: rgba(255,255,255,0.82); line-height: 1.82; margin-top: 18px; }
     .b-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 8px; }
-    .b-card { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 36px 28px 32px; border-top: 3px solid rgba(255,255,255,0.2); transition: background 0.2s, border-color 0.2s; }
+    .b-card { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 36px 28px 32px; border-top: 3px solid rgba(255,255,255,0.2); transition: background 0.2s, border-color 0.2s; display: flex; flex-direction: column; }
     .b-card:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.4); }
+    .b-card .b-body { flex: 1; }
     .b-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; color: #ffffff; letter-spacing: 0.04em; margin-bottom: 12px; }
     .b-body { font-family: var(--font-body); font-size: 1rem; color: rgba(255,255,255,0.78); line-height: 1.72; }
+    .b-whisper { font-family: var(--font-nav); font-size: 0.58rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); text-align: right; margin-top: 18px; font-style: italic; opacity: 0.75; }
     .benefits-compare { margin-top: 56px; text-align: center; }
     .benefits-compare img { max-width: 560px; margin: 0 auto; border-radius: 2px; opacity: 0.88; }
 
     /* MAP MINDER BAND */
-    .mm-band { background: #5578c4; padding: 64px 32px; text-align: center; position: relative; overflow: hidden; }
-    .mm-band::before { content: "✦  ✦  ✦"; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.4em; color: rgba(255,255,255,0.35); }
-    .mm-band h2 { font-family: var(--font-display); font-size: clamp(1.8rem,3.2vw,2.6rem); font-weight: 600; color: #1C1D40; letter-spacing: 0.03em; line-height: 1.15; margin-bottom: 16px; }
-    .mm-band p { font-family: var(--font-body); font-size: 1.1rem; color: rgba(28,29,64,0.8); max-width: 460px; margin: 0 auto 28px; line-height: 1.68; }
-    .mm-sub { font-family: var(--font-nav); font-size: 0.58rem; letter-spacing: 0.14em; color: rgba(28,29,64,0.45); margin-top: 14px; display: block; }
+    /* MAP MINDER BAND — palette slot 3: soft sky (light section, midnight text for CTA readability) */
+    .mm-band { background: #A9D0E7; padding: 64px 32px; text-align: center; position: relative; overflow: hidden; }
+    .mm-band::before { content: "✦  ✦  ✦"; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.4em; color: rgba(28,29,64,0.4); }
+    .mm-band h2 { font-family: var(--font-display); font-size: clamp(1.8rem,3.2vw,2.6rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; line-height: 1.15; margin-bottom: 16px; }
+    .mm-band p { font-family: var(--font-body); font-size: 1.1rem; color: rgba(28,29,64,0.78); max-width: 460px; margin: 0 auto 28px; line-height: 1.68; }
+    .mm-sub { font-family: var(--font-nav); font-size: 0.58rem; letter-spacing: 0.14em; color: rgba(28,29,64,0.55); margin-top: 14px; display: block; }
 
     /* FIVE STEPS */
-    .fivesteps { background: #a8c4e8; padding: 80px 32px; }
+    /* FIVE STEPS — palette slot 2: medium blue (tiles provide internal contrast) */
+    .fivesteps { background: #81A8CB; padding: 80px 32px; }
     .fs-inner { max-width: var(--max); margin: 0 auto; }
     .fs-head { text-align: center; max-width: 620px; margin: 0 auto 40px; }
     .fs-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; }
-    .fs-tile { padding: 36px 16px 32px; background: rgba(255,255,255,0.03); text-align: center; border-top: 2px solid transparent; transition: background 0.2s, border-color 0.2s; }
-    .fs-tile:hover { background: rgba(255,255,255,0.06); border-color: var(--gold); }
+    .fs-tile { padding: 36px 16px 32px; background: rgba(28,29,64,0.55); text-align: center; border-top: 2px solid transparent; transition: background 0.2s, border-color 0.2s; }
+    .fs-tile:hover { background: rgba(28,29,64,0.7); border-color: var(--gold); }
     .fs-n { font-family: var(--font-nav); font-size: 0.51rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 9px; }
     .fs-name { font-family: var(--font-display); font-size: 0.96rem; font-weight: 400; color: var(--cream); letter-spacing: 0.06em; margin-bottom: 9px; }
-    .fs-truth { font-family: var(--font-body); font-size: 0.92rem; color: rgba(247,243,238,0.68); line-height: 1.6; }
+    .fs-truth { font-family: var(--font-body); font-size: 0.92rem; color: rgba(247,243,238,0.82); line-height: 1.6; }
     .fs-tile:nth-child(1) .fs-name { color: #d3b6e2; } .fs-tile:nth-child(2) .fs-name { color: #f4a3a2; }
     .fs-tile:nth-child(3) .fs-name { color: #ffbea0; } .fs-tile:nth-child(4) .fs-name { color: #adafdf; }
     .fs-tile:nth-child(5) .fs-name { color: #bde7b7; }
 
     /* LUMINOLOGY */
-    .luminology { background: #c4d8f2; padding: 80px 32px; }
+    /* LUMINOLOGY — palette slot 7: lavender. Cards float in translucent white. */
+    .luminology { background: #bab0e2; padding: 80px 32px; }
     .lum-inner { max-width: var(--max); margin: 0 auto; }
     .lum-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
     .lum-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
-    .lum-card { background: rgba(255,255,255,0.65); border-radius: 8px; padding: 32px 28px; border-top: 3px solid rgba(28,29,64,0.15); box-shadow: 0 2px 12px rgba(28,29,64,0.06); transition: border-color 0.2s, box-shadow 0.2s; }
-    .lum-card:hover { border-color: var(--periwinkle); box-shadow: 0 6px 24px rgba(100,80,180,0.15); }
-    .lum-icon { font-family: var(--font-display); font-size: 1.4rem; color: var(--periwinkle); display: block; margin-bottom: 14px; }
-    .lum-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 12px; }
-    .lum-body { font-family: var(--font-body); font-size: 1rem; color: var(--text-mid); line-height: 1.72; }
+    .lum-card { background: rgba(255,255,255,0.55); border-radius: 8px; padding: 32px 28px; border-top: 3px solid rgba(28,29,64,0.15); box-shadow: 0 2px 12px rgba(28,29,64,0.10); transition: border-color 0.2s, box-shadow 0.2s; backdrop-filter: blur(2px); }
+    .lum-card:hover { border-color: var(--midnight); box-shadow: 0 6px 24px rgba(28,29,64,0.18); }
+    .lum-icon { font-family: var(--font-display); font-size: 1.4rem; color: var(--midnight); display: block; margin-bottom: 14px; opacity: 0.7; }
+    .lum-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 12px; }
+    .lum-body { font-family: var(--font-body); font-size: 1rem; color: #1a1b38; line-height: 1.72; }
     .lum-pull { max-width: 640px; margin: 52px auto 0; text-align: center; }
-    .lum-pull blockquote { font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; color: #4a4a6a; line-height: 1.72; border-left: 3px solid var(--periwinkle); padding-left: 22px; text-align: left; margin-bottom: 28px; }
+    .lum-pull blockquote { font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; color: var(--midnight); line-height: 1.72; border-left: 3px solid rgba(28,29,64,0.35); padding-left: 22px; text-align: left; margin-bottom: 28px; }
 
     /* BOOKS */
-    .books { background: #dce8f8; padding: 80px 32px; }
+    .books { background: #DAD0EA; padding: 80px 32px; }
     .books-inner { max-width: var(--max); margin: 0 auto; }
     .books-head { text-align: center; margin-bottom: 56px; }
     .books-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -211,7 +227,7 @@
     .kit-fine { font-family: var(--font-nav); font-size: 0.58rem; color: rgba(247,243,238,0.2); margin-top: 12px; letter-spacing: 0.06em; }
 
     /* AWARDS */
-    .awards { background: #F4F0EC; padding: 64px 32px; }
+    .awards { background: #E1E8F5; padding: 64px 32px; }
     .awards-inner { max-width: var(--max); margin: 0 auto; }
     .awards-eyebrow { font-family: var(--font-nav); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8B7EC8; text-align: center; display: block; margin-bottom: 40px; }
     .awards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-bottom: 32px; }
@@ -219,13 +235,13 @@
     .award-badge { font-family: var(--font-display); font-size: 1.6rem; color: var(--gold); display: block; margin-bottom: 10px; }
     .award-title { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.07em; color: var(--midnight); margin-bottom: 3px; }
     .award-source { font-family: var(--font-body); font-size: 0.88rem; color: var(--text-mid); margin-bottom: 10px; }
-    .award-quote { font-family: var(--font-body); font-size: 0.95rem; color: rgba(28,29,64,0.62); line-height: 1.62; }
+    .award-quote { font-family: var(--font-body); font-size: 0.95rem; color: rgba(28,29,64,0.75); line-height: 1.62; }
     .colin-card { background: rgba(255,255,255,0.75); border-radius: 8px; padding: 28px 36px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; border-left: 4px solid var(--deep-blue); box-shadow: 0 2px 10px rgba(28,29,64,0.06); }
     .colin-text { font-family: var(--font-body); font-size: 1rem; color: var(--text-mid); line-height: 1.72; }
     .colin-attr { font-family: var(--font-nav); font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: #8B7EC8; white-space: nowrap; }
 
     /* BARBIES */
-    .barbies { background: #f4f8fd; padding: 80px 32px; }
+    .barbies { background: #ede8f5; padding: 80px 32px; }
     .barbies-inner { max-width: var(--max); margin: 0 auto; }
     .barbies-head { text-align: center; max-width: 560px; margin: 0 auto 52px; }
     .barbies-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
@@ -253,7 +269,7 @@
 
     /* RESPONSIVE */
     @media (max-width:1024px) { .hero-inner { grid-template-columns: 260px 1fr; gap: 48px; } .meet-inner { grid-template-columns: 1fr; } .foot-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width:768px) { #main-nav { display: none; } .mobile-nav { display: flex; } :root { --nav-h: 58px; } .hero { padding-top: calc(58px + 32px); padding-right: 32px; } .hero-inner { grid-template-columns: 1fr; gap: 40px; } .hero-meter img { max-width: 220px; margin: 0 auto; } .b-grid { grid-template-columns: 1fr 1fr; } .fs-row { grid-template-columns: repeat(2,1fr); } .fs-tile:last-child { grid-column: 1/-1; } .lum-grid { grid-template-columns: 1fr; } .books-grid { grid-template-columns: 1fr; } .awards-grid { grid-template-columns: 1fr; } .colin-card { grid-template-columns: 1fr; } .barbies-grid { grid-template-columns: 1fr; } .tball-players { grid-template-columns: 1fr; } .tball-divider { display: none; } .foot-grid { grid-template-columns: 1fr; gap: 24px; } .mm-tab { display: none; } }
+    @media (max-width:768px) { #main-nav { display: none; } .mobile-nav { display: flex; } :root { --nav-h: 58px; } .hero { padding-top: calc(58px + 32px); padding-right: 32px; } .hero-inner { grid-template-columns: 1fr; gap: 40px; } .hero-meter img { max-width: 220px; margin: 0 auto; } .b-grid { grid-template-columns: 1fr 1fr; } .fs-row { grid-template-columns: repeat(2,1fr); } .fs-tile:last-child { grid-column: 1/-1; } .lum-grid { grid-template-columns: 1fr; } .books-grid { grid-template-columns: 1fr; } .awards-grid { grid-template-columns: 1fr; } .colin-card { grid-template-columns: 1fr; } .barbies-grid { grid-template-columns: 1fr; } .tball-players { grid-template-columns: 1fr; } .tball-divider { display: none; } .foot-grid { grid-template-columns: 1fr; gap: 24px; } .mm-tab { display: none; } .dream-grid { grid-template-columns: 1fr !important; } .dream-reel { max-width: 200px !important; } }
     @media (max-width:480px) { .b-grid { grid-template-columns: 1fr; } .book-card { grid-template-columns: 1fr; } }
 
     /* ── SECTION QUESTIONS ── */
@@ -273,63 +289,75 @@
 </head>
 <body>
 
-<a href="mapminder.html" class="mm-tab">Sir Ego has a map. It needs minding. →</a>
-
 <nav id="main-nav">
-  <div class="nav-brand">Kindred<em>Lights</em></div>
+  <a href="index.html" class="nav-brand"><img class="nav-brand-logo" src="images/logo_heart.png" alt="Kindred Lights heart logo" /><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
   <ul class="nav-links">
-    <li class="nav-item"><a href="index.html" class="nav-link active">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
-    <li class="nav-item"><a href="mapminder.html" class="nav-link" style="color:var(--gold-dark)">Map Minder</a><div class="nav-panel"><span class="panel-role">The Practice</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Sir Ego has a map. It needs minding. Free. Five minutes.</p><a href="mapminder.html" class="panel-link">Try It Free →</a></div></li>
-    <li class="nav-item nav-has-dropdown"><a href="wh2u.html" class="nav-link">The Books ▾</a>
+    <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link active">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item" data-nav="explore"><a href="explore.html" class="nav-link">Explore</a><div class="nav-panel"><span class="panel-role">The Rooms</span><div class="panel-title">The Exploratorium</div><p class="panel-desc">Five rooms to wander. Find what catches you.</p><a href="explore.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to Us?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
       <div class="nav-dropdown">
-        <a href="wh2u.html" class="dropdown-link">What Happened to Us?</a>
-        <a href="lh.html" class="dropdown-link">Love Heroically</a>
-        <a href="books-coming.html" class="dropdown-link">Coming Soon</a>
-      </div><div class="nav-panel"><span class="panel-role">The Maps</span><div class="panel-title">Two Books. One Practice.</div><p class="panel-desc">What Happened to Us? May 15. Love Heroically May 22.</p><a href="book.html" class="panel-link">See the Books →</a></div></li>
-    <li class="nav-item"><a href="luminology.html" class="nav-link">Luminology</a><div class="nav-panel"><span class="panel-role">The Framework</span><div class="panel-title">Luminology</div><p class="panel-desc">Sir Ego, the Wise One, the Eight Aspects, the Karmariculum. Free forever.</p><a href="luminology.html" class="panel-link">Explore →</a></div></li>
-    <li class="nav-item"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent, 90 seconds. Sir Ego meets the Wise One.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
-    <li class="nav-item"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">The Credential</span><div class="panel-title">A Life, Not a Degree</div><p class="panel-desc">Three DUIs to the Thanksgiving table. The proof is a life.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+      </div>
+    </li>
+    <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
   </ul>
 </nav>
-
 <div class="mobile-nav">
-  <div class="mobile-brand">Kindred <em>Lights</em></div>
+  <a href="index.html" class="mobile-brand"><img class="mob-brand-logo" src="images/logo_heart.png" alt="Kindred Lights heart logo" /><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </div>
 <div id="mobile-menu">
-  <a href="index.html" class="mob-link">Home</a>
-  <a href="mapminder.html" class="mob-link gold">✦ Map Minder — Free</a>
-  <a href="wh2u.html" class="mob-link">What Happened to Us?</a>
-  <a href="lh.html" class="mob-link">Love Heroically</a>
-  <a href="books-coming.html" class="mob-link">Coming Soon</a>
-  <a href="luminology.html" class="mob-link">Luminology</a>
-  <a href="barbies.html" class="mob-link">Barbies</a>
-  <a href="about.html" class="mob-link">About</a>
+  <a href="index.html" class="mob-link" data-mob="home">Home</a>
+  <a href="https://kindredlights.org/mapminder" class="mob-link gold" data-mob="mapminder">✦ Help, Now! — Free</a>
+  <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
+  <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
+  <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
+  <a href="about.html" class="mob-link" data-mob="about">About</a>
 </div>
-
 <!-- SECTION 1 — HERO -->
 <section class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-meter reveal">
-      <img src="images/trigger_meter_v2.png" alt="The Trigger-meter — Sir Ego's Heat Index" />
+      <img src="images/trigger_meter_v2.png" alt="The Trigger-meter — where are you right now?" />
       <div class="meter-subtext">
-        <p class="meter-question">Where are you on the meter?</p>
-        <p>Think of something that triggers you. A person. A situation. That thing that fired last week and you're still carrying. Where do you land?</p>
-        <p>That spot on the meter is your entry point. The Five Steps meet you right there.</p>
+        <p class="meter-question">Look at that meter.</p>
+        <p>You know exactly where you are right now. Maybe it's a person. Maybe it's the news. Maybe it's that thing that keeps showing up no matter what you do.</p>
+        <p>That spot on the meter is the beginning of something. Stay with us.</p>
       </div>
     </div>
     <div class="hero-copy reveal d2">
       <p class="hero-tagline"><em>Your heart is the portal.</em><br>Love is the path.</p>
       <div class="hero-rule"></div>
       <div class="hero-body">
-        <p>If you've survived a trauma, a narcissist, a breakdown, an addiction, a grief that nearly broke you — and you're still here, still searching for the way through — you already know the terrain this work was built in.</p>
-        <p>If you're watching the world unravel and wondering how to hold your light steady while everything around you seems to be losing its mind — this map was made for exactly this moment.</p>
-        <p>We didn't find the way through by having it easy. We found it by going all the way through the fire. The map exists because someone walked it first — and left it here for you. Because we are all Kindred Lights. And none of us walks alone.</p>
+        <p>The world is on fire.</p>
+        <p>Your inbox. The news. Someone in your family. The thing that happened last Tuesday that you still haven't been able to put down. The relationship you've tried to fix and can't. The diagnosis. The bill. The headline. The person who keeps doing the thing.</p>
+        <p>And underneath all of it, the quiet exhaustion of being the one who holds it together. Who tries. Who reads the books and does the work and meditates and journals and somehow, still, here it is — the same fire, on a different Tuesday.</p>
+        <p>Here's what nobody told you: the fire is not evidence that you're broken, or that the world is broken, or that your efforts have failed. Every triggered moment — yours, theirs, the collective's — is a signal. Your Script of how things should be is colliding with what's actually unfolding. That collision has a name. It has a shape. And it has a way through.</p>
+        <p>Not by fixing the fire. Not by talking yourself out of it. By learning to read it — one triggered moment at a time — and letting your highest wisdom come through where the old reactions used to fire.</p>
+        <p>That's what the Five Steps do. It's what this whole site is about.</p>
       </div>
       <div class="hero-ctas">
-        <a href="mapminder.html" class="btn-gold">Try the Map Minder — Free →</a>
-        <a href="#find-your-door" class="btn-outline-cream">Find Your Door</a>
+        <a href="https://kindredlights.org/mapminder" class="btn-gold">Try the Map Minder — Free →</a>
+        <a href="#five-steps" class="btn-outline-cream">Show Me the Five Steps</a>
       </div>
     </div>
   </div>
@@ -339,44 +367,60 @@
 <section class="benefits">
   <div class="benefits-inner">
     <div class="benefits-head reveal">
-      <span class="section-question on-dark">Do you recognize yourself here?</span>
-      <span class="eyebrow" style="color:rgba(255,255,255,0.85);font-size:0.72rem">What Actually Changes</span>
-      <h2 class="sh on-dark">You have a problem that shouldn't still be a problem.</h2>
-      <p class="benefits-intro">You've read the books. Done the therapy. Made the vision boards. Had the hard conversations. And here it is again — the same pattern, different day. Here is very good news.<br><br>You have an inner guide who knows how to walk through this challenge and come out freer, wiser, empowered, and radiating love. You came here to conquer this challenge. These practices will teach you to listen for her — in the most mundane moments and the most triggering moments.<br><br>What actually changes — and how — when you stop fighting your triggers and start listening to what they're trying to tell you.</p>
+      <span class="eyebrow" style="color:rgba(28,29,64,0.82);font-size:0.72rem">What's Actually Happening</span>
+      <h2 class="sh on-dark">When the heart closes,<br>the wisdom goes quiet.</h2>
+      <p class="benefits-intro">The wisdom went quiet. The alarm got louder.<br><br>In the moments that work — most of them — your heart is open and the wisdom flows through without effort. You say the right thing. You know what's needed. You are, without trying, exactly who you want to be.<br><br>In the moments that don't work, the heart closes to protect you from the charge building inside. And when it closes, the wisest part of you goes quiet. Still there. Just — underneath the alarm, waiting.<br><br>The Five Steps are how you turn down the alarm. In real time. In the moment. Before the familiar response runs. And when the alarm quiets, here is what becomes possible.</p>
     </div>
     <div class="b-grid">
       <div class="b-card reveal d1" style="border-top-color:rgba(211,182,226,0.6)">
         <div class="b-title" style="color:rgba(255,255,255,0.9)">The Loop Loses Its Grip</div>
-        <p class="b-body">When we are triggered by a challenge, our heart and mind clamp down on a specific solution and outcome. The reason the problem doesn't resolve is this outcome doesn't match the unfolding reality. The mismatch is the problem — and we have an inner guide who knows the solution.</p>
+        <p class="b-body">When the alarm fires, the heart and mind lock onto a specific solution and outcome. The reason the problem doesn't resolve is that this outcome doesn't match the unfolding reality. The mismatch is the problem — and you have an inner guide who already knows the way through.</p>
+        <p class="b-whisper">Recognize</p>
       </div>
       <div class="b-card reveal d2" style="border-top-color:rgba(163,219,232,0.6)">
         <div class="b-title" style="color:rgba(255,255,255,0.9)">The Choice Point Appears</div>
-        <p class="b-body">Right there, in the trigger, before the automatic response fires — there is a choice point. The <span class="tip">Wise One<span class="tip-box">You, operating from your truest nature. One foot in the eternal, one foot in this particular life. She keeps the master plan and is always available.</span></span> lives there. She has always been there.</p>
+        <p class="b-body">Right there, in the trigger, before the automatic response fires — there is a choice point. The <span class="tip">Wise One<span class="tip-box">Your higher self — you, operating from your truest nature. One foot in the eternal, one foot in this particular life. She keeps the master plan and is always available.</span></span> lives there. She has always been there.</p>
+        <p class="b-whisper">Relax</p>
       </div>
       <div class="b-card reveal d3" style="border-top-color:rgba(189,231,183,0.6)">
         <div class="b-title" style="color:rgba(255,255,255,0.9)">The Heart Actually Opens</div>
-        <p class="b-body">These practices open your heart in the moment it wants to close — and this changes everything. The open heart allows the mental and emotional imprints from the past to dissolve, and new insights, options, and responses to arise.</p>
+        <p class="b-body">These practices open your heart in the moment it wants to close — and this changes everything. The open heart allows the mental and emotional charge from the past to dissolve, and new insights, options, and responses to arise.</p>
+        <p class="b-whisper">Release</p>
       </div>
       <div class="b-card reveal d1" style="border-top-color:rgba(173,175,223,0.6)">
         <div class="b-title" style="color:rgba(255,255,255,0.9)">The Lie Dissolves</div>
-        <p class="b-body">As the light of love shines through your open heart it illuminates your wisdom, power, and love. Every persistent trigger is held in place by a false belief about your true nature — which dissolves in the light of Truth.</p>
+        <p class="b-body">Every persistent trigger is held in place by a false belief about your true nature. As the heart opens and the charge moves through, the light of the <span class="tip">Wise One<span class="tip-box">Your higher self — you, operating from your truest nature. One foot in the eternal, one foot in this particular life. She keeps the master plan and is always available.</span></span> illuminates what was hiding underneath — and it dissolves.</p>
+        <p class="b-whisper">Receive</p>
       </div>
       <div class="b-card reveal d2" style="border-top-color:rgba(255,190,160,0.6)">
         <div class="b-title" style="color:rgba(255,255,255,0.9)">The Outer World Shifts</div>
-        <p class="b-body">Now that you have returned to your untriggered state, with wisdom and calm, you are present in the moment, attuned to others, and confident in your words and actions. This is how the <span class="tip">Wise One<span class="tip-box">You, operating from your truest nature. One foot in the eternal, one foot in this particular life. She keeps the master plan and is always available.</span></span> moves through the world. You are returning to yourself.</p>
+        <p class="b-body">Returned to your open-hearted self, you are present in the moment, attuned to others, confident in your words and actions. You don't have to manufacture this. It arises naturally — because the only thing that was ever blocking it was the closed heart.</p>
+        <p class="b-whisper">Respond</p>
       </div>
       <div class="b-card reveal d3" style="border-top-color:rgba(244,163,162,0.6)">
         <div class="b-title" style="color:rgba(255,255,255,0.9)">You Find Your Version of Heroic</div>
-        <p class="b-body">The clouds were never the sky. When the mental and emotional weather clears, what remains is the light you came here with. Your most noble self — not earned, not achieved. Remembered.</p>
+        <p class="b-body">The clouds were never the sky. When the mental and emotional weather clears, what remains is the light you came here with. Your most noble self — simply present. Remembered.</p>
+        <p class="b-whisper">Realize</p>
       </div>
     </div>
-    <div class="benefits-compare reveal" style="text-align:center;margin-top:48px;">
-      <img src="images/flowchart_lh.png"
-           alt="Five Steps. Two Paths. Heart Consciousness Changes Everything."
-           style="max-width:680px;width:100%;margin:0 auto;display:block;border-radius:8px;box-shadow:0 12px 44px rgba(100,80,180,0.12);" />
-      <div style="margin-top:28px;text-align:center;">
-        <a href="mapminder.html" class="btn-gold">Find Your Path — Try the Map Minder →</a>
-      </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — FIVE STEPS OVERVIEW -->
+<section class="fivesteps" id="five-steps">
+  <div class="fs-inner">
+    <div class="fs-head reveal">
+      <span class="eyebrow" style="color:var(--midnight);opacity:0.7">The Practice</span>
+      <h2 class="sh" style="color:var(--midnight)">You just felt them.</h2>
+      <p class="lede" style="color:rgba(28,29,64,0.82)">Each of those six cards was the practice moving in sequence — Recognize, Relax, Release, Receive, Respond, Realize. You already know the shape of it. Here it is as a map.</p>
+    </div>
+    <div class="reveal" style="margin-top:40px;text-align:center;">
+      <img src="images/five_steps_louise_v2.jpg"
+           alt="The Five Steps to Freedom — The Hero's Path of Love"
+           style="max-width:720px;width:100%;margin:0 auto;display:block;border-radius:4px;box-shadow:0 12px 44px rgba(0,0,0,0.15);" />
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:36px;">
+      <a href="https://kindredlights.org/mapminder" class="btn-gold">Try the Map Minder — Free →</a>
     </div>
   </div>
 </section>
@@ -384,86 +428,94 @@
 <!-- SECTION 3 — MAP MINDER BAND -->
 <section class="mm-band">
   <div class="reveal">
-    <span class="section-question on-dark">Where do you start?</span>
-      
     <h2>Sir Ego has a map.<br>It needs minding.</h2>
-    <p>Describe something not moving in your life — two sentences. The Map Minder reads Sir Ego's script, names your Karmariculum, and walks you through what the Wise One sees.</p>
-    <a href="mapminder.html" class="btn-midnight">Meet Your Map Minder ✦</a>
-    <span class="mm-sub">Keeping the Karmariculum · Always free · Your Wise One is waiting</span>
+    <p>Describe something not moving in your life — two sentences. The Map Minder reads Sir Ego's script, names your <span class="tip" style="border-bottom-color:rgba(28,29,64,0.4)">Karmariculum<span class="tip-box">Your birth circumstances, your soul contracts, your life lesson plan — chosen by you and your soul team before you arrived. Lovingly chosen. Sacred curriculum.</span></span>, and walks you through what the Wise One sees.</p>
+    <a href="https://kindredlights.org/mapminder" class="btn-midnight">Meet Your Map Minder ✦</a>
+    <span class="mm-sub">Free · Five minutes · No account required</span>
   </div>
 </section>
 
 <!-- SECTION 5 — MEET KINDRED -->
-<section class="video-section" style="background:#7090d4; padding:72px 32px;">
+<section class="video-section" style="background:#A3D1E8; padding:72px 32px;">
   <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:center;">
     <div class="reveal" style="text-align:center;">
       <img src="images/author_photo.jpg" alt="Kindred Lights"
            style="width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:0 8px 32px rgba(0,0,0,0.25);margin:0 auto;display:block;border:3px solid rgba(255,255,255,0.3);" />
-      <p style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.16em;color:rgba(255,255,255,0.7);margin-top:14px;text-transform:uppercase">Kindred Lights</p>
-      <p style="font-family:var(--font-body);font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:0.04em">Spiritual Teacher · Author</p>
+      <p style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.16em;color:rgba(28,29,64,0.65);margin-top:14px;text-transform:uppercase">Kindred Lights</p>
+      <p style="font-family:var(--font-body);font-size:0.82rem;color:rgba(28,29,64,0.45);margin-top:4px;letter-spacing:0.04em">Mapmaker</p>
     </div>
     <div class="reveal d2">
-      <span class="section-question on-dark">Who built this map?</span>
-      <span class="eyebrow" style="color:rgba(255,255,255,0.6)">The Credential Is a Life</span>
-      <h2 class="sh on-dark" style="margin-bottom:20px">My journey from many messes to many miracles.</h2>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.78;margin-bottom:16px">The Five Steps and the Eight Aspects were not developed in a retreat center or a graduate program. They were built in custody courtrooms, in supervised visitation rooms, beside a teenager in crisis, and in ten thousand ordinary moments where the lower self wanted to burn the world down and the higher self said: <em style="color:rgba(255,255,255,0.95)">open your heart. I'll show you what to do.</em></p>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.78;margin-bottom:24px">Twenty years of sobriety. Three children thriving. A Thanksgiving table rebuilt from wreckage — including a seat for the man who had once been the adversary. That is what the Five Steps made possible. The actual table.</p>
+      <span class="eyebrow" style="color:rgba(28,29,64,0.55)">The Credential Is a Life</span>
+      <h2 class="sh on-dark" style="margin-bottom:20px">The proof is a life.</h2>
+      <p style="font-family:var(--font-soul);font-size:1.2rem;font-style:italic;color:rgba(28,29,64,0.92);line-height:1.6;margin-bottom:20px">Addiction. A teenager in crisis. Years inside a relationship that dismantled reality.</p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:16px">These practices were built in that fire — in custody courtrooms, in supervised visitation rooms, in ten thousand ordinary moments where everything in me wanted to burn it all down and something quieter said: <em style="color:rgba(255,255,255,0.95)">open your heart. I'll show you what to do.</em></p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:16px">The jail floor. The custody courtroom. The supervised visits. All of it curriculum, precisely delivered.</p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:24px">Twenty years of sobriety. Three children thriving. A Thanksgiving table rebuilt from wreckage — including a seat for the man who had once been the adversary. That is what the Five Steps made possible. The actual table.</p>
       <a href="about.html" class="btn-outline-cream">Read the Full Story →</a>
     </div>
   </div>
 </section>
 
-<!-- SECTION 6 — PARADISE DREAM VIDEO -->
-<section class="video-section" style="background:#8aaee0;padding:88px 32px;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:url('images/sun_angel_bright.png');background-size:cover;background-position:center 60%;opacity:0.18;pointer-events:none;"></div>
-  <div style="max-width:var(--max);margin:0 auto;position:relative;z-index:1;">
-    <div style="text-align:center;max-width:660px;margin:0 auto 48px;" class="reveal">
-      <span class="section-question on-light">Why should I trust this?</span>
-      <span class="eyebrow" style="color:rgba(28,29,64,0.5)">A Dream That Changed Everything</span>
-      <h2 class="sh on-light">I made the monkeys extinct.</h2>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.8);line-height:1.75;margin-top:16px;">Walking through paradise with the Creator, I encountered screeching monkeys and a lion crouching over a gazelle. Each time something disturbed me, I wished it away — until I realized what I'd done. Every judgment, every tiny wish for control, had repercussions I could not see or imagine. And paradise was barren.</p>
+<!-- SECTION 5B — WHY THIS IS DIFFERENT -->
+<section style="background:#AFBEDA;padding:80px 32px;color:var(--midnight);">
+  <div style="max-width:760px;margin:0 auto;">
+    <div class="reveal">
+      <span class="eyebrow" style="color:rgba(28,29,64,0.55)">Why This Works When Other Things Haven't</span>
+      <h2 class="sh" style="color:var(--midnight);margin-bottom:24px">You've probably tried things.</h2>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(28,29,64,0.85);line-height:1.82;margin-bottom:16px">Good things. Things that made sense, that gave you language for what was happening, that helped — for a while. And then the moment arrived, the real one, and the tools weren't there.</p>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(28,29,64,0.85);line-height:1.82;margin-bottom:32px">This is different in a specific way.</p>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(28,29,64,0.85);line-height:1.82;margin-bottom:32px">Most approaches work on the ego from the outside — better thoughts, better language, better frameworks. And Sir Ego takes all of that in, gets very sophisticated about it, and then does exactly what he always did when the alarm fires. Because the alarm doesn't care about frameworks. It fires first and asks questions never.</p>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(28,29,64,0.85);line-height:1.82;margin-bottom:40px">The Five Steps work from the inside, in the moment, on the nervous system. They don't ask Sir Ego to be better. They ask him to step aside — just for a moment — so the part of you that already knows what to do can come through.</p>
     </div>
-    <div style="max-width:820px;margin:0 auto;" class="reveal d2">
-      <div style="position:relative;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-          <iframe
-            src="https://www.youtube.com/embed/5aXAmPWkr9w?rel=0&modestbranding=1"
-            title="A Mystical Dream About Returning to Paradise"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;">
-          </iframe>
-        </div>
-        <div style="padding:16px 24px;background:#0f1a3a;">
-          <p style="font-family:var(--font-nav);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">5 min 52 sec · Voiceover &amp; nature film</p>
-          <p style="font-family:var(--font-display);font-size:1.1rem;color:#fff;letter-spacing:0.04em">A Mystical Dream About Returning to Paradise</p>
-        </div>
+    <div style="display:flex;flex-direction:column;gap:32px;">
+      <div class="reveal d1" style="border-left:3px solid var(--gold);padding-left:24px;">
+        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--midnight);margin-bottom:8px;letter-spacing:0.02em">The trigger is the door, not the problem.</p>
+        <p style="font-family:var(--font-body);font-size:1rem;color:rgba(28,29,64,0.78);line-height:1.75">Follow it all the way down to the buried belief underneath. When that belief dissolves, the trigger loses its charge. Permanently. The trigger was never the enemy. It was the map.</p>
       </div>
-    </div>
-    <div style="text-align:center;margin-top:40px;" class="reveal d3">
-      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(28,29,64,0.65);margin-bottom:20px;font-style:italic">"The divine plan with screeching monkeys and carnivorous lions was perfect in a way that I hadn't seen."</p>
-      <a href="mapminder.html" class="btn-gold">Try the Map Minder →</a>
+      <div class="reveal d2" style="border-left:3px solid var(--gold);padding-left:24px;">
+        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--midnight);margin-bottom:8px;letter-spacing:0.02em">It works right now.</p>
+        <p style="font-family:var(--font-body);font-size:1rem;color:rgba(28,29,64,0.78);line-height:1.75">In the activated moment, with the freight train already moving. That's exactly when and where the Five Steps were built — on a jail floor, in a custody courtroom, in the ten seconds before the email gets sent.</p>
+      </div>
+      <div class="reveal d3" style="border-left:3px solid var(--gold);padding-left:24px;">
+        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--midnight);margin-bottom:8px;letter-spacing:0.02em">Your radiant essence shines when the clouds of ego blockages and triggers are permanently released.</p>
+        <p style="font-family:var(--font-body);font-size:1rem;color:rgba(28,29,64,0.78);line-height:1.75">This is true transcendence — something you uncover, not something you achieve or perform or manufacture. The light was always there. The practice clears the way.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 6 — FIVE STEPS OVERVIEW -->
-<section class="fivesteps" id="find-your-door">
-  <div class="fs-inner">
-    <div class="fs-head reveal">
-      <span class="section-question on-light">What are the five steps?</span>
-      <span class="eyebrow" style="color:#8B7EC8">The Practice</span>
-      <h2 class="sh on-dark" style="color:var(--midnight)">The Five Steps to Freedom</h2>
-      <p class="lede" style="color:rgba(28,29,64,0.7)">A field guide for the fiery crucible — the moment when everything in you wants to react, and something deeper knows there's another way. The Five Steps connect you to that deeper knowing. They work on your nervous system. They meet you exactly where you are.</p>
+<!-- SECTION 6 — PARADISE DREAM -->
+<section style="background:#ABB1E0;padding:88px 32px;position:relative;overflow:hidden;color:var(--midnight);">
+  <div style="position:absolute;inset:0;background-image:url('images/sun_angel_bright.png');background-size:cover;background-position:center 60%;opacity:0.12;pointer-events:none;"></div>
+  <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:72px;align-items:center;position:relative;z-index:1;">
+    <div class="reveal" style="text-align:center;">
+      <img src="images/monkeys_filmreel.jpg"
+           alt="The Paradise Dream — Sir Ego makes the monkeys extinct"
+           style="width:100%;max-width:280px;margin:0 auto;display:block;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
     </div>
-    <div class="reveal" style="margin-top:40px;text-align:center;">
-      <img src="images/five_steps_louise.jpg"
-           alt="The Five Steps to Freedom — The Hero's Path to Love"
-           style="max-width:800px;width:100%;margin:0 auto;display:block;border-radius:8px;box-shadow:0 12px 44px rgba(0,0,0,0.3);" />
-    </div>
-    <div class="reveal" style="text-align:center;margin-top:36px;">
-      <a href="mapminder.html" class="btn-gold">Try the Map Minder — Meet Your Wise One →</a>
+    <div class="reveal d2">
+      <span class="eyebrow" style="color:rgba(28,29,64,0.6)">A Dream That Changed Everything</span>
+      <h2 class="sh on-dark" style="margin-bottom:32px;color:var(--midnight)">I made the monkeys extinct.</h2>
+      <div style="font-family:var(--font-soul);font-size:1.12rem;color:rgba(28,29,64,0.85);line-height:1.9;">
+        <p style="margin-bottom:12px">I was walking through paradise with the Creator.</p>
+        <p style="margin-bottom:12px">Everything shimmered with life — ferns, orchids, birdsong, golden light. And a presence beside me that needed no name.</p>
+        <p style="margin-bottom:12px">Then — screeching monkeys. Loud, chaotic, grating.</p>
+        <p style="margin-bottom:12px">I wished it would stop.</p>
+        <p style="margin-bottom:12px">And it did.</p>
+        <p style="margin-bottom:12px">I smiled. What power.</p>
+        <p style="margin-bottom:12px">But then I saw what followed. No monkeys meant no monkey babies. No monkey babies meant no monkeys at all.</p>
+        <p style="margin-bottom:24px;color:var(--midnight);font-style:italic;font-weight:600">I had made the monkeys extinct.</p>
+        <p style="margin-bottom:12px">We walked on. A lion crouched over a gazelle — blood, death, the raw truth of nature.</p>
+        <p style="margin-bottom:12px">I wished it would stop.</p>
+        <p style="margin-bottom:12px">And it did.</p>
+        <p style="margin-bottom:12px">No kills. No lions. No lions — no balance. The gazelles ate everything green. And then they vanished too.</p>
+        <p style="margin-bottom:24px;color:var(--midnight);font-style:italic;font-weight:600">And paradise was barren.</p>
+        <p style="margin-bottom:12px">All because I wanted quiet. Comfort. Control.</p>
+        <p style="margin-bottom:12px">When I woke up, I understood.</p>
+        <p style="margin-bottom:12px">The dream wasn't about monkeys and lions. It was about the way my ego was trying to fix, control, and avoid anything uncomfortable — and had repercussions I could not see or imagine.</p>
+        <p style="margin-bottom:12px">The divine plan — with screeching monkeys and carnivorous lions — was already perfect.</p>
+        <p style="font-family:var(--font-display);font-size:1.1rem;color:var(--midnight);letter-spacing:0.04em;margin-top:8px">So is yours.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -472,16 +524,15 @@
 <section class="luminology">
   <div class="lum-inner">
     <div class="lum-head reveal">
-      <span class="section-question on-light">How deep does this go?</span>
-      <span class="eyebrow">The Framework</span>
-      <h2 class="sh on-light">Sir Ego is not the problem. His script is.</h2>
-      <p class="lede on-light">Luminology gives you the full map — who's running what, and why. The complete cosmology of human consciousness, ego, and the soul's journey home.</p>
+      <span class="eyebrow" style="color:rgba(28,29,64,0.55)">The Framework</span>
+      <h2 class="sh" style="color:var(--midnight);margin-bottom:16px">Sir Ego is brave.<br>His script is the problem.</h2>
+      <p class="lede" style="color:rgba(28,29,64,0.78)">He wrote it before he had the language to question it — from childhood, from early wounds, from everything he decided he needed to do to stay safe and loved. It runs automatically, beneath every reaction. And it collides, constantly, with the deeper intelligence that's actually running your life. That collision is the trigger. Every time.</p>
     </div>
     <div class="lum-grid">
       <div class="lum-card reveal d1">
         <span class="lum-icon">⚔</span>
         <div class="lum-title">Sir Ego</div>
-        <p class="lum-body">Sir Ego is noble. He is a brave knight who said yes to the adventure of incarnation and has been doing his absolute best ever since — with incomplete information and a script he wrote himself. He is not the enemy. His script is.</p>
+        <p class="lum-body">Sir Ego is noble. He is a brave knight who said yes to the adventure of incarnation and has been doing his absolute best ever since — with incomplete information and a script he wrote himself. He is the hero. His map is incomplete.</p>
       </div>
       <div class="lum-card reveal d2">
         <span class="lum-icon">✦</span>
@@ -491,12 +542,17 @@
       <div class="lum-card reveal d3">
         <span class="lum-icon">❖</span>
         <div class="lum-title">The Karmariculum</div>
-        <p class="lum-body">Karma + curriculum. Your soul's custom-designed blueprint for this lifetime — not fate, not punishment, but a sacred plan for remembrance and liberation. When you see your life through this lens, the shame dissolves. What remains is the story of a brave soul on a remarkable quest.</p>
+        <p class="lum-body">Your soul's custom-designed blueprint for this lifetime — your birth circumstances, your soul contracts, your life lesson plan, chosen by you and your soul team before you arrived. Lovingly chosen, precisely calibrated. When you see your life through this lens, the shame dissolves. What remains is the story of a brave soul on a remarkable quest.</p>
       </div>
     </div>
     <div class="lum-pull reveal">
-      <blockquote>"You didn't come here to transcend the world. You came here to illuminate it. One trigger at a time, one layer at a time, one act of radical forgiveness at a time — until the ray has cleared enough of itself that the sun can shine through without obstruction."</blockquote>
-      <a href="luminology.html" class="btn-primary">Explore the Full Framework →</a>
+      <div style="font-family:var(--font-soul);font-size:1.12rem;color:#1a1b3a;line-height:1.85;margin-bottom:28px;text-align:left;">
+        <p style="margin-bottom:16px"><em>A word about surrender — because Sir Ego will misread it.</em></p>
+        <p style="margin-bottom:16px">This isn't surrender to the world, to another person, or to defeat. It's Sir Ego handing the wheel to the wisest part of himself. He's still on the quest. The Wise One is the cause he was always looking for — he just had the wrong map.</p>
+        <p style="margin-bottom:16px">And the wounds he's been carrying? They were never breaks. They were blockages — energy that never finished moving, beliefs that never had solid ground. The Five Steps move that energy. Permanently.</p>
+        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--midnight);letter-spacing:0.02em;line-height:1.6">What's underneath was never damaged.<br>It was always radiant. It was always whole.<br>It was always him.</p>
+      </div>
+      <a href="luminology-glossary.html" class="btn-primary">Explore the Full Framework →</a>
     </div>
   </div>
 </section>
@@ -505,12 +561,11 @@
 <section class="books">
   <div class="books-inner">
     <div class="books-head reveal" style="max-width:820px;margin:0 auto 56px;text-align:center;">
-      <span class="section-question on-light">How do I go deeper?</span>
-      <span class="eyebrow">The Books</span>
-      <h2 class="sh on-light">I've seen this pattern before.</h2>
-      <p style="font-family:var(--font-body);font-size:1.06rem;color:#2b3a6a;line-height:1.82;margin-top:16px;">In my personal life I crashed into the wall — the jail floor, actually — and had to find the Wise One immediately to rebuild everything from nothing. The Five Steps are how I did it. And I have the miracles to prove it.</p>
-      <p style="font-family:var(--font-body);font-size:1.06rem;color:#2b3a6a;line-height:1.82;margin-top:12px;">As I've watched the world expose the egoic patterns at the root of all our problems, I felt the familiar sting. We are on the collective jail floor now. I know what beauty can come from this. Miracles in our inner world, our outer worlds, our relationships. Humanity is headed for a Thanksgiving reunion that blesses everyone — just like in my family.</p>
-      <p style="font-family:var(--font-soul);font-size:1.1rem;color:#3d5faa;line-height:1.75;margin-top:14px;font-style:italic;">These are the two books that carry the map and the practice.</p>
+      <span class="eyebrow" style="color:rgba(28,29,64,0.55)">The Books</span>
+      <h2 class="sh" style="color:var(--midnight);margin-bottom:20px">Two doors.<br>You'll know which one is yours.</h2>
+      <p style="font-family:var(--font-body);font-size:1.06rem;color:rgba(28,29,64,0.78);line-height:1.82;margin-top:16px;">If what brought you here was something happening in your own life — a relationship, a pattern, a moment on the floor of your own making — <em>Love Heroically</em> is for you. The Five Steps told through the fire that forged them.</p>
+      <p style="font-family:var(--font-body);font-size:1.06rem;color:rgba(28,29,64,0.78);line-height:1.82;margin-top:12px;">If what brought you here was watching the world come apart and needing a framework that makes sense of it — <em>What Happened to Us?</em> is for you. The Age of Ego seen clearly, and the Age of Love already rising.</p>
+      <p style="font-family:var(--font-soul);font-size:1.1rem;color:var(--midnight);line-height:1.75;margin-top:14px;font-style:italic;">Neither one requires the other. Both lead home.</p>
     </div>
     <div class="books-grid">
       <div class="book-card reveal d1">
@@ -519,9 +574,9 @@
           <span class="book-date">Coming This Year</span>
           <div class="book-title">What Happened to Us?</div>
           <div class="book-sub">From the Age of Ego to the Age of Love</div>
-          <p class="book-hook">Something happened to us. Not just to you — to all of us. There is a reason nothing is working. And it is not the reason you think.</p>
+          <p class="book-hook">Something happened to us. All of us. There is a reason everything feels like it's coming apart. And the reason is more interesting than you think.</p>
           <p class="book-review">"Thoughtful, engaging, and a beautiful symphony of hope within the struggle of life." — Hollywood Book Reviews</p>
-          <a href="book.html#wh2u" class="btn-primary" style="font-size:0.62rem;padding:11px 20px;">Learn More →</a>
+          <a href="ageofego.html" class="btn-primary" style="font-size:0.62rem;padding:11px 20px;">Learn More →</a>
         </div>
       </div>
       <div class="book-card reveal d2">
@@ -532,18 +587,14 @@
           <div class="book-sub">Five Steps to Freedom</div>
           <p class="book-hook">You know what to do. You've done the therapy. And you still blow it in the moment. What if the moment just before the freight train leaves the station is actually a choice point?</p>
           <p class="book-review">"She is humble and accepting within her inner peace — and above all, you trust her intentions to teach." — Pacific Book Review ★ Notable Book</p>
-          <a href="book.html#lh" class="btn-primary" style="font-size:0.62rem;padding:11px 20px;">Learn More →</a>
+          <a href="lh.html" class="btn-primary" style="font-size:0.62rem;padding:11px 20px;">Learn More →</a>
         </div>
       </div>
     </div>
     <div class="kit-band reveal">
-      <div class="kit-h">Be the First to Know</div>
-      <p class="kit-p">Leave your email and we'll be in touch when something worth sharing arrives.</p>
-      <div class="kit-form">
-        <input class="kit-input" type="email" placeholder="your@email.com" aria-label="Email address" />
-        <a href="#" class="btn-gold">Yes, stay in touch →</a>
-      </div>
-      <p class="kit-fine">Powered by Kit. The Wise One doesn't pursue.</p>
+      <div class="kit-h">Everything here is freely given.</div>
+      <p class="kit-p">The Map Minder. The Soul Guide. The Luminology framework. The books when they arrive. This is an ark, not a store. Take what serves you. Leave the rest. Come back when you're ready.</p>
+      <a href="https://kindredlights.org/mapminder" class="btn-gold">Begin with the Map Minder ✦</a>
     </div>
   </div>
 </section>
@@ -551,32 +602,36 @@
 <!-- SECTION 9 — AWARDS -->
 <section class="awards">
   <div class="awards-inner">
-    <span class="section-question on-light">Who else has walked this path?</span>
-      <span class="awards-eyebrow">Recognition</span>
-    <div class="awards-grid">
-      <div class="award-item reveal d1"><span class="award-badge">★</span><div class="award-title">Pacific Book Review</div><div class="award-source">Notable Book — Both Titles</div><p class="award-quote">"Here is a teacher who believes in you."</p></div>
-      <div class="award-item reveal d2"><span class="award-badge">✦</span><div class="award-title">Hollywood Book Reviews</div><div class="award-source">Featured Review</div><p class="award-quote">"A beautiful symphony of hope within the struggle of life."</p></div>
-      <div class="award-item reveal d3"><span class="award-badge">❖</span><div class="award-title">The Work Itself</div><div class="award-source">The credential is a life</div><p class="award-quote">Three DUIs to the Thanksgiving table. Not perfectly. But heroically.</p></div>
-    </div>
-    <div class="colin-card reveal">
-      <p class="colin-text">Colin Tipping — creator of Radical Forgiveness and author of the international bestseller — called this story one of the most powerful demonstrations of his work he had ever witnessed. The forgiveness circle that appears in these pages is his. The Thanksgiving table that resulted from it is hers.</p>
-      <div class="colin-attr">Colin Tipping<br>Radical Forgiveness</div>
-    </div>
-  </div>
-</section>
+    <span class="awards-eyebrow">What Others Have Said</span>
 
-<!-- SECTION 10 — BARBIES PLACEHOLDER -->
-<section class="barbies">
-  <div class="barbies-inner">
-    <div class="barbies-head reveal">
-      <span class="eyebrow">Sacred · Irreverent</span>
-      <h2 class="sh on-light">Sir Ego Meets the Wise One</h2>
-      <p class="lede on-light">In plastic. With feeling. Coming soon.</p>
+    <!-- Colin Tipping — leads because it's the most powerful -->
+    <div class="colin-card reveal" style="margin-bottom:48px;">
+      <div>
+        <p class="colin-text" style="font-family:var(--font-soul);font-size:1.15rem;font-style:italic;color:#1a1b38;line-height:1.82;margin-bottom:18px">"I was witness to one of the most profound transformations I have ever seen occur in a person. You cannot read this book without being changed for the better by it."</p>
+        <div class="colin-attr" style="color:#1a1b38;font-family:var(--font-nav);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;">Colin Tipping<br><span style="font-weight:400;color:rgba(28,29,64,0.5);font-size:0.58rem;">Author of Radical Forgiveness · Miracles Workshop, Truckee CA</span></div>
+      </div>
     </div>
-    <div class="barbies-grid">
-      <div class="barbie-card reveal d1"><img class="barbie-img" src="images/pic_barbie.png" alt="Barbie episode" /><div class="barbie-info"><span class="barbie-label">Episode One</span><div class="barbie-title">Coming May 2026</div><span class="barbie-coming">Episode title arriving soon</span></div></div>
-      <div class="barbie-card reveal d2"><img class="barbie-img" src="images/pic_barbie.png" alt="Barbie episode" /><div class="barbie-info"><span class="barbie-label">Episode Two</span><div class="barbie-title">Coming May 2026</div><span class="barbie-coming">Episode title arriving soon</span></div></div>
-      <div class="barbie-card reveal d3"><img class="barbie-img" src="images/pic_barbie.png" alt="Barbie episode" /><div class="barbie-info"><span class="barbie-label">Episode Three</span><div class="barbie-title">Coming May 2026</div><span class="barbie-coming">Episode title arriving soon</span></div></div>
+
+    <!-- Three review cards -->
+    <div class="awards-grid" style="margin-bottom:32px;">
+      <div class="award-item reveal d1">
+        <img src="images/pbr_notable_book_gold.png" alt="Pacific Book Review Notable Book" style="width:88px;height:auto;margin:0 auto 16px;display:block;" />
+        <div class="award-title">Pacific Book Review</div>
+        <div class="award-source" style="color:rgba(28,29,64,0.5);margin-bottom:12px;font-size:0.8rem;">Allison Walker · on this work</div>
+        <p class="award-quote" style="color:#1a1b38;font-style:italic">"Here is a teacher who believes in you."</p>
+      </div>
+      <div class="award-item reveal d2">
+        <span class="award-badge" style="color:#1a1b38">✦</span>
+        <div class="award-title">Hollywood Book Reviews</div>
+        <div class="award-source" style="color:rgba(28,29,64,0.5);margin-bottom:12px;font-size:0.8rem;">Jack Chambers · on this work</div>
+        <p class="award-quote" style="color:#1a1b38;font-style:italic">"A beautiful symphony of hope within the struggle of life — a must-read."</p>
+      </div>
+      <div class="award-item reveal d3">
+        <span class="award-badge" style="color:#1a1b38">❖</span>
+        <div class="award-title">Pacific Book Review</div>
+        <div class="award-source" style="color:rgba(28,29,64,0.5);margin-bottom:12px;font-size:0.8rem;">David Allen · on this work</div>
+        <p class="award-quote" style="color:#1a1b38;font-style:italic">"If you will read only one self-help book — or one memoir — this year, make it this one."</p>
+      </div>
     </div>
   </div>
 </section>
@@ -586,44 +641,43 @@
   <div class="foot-grid">
     <div>
       <div class="foot-brand">Kindred <em>Lights</em></div>
-      <div class="foot-tag"><p>The Age of Ego is ending.</p><p>The Age of Love is arising.</p><p>One trigger at a time.</p></div>
+      <div class="foot-tag">
+        <p>The Age of Ego is ending.</p>
+        <p>The Age of Love is arising.</p>
+        <p>One trigger at a time.</p>
+      </div>
     </div>
     <div>
       <p class="foot-h">Practice</p>
       <ul class="foot-links">
-        <li><a href="mapminder.html">Map Minder — Free</a></li>
-        <li><a href="#find-your-door">Five Steps</a></li>
-        <li><a href="downloads/five-steps-to-freedom-soul-guide.pdf">Soul Guide PDF</a></li>
-        <li><a href="luminology.html">Luminology</a></li>
+        <li><a href="https://kindredlights.org/mapminder">Help, Now! &mdash; Free</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="luminology-glossary.html">Luminology Glossary</a></li>
       </ul>
     </div>
     <div>
-      <p class="foot-h">Explore</p>
+      <p class="foot-h">The Series</p>
       <ul class="foot-links">
-        <li><a href="wh2u.html">What Happened to Us?</a></li>
         <li><a href="lh.html">Love Heroically</a></li>
-        <li><a href="narc.html">Relationships</a></li>
-        <li><a href="world.html">The World</a></li>
-        <li><a href="addiction.html">Addiction</a></li>
-        <li><a href="grief.html">Grief &amp; Loss</a></li>
+        <li><a href="ageofego.html">What Happened to Us?</a></li>
+        <li><a href="downloads/beyond-blame-and-shame-summary.docx">Beyond Blame &amp; Shame</a></li>
       </ul>
     </div>
     <div>
-      <p class="foot-h">Connect</p>
+      <p class="foot-h">What's Your Problem?</p>
       <ul class="foot-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="barbies.html">Barbies</a></li>
-        <li><a href="mapminder.html">Map Minder</a></li>
-        <li><a href="mailto:kindred@kindredlights.org">kindred@kindredlights.org</a></li>
+        <li><a href="narc.html">Narcissistic Abuse</a></li>
+        <li><a href="parenting.html">Parenting Triggers</a></li>
+        <li><a href="addiction.html">Addiction &amp; Sobriety</a></li>
+        <li><a href="about.html">About &middot; Barbies</a></li>
       </ul>
     </div>
   </div>
   <div class="foot-bottom">
-    <p class="foot-copy">© 2026 Kindred Lights · kindredlights.org</p>
-    <div class="foot-sigil">Not perfectly. But heroically. ✦</div>
+    <p class="foot-copy">&copy; 2026 Kindred Lights &middot; <a href="mailto:kindred@kindredlights.org" style="color:inherit">kindred@kindredlights.org</a></p>
+    <div class="foot-sigil">Not perfectly. But heroically. &#10022;</div>
   </div>
 </footer>
-
 <script>
   const nav = document.getElementById("main-nav");
   window.addEventListener("scroll", () => { nav && nav.classList.toggle("scrolled", window.scrollY > 20); }, { passive: true });
@@ -636,5 +690,8 @@
   const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } }); }, { threshold: 0.1 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 </script>
+<!-- Homepage A/B toggle (preview only — remove before launch) -->
+<a href="index2.html" style="position:fixed;bottom:20px;right:20px;z-index:900;background:rgba(28,29,64,0.85);color:#C9A84C;font-family:Raleway,sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:10px 16px;border-radius:4px;box-shadow:0 4px 18px rgba(0,0,0,0.25);backdrop-filter:blur(6px);text-decoration:none;border:1px solid rgba(201,168,76,0.3);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='rgba(28,29,64,0.95)';this.style.color='#E8D48A'" onmouseout="this.style.background='rgba(28,29,64,0.85)';this.style.color='#C9A84C'">See Home 2 →</a>
+
 </body>
 </html>
