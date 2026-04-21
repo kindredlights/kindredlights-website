@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<!-- KL Map Minder v12 — other_scripts: early API fire, three perspectives in Recognize step 2026-04-13 -->
-<!-- was v10 — film strips added 2026-04-12 <!--
-<!-- was v9 — deep blue gradient room, missing beat, monkey framing, Higher Self, burn ritual, Step Five reframe 2026-04-12 -->
+<!-- KL Map Minder v5 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -61,11 +59,11 @@
       padding-top: calc(var(--nav-h) + 48px);
       padding-bottom: 56px;
       padding-left: 32px; padding-right: 80px;
-      background: linear-gradient(160deg, #1c2a4a 0%, #2a3d6e 60%, #1c2a4a 100%);
+      background: linear-gradient(150deg, #2a4494 0%, #3d6abf 50%, #1e2d6e 100%);
       position: relative; overflow: hidden;
       min-height: 60vh; display: flex; align-items: center;
     }
-    .hero-bg { position: absolute; inset: 0; background-image: url("images/Brighter_sun_angel_web4.jpg"); background-size: cover; background-position: 75% top; opacity: 0.45; pointer-events: none; }
+    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: 28% top; opacity: 0.4; pointer-events: none; }
     .hero-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; max-width: 680px; }
     .hero-eyebrow { font-family: var(--font-nav); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
     .hero-h1 { font-family: var(--font-display); font-size: clamp(2rem,4vw,3rem); font-weight: 700; color: #fff; letter-spacing: 0.04em; line-height: 1.15; margin-bottom: 16px; }
@@ -127,84 +125,75 @@
     #response-area { display: none; }
     #response-area.visible { display: block; }
 
-    /* ── IMMERSIVE READING CONTAINER ── */
-    /* All reading content sits inside one midnight room */
-    .resonance-card, .map-card {
-      background: linear-gradient(160deg, #1e3a5a 0%, #3C8ABC 70%, #2a5a8a 100%);
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 16px 64px rgba(28,29,64,0.28);
+    /* Resonance check */
+    .resonance-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px 40px;
+      box-shadow: 0 8px 48px rgba(28,29,64,0.08);
+      border: 1px solid rgba(173,175,223,0.2);
       margin-bottom: 24px;
       animation: fadeUp 0.5s ease;
     }
     @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
-
-    /* Section dividers inside the room */
-    .map-section { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.12); }
-    .map-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-    /* Step labels — gold caps */
-    .map-section-label { font-family: var(--font-nav); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
-
-    /* Body text inside the room */
-    .map-section-content { font-family: var(--font-body); font-size: 1rem; color: rgba(255,255,255,0.78); line-height: 1.82; }
-    .map-section-content p { margin-bottom: 12px; }
-    .map-section-content p:last-child { margin-bottom: 0; }
-
-    /* Vibe buttons — on dark ground */
+    .resonance-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 6px; }
+    .resonance-intro { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px; }
     .resonance-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
     .resonance-btn {
       text-align: left; padding: 14px 18px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(169,208,231,0.25);
+      background: #fafafa; border: 1.5px solid rgba(173,175,223,0.3);
       border-radius: 8px; cursor: pointer;
-      font-family: var(--font-body); font-size: 0.96rem;
-      color: rgba(255,255,255,0.75);
+      font-family: var(--font-body); font-size: 0.96rem; color: var(--text-dark);
       line-height: 1.55; transition: all 0.18s;
     }
-    .resonance-btn:hover { border-color: rgba(169,208,231,0.6); background: rgba(169,208,231,0.12); color: #fff; }
-    .resonance-btn.selected { border-color: rgba(169,208,231,0.8); background: rgba(169,208,231,0.18); color: #fff; font-weight: 600; }
+    .resonance-btn:hover { border-color: var(--periwinkle); background: rgba(173,175,223,0.08); }
+    .resonance-btn.selected { border-color: var(--periwinkle); background: rgba(173,175,223,0.12); color: var(--midnight); font-weight: 600; }
 
-    /* Emotion card — glows inside the room */
-    .emotion-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      border: 1px solid rgba(173,175,223,0.25);
-      padding: 20px 22px;
-      margin: 18px 0;
+    /* Full map */
+    .map-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 48px rgba(28,29,64,0.08);
+      border: 1px solid rgba(173,175,223,0.2);
+      margin-bottom: 24px;
+      animation: fadeUp 0.5s ease;
     }
-    .emotion-label { font-family: var(--font-nav); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--periwinkle); margin-bottom: 12px; display: block; }
-    .emotion-ego { font-family: var(--font-soul); font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.72; font-style: italic; margin-bottom: 10px; }
-    .emotion-wise { font-family: var(--font-body); font-size: 0.96rem; color: rgba(255,255,255,0.88); line-height: 1.72; margin-bottom: 14px; }
-    .emotion-question { font-family: var(--font-soul); font-size: 1rem; color: var(--gold); line-height: 1.72; font-style: italic; }
+    .map-section { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(173,175,223,0.15); }
+    .map-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .map-section-label { font-family: var(--font-nav); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--periwinkle); display: block; margin-bottom: 8px; }
+    .map-section-content { font-family: var(--font-body); font-size: 1rem; color: var(--text-dark); line-height: 1.78; }
+    .map-section-content p { margin-bottom: 10px; }
+    .map-section-content p:last-child { margin-bottom: 0; }
 
-    /* Wise One closing — deepens the room */
+    /* Wise One closing */
     .wise-one-close {
-      background: linear-gradient(135deg, rgba(30,58,90,0.7), rgba(20,50,80,0.9));
-      border-radius: 10px;
-      padding: 28px 32px;
+      background: linear-gradient(135deg, #2a4494, #1e2d6e);
+      border-radius: 12px;
+      padding: 32px 36px;
       margin-top: 8px;
       position: relative;
-      border: 1px solid rgba(173,175,223,0.15);
+      overflow: hidden;
     }
-    .wise-one-close::before { content: '\2728'; position: absolute; top: 20px; right: 24px; font-size: 1.2rem; opacity: 0.35; }
+    .wise-one-close::before { content: '✨'; position: absolute; top: 20px; right: 24px; font-size: 1.4rem; opacity: 0.4; }
     .wise-one-label { font-family: var(--font-nav); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 12px; }
-    .wise-one-text { font-family: var(--font-soul); font-size: 1.12rem; color: rgba(255,255,255,0.92); line-height: 1.78; font-style: italic; }
+    .wise-one-text { font-family: var(--font-soul); font-size: 1.12rem; color: rgba(255,255,255,0.92); line-height: 1.75; font-style: italic; }
 
     /* Loading state */
     .loading-state {
       display: none;
       text-align: center;
       padding: 48px 32px;
-      background: linear-gradient(160deg, #1e3a5a 0%, #3C8ABC 70%, #2a5a8a 100%);
-      border-radius: 16px;
-      box-shadow: 0 16px 64px rgba(28,29,64,0.28);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 48px rgba(28,29,64,0.08);
+      border: 1px solid rgba(173,175,223,0.2);
     }
     .loading-state.visible { display: block; animation: fadeUp 0.4s ease; }
     .loading-orb { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--periwinkle), var(--deep-blue)); margin: 0 auto 20px; animation: pulse 1.8s ease-in-out infinite; }
     @keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
-    .loading-text { font-family: var(--font-display); font-size: 0.9rem; color: rgba(255,255,255,0.85); letter-spacing: 0.08em; margin-bottom: 6px; }
-    .loading-sub { font-family: var(--font-body); font-size: 0.88rem; color: rgba(255,255,255,0.45); font-style: italic; }
+    .loading-text { font-family: var(--font-display); font-size: 0.9rem; color: var(--midnight); letter-spacing: 0.08em; margin-bottom: 6px; }
+    .loading-sub { font-family: var(--font-body); font-size: 0.88rem; color: var(--text-mid); font-style: italic; }
 
     /* Error state */
     .error-card { background: #fff5f5; border-radius: 8px; padding: 20px 24px; border-left: 3px solid #e57373; margin-bottom: 20px; display: none; }
@@ -212,7 +201,7 @@
     .error-text { font-family: var(--font-body); font-size: 0.96rem; color: #b71c1c; line-height: 1.6; }
 
     /* Save reading */
-    .save-card { background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid rgba(201,168,76,0.2); padding: 32px 36px; margin-top: 8px; text-align: center; }
+    .save-card { background: #2d2b5e; border-radius: 12px; padding: 32px 36px; margin-top: 24px; text-align: center; }
     .save-h { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: #fff; letter-spacing: 0.04em; margin-bottom: 8px; }
     .save-p { font-family: var(--font-body); font-size: 0.96rem; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 22px; }
     .save-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -229,12 +218,12 @@
     .btn-start-over:hover { color: var(--midnight); }
 
     /* Below fold */
-    .below-fold { background: #A9D0E7; padding: 72px 32px; }
+    .below-fold { background: #f0edf8; padding: 72px 32px; }
     .below-inner { max-width: var(--max); margin: 0 auto; text-align: center; }
-    .below-h { font-family: var(--font-display); font-size: clamp(1.3rem,2.5vw,1.9rem); font-weight: 600; color: #1c2a4a; letter-spacing: 0.04em; margin-bottom: 12px; }
-    .below-p { font-family: var(--font-body); font-size: 1rem; color: rgba(28,42,74,0.78); line-height: 1.72; max-width: 560px; margin: 0 auto 40px; }
+    .below-h { font-family: var(--font-display); font-size: clamp(1.3rem,2.5vw,1.9rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 12px; }
+    .below-p { font-family: var(--font-body); font-size: 1rem; color: var(--text-mid); line-height: 1.72; max-width: 560px; margin: 0 auto 40px; }
     .books-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 640px; margin: 0 auto; }
-    .book-mini { background: rgba(255,255,255,0.72); border-radius: 8px; padding: 24px; display: flex; gap: 20px; align-items: center; box-shadow: 0 2px 12px rgba(28,42,74,0.12); transition: box-shadow 0.2s; text-align: left; }
+    .book-mini { background: #fff; border-radius: 8px; padding: 24px; display: flex; gap: 20px; align-items: center; box-shadow: 0 2px 12px rgba(100,80,180,0.07); transition: box-shadow 0.2s; text-align: left; }
     .book-mini:hover { box-shadow: 0 6px 24px rgba(100,80,180,0.14); }
     .book-mini img { width: 70px; border-radius: 3px; box-shadow: 0 4px 14px rgba(28,29,64,0.18); flex-shrink: 0; }
     .book-mini-title { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 4px; }
@@ -267,16 +256,17 @@
   <div class="nav-brand">Kindred<em>Lights</em></div>
   <ul class="nav-links">
     <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-    <li class="nav-item"><a href="mapminder.html" class="nav-link active" style="color:var(--gold-dark)">Map Minder</a></li>
+    <li class="nav-item"><a href="mapminder.html" class="nav-link active" style="color:var(--gold-dark)">Help, Now!</a></li>
+    <li class="nav-item"><a href="explore.html" class="nav-link">Explore</a></li>
+    <li class="nav-item"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a></li>
     <li class="nav-item nav-has-dropdown">
-      <a href="wh2u.html" class="nav-link">The Books ▾</a>
+      <a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
       <div class="nav-dropdown">
-        <a href="wh2u.html" class="dropdown-link">What Happened to Us?</a>
-        <a href="lh.html" class="dropdown-link">Love Heroically</a>
-        <a href="books-coming.html" class="dropdown-link">Coming Soon</a>
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
       </div>
     </li>
-    <li class="nav-item"><a href="luminology.html" class="nav-link">Luminology</a></li>
     <li class="nav-item"><a href="barbies.html" class="nav-link">Barbies</a></li>
     <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
   </ul>
@@ -288,11 +278,17 @@
 </div>
 <div id="mobile-menu">
   <a href="index.html" class="mob-link">Home</a>
-  <a href="mapminder.html" class="mob-link gold">✦ Map Minder</a>
-  <a href="wh2u.html" class="mob-link">What Happened to Us?</a>
-  <a href="lh.html" class="mob-link">Love Heroically</a>
-  <a href="books-coming.html" class="mob-link">Coming Soon</a>
-  <a href="luminology.html" class="mob-link">Luminology</a>
+  <a href="mapminder.html" class="mob-link gold">✦ Help, Now! — Free</a>
+  <a href="explore.html" class="mob-link">Explore</a>
+  <a href="ageofego.html" class="mob-link">Five Steps<br>for the World</a>
+  <a href="narc.html" class="mob-link">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="addiction.html" class="mob-link">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="grief.html" class="mob-link">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="health.html" class="mob-link">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="work.html" class="mob-link">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="world.html" class="mob-link">&nbsp;&nbsp;· World Events</a>
+  <a href="awakening.html" class="mob-link">&nbsp;&nbsp;· Spiritual Awakening</a>
   <a href="barbies.html" class="mob-link">Barbies</a>
   <a href="about.html" class="mob-link">About</a>
 </div>
@@ -315,25 +311,23 @@
     <!-- TWO CAVES DREAM -->
     <div class="resonance-card" id="caves-dream" style="margin-bottom:24px;">
       <span class="map-section-label">The Two Caves</span>
-      <img src="images/Two_Dreams_Film_Strips-caves.png" alt="The Two Caves" style="width:100%;max-width:100%;border-radius:6px;margin-bottom:18px;display:block;" />
-      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.82;margin-bottom:14px;">I had a dream that I was bouncing back and forth between two caves: the first is dark and scary and the other is OK &mdash; not great, but OK. I didn&rsquo;t understand why I kept bouncing back and forth, so I tried to crack the code so that I could stay in the OK cave. As children, this is how we start to build a script to keep us in the OK cave. It seems to work. Until it doesn&rsquo;t.</p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:8px;">The script sounds like: <em>&ldquo;If I just please people, they will love me.&rdquo;</em> Or: <em>&ldquo;This is how good people act.&rdquo;</em> Or: <em>&ldquo;This is how I get what I want.&rdquo;</em></p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">This was our programming and social conditioning, and it taught us to mold ourselves into acceptable versions of our true self. Every script is now the source of the problem.</p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;">But there is a place beyond the two caves &mdash; a better life. Our life&rsquo;s divine plan offers us opportunities to cast off this script, reveal our true selves and live our highest path. Our inner guide knows the way. When we follow her.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-dark);line-height:1.78;margin-bottom:14px;">I had a dream that I was bouncing back and forth between two caves: the first is dark and scary and the other is OK &mdash; not great, but OK. I didn&rsquo;t understand why I kept bouncing back and forth, so I tried to crack the code so that I could stay in the OK cave. As children, this is how we start to build a script to keep us in the OK cave. It seems to work. Until it doesn&rsquo;t.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;margin-bottom:8px;">The script sounds like: <em>&ldquo;If I just please people, they will love me.&rdquo;</em> Or: <em>&ldquo;This is how good people act.&rdquo;</em> Or: <em>&ldquo;This is how I get what I want.&rdquo;</em></p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;margin-bottom:12px;">This was our programming and social conditioning, and it taught us to mold ourselves into acceptable versions of our true self. Every script is now the source of the problem.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;">But there is a place beyond the two caves &mdash; a better life. Our life&rsquo;s divine plan offers us opportunities to cast off this script, reveal our true selves and live our highest path. Our inner guide knows the way. When we follow her.</p>
     </div>
 
     <!-- PARADISE DREAM -->
     <div class="resonance-card" id="paradise-dream" style="margin-bottom:24px;">
       <span class="map-section-label">Don&rsquo;t Make the Monkeys Extinct</span>
-      <img src="images/Two_Dreams_Film_Strips-monkeys.png" alt="Don't Make the Monkeys Extinct" style="width:100%;max-width:100%;border-radius:6px;margin-bottom:18px;display:block;" />
-      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.82;margin-bottom:14px;">I was walking through paradise with the Creator. The monkeys were shrieking &mdash; loud, chaotic, impossible to ignore. I wished it would stop. And it did. Then the consequences fell like dominoes. No monkeys. No mating. No babies. Next, I wished the nearby lion wouldn&rsquo;t eat the gazelle. Lions starved. Gazelles overpopulated and ate everything green. Paradise went barren.</p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">All because I cast my opinions and fears upon the divine perfection that I did not see or understand.</p>
-      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;">Our lower self judges according to our script where lions are vegetarian. Our higher self sees the next lesson in our life&rsquo;s divine plan. The situation you want to fix might be doing exactly what it is supposed to do &mdash; in ways you cannot yet see.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-dark);line-height:1.78;margin-bottom:14px;">I was walking through paradise with the Creator. The monkeys were shrieking &mdash; loud, chaotic, impossible to ignore. I wished it would stop. And it did. Then the consequences fell like dominoes. No monkeys. No mating. No babies. Next, I wished the nearby lion wouldn&rsquo;t eat the gazelle. Lions starved. Gazelles overpopulated and ate everything green. Paradise went barren.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;margin-bottom:12px;">All because I cast my opinions and fears upon the divine perfection that I did not see or understand.</p>
+      <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;">Our lower self judges according to our script where lions are vegetarian. Our higher self sees the next lesson in our life&rsquo;s divine plan. The situation you want to fix might be doing exactly what it is supposed to do &mdash; in ways you cannot yet see.</p>
     </div>
 
     <!-- CLOSING QUESTION -->
     <div id="willingness-card" style="text-align:center;padding:20px 24px 28px;margin-bottom:8px;">
-      <p style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;">What if the world is already perfect &mdash;<br>and your inner state is where the work is?</p>
+      <p style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;">What if the world is already perfect &mdash; and your inner state is where the work is?</p>
     </div>
 
     <!-- Input -->
@@ -349,7 +343,7 @@
 
       <div style="margin-top:18px;">
         <span class="input-label" style="font-size:0.9rem;margin-bottom:6px;display:block;">What do you think SHOULD be happening instead?</span>
-        <p class="input-hint" style="margin-bottom:10px;">This is your ego's script. Name it honestly. <em>She should appreciate me more. He should listen. This shouldn't have happened to me.</em></p>
+        <p class="input-hint" style="margin-bottom:10px;">This is Sir Ego's script. Name it honestly. <em>She should appreciate me more. He should listen. This shouldn't have happened to me.</em></p>
         <textarea
           id="should-input"
           placeholder="What I think should be happening is..."
@@ -400,8 +394,8 @@
     <h2 class="below-h">Ready to go deeper?</h2>
     <p class="below-p">The Map Minder opens the door. The books walk you through it — one the map, one the practice.</p>
     <div class="books-row">
-      <a href="wh2u.html" class="book-mini">
-        <img src="images/cover_wh2u.png" alt="What Happened to Us?" />
+      <a href="ageofego.html" class="book-mini">
+        <img src="images/what-happened-to-us-age-of-ego-book-cover.jpg" alt="What Happened to Us? From the Age of Ego to the Age of Love — book cover by Kindred Lights" />
         <div>
           <div class="book-mini-title">What Happened to Us?</div>
           <div class="book-mini-sub">The map. The mechanism. The age we're in.</div>
@@ -409,7 +403,7 @@
         </div>
       </a>
       <a href="lh.html" class="book-mini">
-        <img src="images/cover_love_heroically_louise.png" alt="Love Heroically" />
+        <img src="images/love-heroically-the-five-steps-to-freedom-book-cover.jpg" alt="Love Heroically: The Five Steps to Freedom — book cover by Kindred Lights" />
         <div>
           <div class="book-mini-title">Love Heroically</div>
           <div class="book-mini-sub">The practice. The Five Steps. The actual Tuesday.</div>
@@ -426,8 +420,8 @@
     <div class="foot-brand">Kindred <em>Lights</em></div>
     <div class="foot-links">
       <a href="index.html">Home</a>
-      <a href="wh2u.html">The Books</a>
-      <a href="luminology.html">Luminology</a>
+      <a href="ageofego.html">The Books</a>
+      <a href="luminology-glossary.html">Luminology</a>
       <a href="about.html">About</a>
       <a href="mailto:kindred@kindredlights.org">kindred@kindredlights.org</a>
     </div>
@@ -444,80 +438,6 @@
 // EIGHT ASPECTS LIBRARY — from Beyond Blame & Shame
 // Pre-written in Marie's voice. Renders when AI identifies aspect.
 // ══════════════════════════════════════════════════════════════
-const EMOTIONS = {
-  shame: {
-    ego: "Your ego decided the evidence was in and the verdict was you.",
-    wise_one: "What you are is whole. It has always been whole.",
-    question: "Can I believe that I am an eternally divine, beloved of the perfect Creator?"
-  },
-  guilt: {
-    ego: "Your ego is doing time for something it can\'t undo.",
-    wise_one: "Every choice you have ever made was the only choice available to you at that level of awareness. Growth is the curriculum. You are in it.",
-    question: "Can I trust that every step I have ever taken is part of a perfect curriculum designed for my awakening?"
-  },
-  fear: {
-    ego: "Your ego is white-knuckling a world it never learned to trust.",
-    wise_one: "You are held by something that has never once failed to meet the moment when it arrived.",
-    question: "Can I rest in the truth that I am held by an intelligence that has never once failed to meet the moment?"
-  },
-  anger: {
-    ego: "Your ego found something that feels like power when everything else feels like helplessness.",
-    wise_one: "Underneath this is something that matters deeply to you. That mattering is real.",
-    question: "Can I trust that what matters to me matters &mdash; and that the divine plan has accounted for it?"
-  },
-  frustration: {
-    ego: "Your ego is doing the same thing harder and calling it trying.",
-    wise_one: "The right door opens. That is how you will know it &mdash; not by force, but by the quality of the opening.",
-    question: "Can I believe that what is meant for me will open naturally, and that I will recognize it by the quality of the opening?"
-  },
-  disappointment: {
-    ego: "Your ego is sitting in the rubble of something it really wanted and trying to figure out what it did wrong.",
-    wise_one: "What is meant for you is still in motion. The timing is precise even when it doesn\'t feel like it.",
-    question: "Can I trust that what is meant for me is still in motion &mdash; and that the timing is as precise as everything else the Creator has made?"
-  },
-  jealousy: {
-    ego: "Your ego saw what they have and felt the specific pain of someone who doesn\'t believe they\'re allowed the same.",
-    wise_one: "Love is what you are made of. It cannot be taken from you by where else it flows.",
-    question: "Can I believe that I am made of the same love I am afraid of losing?"
-  },
-  envy: {
-    ego: "Your ego looked at someone else\'s life and felt smaller for it.",
-    wise_one: "What you see in them is evidence of what the Creator has made available. Including for you.",
-    question: "Can I trust that the abundance I see in another is evidence of what the Creator has made available &mdash; including for me?"
-  },
-  anxiety: {
-    ego: "Your ego has been running disaster simulations so long it\'s forgotten they\'re simulations.",
-    wise_one: "You have met every moment that has ever actually arrived. That intelligence is present in this one too.",
-    question: "Can I trust that the intelligence that has met every moment of my life so far is present in this one too?"
-  },
-  boredom: {
-    ego: "Your ego is drumming its fingers waiting for life to get interesting enough to deserve its attention.",
-    wise_one: "Presence is where everything you are actually looking for lives. It is available right now.",
-    question: "Can I believe that this exact moment contains everything I am actually looking for?"
-  },
-  grief: {
-    ego: "Your ego is still at the scene because leaving feels like the final betrayal.",
-    wise_one: "Love is eternal. What was real is still real &mdash; just differently.",
-    question: "Can I trust that love is eternal &mdash; and that what was real is still real, just differently?"
-  },
-  sadness: {
-    ego: "Your ego has finally stopped performing and doesn\'t know what to do with its hands.",
-    wise_one: "You are whole and beloved, even here, even in this.",
-    question: "Can I believe that I am whole and beloved, even here, even in this?"
-  },
-  loneliness: {
-    ego: "Your ego has been sending out signals and getting nothing back.",
-    wise_one: "You are already in contact with everything. The Creator has never once lost track of you.",
-    question: "Can I trust that I am already in contact with everything &mdash; and that the Creator has never once lost track of me?"
-  }
-};
-
-function getEmotionData(emotionString) {
-  if (!emotionString) return null;
-  const key = emotionString.toLowerCase().trim();
-  return EMOTIONS[key] || null;
-}
-
 const ASPECTS = {
   "EXPRESSION": {
     color: "#d3b6e2",
@@ -666,19 +586,11 @@ POWER (solar plexus): Sword=domination/control/bullying. Shield=victimhood/helpl
 PEACE (sacral): Sword=vengeance/grudges/bitterness. Shield=fear/fawning/conflict-avoidance. Wise One=Faith. Condition sounds like: "I need this to be resolved before I can feel safe."
 CALM (root): Sword=reactivity/hair-trigger anger/fight. Shield=freeze/fawn/disappear. Wise One=Presence. Condition sounds like: "I need the chaos to stop before I can breathe."
 
-CRITICAL ADDITION — other_scripts: Before anything else, generate three compassionate possibilities for what script the other person or situation might be running. These are NOT corrections of the visitor — they are gentle windows into a reality the visitor has not considered. Each begins with "It could be that..." and is specific to their exact situation. They should open the mind, soften certainty, introduce genuine curiosity. They are offered without judgment and without telling the visitor which is true — only the other person knows.
-
 CRITICAL: Name not just the aspect and pole but the specific archetype — the Fixer, the Martyr, the Peacekeeper, the Hider, the Performer, the Righteous One, the Achiever, the Rescuer. Describe exactly how that archetype shows up in THIS person's specific story.
 
 OUTPUT EXACTLY THIS JSON — no markdown fences, no preamble, just the raw JSON object:
 
 {
-  "other_scripts": [
-    "It could be that [specific possible script the other person/situation is running — curious, compassionate, no judgement, specific to their story]",
-    "It could be that [a different possible script — opens a completely different perspective]",
-    "It could be that [a third possibility — perhaps something they would never have thought of]"
-  ],
-  "dominant_emotion": "One word only — the single most present emotion in their story. Must be exactly one of: shame, guilt, fear, anger, frustration, disappointment, jealousy, envy, anxiety, boredom, grief, sadness, loneliness",
   "step3_release": {
     "bridge": "One brief warm sentence acknowledging what they are carrying, without referencing the monkey dream",
     "reframe": "One sentence: Something in you believes the world needs to be different for you to be OK. Let's find what that is.",
@@ -743,45 +655,6 @@ async function submitToMapMinder() {
     if (el) el.style.display = 'none';
   });
   renderRecognizeRelax();
-  // Fire API immediately — response will fill in when ready
-  fireEarlyAPI();
-}
-
-// ── EARLY API FIRE ──────────────────────────────────────────────────────────
-window._earlyApiData = null;
-window._earlyApiPending = true;
-
-async function fireEarlyAPI() {
-  const messages = [{ role: 'user', content: userSituation }];
-  try {
-    const response = await callAPI(messages);
-    const data = JSON.parse(response);
-    window._earlyApiData = data;
-    window._earlyApiPending = false;
-    injectOtherScripts(data.other_scripts || []);
-  } catch(e) {
-    window._earlyApiPending = false;
-    window._earlyApiError = e.message;
-    injectOtherScripts([]);
-  }
-}
-
-function injectOtherScripts(scripts) {
-  var placeholder = document.getElementById('other-scripts-placeholder');
-  var btn = document.getElementById('open-btn-container');
-  if (!placeholder) return;
-  if (scripts.length > 0) {
-    var items = scripts.map(function(s) {
-      return '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.82);line-height:1.78;margin-bottom:10px;padding-left:14px;border-left:2px solid rgba(169,208,231,0.4);">' + escHtml(s) + '</p>';
-    }).join('');
-    placeholder.innerHTML = '<div style="margin-bottom:20px;">'
-      + '<p style="font-family:var(--font-nav);font-size:0.64rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(169,208,231,0.7);margin-bottom:14px;">We don&rsquo;t know their script &mdash; only they do. But it might sound like:</p>'
-      + items
-      + '</div>';
-  } else {
-    placeholder.innerHTML = '';
-  }
-  if (btn) btn.style.display = 'block';
 }
 
 function renderRecognizeRelax() {
@@ -789,25 +662,20 @@ function renderRecognizeRelax() {
 
   const html = '<div class="resonance-card" id="recognize-card">'
     + '<span class="map-section-label">Step One &mdash; Recognize</span>'
-    + '<p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.04em;line-height:1.55;margin-bottom:14px;">You have a script for how things should go. So does everyone else. And underneath both, there&rsquo;s a third &mdash; the one the universe is actually running.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:20px;">That&rsquo;s where the friction comes from. Not because something is wrong &mdash; but because three scripts are running at once and only one of them knows the whole picture.</p>'
-    + '<div id="other-scripts-placeholder" style="margin-bottom:4px;">'
-    + '<div style="display:flex;align-items:center;gap:10px;padding:14px 0;opacity:0.45;">'
-    + '<div class="loading-orb" style="width:18px;height:18px;margin:0;flex-shrink:0;"></div>'
-    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:rgba(255,255,255,0.5);font-style:italic;">Exploring what other scripts might be running...</p>'
-    + '</div></div>'
-    + '<div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;margin-bottom:0;">'
+    + '<h3 style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:12px">There is a conflict amongst your script, others&rsquo; scripts and the divine script.</h3>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:24px">Before you see the script conflict, the world is just wrong. After you see it, you realize that others are reading from their own scripts &mdash; and the divine plan is different still. Suddenly you have options you didn&rsquo;t have before.</p>'
+    + '<div class="map-section" style="border:none;padding:0;margin-bottom:24px;">'
     + '<span class="map-section-label">Step Two &mdash; Relax</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">Your first instinct is to fix this right now. That impulse is your ego reading from his script. It got you here. It won&rsquo;t get you out.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:16px;">But you just saw the conflict. That means there&rsquo;s a crack. Something wiser can come through &mdash; if you&rsquo;re willing to pause long enough to let it.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.78;margin-bottom:16px;">The universe already has a plan for this. Before you go fix it, consider:</p>'
-    + '<div style="background:rgba(173,175,223,0.12);border-radius:8px;padding:20px 24px;margin-bottom:20px;">'
-    + '<p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.06em;text-align:center;margin-bottom:0;">Don&rsquo;t make the monkeys extinct.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:12px">Your first instinct is to fix this &mdash; right now. That impulse comes from the same script that created the problem.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:12px">But now you&rsquo;ve seen the conflict. That means you have a choice you didn&rsquo;t have before. You can follow the familiar reaction &mdash; you know where that leads. Or you can pause long enough for something wiser to come through.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:16px">When the heart closes, it can only see the problem. When it opens, it can see the way through.</p>'
+    + '<div style="background:#f0edf8;border-radius:8px;padding:20px 24px;margin-bottom:20px;border-left:3px solid var(--periwinkle);">'
+    + '<p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;text-align:center;margin-bottom:0;">Don&rsquo;t make the monkeys extinct.</p>'
     + '</div>'
-    + '<div id="open-btn-container" style="display:none;">'
+
     + '<button class="btn-submit" onclick="userClickedWilling()" style="width:100%;">'
     + '<span class="btn-text">I&rsquo;m open &mdash; show me what&rsquo;s really happening &#10022;</span>'
-    + '</button></div>'
+    + '</button>'
     + '</div>'
     + '</div>';
 
@@ -818,39 +686,24 @@ function renderRecognizeRelax() {
 }
 
 async function userClickedWilling() {
+  // Step 3: Release — now call the API
   const recognizeCard = document.getElementById('recognize-card');
   if (recognizeCard) {
-    const btn = recognizeCard.querySelector('button');
-    if (btn) { btn.disabled = true; btn.textContent = 'Opening the map...'; }
+    recognizeCard.querySelector('button').disabled = true;
+    recognizeCard.querySelector('button').textContent = 'Opening the map...';
   }
 
-  // If API already returned — use cached data immediately
-  if (window._earlyApiData) {
-    if (recognizeCard) recognizeCard.remove();
-    renderReleaseReceive(window._earlyApiData);
-    return;
-  }
-
-  // Still loading — show loading indicator and wait
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'phase2-loading';
-  loadingDiv.style.cssText = 'text-align:center;padding:32px;background:linear-gradient(160deg,#1e3a5a,#3C8ABC);border-radius:16px;';
-  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 16px;"></div><p class="loading-text">Almost there...</p><p class="loading-sub">The Wise One is finishing your map.</p>';
+  loadingDiv.style.cssText = 'text-align:center;padding:32px;';
+  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 16px;"></div><p class="loading-text">The Wise One is reading your map...</p><p class="loading-sub">This takes about 20 seconds. She reads carefully.</p>';
   if (recognizeCard) recognizeCard.after(loadingDiv);
 
-  // Poll until ready
-  const waitForData = new Promise(function(resolve, reject) {
-    var attempts = 0;
-    var interval = setInterval(function() {
-      attempts++;
-      if (window._earlyApiData) { clearInterval(interval); resolve(window._earlyApiData); }
-      else if (!window._earlyApiPending) { clearInterval(interval); reject(new Error(window._earlyApiError || 'API error')); }
-      else if (attempts > 120) { clearInterval(interval); reject(new Error('Timeout')); }
-    }, 500);
-  });
+  const messages = [{ role: 'user', content: userSituation }];
 
   try {
-    const data = await waitForData;
+    const response = await callAPI(messages);
+    const data = JSON.parse(response);
     if (recognizeCard) recognizeCard.remove();
     renderReleaseReceive(data);
   } catch(e) {
@@ -878,7 +731,7 @@ async function handleResonanceClick(btnEl) {
   const resonanceCard = document.getElementById('resonance-card');
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'resonance-loading';
-  loadingDiv.style.cssText = 'text-align:center;padding:28px;background:linear-gradient(160deg,#1e3a5a,#3C8ABC);border-radius:16px;';
+  loadingDiv.style.cssText = 'text-align:center;padding:28px;';
   loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 14px;"></div><p class="loading-text">The Wise One is reading your map...</p>';
   if (resonanceCard) resonanceCard.after(loadingDiv);
 
@@ -948,11 +801,10 @@ function renderReleaseReceive(data) {
 
   const html = '<div class="resonance-card" id="resonance-card">'
     + '<span class="map-section-label">Step Three &mdash; Find Your Vibe</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:16px;">' + escHtml(s3.bridge || '') + '</p>'
-    + '<p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.04em;margin-bottom:20px;">' + escHtml(s3.reframe || '') + '</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:16px;">Consider the other people in your situation. They have their own scripts running &mdash; scripts that make complete sense from inside their own story, just as yours does from inside yours. The conflict isn&rsquo;t because someone is wrong. It&rsquo;s because the scripts don&rsquo;t match.</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);margin-bottom:16px;line-height:1.72;">Before you choose &mdash; this probably isn&rsquo;t the first time you&rsquo;ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. One will find you.</p>'
-    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:0.04em;margin-bottom:16px;">Which feels like your emotional experience &mdash; not in your mind &mdash; in your heart and body?</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:16px;">' + escHtml(s3.bridge || '') + '</p>'
+    + '<p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:20px;">' + escHtml(s3.reframe || '') + '</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-bottom:16px;line-height:1.72;">Before you choose &mdash; this probably isn&rsquo;t the first time you&rsquo;ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. One will find you.</p>'
+    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:16px;">Which feels like your emotional experience &mdash; not in your mind &mdash; in your heart and body?</p>'
     + '<div class="resonance-options">' + buttonsHtml + '</div>'
     + '</div>';
 
@@ -978,7 +830,19 @@ function renderFullMap(data, selectedOption) {
   // Look up aspect data from library
   const aspectData = getAspectData(s4.aspect_pole_flavor || '');
   const aspectColor = aspectData ? aspectData.color : 'var(--periwinkle)';
+  const aspectBBS = aspectData ? aspectData.bbs : '';
   const aspectWiseOne = aspectData ? aspectData.wise_one : '';
+
+  // Determine sword or shield from aspect string
+  const aspectStr = (s4.aspect_pole_flavor || '').toUpperCase();
+  const isSword = aspectStr.includes('SWORD');
+  const isShield = aspectStr.includes('SHIELD');
+  const poleLabel = isSword ? 'Sword' : isShield ? 'Shield' : '';
+  const poleExplanation = isSword
+    ? 'In <strong>Sword</strong> mode the ego pushes outward &mdash; controlling, demanding, taking. This is the active distortion, swinging toward excess.'
+    : isShield
+    ? 'In <strong>Shield</strong> mode the ego retreats &mdash; withdrawing, protecting, going quiet. This is the defensive distortion, pulling toward deficiency.'
+    : '';
 
   const mapHtml = '<div class="map-card">'
 
@@ -988,40 +852,26 @@ function renderFullMap(data, selectedOption) {
     + '<div class="map-section-content">' + formatContent(s4.noble_framing || '') + '</div>'
     + '</div>'
 
-    // Aspect card -- normalizing framing with Sword, Shield, Wise One
-    + '<div class="map-section" style="background:rgba(255,255,255,0.07);border-radius:10px;padding:22px 24px;border-left:4px solid ' + aspectColor + ';margin-bottom:4px;">'
-    + '<span class="map-section-label">The Aspect</span>'
-    + '<p style="font-family:var(--font-body);font-size:0.9rem;color:rgba(255,255,255,0.72);line-height:1.72;margin-bottom:16px;">This isn\'t a flaw in your life. It\'s one of eight soul themes every human navigates. Here\'s how the <strong>' + escHtml(aspectWiseOne || '') + '</strong> theme shows up:</p>'
-    + '<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px;">'
-    + (aspectData ? '<div style="display:flex;gap:14px;align-items:flex-start;">'
-      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B3A3A;min-width:58px;padding-top:3px;">Sword</span>'
-      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.85);line-height:1.72;">' + escHtml(aspectData.sword) + '</p>'
-      + '</div>'
-      + '<div style="display:flex;gap:14px;align-items:flex-start;">'
-      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#2C6B5A;min-width:58px;padding-top:3px;">Shield</span>'
-      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.85);line-height:1.72;">' + escHtml(aspectData.shield) + '</p>'
-      + '</div>'
-      + '<div style="display:flex;gap:14px;align-items:flex-start;border-top:1px solid ' + aspectColor + '66;padding-top:12px;">'
-      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);min-width:58px;padding-top:3px;">Higher Self</span>'
-      + '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.88);line-height:1.72;font-style:italic;">' + escHtml(aspectData.wise_one) + ' &mdash; this is where you are headed.</p>'
-      + '</div>' : '')
-    + '</div>'
-    + '<div style="font-family:var(--font-display);font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.08em;margin-top:8px;">' + escHtml(s4.aspect_pole_flavor || '') + '</div>'
+    // Transition paragraph
+    + '<div class="map-section" style="background:#f8f6ff;border-radius:8px;padding:20px 24px;border:none;">'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.82;margin-bottom:14px;">Our life&rsquo;s divine plan unfolds through exactly these moments &mdash; the script conflicts that point to where we have become blocked or wounded. The ego has accumulated limiting beliefs, past hurts, and blocked emotions, and mistakes these for who he is.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.82;margin-bottom:14px;">Our higher self knows differently. Beneath this conflict is a divine quality you were born with &mdash; love, joy, wisdom, power, peace, calm &mdash; whole and unchanged. What gets distorted in the ego&rsquo;s hands is the very quality your soul came here to embody fully.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.82;">The pain of reaching for that quality through other people, outcomes, or control gets stored as emotional blockage. Both the distorted belief and the blocked emotion need to release before your higher self can come through clearly.</p>'
+    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;margin-top:18px;">Here is the aspect at the heart of your challenge:</p>'
     + '</div>'
 
-    // Karmariculum + The Truth
-    + (s4.karmariculum ? '<div class="map-section">'
-      + '<span class="map-section-label">The Curriculum</span>'
-      + '<div class="map-section-content">' + formatContent(s4.karmariculum) + '</div>'
-      + '</div>' : '')
-    + (s4.the_truth ? '<div class="map-section">'
-      + '<span class="map-section-label">The Truth</span>'
-      + '<p style="font-family:var(--font-soul);font-size:1.12rem;color:rgba(255,255,255,0.92);line-height:1.82;font-style:italic;">' + escHtml(s4.the_truth) + '</p>'
-      + '</div>' : '')
+    // Aspect card
+    + '<div class="map-section" style="background:' + aspectColor + '22;border-radius:8px;padding:22px 24px;border-left:4px solid ' + aspectColor + ';border-bottom:none;">'
+    + '<span class="map-section-label">The Aspect</span>'
+    + '<div style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:8px;">' + escHtml(s4.aspect_pole_flavor || '') + '</div>'
+    + (aspectWiseOne ? '<div style="font-family:var(--font-body);font-size:0.9rem;color:var(--text-mid);margin-bottom:14px;">Higher self truth: <em>' + escHtml(aspectWiseOne) + '</em></div>' : '')
+    + (poleExplanation ? '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-dark);line-height:1.72;margin-bottom:14px;">' + poleExplanation + ' Both are the ego&rsquo;s attempt to find a divine quality through its own limited resources. Neither works for long.</p>' : '')
+    + (aspectBBS ? '<div style="font-family:var(--font-soul);font-size:1.05rem;color:var(--midnight);line-height:1.82;border-top:1px solid ' + aspectColor + '44;padding-top:16px;margin-top:4px;">' + formatContent(aspectBBS) + '</div>' : '')
+    + '</div>'
 
     // Does this feel right?
-    + '<div class="map-section" style="text-align:center;border:none;padding:24px 0 8px;">'
-    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.06em;margin-bottom:16px;">Does this feel right?</p>'
+    + '<div class="map-section" style="text-align:center;border:none;padding:20px 0 8px;">'
+    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;margin-bottom:16px;">Does this feel right?</p>'
     + '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">'
     + '<button onclick="continueToFullMap()" style="font-family:var(--font-nav);font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:12px 24px;background:var(--gold);color:var(--midnight);border:none;border-radius:4px;cursor:pointer;">Yes &mdash; Show Me My Map ✦</button>'
     + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:12px 24px;background:none;border:1.5px solid var(--periwinkle);color:var(--periwinkle);border-radius:4px;cursor:pointer;">Try a Different Vibe</button>'
@@ -1045,48 +895,35 @@ function continueToFullMap() {
   const aspectData = getAspectData((data.step4_receive || {}).aspect_pole_flavor || '');
   const seed = aspectData ? aspectData.seed : '';
   const hack = aspectData ? aspectData.hack : '';
-  const emotionData = getEmotionData(data.dominant_emotion || '');
 
   const fullHtml = '<div class="map-card">'
 
     // Step 3 — Release
-    + '<div class="map-section" style="background:rgba(255,255,255,0.03);border-radius:10px;padding:20px 24px;border-left:3px solid var(--periwinkle);">'
+    + '<div class="map-section" style="background:#f0edf8;border-radius:8px;padding:20px 24px;border-left:3px solid var(--periwinkle);">'
     + '<span class="map-section-label">Step Three &mdash; Release</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:14px;">Sit with this for a moment before you read on. You don&rsquo;t need to understand it. You just need to feel it.</p>'
-    + (emotionData ? '<div class="emotion-card">'
-      + '<span class="emotion-label">What&rsquo;s present right now</span>'
-      + '<p class="emotion-ego">' + escHtml(emotionData.ego) + '</p>'
-      + '<p class="emotion-wise">' + emotionData.wise_one + '</p>'
-      + '<p class="emotion-question">' + emotionData.question + '</p>'
-      + '</div>' : '')
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.82;">If you want to go deeper: take a few minutes to write. Not the story &mdash; the feeling itself. Sit with that question. Write without editing until something shifts. Then stop.</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:rgba(255,255,255,0.4);line-height:1.72;margin-top:10px;font-style:italic;">Some people find it helps to burn what they wrote. The writing names it. The fire releases it.</p>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.78;margin-bottom:14px;">Sit with this for a moment before you read on. You don&rsquo;t need to understand it. You just need to feel it.</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.78;">If you want to go deeper: take a few minutes to write. Not the story &mdash; the feeling itself. What does this feel like right now? Does it have a weight, a location, a temperature? Write without editing until something shifts. Then stop.</p>'
     + '</div>'
 
     // Step 4 — Receive (contemplation seed)
     + (seed ? '<div class="map-section">'
     + '<span class="map-section-label">Step Four &mdash; Receive</span>'
-    + '<p style="font-family:var(--font-soul);font-size:1.18rem;color:rgba(255,255,255,0.9);line-height:1.75;font-style:italic;">&ldquo;' + escHtml(seed) + '&rdquo;</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.55);margin-top:12px;line-height:1.72;">Sit with this question. Open your heart. Trust that the insight you need will come &mdash; not from thinking harder, but from listening more quietly.</p>'
+    + '<p style="font-family:var(--font-soul);font-size:1.18rem;color:var(--midnight);line-height:1.75;font-style:italic;">&ldquo;' + escHtml(seed) + '&rdquo;</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-top:12px;line-height:1.72;">Sit with this question. Open your heart. Trust that the insight you need will come &mdash; not from thinking harder, but from listening more quietly.</p>'
     + '</div>' : '')
 
-    // Step 5 — Respond
-    + '<div class="map-section">'
+    // Step 5 — Respond (heart hack)
+    + (hack ? '<div class="map-section">'
     + '<span class="map-section-label">Step Five &mdash; Respond</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.78);line-height:1.82;margin-bottom:16px;">Once the energy shifts, your natural wisdom comes through. You already know how to respond well &mdash; you do it every day. The distortion was the only thing in the way.</p>'
-    + (hack ? '<div style="background:rgba(255,255,255,0.09);border-radius:8px;padding:18px 20px;border-left:3px solid var(--gold);">'
-      + '<p style="font-family:var(--font-nav);font-size:0.64rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Heart Hack &mdash; if you want to go further</p>'
-      + '<p style="font-family:var(--font-body);font-size:0.92rem;color:rgba(255,255,255,0.65);line-height:1.72;margin-bottom:10px;">If you want to cause an immediate energy shift in this exact area, step outside your comfort zone and try this:</p>'
-      + '<p style="font-family:var(--font-body);font-size:1rem;color:#fff;line-height:1.82;margin-bottom:8px;font-weight:500;">' + escHtml(hack) + '</p>'
-      + '<p style="font-family:var(--font-body);font-size:0.85rem;color:rgba(255,255,255,0.4);font-style:italic;">Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.</p>'
-      + '</div>' : '')
-    + '</div>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-dark);line-height:1.78;margin-bottom:8px;">' + escHtml(hack) + '</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-mid);font-style:italic;">Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.</p>'
+    + '</div>' : '')
 
     + '</div>'
 
     // Blessing
-    + '<div style="text-align:center;padding:20px 0;margin-bottom:8px;">'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.8;">You have just walked the Five Steps to Freedom. This is the practice &mdash; not perfectly, but actually. <em>Love Heroically</em> takes you deeper into what you just experienced, with the tools to find your way back here every time you lose your center.</p>'
+    + '<div style="text-align:center;padding:20px 24px;background:#f8f6ff;border-radius:8px;margin-bottom:8px;">'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.75;">You have just walked the Five Steps to Freedom. This is the practice &mdash; not perfectly, but actually. <em>Love Heroically</em> takes you deeper into what you just experienced, with the tools to find your way back here every time you lose your center.</p>'
     + '</div>'
     + '<div class="wise-one-close">'
     + '<p class="wise-one-text">Whatever brought you here today was not a mistake. The pain is real. The love underneath it is more real. You are held by something that has never once lost track of you. ✨</p>'
@@ -1094,8 +931,8 @@ function continueToFullMap() {
 
     // Try different vibe
     + '<div style="text-align:center;padding:20px 0 8px;">'
-    + '<p style="font-family:var(--font-body);font-size:0.92rem;color:rgba(255,255,255,0.45);margin-bottom:12px;">Something feel off? Go back and try a different vibe.</p>'
-    + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:none;border:1.5px solid rgba(173,175,223,0.4);color:rgba(173,175,223,0.75);background:none;padding:10px 20px;border-radius:4px;cursor:pointer;">\u2190 Try a Different Vibe</button>'
+    + '<p style="font-family:var(--font-body);font-size:0.92rem;color:var(--text-mid);margin-bottom:12px;">Something feel off? Go back and try a different vibe.</p>'
+    + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:none;border:1.5px solid var(--periwinkle);color:var(--periwinkle);padding:10px 20px;border-radius:4px;cursor:pointer;">\u2190 Try a Different Vibe</button>'
     + '</div>'
 
     // Save card
@@ -1192,12 +1029,9 @@ function resetTool() {
   document.getElementById('response-area').classList.remove('visible');
   document.getElementById('start-over').style.display = 'none';
   document.getElementById('situation-input').value = '';
-  var shouldEl = document.getElementById('should-input');
-  if (shouldEl) shouldEl.value = '';
   document.getElementById('char-num').textContent = '0';
   conversationHistory = [];
   phase1Response = null;
-  userSituation = '';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
