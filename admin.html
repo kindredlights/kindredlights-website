@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Kindred Lights</title>
+  <meta name="description" content="Private admin reference for Kindred Lights. Not for public viewing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F4F0EC; --midnight: #1C1D40; --deep-blue: #2C4A7C;
+      --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
+      --periwinkle: #adafdf; --wise-green: #2C6B5A;
+      --text-dark: #2b2b2b; --text-mid: #4a4a4a;
+      --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
+      --max: 920px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--cream); line-height: 1.7; padding: 48px 24px 96px; }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+
+    .eyebrow { font-family: var(--font-nav); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 10px; display: block; }
+    h1 { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--midnight); letter-spacing: 0.04em; line-height: 1.15; margin-bottom: 14px; }
+    .lede { font-family: var(--font-soul); font-size: 1.3rem; font-style: italic; color: var(--text-mid); margin-bottom: 40px; max-width: 720px; line-height: 1.6; }
+
+    .warning { background: #fff3cd; border-left: 4px solid var(--gold); padding: 20px 24px; margin: 0 0 40px; border-radius: 4px; font-size: 0.98rem; }
+    .warning strong { color: var(--gold-dark); }
+
+    h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; margin: 64px 0 8px; padding-top: 20px; border-top: 1px solid rgba(28,29,64,0.12); }
+    h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+    h2 .eyebrow { margin-bottom: 6px; display: block; }
+
+    h3 { font-family: var(--font-display); font-size: 1.08rem; font-weight: 600; color: var(--midnight); margin: 32px 0 10px; letter-spacing: 0.02em; }
+
+    p { margin-bottom: 14px; color: var(--text-mid); }
+    p.section-intro { margin-bottom: 24px; }
+
+    ul, ol { margin: 10px 0 20px 24px; color: var(--text-mid); }
+    li { margin-bottom: 8px; }
+
+    .checklist { list-style: none; margin: 16px 0 28px; padding: 0; }
+    .checklist li { margin-bottom: 12px; padding-left: 30px; position: relative; color: var(--text-mid); }
+    .checklist li::before { content: "☐"; position: absolute; left: 0; top: -2px; font-size: 1.2rem; color: var(--gold-dark); }
+    .checklist li.done { color: rgba(28,29,64,0.5); text-decoration: line-through; text-decoration-color: rgba(28,29,64,0.3); }
+    .checklist li.done::before { content: "☑"; color: var(--wise-green); text-decoration: none; display: inline-block; }
+
+    code, pre { font-family: "SF Mono", "Monaco", "Cascadia Code", "Consolas", monospace; font-size: 0.9rem; }
+    code { background: rgba(28,29,64,0.06); padding: 2px 7px; border-radius: 3px; color: var(--midnight); }
+    pre { background: var(--midnight); color: var(--cream); padding: 16px 20px; border-radius: 4px; margin: 12px 0 20px; overflow-x: auto; line-height: 1.55; }
+    pre code { background: none; padding: 0; color: inherit; }
+
+    .filename { font-family: "SF Mono", monospace; font-size: 0.86rem; color: var(--gold-dark); word-break: break-all; }
+
+    .grid-table { width: 100%; margin: 16px 0 24px; border-collapse: collapse; font-size: 0.93rem; }
+    .grid-table th, .grid-table td { text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(28,29,64,0.1); vertical-align: top; }
+    .grid-table th { font-family: var(--font-nav); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--midnight); }
+    .grid-table td { color: var(--text-mid); }
+    .grid-table td.fname { font-family: "SF Mono", monospace; font-size: 0.82rem; color: var(--gold-dark); }
+
+    .step-list { counter-reset: step; list-style: none; margin: 16px 0 28px; padding: 0; }
+    .step-list li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 16px; }
+    .step-list li::before { content: counter(step); position: absolute; left: 0; top: -2px; width: 28px; height: 28px; background: var(--gold); color: var(--midnight); font-family: var(--font-display); font-weight: 600; font-size: 0.88rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+    .note { background: rgba(201,168,76,0.1); border-left: 3px solid var(--gold); padding: 14px 18px; margin: 14px 0 20px; font-size: 0.94rem; font-style: italic; color: var(--text-mid); border-radius: 0 4px 4px 0; }
+    .note strong { font-style: normal; color: var(--midnight); }
+
+    hr.rule { border: none; height: 1px; background: rgba(28,29,64,0.12); margin: 48px 0; }
+
+    .foot { font-family: var(--font-soul); font-size: 1rem; font-style: italic; color: var(--text-mid); text-align: center; margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(28,29,64,0.12); }
+
+    @media (max-width: 640px) {
+      body { padding: 32px 18px 64px; font-size: 15px; }
+      h1 { font-size: 1.8rem; }
+      .lede { font-size: 1.1rem; }
+      h2 { font-size: 1.3rem; margin-top: 48px; }
+      pre { font-size: 0.8rem; padding: 12px 14px; }
+      .grid-table { font-size: 0.84rem; }
+      .grid-table th, .grid-table td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow">Private · Admin Only</span>
+  <h1>Kindred Lights Admin</h1>
+  <p class="lede">Pre-launch checklist, Louise file pipeline, and quick-reference commands. Bookmark this page. It lives on the site but is <code>noindex</code>ed — only findable by direct URL.</p>
+
+  <div class="warning">
+    <strong>The URL is:</strong> <code>kindredlights.org/admin.html</code> — save this somewhere safe. This page is not linked from anywhere else on the site.
+  </div>
+
+<!-- CURRENT STATUS -->
+<h2><span class="eyebrow">Where You Are</span>Current Status — April 21, 2026</h2>
+
+<p class="section-intro">Site deployed to kindredlights.org with <code>noindex</code> protection on every page except Map Minder. Graphics are working placeholders. Final graphics pending from Louise.</p>
+
+<h3>Done ✓</h3>
+<ul class="checklist">
+  <li class="done">25 canonical image files with metadata embedded (IPTC + XMP)</li>
+  <li class="done">14 HTML pages with canonical alt text, pixel dimensions, JSON-LD structured data</li>
+  <li class="done">60 tooltips for 9 core vocabulary terms (keyboard and touch accessible)</li>
+  <li class="done">Full site deployed to kindredlights.org via GitHub + Netlify</li>
+  <li class="done">Map Minder reintegrated with site-wide navigation</li>
+  <li class="done"><code>noindex</code> tags on every page except <code>mapminder.html</code></li>
+  <li class="done">Graphics Inventory xlsx with metadata pipeline</li>
+  <li class="done">Python script (<code>embed_metadata.py</code>) tested on Windows PC</li>
+  <li class="done">Revised Logo Brief sent to Louise</li>
+</ul>
+
+<h3>Waiting on Louise</h3>
+<ul class="checklist">
+  <li>Final logo (heart mark + wordmark lockups, color + cream + midnight variants, SVG master)</li>
+  <li>Favicon set (16px, 32px, 180px apple-touch-icon)</li>
+  <li>Final WH2U cover</li>
+  <li>Final Memoir cover</li>
+  <li>Final LH cover (Louise version)</li>
+  <li>Final BBS cover</li>
+  <li>Final Luminology cover</li>
+  <li>Eight Aspects charts with Expression (not Voice/Sound)</li>
+  <li>Collective Ideology Grid</li>
+  <li>Personal Ideology Grid redone</li>
+  <li>Five Steps · Love Heroically flowchart redone</li>
+  <li>Sacred Authority chart (if revised)</li>
+</ul>
+
+<hr class="rule" />
+
+<!-- LOUISE FILE PIPELINE -->
+<h2><span class="eyebrow">When Louise Delivers</span>Adding Metadata to New Graphics</h2>
+
+<p class="section-intro">Follow these steps for each file Louise sends. The site uses canonical filenames — your job is to match her file to the right name, drop it in, and re-run the metadata script.</p>
+
+<h3>The workflow, one file at a time</h3>
+<ol class="step-list">
+  <li>
+    <strong>Check the file's actual format.</strong> Right-click the file → Properties. Look at "Type." Is it a JPEG or a PNG? Make sure the extension matches.
+    <div class="note"><strong>Common gotcha:</strong> Canva sometimes exports JPEGs labeled as <code>.png</code>. If the extension doesn't match the actual format, ExifTool will refuse to write metadata. Rename the file to use the correct extension before proceeding.</div>
+  </li>
+  <li>
+    <strong>Rename the file to its canonical name.</strong> See the filename reference table below. Example: Louise sends <code>KL_WH2U_Cover_FINAL_v3.jpg</code> — rename to <code>what-happened-to-us-age-of-ego-book-cover.jpg</code>.
+  </li>
+  <li>
+    <strong>Check pixel dimensions.</strong> Right-click → Properties → Details → Image width/height. If the dimensions differ from the record in the xlsx (column N "Pixel Dimensions"), you'll need to update the HTML later — note the new dimensions.
+  </li>
+  <li>
+    <strong>Drop the file into the images folder.</strong> Replace the existing placeholder with the same name.
+  </li>
+  <li>
+    <strong>Run the embed script on that single file.</strong> In PowerShell:
+    <pre><code>cd "C:\Users\marie\web graphics metadata"
+python embed_metadata.py images\what-happened-to-us-age-of-ego-book-cover.jpg</code></pre>
+    The script reads its canonical metadata from the xlsx, calls ExifTool, writes IPTC + XMP into the file.
+  </li>
+  <li>
+    <strong>If dimensions changed:</strong> open the HTML file(s) that reference this image (see xlsx column O "Used On Pages"), find the <code>&lt;img src="..."&gt;</code> tag, update <code>width="..."</code> and <code>height="..."</code> to match the new dimensions.
+  </li>
+  <li>
+    <strong>Commit and push to GitHub.</strong> Netlify auto-deploys within 2 minutes.
+  </li>
+</ol>
+
+<h3>Running embed on ALL files at once</h3>
+<p>If Louise sends multiple files together, or if you want to re-embed everything (safe, idempotent), run:</p>
+<pre><code>cd "C:\Users\marie\web graphics metadata"
+python embed_metadata.py images\</code></pre>
+<p>Script processes every file, skips anything not listed in the xlsx, reports success/failure per file.</p>
+
+<h3>Canonical filename reference</h3>
+<p class="section-intro">When Louise sends a file, find its purpose in this table and rename her file to match the "Canonical Name" column.</p>
+
+<table class="grid-table">
+  <thead>
+    <tr><th>Purpose</th><th>Canonical Name</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>WH2U book cover</td><td class="fname">what-happened-to-us-age-of-ego-book-cover.jpg</td></tr>
+    <tr><td>Love Heroically book cover</td><td class="fname">love-heroically-the-five-steps-to-freedom-book-cover.jpg</td></tr>
+    <tr><td>Beyond Blame and Shame book cover</td><td class="fname">beyond-blame-and-shame-the-truth-of-who-you-are-book-cover.jpg</td></tr>
+    <tr><td>Luminology book cover</td><td class="fname">luminology-a-framework-for-awakening-book-cover.jpg</td></tr>
+    <tr><td>Memoir book cover</td><td class="fname">the-mastery-of-sir-ego-and-the-rise-of-the-wise-one-memoir-cover.jpg</td></tr>
+    <tr><td>Logo heart mark</td><td class="fname">kindred-lights-logo-heart.png</td></tr>
+    <tr><td>Sun Angel hero image</td><td class="fname">sun-angel-hero-kindred-lights.png</td></tr>
+    <tr><td>Author photo</td><td class="fname">kindred-lights-author-photo.jpg</td></tr>
+    <tr><td>Pacific Book Review badge</td><td class="fname">pacific-book-review-notable-book-award.png</td></tr>
+    <tr><td>Trigger-meter</td><td class="fname">trigger-meter-five-steps-to-freedom.png</td></tr>
+    <tr><td>Five Steps simple reference</td><td class="fname">five-steps-to-freedom-simple-reference.png</td></tr>
+    <tr><td>Five Steps · Two Paths (series signature)</td><td class="fname">five-steps-two-paths-the-heros-path-of-love.png</td></tr>
+    <tr><td>Five Steps · Love Heroically flowchart</td><td class="fname">five-steps-love-heroically-flowchart.jpg</td></tr>
+    <tr><td>Five Steps EZ reference page 1</td><td class="fname">five-steps-to-freedom-ez-reference-page-1.png</td></tr>
+    <tr><td>Five Steps EZ reference page 2</td><td class="fname">five-steps-to-freedom-ez-reference-page-2.png</td></tr>
+    <tr><td>Five Steps for the World</td><td class="fname">five-steps-for-the-world-age-of-ego.jpg</td></tr>
+    <tr><td>Self-Help vs. Five Steps comparison</td><td class="fname">self-help-vs-five-steps-to-freedom.jpg</td></tr>
+    <tr><td>Eight Aspects — duality to divine center</td><td class="fname">eight-aspects-ego-duality-to-divine-center.jpg</td></tr>
+    <tr><td>Eight Aspects — soul forge chart</td><td class="fname">eight-aspects-soul-forge-chart.jpg</td></tr>
+    <tr><td>Sir Ego and the Wise One comparison</td><td class="fname">sir-ego-and-the-wise-one-comparison.jpg</td></tr>
+    <tr><td>Shadow to Sovereignty — ego arc</td><td class="fname">shadow-to-sovereignty-ego-arc.jpg</td></tr>
+    <tr><td>Sacred Authority across traditions</td><td class="fname">sacred-authority-across-traditions.png</td></tr>
+    <tr><td>Ideology Grid — personal</td><td class="fname">ideology-grid-personal-age-of-ego.png</td></tr>
+    <tr><td>Ideology Grid — collective (pending)</td><td class="fname">ideologies-collective-age-of-ego.png</td></tr>
+    <tr><td>Emotions — full human range</td><td class="fname">emotions-full-human-range-illustration.png</td></tr>
+    <tr><td>Monkeys dream film reel</td><td class="fname">monkeys-dream-film-reel.jpg</td></tr>
+    <tr><td>Monkeys extinct dream illustration</td><td class="fname">monkeys-extinct-dream-illustration.jpg</td></tr>
+  </tbody>
+</table>
+
+<div class="note"><strong>Complete rules and extended metadata</strong> (alt text, keywords, IPTC descriptions, page usage) live in <code>KL_GraphicsInventory_2026-04-21c.xlsx</code>. The admin page only shows the filename mapping; the xlsx is the full source of truth.</div>
+
+<hr class="rule" />
+
+<!-- FULL LAUNCH CHECKLIST -->
+<h2><span class="eyebrow">When You're Ready</span>Full Launch Checklist</h2>
+
+<p class="section-intro">This is the sequence for flipping from "private working draft" to "visible to the world." Do this when Louise's graphics are substantially complete and you're ready to share the site publicly.</p>
+
+<h3>Before launch day</h3>
+<ul class="checklist">
+  <li>All (or enough) Louise graphics embedded with metadata</li>
+  <li>Click-test every internal link on every page — catch 404s before readers do</li>
+  <li>Mobile render audit — open every page on an actual phone, not just browser DevTools</li>
+  <li>Any remaining vertical pages written and added</li>
+  <li>Any prose edits you've been circling on (especially the "she keeps the master plan" drift in <code>index.html</code> prose about the Wise One)</li>
+</ul>
+
+<h3>Launch day</h3>
+<ol class="step-list">
+  <li>
+    <strong>Remove the <code>noindex</code> tags from every page.</strong> In GitHub, open the web file editor, OR clone locally and find-replace:
+    <pre><code># Find this line in every .html file EXCEPT mapminder.html:
+&lt;meta name="robots" content="noindex, nofollow" /&gt;
+
+# Delete it.</code></pre>
+    Commit with message: <code>"Launch: remove noindex tags for public launch"</code>
+  </li>
+  <li>
+    <strong>Create a sitemap.</strong> Either use a Netlify plugin (recommended: <code>@netlify/plugin-sitemap</code>) or generate a static <code>sitemap.xml</code> listing all public pages. Lives at <code>kindredlights.org/sitemap.xml</code>.
+  </li>
+  <li>
+    <strong>Create robots.txt.</strong> A two-line file at repo root:
+    <pre><code>User-agent: *
+Sitemap: https://kindredlights.org/sitemap.xml</code></pre>
+  </li>
+  <li>
+    <strong>Set up Google Search Console.</strong> Visit <code>search.google.com/search-console</code>. Add <code>kindredlights.org</code> as a property. Verify ownership (Netlify makes this easy via DNS or a meta tag). Submit your sitemap.
+  </li>
+  <li>
+    <strong>Test Open Graph previews.</strong> Before sharing, paste <code>kindredlights.org</code> into:
+    <ul>
+      <li>iMessage (to yourself)</li>
+      <li>Facebook post composer (without posting)</li>
+      <li>LinkedIn post composer (without posting)</li>
+    </ul>
+    Each should show a proper title, description, and image. If any are broken, the <code>og:</code> meta tags on that page need adjustment.
+  </li>
+  <li>
+    <strong>Do one final click-through.</strong> Every page. Every button. Mobile and desktop.
+  </li>
+  <li>
+    <strong>Announce at your pace.</strong> Social media, email list, wherever feels right. No external pressure here.
+  </li>
+</ol>
+
+<h3>Post-launch (nice-to-have, not urgent)</h3>
+<ul class="checklist">
+  <li>Analytics (Netlify Analytics $9/mo, or Plausible, or Google Analytics)</li>
+  <li>Custom 404 page (<code>404.html</code> in repo root — Netlify serves it automatically)</li>
+  <li>Convert book covers to .webp for faster load (~30% size reduction at same quality)</li>
+  <li>Accessibility audit (WCAG AA color contrast, full screen-reader pass)</li>
+  <li>Map Minder full parity upgrade (tooltips, JSON-LD, canonical metadata to match rest of site)</li>
+</ul>
+
+<hr class="rule" />
+
+<!-- QUICK REFERENCE -->
+<h2><span class="eyebrow">Keep Handy</span>Quick Reference</h2>
+
+<h3>Working folder on your PC</h3>
+<pre><code>C:\Users\marie\web graphics metadata\
+  ├── images\              ← 25 canonical image files
+  ├── embed_metadata.py    ← the embed script
+  └── KL_GraphicsInventory_2026-04-21c.xlsx</code></pre>
+
+<h3>ExifTool location</h3>
+<pre><code>C:\Tools\exiftool\
+  ├── exiftool.exe
+  └── exiftool_files\</code></pre>
+<p>PATH is configured so <code>exiftool</code> works from any PowerShell window.</p>
+
+<h3>Verify ExifTool is working</h3>
+<pre><code>exiftool -ver
+# should print: 13.57 (or similar)</code></pre>
+
+<h3>Check a file's current metadata</h3>
+<pre><code>exiftool -Title -Description -Creator -Copyright -Keywords images\filename.jpg</code></pre>
+
+<h3>Embed metadata on one file</h3>
+<pre><code>python embed_metadata.py images\filename.jpg</code></pre>
+
+<h3>Embed on all files</h3>
+<pre><code>python embed_metadata.py images\</code></pre>
+
+<h3>Dry run (see what would happen, change nothing)</h3>
+<pre><code>python embed_metadata.py images\ --dry-run</code></pre>
+
+<h3>GitHub workflow</h3>
+<p>The repository is <code>kindredlights/kindredlights-website</code>. Netlify watches the <code>main</code> branch and auto-deploys on every push.</p>
+<ul>
+  <li>Quick edits: use GitHub's web UI</li>
+  <li>Batch changes: clone locally, edit, push</li>
+  <li>Never push directly to <code>main</code> if there's anything uncertain — use a branch and pull request for safety</li>
+</ul>
+
+<hr class="rule" />
+
+<!-- THINGS DELIBERATELY NOT ON THE LIST -->
+<h2><span class="eyebrow">Clarity</span>Things Deliberately Not On The List</h2>
+<p class="section-intro">So they don't clutter your head:</p>
+<ul>
+  <li><strong>Blog.</strong> The verticals are the content for now. Blog later, when there's a reason.</li>
+  <li><strong>Contact form.</strong> Spam magnets. Use Kit or a <code>mailto:</code> link.</li>
+  <li><strong>Newsletter signups on every page.</strong> Current placement is already correct.</li>
+  <li><strong>More schema types beyond what's there.</strong> Current JSON-LD covers 95% of what Google actually uses.</li>
+  <li><strong>Content migration from manuscripts.</strong> Emerges naturally as teaching pieces mature. No rush.</li>
+</ul>
+
+<hr class="rule" />
+
+<p class="foot">Updated April 21, 2026 · Not perfectly. But heroically. ✦</p>
+
+</div>
+</body>
+</html>
