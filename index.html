@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kindred Lights — Your Heart is the Portal</title>
   <meta name="description" content="The Age of Ego is ending. The Age of Love is arising. The Map Minder helps you keep the Karmariculum that actually matters." />
@@ -9,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    
+    img { height: auto; max-width: 100%; }
     /* ═══ KINDRED LIGHTS V2 ═══ */
     :root {
       /* ── Brand Style Guide v2 — exact values ── */
@@ -130,11 +133,11 @@
     /* TOOLTIPS */
     .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
     .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--midnight); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 240px; z-index: 200; pointer-events: none; }
-    .tip:hover .tip-box { display: block; }
+    .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
 
     /* HERO */
     .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 40px; padding-left: 40px; padding-right: 80px; background: linear-gradient(160deg, #1c2a4a 0%, #2a3d6e 60%, #1c2a4a 100%); min-height: auto; display: flex; align-items: center; position: relative; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun_angel_bright.png"); background-size: cover; background-position: 75% top; opacity: 0.45; z-index: 0; pointer-events: none; }
+    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: 75% top; opacity: 0.45; z-index: 0; pointer-events: none; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: center; }
     .hero-meter img { width: 100%; max-width: 300px; filter: drop-shadow(0 12px 40px rgba(28,29,64,0.15)); }
@@ -208,8 +211,8 @@
     .books-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     .book-card { display: grid; grid-template-columns: 150px 1fr; gap: 28px; background: rgba(255,255,255,0.7); border-radius: 8px; padding: 32px; box-shadow: 0 2px 12px rgba(28,29,64,0.06); transition: box-shadow 0.2s; }
     .book-card:hover { box-shadow: 0 8px 36px rgba(28,29,64,0.1); }
-    .book-cover-wrap { position: relative; }
-    .book-cover { width: 100%; border-radius: 2px; box-shadow: 0 8px 28px rgba(28,29,64,0.18); }
+    .book-cover-wrap { position: relative; align-self: start; }
+    .book-cover { width: 100%; height: auto; display: block; border-radius: 2px; box-shadow: 0 8px 28px rgba(28,29,64,0.18); }
     .book-badge { position: absolute; top: -10px; right: -10px; background: var(--gold); color: var(--midnight); font-family: var(--font-nav); font-size: 0.44rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 9px; border-radius: 2px; }
     .book-date { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 8px; }
     .book-title { font-family: var(--font-display); font-size: clamp(1rem,1.7vw,1.3rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; line-height: 1.25; margin-bottom: 5px; }
@@ -286,11 +289,73 @@
     .section-question.on-light { color: #3d5faa; }
     .section-question.on-dark  { color: rgba(255,255,255,0.75); }
   </style>
+
+
+  <!-- JSON-LD: WebPage + Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Kindred Lights — Home",
+    "url": "https://kindredlights.org",
+    "isPartOf": { "@type": "WebSite", "name": "Kindred Lights", "url": "https://kindredlights.org" },
+    "primaryImageOfPage": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.png",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Kindred Lights", "item": "https://kindredlights.org" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Kindred Lights",
+    "url": "https://kindredlights.org",
+    "founder": { "@type": "Person", "name": "Kindred Lights" },
+    "sameAs": [
+      "https://ageofego.org",
+      "https://loveheroically.org"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Person — Kindred Lights -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kindred Lights",
+    "url": "https://kindredlights.org/about",
+    "image": "https://kindredlights.org/images/kindred-lights-author-photo.jpg",
+    "description": "Spiritual teacher, author, and creator of the Five Steps to Freedom framework. Kindred Lights writes on The Hero's Path of Love, the Age of Ego, and the integration of Sir Ego and the Wise One.",
+    "jobTitle": "Author, Spiritual Teacher",
+    "worksFor": { "@type": "Organization", "name": "Kindred Lights" }
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Kindred Lights",
+    "alternateName": "The Hero's Path of Love",
+    "url": "https://kindredlights.org",
+    "description": "Kindred Lights — spiritual teachings for the moment your heart cracks open. Home of The Hero's Path of Love book series and the Five Steps to Freedom framework.",
+    "publisher": { "@type": "Organization", "name": "Kindred Lights" }
+  }
+  </script>
+
 </head>
 <body>
 
 <nav id="main-nav">
-  <a href="index.html" class="nav-brand"><img class="nav-brand-logo" src="images/logo_heart.png" alt="Kindred Lights heart logo" /><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <a href="index.html" class="nav-brand"><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
   <ul class="nav-links">
     <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link active">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
     <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
@@ -313,7 +378,7 @@
   </ul>
 </nav>
 <div class="mobile-nav">
-  <a href="index.html" class="mobile-brand"><img class="mob-brand-logo" src="images/logo_heart.png" alt="Kindred Lights heart logo" /><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <a href="index.html" class="mobile-brand"><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </div>
 <div id="mobile-menu">
@@ -337,7 +402,7 @@
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-meter reveal">
-      <img src="images/trigger_meter_v2.png" alt="The Trigger-meter — where are you right now?" />
+      <img src="images/trigger-meter-five-steps-to-freedom.png" alt="The Trigger-meter — where are you on Sir Ego's heat index? The diagnostic for the Five Steps to Freedom." width="1080" height="2200" loading="lazy" decoding="async" />
       <div class="meter-subtext">
         <p class="meter-question">Look at that meter.</p>
         <p>You know exactly where you are right now. Maybe it's a person. Maybe it's the news. Maybe it's that thing that keeps showing up no matter what you do.</p>
@@ -379,7 +444,7 @@
       </div>
       <div class="b-card reveal d2" style="border-top-color:rgba(163,219,232,0.6)">
         <div class="b-title" style="color:rgba(255,255,255,0.9)">The Choice Point Appears</div>
-        <p class="b-body">Right there, in the trigger, before the automatic response fires — there is a choice point. The <span class="tip">Wise One<span class="tip-box">Your higher self — you, operating from your truest nature. One foot in the eternal, one foot in this particular life. She keeps the master plan and is always available.</span></span> lives there. She has always been there.</p>
+        <p class="b-body">Right there, in the trigger, before the automatic response fires — there is a choice point. The <span class="tip" tabindex="0">Wise One<span class="tip-box">Your higher self. Already home.</span></span> lives there. She has always been there.</p>
         <p class="b-whisper">Relax</p>
       </div>
       <div class="b-card reveal d3" style="border-top-color:rgba(189,231,183,0.6)">
@@ -389,7 +454,7 @@
       </div>
       <div class="b-card reveal d1" style="border-top-color:rgba(173,175,223,0.6)">
         <div class="b-title" style="color:rgba(255,255,255,0.9)">The Lie Dissolves</div>
-        <p class="b-body">Every persistent trigger is held in place by a false belief about your true nature. As the heart opens and the charge moves through, the light of the <span class="tip">Wise One<span class="tip-box">Your higher self — you, operating from your truest nature. One foot in the eternal, one foot in this particular life. She keeps the master plan and is always available.</span></span> illuminates what was hiding underneath — and it dissolves.</p>
+        <p class="b-body">Every persistent trigger is held in place by a false belief about your true nature. As the heart opens and the charge moves through, the light of the <span class="tip" tabindex="0">Wise One<span class="tip-box">Your higher self. Already home.</span></span> illuminates what was hiding underneath — and it dissolves.</p>
         <p class="b-whisper">Receive</p>
       </div>
       <div class="b-card reveal d2" style="border-top-color:rgba(255,190,160,0.6)">
@@ -415,9 +480,7 @@
       <p class="lede" style="color:rgba(28,29,64,0.82)">Each of those six cards was the practice moving in sequence — Recognize, Relax, Release, Receive, Respond, Realize. You already know the shape of it. Here it is as a map.</p>
     </div>
     <div class="reveal" style="margin-top:40px;text-align:center;">
-      <img src="images/five_steps_louise_v2.jpg"
-           alt="The Five Steps to Freedom — The Hero's Path of Love"
-           style="max-width:720px;width:100%;margin:0 auto;display:block;border-radius:4px;box-shadow:0 12px 44px rgba(0,0,0,0.15);" />
+      <img src="images/five-steps-for-the-world-age-of-ego.jpg" alt="The Five Steps for the World — the collective Age of Ego to Age of Love version. Recognize the old script is ending. Relax into the heart. Release centuries of stored karma. Receive collective wisdom. Respond from love." width="1299" height="1047" loading="lazy" decoding="async" style="max-width:720px;width:100%;margin:0 auto;display:block;border-radius:4px;box-shadow:0 12px 44px rgba(0,0,0,0.15);" />
     </div>
     <div class="reveal" style="text-align:center;margin-top:36px;">
       <a href="https://kindredlights.org/mapminder" class="btn-gold">Try the Map Minder — Free →</a>
@@ -429,7 +492,7 @@
 <section class="mm-band">
   <div class="reveal">
     <h2>Sir Ego has a map.<br>It needs minding.</h2>
-    <p>Describe something not moving in your life — two sentences. The Map Minder reads Sir Ego's script, names your <span class="tip" style="border-bottom-color:rgba(28,29,64,0.4)">Karmariculum<span class="tip-box">Your birth circumstances, your soul contracts, your life lesson plan — chosen by you and your soul team before you arrived. Lovingly chosen. Sacred curriculum.</span></span>, and walks you through what the Wise One sees.</p>
+    <p>Describe something not moving in your life — two sentences. The Map Minder reads <span class="tip" tabindex="0">Sir Ego<span class="tip-box">Your ego. The hero with the wrong map.</span></span>'s script, names your <span class="tip" tabindex="0" style="border-bottom-color:rgba(28,29,64,0.4)">Karmariculum<span class="tip-box">Your soul's custom lesson plan.</span></span>, and walks you through what the Wise One sees.</p>
     <a href="https://kindredlights.org/mapminder" class="btn-midnight">Meet Your Map Minder ✦</a>
     <span class="mm-sub">Free · Five minutes · No account required</span>
   </div>
@@ -439,8 +502,7 @@
 <section class="video-section" style="background:#A3D1E8; padding:72px 32px;">
   <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:center;">
     <div class="reveal" style="text-align:center;">
-      <img src="images/author_photo.jpg" alt="Kindred Lights"
-           style="width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:0 8px 32px rgba(0,0,0,0.25);margin:0 auto;display:block;border:3px solid rgba(255,255,255,0.3);" />
+      <img src="images/kindred-lights-author-photo.jpg" alt="Kindred Lights — author photo." width="630" height="600" loading="lazy" decoding="async" style="width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:0 8px 32px rgba(0,0,0,0.25);margin:0 auto;display:block;border:3px solid rgba(255,255,255,0.3);" />
       <p style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.16em;color:rgba(28,29,64,0.65);margin-top:14px;text-transform:uppercase">Kindred Lights</p>
       <p style="font-family:var(--font-body);font-size:0.82rem;color:rgba(28,29,64,0.45);margin-top:4px;letter-spacing:0.04em">Mapmaker</p>
     </div>
@@ -450,7 +512,7 @@
       <p style="font-family:var(--font-soul);font-size:1.2rem;font-style:italic;color:rgba(28,29,64,0.92);line-height:1.6;margin-bottom:20px">Addiction. A teenager in crisis. Years inside a relationship that dismantled reality.</p>
       <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:16px">These practices were built in that fire — in custody courtrooms, in supervised visitation rooms, in ten thousand ordinary moments where everything in me wanted to burn it all down and something quieter said: <em style="color:rgba(255,255,255,0.95)">open your heart. I'll show you what to do.</em></p>
       <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:16px">The jail floor. The custody courtroom. The supervised visits. All of it curriculum, precisely delivered.</p>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:24px">Twenty years of sobriety. Three children thriving. A Thanksgiving table rebuilt from wreckage — including a seat for the man who had once been the adversary. That is what the Five Steps made possible. The actual table.</p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:24px">Twenty years of sobriety. Three children thriving. A Thanksgiving table rebuilt from wreckage — including a seat for the man who had once been the adversary. That is what the <span class="tip" tabindex="0">Five Steps<span class="tip-box">Recognize. Relax. Release. Receive. Respond.</span></span> made possible. The actual table.</p>
       <a href="about.html" class="btn-outline-cream">Read the Full Story →</a>
     </div>
   </div>
@@ -486,12 +548,10 @@
 
 <!-- SECTION 6 — PARADISE DREAM -->
 <section style="background:#ABB1E0;padding:88px 32px;position:relative;overflow:hidden;color:var(--midnight);">
-  <div style="position:absolute;inset:0;background-image:url('images/sun_angel_bright.png');background-size:cover;background-position:center 60%;opacity:0.12;pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background-image:url('images/sun-angel-hero-kindred-lights.png');background-size:cover;background-position:center 60%;opacity:0.12;pointer-events:none;"></div>
   <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:72px;align-items:center;position:relative;z-index:1;">
     <div class="reveal" style="text-align:center;">
-      <img src="images/monkeys_filmreel.jpg"
-           alt="The Paradise Dream — Sir Ego makes the monkeys extinct"
-           style="width:100%;max-width:280px;margin:0 auto;display:block;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
+      <img src="images/monkeys-dream-film-reel.jpg" alt="The Monkeys Dream — film reel narrative of the dream that changed everything." width="706" height="2000" loading="lazy" decoding="async" style="width:100%;max-width:280px;margin:0 auto;display:block;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
     </div>
     <div class="reveal d2">
       <span class="eyebrow" style="color:rgba(28,29,64,0.6)">A Dream That Changed Everything</span>
@@ -569,7 +629,7 @@
     </div>
     <div class="books-grid">
       <div class="book-card reveal d1">
-        <div class="book-cover-wrap"><img class="book-cover" src="images/cover_wh2u.png" alt="What Happened to Us?" /></div>
+        <div class="book-cover-wrap"><img src="images/what-happened-to-us-age-of-ego-book-cover.jpg" alt="What Happened to Us? From the Age of Ego to the Age of Love — book cover by Kindred Lights" width="1333" height="2000" loading="eager" decoding="async" class="book-cover" /></div>
         <div>
           <span class="book-date">Coming This Year</span>
           <div class="book-title">What Happened to Us?</div>
@@ -580,7 +640,7 @@
         </div>
       </div>
       <div class="book-card reveal d2">
-        <div class="book-cover-wrap"><img class="book-cover" src="images/cover_love_heroically_louise.png" alt="Love Heroically — Five Steps to Freedom by Kindred Lights" /><img src="images/pbr_notable_book.png" alt="Pacific Book Review Notable Book" style="position:absolute;bottom:-14px;right:-14px;width:72px;height:auto;" /></div>
+        <div class="book-cover-wrap"><img src="images/love-heroically-the-five-steps-to-freedom-book-cover.jpg" alt="Love Heroically: The Five Steps to Freedom — book cover (Louise preview) by Kindred Lights" width="1333" height="2000" loading="lazy" decoding="async" class="book-cover" /><img src="images/pacific-book-review-notable-book-award.png" alt="Pacific Book Review — Notable Book Award" width="1280" height="1024" loading="lazy" decoding="async" style="position:absolute;bottom:-14px;right:-14px;width:72px;height:auto;" /></div>
         <div>
           <span class="book-date">Coming This Year</span>
           <div class="book-title">Love Heroically</div>
@@ -615,7 +675,7 @@
     <!-- Three review cards -->
     <div class="awards-grid" style="margin-bottom:32px;">
       <div class="award-item reveal d1">
-        <img src="images/pbr_notable_book_gold.png" alt="Pacific Book Review Notable Book" style="width:88px;height:auto;margin:0 auto 16px;display:block;" />
+        <img src="images/pacific-book-review-notable-book-award.png" alt="Pacific Book Review — Notable Book Award (gold variant)" width="1280" height="1024" loading="lazy" decoding="async" style="width:88px;height:auto;margin:0 auto 16px;display:block;" />
         <div class="award-title">Pacific Book Review</div>
         <div class="award-source" style="color:rgba(28,29,64,0.5);margin-bottom:12px;font-size:0.8rem;">Allison Walker · on this work</div>
         <p class="award-quote" style="color:#1a1b38;font-style:italic">"Here is a teacher who believes in you."</p>
@@ -690,8 +750,6 @@
   const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } }); }, { threshold: 0.1 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 </script>
-<!-- Homepage A/B toggle (preview only — remove before launch) -->
-<a href="index2.html" style="position:fixed;bottom:20px;right:20px;z-index:900;background:rgba(28,29,64,0.85);color:#C9A84C;font-family:Raleway,sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:10px 16px;border-radius:4px;box-shadow:0 4px 18px rgba(0,0,0,0.25);backdrop-filter:blur(6px);text-decoration:none;border:1px solid rgba(201,168,76,0.3);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='rgba(28,29,64,0.95)';this.style.color='#E8D48A'" onmouseout="this.style.background='rgba(28,29,64,0.85)';this.style.color='#C9A84C'">See Home 2 →</a>
 
 </body>
 </html>
