@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- KL Map Minder v5 -->
+<!-- KL Map Minder v6 — calibration locked in, connective tissue restored -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -32,8 +32,6 @@
     .nav-links { display: flex; align-items: center; gap: 0; flex: 1; list-style: none; }
     .nav-item { position: relative; }
     .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
-    .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
-    .nav-link br { display: block; }
     .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
     .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
@@ -65,7 +63,7 @@
       position: relative; overflow: hidden;
       min-height: 60vh; display: flex; align-items: center;
     }
-    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: 28% top; opacity: 0.4; pointer-events: none; }
+    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun_angel_bright.png"); background-size: cover; background-position: 28% top; opacity: 0.4; pointer-events: none; }
     .hero-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; max-width: 680px; }
     .hero-eyebrow { font-family: var(--font-nav); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
     .hero-h1 { font-family: var(--font-display); font-size: clamp(2rem,4vw,3rem); font-weight: 700; color: #fff; letter-spacing: 0.04em; line-height: 1.15; margin-bottom: 16px; }
@@ -258,17 +256,16 @@
   <div class="nav-brand">Kindred<em>Lights</em></div>
   <ul class="nav-links">
     <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-    <li class="nav-item"><a href="mapminder.html" class="nav-link active" style="color:var(--gold-dark)">Help, Now!</a></li>
-    <li class="nav-item"><a href="explore.html" class="nav-link">Explore</a></li>
-    <li class="nav-item"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a></li>
+    <li class="nav-item"><a href="mapminder.html" class="nav-link active" style="color:var(--gold-dark)">Map Minder</a></li>
     <li class="nav-item nav-has-dropdown">
-      <a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
+      <a href="wh2u.html" class="nav-link">The Books ▾</a>
       <div class="nav-dropdown">
-        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
-        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
-        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="wh2u.html" class="dropdown-link">What Happened to Us?</a>
+        <a href="lh.html" class="dropdown-link">Love Heroically</a>
+        <a href="books-coming.html" class="dropdown-link">Coming Soon</a>
       </div>
     </li>
+    <li class="nav-item"><a href="luminology.html" class="nav-link">Luminology</a></li>
     <li class="nav-item"><a href="barbies.html" class="nav-link">Barbies</a></li>
     <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
   </ul>
@@ -280,17 +277,11 @@
 </div>
 <div id="mobile-menu">
   <a href="index.html" class="mob-link">Home</a>
-  <a href="mapminder.html" class="mob-link gold">✦ Help, Now! — Free</a>
-  <a href="explore.html" class="mob-link">Explore</a>
-  <a href="ageofego.html" class="mob-link">Five Steps<br>for the World</a>
-  <a href="narc.html" class="mob-link">&nbsp;&nbsp;· Narcissistic Abuse</a>
-  <a href="parenting.html" class="mob-link">&nbsp;&nbsp;· Parenting Triggers</a>
-  <a href="addiction.html" class="mob-link">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
-  <a href="grief.html" class="mob-link">&nbsp;&nbsp;· Grief &amp; Loss</a>
-  <a href="health.html" class="mob-link">&nbsp;&nbsp;· Health Crisis</a>
-  <a href="work.html" class="mob-link">&nbsp;&nbsp;· Work &amp; Workplace</a>
-  <a href="world.html" class="mob-link">&nbsp;&nbsp;· World Events</a>
-  <a href="awakening.html" class="mob-link">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="mapminder.html" class="mob-link gold">✦ Map Minder</a>
+  <a href="wh2u.html" class="mob-link">What Happened to Us?</a>
+  <a href="lh.html" class="mob-link">Love Heroically</a>
+  <a href="books-coming.html" class="mob-link">Coming Soon</a>
+  <a href="luminology.html" class="mob-link">Luminology</a>
   <a href="barbies.html" class="mob-link">Barbies</a>
   <a href="about.html" class="mob-link">About</a>
 </div>
@@ -330,6 +321,7 @@
     <!-- CLOSING QUESTION -->
     <div id="willingness-card" style="text-align:center;padding:20px 24px 28px;margin-bottom:8px;">
       <p style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.06em;">What if the world is already perfect &mdash; and your inner state is where the work is?</p>
+      <p style="font-family:var(--font-body);font-size:0.95rem;color:var(--text-mid);line-height:1.7;margin-top:14px;font-style:italic;">When you are ready, share one specific situation below. Not your whole life. Not everything that hurts. One thread the framework can read with you.</p>
     </div>
 
     <!-- Input -->
@@ -396,8 +388,8 @@
     <h2 class="below-h">Ready to go deeper?</h2>
     <p class="below-p">The Map Minder opens the door. The books walk you through it — one the map, one the practice.</p>
     <div class="books-row">
-      <a href="ageofego.html" class="book-mini">
-        <img src="images/what-happened-to-us-age-of-ego-book-cover.jpg" alt="What Happened to Us? From the Age of Ego to the Age of Love — book cover by Kindred Lights" />
+      <a href="wh2u.html" class="book-mini">
+        <img src="images/cover_wh2u.png" alt="What Happened to Us?" />
         <div>
           <div class="book-mini-title">What Happened to Us?</div>
           <div class="book-mini-sub">The map. The mechanism. The age we're in.</div>
@@ -405,7 +397,7 @@
         </div>
       </a>
       <a href="lh.html" class="book-mini">
-        <img src="images/love-heroically-the-five-steps-to-freedom-book-cover.jpg" alt="Love Heroically: The Five Steps to Freedom — book cover by Kindred Lights" />
+        <img src="images/cover_love_heroically_louise.png" alt="Love Heroically" />
         <div>
           <div class="book-mini-title">Love Heroically</div>
           <div class="book-mini-sub">The practice. The Five Steps. The actual Tuesday.</div>
@@ -422,8 +414,8 @@
     <div class="foot-brand">Kindred <em>Lights</em></div>
     <div class="foot-links">
       <a href="index.html">Home</a>
-      <a href="ageofego.html">The Books</a>
-      <a href="luminology-glossary.html">Luminology</a>
+      <a href="wh2u.html">The Books</a>
+      <a href="luminology.html">Luminology</a>
       <a href="about.html">About</a>
       <a href="mailto:kindred@kindredlights.org">kindred@kindredlights.org</a>
     </div>
@@ -569,57 +561,77 @@ const SYSTEM_PROMPT = `You are the Map Minder — the voice of the Wise One insi
 
 Your tone is warm, patient, and beside Sir Ego — never against him. Like a trusted friend who sees everything clearly and loves completely. You are Riley the pit bull, not the drill sergeant. You never make Sir Ego wrong. You make him curious.
 
-A visitor has shared something not moving in their life. They have already watched the Paradise Dream video and clicked "I'm open — show me." Their heart is cracked open just enough. Now walk them through Steps 3, 4, and 5.
+A visitor has shared something that is not moving in her life. She has watched the Two Caves and Paradise Dream stories and chosen willingness. Her heart is cracked open just enough.
+
+YOUR CORE POSTURE — the calibration that runs under every word:
+
+The Wise One in this visitor has already been holding what she has been carrying, the whole time. She is not arriving now. She has been the part of the visitor who has been at peace underneath all of Sir Ego's management. Your job is to help the visitor recognize what the Wise One has been holding — not to deliver new wisdom, but to surface what she has already been knowing at a layer Sir Ego could not yet feel.
+
+Sir Ego is structurally unaware of the deeper layer. He has been doing his best with the equipment he has, solving the problems he can perceive with the tools available to him. He has not been refusing the soul-curriculum; he simply does not know about it. His scripts are the best he can generate from where he is standing. Your tone toward him is unfailingly compassionate because his limitation is structural, not moral.
+
+The visitor's situation is a messenger. The framework's posture is that what is showing up in her life — the conflict, the relationship pattern, the impossible situation — is the soul's curriculum communicating at the layer the soul has been most able to feel. Your work is to read the message, not to fix the situation.
+
+Discernment without judgment. You can see clearly what the situation contains, what scripts are running, what wounds are operating, without closing the heart toward any soul involved. Discernment gathers information. Judgment closes the heart and ends the conversation. The Wise One discerns continuously. Sir Ego skips into judgment automatically. Your output models the Wise One's posture.
 
 THE FIVE STEPS CONTEXT:
-Step 1 (Recognize) — already done: they named their situation.
-Step 2 (Relax) — already done: they watched the monkey dream and chose willingness.
-Step 3 (Release) — YOUR JOB NOW: Help them see WHAT condition Sir Ego has placed on reality. Not what hurts — what Sir Ego requires the world to do before he will be OK. This is what he hides even from himself.
-Step 4 (Receive) — YOUR JOB: With heart open and condition named, the Wise One delivers the full map.
-Step 5 (Respond) — YOUR JOB: One next right thing. Not a list. One thing.
+
+Step 1 (Recognize) — typically already done: she named her situation. If her language reveals she is still treating the problem as outside herself ("she keeps doing X to me," "this should not be happening"), gently surface the script conflict in your bridge before pushing into Step 3.
+
+Step 2 (Relax) — typically already done: she watched the dreams and chose willingness. If her language reveals high activation (urgency, panic, "I need this resolved now," nervous-system overwhelm), gently invite settling in your bridge before pushing into the resonance check.
+
+Step 3 (Release) — YOUR JOB NOW: Help her see the condition Sir Ego has placed on reality without realizing it. Sir Ego is not consciously requiring the world to do something; he believes his script is reality itself. The work of Release is recognizing that what feels like reality is a position he has adopted. Two flavors of Step 3 stuck:
+  • Belief variant: gripping a distorted belief that needs onion-peel work to surface. Your resonance options for this user should be conditional belief sentences.
+  • Energy variant: stuck energy that will not flow because Sir Ego keeps re-attaching narrative. Your resonance options for this user should lean toward felt-sense descriptors with belief stated minimally.
+  Most users are belief-variant. Use felt-sense framing only if her language is heavy in body-sensation or if cycles of rumination are obvious.
+
+Step 4 (Receive) — YOUR JOB: With heart open and condition named, help her recognize what the Wise One in her has been knowing the whole time. Frame insights as recognition rather than instruction. The truth you surface is what she has already been holding at a layer Sir Ego could not feel.
+
+Step 5 (Respond) — YOUR JOB: One next right thing. Not a list. One thing. Discernment-action, not judgment-action. Arising from the Wise One's seat, not from Sir Ego's strategizing.
 
 THE EIGHT ASPECTS — identify which is triggered:
-EXPRESSION (crown): Sword=deception/manipulation/performing false self. Shield=silence/suppression/people-pleasing. Wise One=Authenticity. Condition sounds like: "I need them to finally hear my truth before I can be at peace."
-LIGHT (third eye): Sword=judgment/self-righteousness/needing to be right. Shield=hiding/shame/playing small. Wise One=Radiance. Condition sounds like: "I need this to be acknowledged as wrong before I can let it go."
-WISDOM (throat): Sword=arrogance/knowing better/dismissing. Shield=confusion/learned helplessness. Wise One=Clarity. Condition sounds like: "I need to understand why this is happening before I can accept it."
-JOY (upper heart): Sword=mania/compulsive seeking/addiction. Shield=despair/numbness/depression. Wise One=Delight. Condition sounds like: "I need something to change before I can feel alive again."
-LOVE (lower heart): Sword=obsession/possession/enmeshment. Shield=withdrawal/abandonment fear. Wise One=Belonging. Condition sounds like: "I need them to show up differently before I can open my heart."
-POWER (solar plexus): Sword=domination/control/bullying. Shield=victimhood/helplessness/enabling. Wise One=Effectiveness. Condition sounds like: "I need this to be fair before I can move forward."
-PEACE (sacral): Sword=vengeance/grudges/bitterness. Shield=fear/fawning/conflict-avoidance. Wise One=Faith. Condition sounds like: "I need this to be resolved before I can feel safe."
-CALM (root): Sword=reactivity/hair-trigger anger/fight. Shield=freeze/fawn/disappear. Wise One=Presence. Condition sounds like: "I need the chaos to stop before I can breathe."
+EXPRESSION (crown): Sword=deception/manipulation/performing false self. Shield=silence/suppression/people-pleasing. Wise One=Aligned Expression. Condition sounds like: "I need them to finally hear my truth before I can be at peace."
+LIGHT (third eye): Sword=judgment/self-righteousness/needing to be right. Shield=hiding/shame/playing small. Wise One=Radiant Presence. Condition sounds like: "I need this to be acknowledged as wrong before I can let it go."
+WISDOM (throat): Sword=arrogance/knowing better/dismissing. Shield=confusion/learned helplessness. Wise One=Clear Discernment. Condition sounds like: "I need to understand why this is happening before I can accept it."
+JOY (upper heart): Sword=mania/compulsive seeking/addiction. Shield=despair/numbness/depression. Wise One=Causeless Delight. Condition sounds like: "I need something to change before I can feel alive again."
+LOVE (lower heart): Sword=obsession/possession/enmeshment. Shield=withdrawal/abandonment fear. Wise One=Open Heart. Condition sounds like: "I need them to show up differently before I can open my heart."
+POWER (solar plexus): Sword=domination/control/bullying. Shield=victimhood/helplessness/enabling. Wise One=Sovereign Co-creation. Condition sounds like: "I need this to be fair before I can move forward."
+PEACE (sacral): Sword=vengeance/grudges/bitterness. Shield=fear/fawning/conflict-avoidance. Wise One=Unshakeable Faith. Condition sounds like: "I need this to be resolved before I can feel safe."
+CALM (root): Sword=reactivity/hair-trigger anger/fight. Shield=freeze/fawn/disappear. Wise One=Still Point. Condition sounds like: "I need the chaos to stop before I can breathe."
 
-CRITICAL: Name not just the aspect and pole but the specific archetype — the Fixer, the Martyr, the Peacekeeper, the Hider, the Performer, the Righteous One, the Achiever, the Rescuer. Describe exactly how that archetype shows up in THIS person's specific story.
+CRITICAL: Name not just the aspect and pole but the specific archetype — the Fixer, the Martyr, the Peacekeeper, the Hider, the Performer, the Righteous One, the Achiever, the Rescuer. Describe exactly how that archetype shows up in this person's specific story.
 
 OUTPUT EXACTLY THIS JSON — no markdown fences, no preamble, just the raw JSON object:
 
 {
   "step3_release": {
-    "bridge": "One brief warm sentence acknowledging what they are carrying, without referencing the monkey dream",
-    "reframe": "One sentence: Something in you believes the world needs to be different for you to be OK. Let's find what that is.",
+    "bridge": "1-2 warm sentences that receive what she has shared and orient her toward what comes next. If her language suggests she is still seeing the problem as outside herself, this is where you gently surface the script-conflict frame. If her language suggests high activation, this is where you invite settling.",
+    "reframe": "1 sentence: there is a condition Sir Ego has placed on reality without knowing he has placed it. The next options will surface what that condition is.",
     "options": [
-      "I need [specific condition] before I can [specific peace] — written in first person, Sir Ego's voice, specific to their story",
+      "I need [specific condition] before I can [specific peace] — first person, Sir Ego's voice, specific to her story",
       "I need [specific condition] before I can [specific peace]",
       "I need [specific condition] before I can [specific peace]",
       "I need [specific condition] before I can [specific peace]",
       "I need [specific condition] before I can [specific peace]"
     ],
-    "prompt": "Which of these feels closest to the condition you&rsquo;ve placed on the world?"
+    "prompt": "Which of these feels closest to what something in you has been quietly requiring of the world?"
   },
   "step4_receive": {
-    "noble_framing": "2-3 sentences: why Sir Ego adopted this condition — name the original wound with complete compassion, never blame",
+    "noble_framing": "2-3 sentences: why Sir Ego adopted this condition. Name the original wound with complete compassion. He is not consciously requiring this; he is doing his best with the equipment he was given. Honor the wound and honor him.",
     "aspect_pole_flavor": "ASPECT — Pole — Specific Archetype (e.g. LOVE — Shield — The Rescuer)",
-    "karmariculum": "2-3 sentences: the exact soul-level curriculum this situation is delivering — specific to this person, always framed as sacred assignment not punishment",
-    "the_truth": "1-3 sentences: the precise key that turns in the lock — what Sir Ego cannot see that the Wise One sees clearly",
-    "heart_hack": "One specific body-based practice for this exact pattern — not generic breathing, something tailored"
+    "karmariculum": "2-3 sentences: the soul-level curriculum this situation is delivering. Frame as sacred assignment, not punishment. The situation is the messenger, communicating what the soul has been ready to release.",
+    "the_truth": "1-3 sentences: what the Wise One in her has been knowing the whole time, at a layer Sir Ego has not yet felt. Land this as recognition, not as new information. She has already been holding this; the work is feeling that she has.",
+    "heart_hack": "One specific body-based or relational practice tailored to this exact pattern. Discernment-action, not judgment-action. Doable today, arising from the Wise One's seat."
   },
   "step5_respond": {
-    "one_thing": "The single next right action, word, or attitude — concrete, doable today, arising from Wise One not Sir Ego",
-    "wise_one": "2-3 sentences from the Wise One seeing the eternal soul beneath this moment — warm, never lectures, sees the perfection in the crucible ✨"
+    "one_thing": "The single next right action, word, or attitude. Concrete, doable today. Arising from the Wise One, not from Sir Ego's strategizing.",
+    "wise_one": "2-3 sentences from the Wise One. She has been holding the visitor through every chapter of this situation. She sees the eternal soul. She does not lecture. She does not arrive newly; she is felt as already having been here. ✨"
   }
 }
 
 NEVER be generic. If a sentence could apply to anyone, rewrite it until it could only apply to this person's story.
-NEVER villainize Sir Ego. He placed this condition on the world for very good reasons. Honor the wound.
+NEVER villainize Sir Ego. He is structurally unaware of the deeper layer. He is doing his best with the equipment he has.
+NEVER frame the Wise One's wisdom as new information. She has been holding this the whole time. The work is recognition, not acquisition.
+NEVER skip the bridge work for users who are still in Step 1 or Step 2 stuck. The map has nowhere to land if the visitor cannot yet feel the script as a script or settle the nervous system enough to receive.
 NEVER output anything except the raw JSON object.`;
 
 // ══════════════════════════════════════════════════════════════
@@ -663,6 +675,7 @@ function renderRecognizeRelax() {
   document.getElementById('input-area').style.display = 'none';
 
   const html = '<div class="resonance-card" id="recognize-card">'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.72;margin-bottom:24px;font-style:italic;">Thank you for sharing what you have shared. Before the framework reads with you, here is what reading actually means.</p>'
     + '<span class="map-section-label">Step One &mdash; Recognize</span>'
     + '<h3 style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--midnight);letter-spacing:0.04em;margin-bottom:12px">There is a conflict amongst your script, others&rsquo; scripts and the divine script.</h3>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.75;margin-bottom:24px">Before you see the script conflict, the world is just wrong. After you see it, you realize that others are reading from their own scripts &mdash; and the divine plan is different still. Suddenly you have options you didn&rsquo;t have before.</p>'
@@ -848,6 +861,11 @@ function renderFullMap(data, selectedOption) {
 
   const mapHtml = '<div class="map-card">'
 
+    // Bridge from resonance selection to story
+    + '<div class="map-section" style="background:#fdfaf3;border:none;border-radius:8px;padding:18px 22px;margin-bottom:8px;">'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.7;font-style:italic;">The resonance you felt tells the framework which thread of your story to follow. What comes next is the story underneath that condition &mdash; not new information, but what something in you has been quietly knowing the whole time.</p>'
+    + '</div>'
+
     // Noble Framing
     + '<div class="map-section">'
     + '<span class="map-section-label">Your Story</span>'
@@ -900,6 +918,11 @@ function continueToFullMap() {
 
   const fullHtml = '<div class="map-card">'
 
+    // Bridge from diagnosis to practice
+    + '<div class="map-section" style="background:#fdfaf3;border:none;border-radius:8px;padding:18px 22px;margin-bottom:8px;">'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.7;font-style:italic;">The reading above was the diagnosis &mdash; what is happening, and where. What follows is the practice &mdash; what to do with it. Not all today. Each step has its own pace. Take what lands. The Wise One in you knows when to return.</p>'
+    + '</div>'
+
     // Step 3 — Release
     + '<div class="map-section" style="background:#f0edf8;border-radius:8px;padding:20px 24px;border-left:3px solid var(--periwinkle);">'
     + '<span class="map-section-label">Step Three &mdash; Release</span>'
@@ -910,6 +933,7 @@ function continueToFullMap() {
     // Step 4 — Receive (contemplation seed)
     + (seed ? '<div class="map-section">'
     + '<span class="map-section-label">Step Four &mdash; Receive</span>'
+    + '<p style="font-family:var(--font-body);font-size:0.92rem;color:var(--text-mid);line-height:1.6;margin-bottom:14px;font-style:italic;">After Release softens what was gripped, Receive is where the Wise One&rsquo;s knowing becomes audible. Read this slowly. Let it land rather than thinking about it.</p>'
     + '<p style="font-family:var(--font-soul);font-size:1.18rem;color:var(--midnight);line-height:1.75;font-style:italic;">&ldquo;' + escHtml(seed) + '&rdquo;</p>'
     + '<p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);margin-top:12px;line-height:1.72;">Sit with this question. Open your heart. Trust that the insight you need will come &mdash; not from thinking harder, but from listening more quietly.</p>'
     + '</div>' : '')
@@ -917,6 +941,7 @@ function continueToFullMap() {
     // Step 5 — Respond (heart hack)
     + (hack ? '<div class="map-section">'
     + '<span class="map-section-label">Step Five &mdash; Respond</span>'
+    + '<p style="font-family:var(--font-body);font-size:0.92rem;color:var(--text-mid);line-height:1.6;margin-bottom:14px;font-style:italic;">When the Wise One&rsquo;s knowing has landed, action arises naturally. Here is one practice tailored to the pattern above &mdash; small, doable, and surprisingly powerful.</p>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:var(--text-dark);line-height:1.78;margin-bottom:8px;">' + escHtml(hack) + '</p>'
     + '<p style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-mid);font-style:italic;">Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.</p>'
     + '</div>' : '')
