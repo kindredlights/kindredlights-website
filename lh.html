@@ -145,6 +145,16 @@
     .kit-input:focus { border-color: var(--gold); }
     .kit-input::placeholder { color: rgba(255,255,255,0.3); }
     .kit-fine { font-family: var(--font-nav); font-size: 0.6rem; color: rgba(255,255,255,0.22); margin-top: 12px; letter-spacing: 0.06em; }
+    /* Connect form — Kit iframe submission */
+    .connect-form-wrapper { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; align-items: stretch; }
+    .connect-form-wrapper input[type="email"] { flex: 1; min-width: 220px; max-width: 300px; padding: 14px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: #fff; border-radius: 4px; outline: none; transition: border-color 0.2s; }
+    .connect-form-wrapper input[type="email"]:focus { border-color: var(--gold); }
+    .connect-form-wrapper input[type="email"]::placeholder { color: rgba(255,255,255,0.3); }
+    .connect-form-wrapper button { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 24px; background: var(--gold); color: var(--midnight); border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
+    .connect-form-wrapper button:hover { background: var(--gold-light); }
+    #connect-success { display:none; color: #fff; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.4); padding: 14px 18px; border-radius: 4px; margin-top: 14px; font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6; max-width: 480px; margin-left: auto; margin-right: auto; }
+    #connect-success strong { display: block; color: #c9a84c; font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.06em; margin-bottom: 6px; }
+
     /* Footer */
     footer { background: var(--midnight); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
     .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 20px; }
@@ -473,14 +483,19 @@
 <!-- KIT CAPTURE -->
 <section class="kit-section" id="notify">
   <div class="kit-inner reveal">
-    <span class="eyebrow" style="color:rgba(201,168,76,0.6)">Stay Connected</span>
-    <h2 class="kit-h">Be First to Know</h2>
-    <p class="kit-sub">Join the launch list and receive the Introduction free.</p>
-    <div class="kit-form">
-      <input class="kit-input" type="email" placeholder="your@email.com" aria-label="Email address" />
-      <a href="#" class="btn-gold">Yes, stay in touch →</a>
+    <span class="eyebrow" style="color:rgba(201,168,76,0.6)">In Touch</span>
+    <h2 class="kit-h">Let&rsquo;s Connect</h2>
+    <p class="kit-sub">If something here resonates, leave your email. I&rsquo;d love to hear from you.</p>
+    <iframe name="connect-target" id="connect-target" style="display:none;width:0;height:0;border:0;" onload="onConnectSubmitLoad()"></iframe>
+    <form action="https://app.kit.com/forms/9376803/subscriptions" method="post" target="connect-target" id="connect-form" onsubmit="return onConnectSubmit()" class="connect-form-wrapper">
+      <input type="email" name="email_address" placeholder="your@email.com" required aria-label="Email address" />
+      <button type="submit">Send &rarr;</button>
+    </form>
+    <div id="connect-success">
+      <strong>THANKS FOR CONNECTING &#10022;</strong>
+      Check your inbox to confirm. Looking forward to hearing from you.
     </div>
-    <p class="kit-fine">Powered by Kit. The Wise One doesn't pursue.</p>
+    <p class="kit-fine" style="margin-top:18px;">The Wise One doesn&rsquo;t pursue. The kindred find each other.</p>
   </div>
 </section>
 
