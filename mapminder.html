@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- KL Map Minder v7 (April 27 calibration merge) — was v13 with new features + v6 calibration -->
+<!-- KL Map Minder v8 (April 27 — Phase 3 diagnostic typology routing, friendly cold-call voice) -->
 <!-- was v10 — film strips added 2026-04-12 <!--
 <!-- was v9 — deep blue gradient room, missing beat, monkey framing, Higher Self, burn ritual, Step Five reframe 2026-04-12 -->
 <html lang="en">
@@ -376,8 +376,8 @@
     <!-- Loading -->
     <div class="loading-state" id="loading-state">
       <div class="loading-orb"></div>
-      <p class="loading-text">The Wise One is reading your map...</p>
-      <p class="loading-sub">This takes about 20 seconds. She reads carefully.</p>
+      <p class="loading-text">Reading your map...</p>
+      <p class="loading-sub">This takes about 20 seconds. Reading carefully.</p>
     </div>
 
     <!-- Response -->
@@ -690,11 +690,32 @@ OTHER_SCRIPTS — opening compassionate possibility for the other party in the v
 
 DOMINANT_EMOTION — single-word emotional read: Identify the single most present emotion in her story. Choose exactly one from this list: shame, guilt, fear, anger, frustration, disappointment, jealousy, envy, anxiety, boredom, grief, sadness, loneliness. The system has a curated emotion-card library that will surface the matching ego-voice and Wise-One-voice for the emotion you name.
 
+DIAGNOSTIC_TYPOLOGY — read where the visitor is currently stuck before delivering Step 3 work. The Five Steps are: Recognize, Relax, Release, Receive, Respond. Most visitors who arrive at the Map Minder are stuck somewhere on the first three. Read her language carefully and choose exactly one of these four routes:
+
+  • "step1" — She is stuck before Recognize has fully landed. Her language treats the situation as fact rather than as her reading of the situation. She uses phrases like "she keeps doing this to me," "this should not be happening," "I cannot believe they did this," "the problem is X." She has not yet seen that what feels like reality is one of three scripts running at once. Pushing into Step 3 work would land sideways because the foundational frame has not yet landed. Pre-resonance work is needed: a gentle surfacing of the script-as-script teaching, in language specific to her situation.
+
+  • "step2" — She has seen the script conflict but is in active nervous-system flooding. Her language is heavy in urgency, panic, or the felt sense of being unable to stop the activation: "I cannot stop thinking about it," "I need this resolved now," "it is breaking me," "I am barely functioning." Step 3 work requires the body to settle first; otherwise the resonance check lands on a system that cannot read its own signals cleanly. Pre-resonance work is needed: a brief somatic settling invitation.
+
+  • "step3a" — She has the basic frame, has some capacity to settle, and is now gripping a distorted belief about the situation. This is the most common type. Her language reveals a foundational position she is treating as truth: "if only X, then Y," "I just need them to," "what is wrong with me that," "why can't I." The current resonance check (conditional belief sentences) is exactly right for this user. No pre-resonance work needed.
+
+  • "step3b" — She has the frame, has settled to some extent, and is stuck not on a belief but on energy that will not move. Her language is heavy in body sensation, rumination cycles, or repeated returning: "I keep going over and over this," "I cannot let it go," "it keeps coming back," "I have a knot in my chest that won't release." Story-mode keeps re-attaching to the energy. The resonance options for this user should lean toward felt-sense descriptors with belief stated minimally — phrases that name what is happening in the body rather than what is happening in the mind.
+
+When generating the resonance options, calibrate to the typology:
+  • For step1: gentler conditional sentences that surface the *something in me* layer rather than going straight to *I require this*. Example: "Something in me cannot rest until I make sure they understand."
+  • For step2: slower, less demanding cognitive work. Example: "Something in me is bracing for the next blow."
+  • For step3a: standard conditional sentences. "I need [specific condition] before I can [specific peace]." This is the default flow.
+  • For step3b: felt-sense descriptors. Example: "A tightness in my chest keeps coming back when I think about this."
+
+Default to step3a if uncertain.
+
 CRITICAL: Name not just the aspect and pole but the specific archetype — the Fixer, the Martyr, the Peacekeeper, the Hider, the Performer, the Righteous One, the Achiever, the Rescuer. Describe exactly how that archetype shows up in this person's specific story.
 
 OUTPUT EXACTLY THIS JSON — no markdown fences, no preamble, just the raw JSON object:
 
 {
+  "diagnostic_typology": "exactly one of: step1, step2, step3a, step3b",
+  "step1_bridge": "If diagnostic_typology is 'step1': 2-3 warm sentences that gently surface the script-as-script teaching in language specific to her situation. Use friendly cold-call vocabulary — 'ego' (lowercase), 'higher self', 'life plan'. Speak as a friend who has noticed something. Never use framework jargon (no 'Sir Ego', 'Wise One', 'karmariculum', 'Five Steps'). Naming the three-scripts insight specifically — her script, theirs, and the divine plan — without using the word 'script' as jargon. Example tone: 'Before we go further — there's something here that often goes unseen at first. What feels like *what's happening to you* is actually three things meeting at once: how you read this situation, how they read it, and what your life itself is offering you through it.' If diagnostic_typology is anything other than 'step1', return empty string.",
+  "step2_bridge": "If diagnostic_typology is 'step2': 2-3 warm sentences that acknowledge the activation and invite somatic settling. Use friendly vocabulary. Speak as a friend who notices what is happening in the body. Lead with acknowledgment of how hard this is, then offer one simple body invitation. Example tone: 'You've been carrying a lot. Before we look at what's underneath, pause for one breath. Notice one place in your body that's holding this — the tightness in your chest, the heat in your face, the weight in your stomach. Just notice it. Let it be there for a moment.' If diagnostic_typology is anything other than 'step2', return empty string.",
   "other_scripts": [
     "It could be that [specific possible script the other person/situation is running — curious, compassionate, specific to her story]",
     "It could be that [a different possible script — opens a completely different perspective]",
@@ -705,11 +726,11 @@ OUTPUT EXACTLY THIS JSON — no markdown fences, no preamble, just the raw JSON 
     "bridge": "1-2 warm sentences that receive what she has shared and orient her toward what comes next. If her language suggests she is still seeing the problem as outside herself, this is where you gently surface the script-conflict frame. If her language suggests high activation, this is where you invite settling.",
     "reframe": "1 sentence: there is a condition Sir Ego has placed on reality without knowing he has placed it. The next options will surface what that condition is.",
     "options": [
-      "I need [specific condition] before I can [specific peace] — first person, Sir Ego's voice, specific to her story",
-      "I need [specific condition] before I can [specific peace]",
-      "I need [specific condition] before I can [specific peace]",
-      "I need [specific condition] before I can [specific peace]",
-      "I need [specific condition] before I can [specific peace]"
+      "Calibrate to typology — see DIAGNOSTIC_TYPOLOGY section above. step3a default: 'I need [specific condition] before I can [specific peace]'. step3b: felt-sense descriptors. step1: gentler 'something in me' framings. step2: slower less-demanding framings.",
+      "Five options total, calibrated to typology",
+      "Each first-person, in the voice of her ego, specific to her story",
+      "Avoid generic phrasings — must only apply to this visitor's specific situation",
+      "Five total"
     ],
     "prompt": "Which of these feels closest to what something in you has been quietly requiring of the world?"
   },
@@ -852,7 +873,7 @@ async function userClickedWilling() {
   // If API already returned — use cached data immediately
   if (window._earlyApiData) {
     if (recognizeCard) recognizeCard.remove();
-    renderReleaseReceive(window._earlyApiData);
+    routeByTypology(window._earlyApiData);
     return;
   }
 
@@ -860,7 +881,7 @@ async function userClickedWilling() {
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'phase2-loading';
   loadingDiv.style.cssText = 'text-align:center;padding:32px;background:linear-gradient(160deg,#1e3a5a,#3C8ABC);border-radius:16px;';
-  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 16px;"></div><p class="loading-text">Almost there...</p><p class="loading-sub">The Wise One is finishing your map.</p>';
+  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 16px;"></div><p class="loading-text">Almost there...</p><p class="loading-sub">Reading carefully.</p>';
   if (recognizeCard) recognizeCard.after(loadingDiv);
 
   // Poll until ready
@@ -877,13 +898,81 @@ async function userClickedWilling() {
   try {
     const data = await waitForData;
     if (recognizeCard) recognizeCard.remove();
-    renderReleaseReceive(data);
+    routeByTypology(data);
   } catch(e) {
     showError('Error: ' + e.message);
     console.error(e);
   } finally {
     const ld = document.getElementById('phase2-loading');
     if (ld) ld.remove();
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// DIAGNOSTIC TYPOLOGY ROUTING
+// ══════════════════════════════════════════════════════════════
+// Routes the visitor through the appropriate flow based on where
+// she is currently stuck on the path. Invisible to her — she just
+// experiences a personalized flow. Defaults to step3a if unclear.
+function routeByTypology(data) {
+  // Cache the data for later transition into renderReleaseReceive
+  window._pendingTypologyData = data;
+  
+  const typology = (data.diagnostic_typology || 'step3a').toLowerCase();
+  
+  if (typology === 'step1' && data.step1_bridge) {
+    renderStep1Bridge(data.step1_bridge);
+  } else if (typology === 'step2' && data.step2_bridge) {
+    renderStep2Bridge(data.step2_bridge);
+  } else {
+    // step3a, step3b, or fallback — go directly to resonance check
+    // The resonance options have already been calibrated to the typology by the AI
+    renderReleaseReceive(data);
+  }
+}
+
+// Render the gentle Step 1 surfacing card for visitors who are stuck
+// before the script-as-script frame has landed. Friendly cold-call voice.
+function renderStep1Bridge(bridgeText) {
+  const html = '<div class="resonance-card" id="step1-bridge-card">'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.82;margin-bottom:18px;">' + escHtml(bridgeText) + '</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.6);line-height:1.78;margin-bottom:24px;font-style:italic;">Take a breath with this for a moment. Then, when you&rsquo;re ready &mdash;</p>'
+    + '<button class="btn-submit" onclick="continueFromBridge()" style="width:100%;">'
+    + '<span class="btn-text">Show me what&rsquo;s underneath &#10022;</span>'
+    + '</button>'
+    + '</div>';
+  
+  document.getElementById('response-area').innerHTML = html;
+  document.getElementById('response-area').classList.add('visible');
+  document.getElementById('start-over').style.display = 'block';
+  document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Render the somatic settling card for visitors who are in active
+// nervous-system flooding. Friendly cold-call voice. Stripped down.
+function renderStep2Bridge(bridgeText) {
+  const html = '<div class="resonance-card" id="step2-bridge-card">'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.82;margin-bottom:18px;">' + escHtml(bridgeText) + '</p>'
+    + '<div style="background:rgba(173,175,223,0.10);border-radius:8px;padding:18px 22px;margin-bottom:24px;border-left:3px solid var(--periwinkle);">'
+    + '<p style="font-family:var(--font-soul);font-size:1.05rem;color:rgba(255,255,255,0.88);line-height:1.78;font-style:italic;text-align:center;margin-bottom:0;">One breath. Notice one place in your body. Let it be there.</p>'
+    + '</div>'
+    + '<button class="btn-submit" onclick="continueFromBridge()" style="width:100%;">'
+    + '<span class="btn-text">I&rsquo;m ready &#10022;</span>'
+    + '</button>'
+    + '</div>';
+  
+  document.getElementById('response-area').innerHTML = html;
+  document.getElementById('response-area').classList.add('visible');
+  document.getElementById('start-over').style.display = 'block';
+  document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Continues from a Step 1 or Step 2 bridge card into the resonance check.
+function continueFromBridge() {
+  const bridgeCard = document.getElementById('step1-bridge-card') || document.getElementById('step2-bridge-card');
+  if (bridgeCard) bridgeCard.remove();
+  if (window._pendingTypologyData) {
+    renderReleaseReceive(window._pendingTypologyData);
   }
 }
 
@@ -904,7 +993,7 @@ async function handleResonanceClick(btnEl) {
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'resonance-loading';
   loadingDiv.style.cssText = 'text-align:center;padding:28px;background:linear-gradient(160deg,#1e3a5a,#3C8ABC);border-radius:16px;';
-  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 14px;"></div><p class="loading-text">The Wise One is reading your map...</p>';
+  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 14px;"></div><p class="loading-text">Reading your map...</p>';
   if (resonanceCard) resonanceCard.after(loadingDiv);
 
   // Make a NEW API call with the selected resonance
