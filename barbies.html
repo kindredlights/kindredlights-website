@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>The Barbies — Coming Soon | Kindred Lights</title>
+  <meta name="description" content="A short-form social media series where the Five Steps get sacred and irreverent at the same time. Twenty-seven Barbies, each running her own ego-script in the Land of Should. Launching alongside the books." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --max: 760px; --nav-h: 64px;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --midnight: #1C1D40; --gold-light: #E8D48A; --gold-dark: #C9A84C;
+      --pink: #e63b85; --text-dark: #2b2b2b; --text-mid: #4a4a4a;
+      /* legacy nav vars */
+      --font-nav: "Raleway", sans-serif; --gold: #C9A84C; --cream: #F4F0EC;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text-dark); line-height: 1.7; background: #FBF7F1; -webkit-font-smoothing: antialiased; }
+    a { color: var(--midnight); text-decoration: none; border-bottom: 1px solid rgba(28,29,64,0.25); transition: border-color 0.2s; }
+    a:hover { border-bottom-color: var(--midnight); }
+    /* Legacy nav CSS injected at end of style block */
+
+
+    .hero { padding-top: calc(var(--nav-h) + 56px); padding-bottom: 0; padding-left: 32px; padding-right: 32px; background: linear-gradient(180deg, #1C1D40 0%, #3a2d5c 100%); position: relative; overflow: hidden; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 56px 0; }
+    @media (max-width: 800px) { .hero-inner { grid-template-columns: 1fr; gap: 32px; } }
+    .hero-text .eyebrow { display: inline-block; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; font-weight: 500; }
+    .hero-text h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.05; color: #fff; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 24px; }
+    .hero-text .rule { width: 56px; height: 2px; background: var(--gold-dark); margin-bottom: 24px; }
+    .hero-text p { font-family: var(--font-body); font-size: 1.04rem; color: rgba(255,255,255,0.88); line-height: 1.7; margin-bottom: 16px; }
+    .hero-text p em { color: var(--gold-light); font-style: italic; }
+    .hero-image { display: flex; justify-content: center; }
+    .hero-image img { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+
+    .body-section { padding: 64px 32px; background: #FBF7F1; }
+    .body-inner { max-width: var(--max); margin: 0 auto; }
+    .body-inner h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.4vw, 2.4rem); color: var(--midnight); margin-bottom: 24px; line-height: 1.2; }
+    .body-inner p { font-family: var(--font-body); font-size: 1.04rem; line-height: 1.78; color: var(--text-dark); margin-bottom: 18px; }
+    .body-inner em { color: var(--text-mid); font-style: italic; }
+
+    .lineup-section { padding: 56px 32px; background: #F0EAE0; }
+    .lineup-inner { max-width: var(--max); margin: 0 auto; }
+    .lineup-inner h3 { font-family: var(--font-display); font-size: 1.6rem; color: var(--midnight); margin-bottom: 16px; }
+    .lineup-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-top: 24px; }
+    .lineup-tag { background: #fff; padding: 10px 14px; border-radius: 4px; font-size: 0.86rem; color: var(--midnight); border-left: 3px solid var(--pink); font-family: var(--font-body); font-weight: 500; }
+
+    .closing-section { padding: 72px 32px; background: var(--midnight); color: #fff; text-align: center; }
+    .closing-inner { max-width: var(--max); margin: 0 auto; }
+    .closing-inner p { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.55rem); line-height: 1.6; color: #fff; font-style: italic; margin-bottom: 16px; }
+    .closing-inner p:last-child { margin-bottom: 0; }
+    .closing-inner .small { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.7); font-style: normal; margin-top: 24px; }
+
+    footer { background: var(--midnight); color: rgba(255,255,255,0.75); padding: 56px 32px 32px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .foot-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
+    @media (max-width: 800px) { .foot-inner { grid-template-columns: 1fr; gap: 32px; } }
+    .foot-brand { font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
+    .foot-tag { font-size: 0.92rem; line-height: 1.7; max-width: 380px; }
+    .foot-h { font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 16px; font-weight: 600; }
+    .foot-links { list-style: none; }
+    .foot-links li { margin-bottom: 10px; }
+    .foot-links a { color: rgba(255,255,255,0.75); border: none; font-size: 0.94rem; }
+    .foot-links a:hover { color: var(--gold-light); }
+    .foot-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.82rem; color: rgba(255,255,255,0.5); text-align: center; }
+  
+    /* Legacy nav system (transplanted from world.html for visual consistency) */
+    /* NAV */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(247,243,238,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; display: flex; align-items: center; padding: 0 32px; }
+    .nav-brand { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; white-space: nowrap; margin-right: 40px; flex-shrink: 0; }
+    .nav-brand-text em { color: var(--gold-dark); font-style: normal; display: block; }
+    .nav-links { display: flex; align-items: center; flex: 1; list-style: none; }
+    .nav-item { position: relative; }
+    /* Two-line nav labels: center the stacked text vertically in the nav height. */
+    .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
+    .nav-link br { display: block; }
+    /* Hover panel — the orientation card under each nav item. */
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--midnight); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .panel-role { font-family: var(--font-nav); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+    .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
+    .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
+    .panel-link { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
+    .panel-link:hover { color: var(--gold-light); }
+    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link:hover { color: var(--gold-dark); }
+    .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    /* Dropdown items suppress the generic nav-panel to prevent overlap. */
+    .nav-has-dropdown .nav-panel { display: none !important; }
+    .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
+    .dropdown-link:last-child { border-bottom: none; }
+    .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(247,243,238,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .mob-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
+    .mob-brand-text { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
+    .mob-brand-text em { color: var(--gold-dark); font-style: normal; }
+    .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--midnight); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--midnight); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu.open { display: block; }
+    .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mob-link:hover, .mob-link.gold { color: var(--gold); }
+    .mob-link br { display: none; }
+    @media (max-width:768px) {
+      #main-nav { display: none; }
+      .mobile-nav { display: flex; }
+      .v-hero { padding-right: 32px; }
+      .mm-tab { display: none; }
+      .foot-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- LEGACY NAV (consistent across site) -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand"><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <ul class="nav-links">
+    <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item" data-nav="explore"><a href="explore.html" class="nav-link">Explore</a><div class="nav-panel"><span class="panel-role">The Rooms</span><div class="panel-title">The Exploratorium</div><p class="panel-desc">Five rooms to wander. Find what catches you.</p><a href="explore.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to Us?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link active">What's Your<br>Problem? ▾</a>
+      <div class="nav-dropdown">
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
+      </div>
+    </li>
+    <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
+  </ul>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html" class="mobile-brand"><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mobile-menu">
+  <a href="index.html" class="mob-link" data-mob="home">Home</a>
+  <a href="https://kindredlights.org/mapminder" class="mob-link gold" data-mob="mapminder">✦ Help, Now! — Free</a>
+  <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
+  <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
+  <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
+  <a href="about.html" class="mob-link" data-mob="about">About</a>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">Coming Soon · Sacred &amp; Irreverent</span>
+      <h1>Barbie<br>lives in the Land<br>of Should.</h1>
+      <div class="rule"></div>
+      <p>Until it turns into the Land of Should Not.</p>
+      <p>A short-form video series where the Five Steps get real on a Tuesday afternoon. Twenty-seven Barbies, each running her own ego-script — Hustle Barbie, Doomscroll Barbie, Pleaser Barbie, Outrage Barbie, Conspiracy Barbie, Empath Barbie, Sober Barbie, Triggered Barbie, and twenty more — all walking the same path home. <em>One trigger at a time. One Wise One choosing differently. One Tuesday at a time.</em></p>
+    </div>
+    <div class="hero-image">
+      <img src="images/barbie-hero.jpg" alt="Barbie in a pink dress on a yellow brick road, lantern lit, wildflowers blooming" />
+    </div>
+  </div>
+</section>
+
+<section class="body-section">
+  <div class="body-inner">
+    <h2>The Barbies are how the Five Steps reach the people the books can't.</h2>
+    <p>Not everyone is going to read a 300-page book. Most people are not. Most people are scrolling at 9pm on a Tuesday after a hard day, looking for something that lands in 90 seconds. The Barbies meet them there.</p>
+    <p>Each episode is a short video — 7 slides, about a minute and a half — featuring a different Barbie, each one running a different version of the same script the books are mapping at length. Hustle Barbie cannot stop. Outrage Barbie is on fire. Pleaser Barbie has lost herself in caretaking. Conspiracy Barbie has all the answers. Empath Barbie is drowning in everyone else's feelings. Sober Barbie is on day 3 and white-knuckling it. Each Barbie meets the trigger that fires her particular script and walks the Five Steps in real time, in language that fits her terrain. Then the next Barbie, on a different day, walks the same steps through her own.</p>
+    <p>The same teaching. Different costumes. The reader who recognizes herself in Hustle Barbie has just received the framework that lives at full depth in <em>Love Heroically</em> and <em>What Happened to Us?</em> — without having read either one. The seed is planted. Sometimes that is enough. Sometimes it is the beginning.</p>
+    <p>Sacred and irreverent, both. The work is ministry. The voice is a friend on the couch. Twenty-seven Barbies because there is room in this for all of us — the ones who are righteous, the ones who are anxious, the ones who are exhausted, the ones who are angry, the ones who have given up. Barbie has been all of us at one point or another. The Five Steps walk her, and us, home.</p>
+  </div>
+</section>
+
+<section class="lineup-section">
+  <div class="lineup-inner">
+    <h3>The Lineup (subject to expansion)</h3>
+    <p style="font-family:var(--font-body);font-size:0.96rem;color:var(--text-mid);line-height:1.7;">Twenty-seven Barbie archetypes mapped from the framework. Each one gets her own episode. The first wave drops alongside the book launch.</p>
+    <div class="lineup-grid">
+      <div class="lineup-tag">Hustle Barbie</div>
+      <div class="lineup-tag">Doomscroll Barbie</div>
+      <div class="lineup-tag">Pleaser Barbie</div>
+      <div class="lineup-tag">Outrage Barbie</div>
+      <div class="lineup-tag">Conspiracy Barbie</div>
+      <div class="lineup-tag">Empath Barbie</div>
+      <div class="lineup-tag">Sober Barbie</div>
+      <div class="lineup-tag">Triggered Barbie</div>
+      <div class="lineup-tag">Mom Barbie</div>
+      <div class="lineup-tag">Divorce Barbie</div>
+      <div class="lineup-tag">Grief Barbie</div>
+      <div class="lineup-tag">Healer Barbie</div>
+      <div class="lineup-tag">Lover Barbie</div>
+      <div class="lineup-tag">Lighthouse Barbie</div>
+      <div class="lineup-tag">Activist Barbie</div>
+      <div class="lineup-tag">Boss Barbie</div>
+      <div class="lineup-tag">VP Barbie</div>
+      <div class="lineup-tag">Culture Barbie</div>
+      <div class="lineup-tag">Nest Barbie</div>
+      <div class="lineup-tag">Passion Barbie</div>
+      <div class="lineup-tag">Peacekeeper Barbie</div>
+      <div class="lineup-tag">Plutonium Barbie</div>
+      <div class="lineup-tag">Radiant Barbie</div>
+      <div class="lineup-tag">School Barbie</div>
+      <div class="lineup-tag">Sides Barbie</div>
+      <div class="lineup-tag">Spiritual Barbie</div>
+      <div class="lineup-tag">World Barbie</div>
+    </div>
+  </div>
+</section>
+
+<section class="closing-section">
+  <div class="closing-inner">
+    <p>The first episode lands soon.</p>
+    <p>The books arrive shortly after.</p>
+    <p>Barbie is on her way home.</p>
+    <p class="small">Watch this space. Or wander the rest of the site in the meantime — <a href="index.html" style="color:var(--gold-light);border-bottom-color:rgba(232,212,138,0.5);">the home page</a>, <a href="explore.html" style="color:var(--gold-light);border-bottom-color:rgba(232,212,138,0.5);">the Exploratorium</a>, or any of the <a href="awakening.html" style="color:var(--gold-light);border-bottom-color:rgba(232,212,138,0.5);">eleven verticals</a> already up.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-brand">Kindred Lights</div>
+      <p class="foot-tag">A spiritual companion for the heart that is still learning how to hold what it has been given. Sir Ego, the Wise One, the Five Steps. Not perfectly. Heroically.</p>
+    </div>
+    <div>
+      <p class="foot-h">What's Your Problem?</p>
+      <ul class="foot-links">
+        <li><a href="narc.html">Narcissistic Abuse</a></li>
+        <li><a href="parenting.html">Parenting Triggers</a></li>
+        <li><a href="addiction.html">Addiction &amp; Sobriety</a></li>
+        <li><a href="grief.html">Grief &amp; Loss</a></li>
+        <li><a href="health.html">Health Crisis</a></li>
+        <li><a href="work.html">Work &amp; Workplace</a></li>
+        <li><a href="anxiety.html">Anxiety</a></li>
+        <li><a href="awakening.html">Spiritual Awakening</a></li>
+        <li><a href="acim.html">A Course in Miracles</a></li>
+        <li><a href="untethered.html">The Untethered Soul</a></li>
+        <li><a href="world.html">World Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">More</p>
+      <ul class="foot-links">
+        <li><a href="explore.html">Exploratorium</a></li>
+        <li><a href="books-coming.html">The Books</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    © 2026 Kindred Lights · A space to think
+  </div>
+</footer>
+
+
+<!-- Legacy nav script -->
+<script>
+  const nav = document.getElementById("main-nav");
+  window.addEventListener("scroll", () => { nav && nav.classList.toggle("scrolled", window.scrollY > 20); }, { passive: true });
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener("click", () => { const open = hamburger.classList.toggle("open"); mobileMenu.classList.toggle("open", open); document.body.style.overflow = open ? "hidden" : ""; });
+    mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { hamburger.classList.remove("open"); mobileMenu.classList.remove("open"); document.body.style.overflow = ""; }));
+  }
+  const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

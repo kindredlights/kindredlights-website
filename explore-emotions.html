@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unlocking the Power of Emotions — Kindred Lights</title>
+  <meta name="description" content="Emotions feel like a nuisance. They are the key to transforming your inner life, your outer life, and your relationships. Here's how to read them." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    
+    img { height: auto; max-width: 100%; }
+    :root {
+      --cream: #F4F0EC; --midnight: #1C1D40; --deep-blue: #2C4A7C;
+      --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
+      --periwinkle: #adafdf; --lavender: #d3b6e2;
+      --sky-deep: #3C8ABC; --sky-mid: #81A8CB; --sky-light: #A9D0E7;
+      --peri-deep: #AFBEDA; --peri-mid: #ABB1E0;
+      --text-dark: #2b2b2b; --text-mid: #4a4a4a;
+      --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
+      --nav-h: 64px; --max: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; } a { text-decoration: none; color: inherit; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.1s; } .reveal.d2 { transition-delay: 0.2s; } .reveal.d3 { transition-delay: 0.3s; }
+
+    /* NAV */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,240,236,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
+    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(28,29,64,0.10); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 40px; flex-shrink: 0; text-decoration: none; }
+    .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; filter: drop-shadow(0 2px 6px rgba(188,137,220,0.35)); }
+    .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
+    .nav-brand-text em { color: var(--gold-dark); font-style: normal; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 0; flex: 1; list-style: none; }
+    .nav-item { position: relative; }
+    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
+    .nav-link br { display: block; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--midnight); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .panel-role { font-family: var(--font-nav); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+    .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
+    .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
+    .panel-link { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
+    .panel-link:hover { color: var(--gold-light); }
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .nav-has-dropdown .nav-panel { display: none !important; }
+    .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
+    .dropdown-link:last-child { border-bottom: none; }
+    .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(244,240,236,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .mob-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
+    .mob-brand-text { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
+    .mob-brand-text em { color: var(--gold-dark); font-style: normal; }
+    .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--midnight); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--midnight); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu.open { display: block; }
+    .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mob-link:hover, .mob-link.gold { color: var(--gold); }
+    .mob-link br { display: none; }
+
+    /* TIP */
+    .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
+    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--midnight); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 280px; z-index: 200; pointer-events: none; font-weight: 400; letter-spacing: normal; text-transform: none; }
+    .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
+
+    /* PAGE HEADER */
+    .page-header { padding-top: calc(var(--nav-h) + 64px); padding-bottom: 80px; padding-left: 32px; padding-right: 32px; background: linear-gradient(150deg, #3d6abf 0%, #81A8CB 50%, #2a4494 100%); position: relative; overflow: hidden; }
+    .page-header-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: 28% top; opacity: 0.45; pointer-events: none; }
+    .page-header-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .eyebrow { font-family: var(--font-nav); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #d5c8ed; display: block; margin-bottom: 16px; }
+    .header-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 600; color: #fff; letter-spacing: 0.04em; line-height: 1.15; margin-bottom: 22px; }
+    .header-lede { font-family: var(--font-soul); font-size: clamp(1.15rem,1.8vw,1.38rem); color: rgba(255,255,255,0.92); line-height: 1.58; font-style: italic; font-weight: 400; max-width: 720px; margin: 0 auto; }
+
+    /* CONTENT SECTIONS */
+    section { padding: 72px 32px; }
+    section:nth-of-type(odd) { background: var(--cream); }
+    section:nth-of-type(even) { background: #eef1f8; }
+    .section-inner { max-width: 780px; margin: 0 auto; }
+    .section-inner.wide { max-width: var(--max); }
+    .section-label { font-family: var(--font-nav); font-size: 0.6rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--periwinkle); display: block; margin-bottom: 8px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.4rem,2.6vw,2.1rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; line-height: 1.2; margin-bottom: 24px; }
+    .section-rule { width: 48px; height: 2px; background: var(--periwinkle); margin-bottom: 28px; }
+    p.body { font-family: var(--font-body); font-size: 1.06rem; color: var(--text-mid); line-height: 1.82; margin-bottom: 20px; }
+    p.body em { color: var(--midnight); font-style: italic; }
+    p.body strong { color: var(--midnight); font-weight: 600; }
+    .pull { font-family: var(--font-soul); font-size: 1.25rem; color: var(--midnight); line-height: 1.68; border-left: 3px solid var(--periwinkle); padding-left: 22px; margin: 32px 0; font-style: italic; }
+
+    /* EMOJI NAV GRID */
+    .emoji-grid-section { background: linear-gradient(180deg, #eef1f8 0%, #e4ebf4 100%); }
+    .emoji-grid-intro { text-align: center; margin-bottom: 36px; }
+    .emoji-grid-intro p { font-family: var(--font-soul); font-size: 1.15rem; color: var(--text-mid); font-style: italic; max-width: 620px; margin: 0 auto; line-height: 1.65; }
+    .emoji-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; max-width: 900px; margin: 0 auto; }
+    .emoji-tile { background: #fff; border-radius: 12px; padding: 16px 8px 12px; text-align: center; box-shadow: 0 3px 14px rgba(100,80,180,0.08); transition: transform 0.2s, box-shadow 0.2s; border: 1px solid rgba(171,177,224,0.2); }
+    .emoji-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(100,80,180,0.16); border-color: var(--periwinkle); }
+    .emoji-tile .emoji-img { width: 56px; height: 56px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 2.4rem; background: linear-gradient(135deg, #f5f1ea 0%, #eae3f0 100%); border-radius: 50%; }
+    .emoji-tile .emoji-img img { width: 100%; height: 100%; object-fit: contain; }
+    .emoji-tile .emoji-label { font-family: var(--font-nav); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mid); }
+    .emoji-tile:hover .emoji-label { color: var(--midnight); }
+
+    /* EMOTION ENTRIES */
+    .emotion-entry { padding: 56px 32px; border-bottom: 1px solid rgba(171,177,224,0.15); }
+    .emotion-entry:nth-of-type(odd) { background: var(--cream); }
+    .emotion-entry:nth-of-type(even) { background: #eef1f8; }
+    .emotion-entry:last-of-type { border-bottom: none; }
+    .emotion-inner { max-width: 780px; margin: 0 auto; }
+    .emotion-header { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; }
+    .emotion-emoji { width: 80px; height: 80px; flex-shrink: 0; background: linear-gradient(135deg, #f5f1ea 0%, #eae3f0 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: 0 4px 16px rgba(100,80,180,0.12); }
+    .emotion-emoji img { width: 100%; height: 100%; object-fit: contain; }
+    .emotion-name { font-family: var(--font-display); font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; }
+    .emotion-aspect { font-family: var(--font-nav); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-top: 4px; }
+    .emotion-entry .sir-ego-para, .emotion-entry .wise-one-para { font-family: var(--font-body); font-size: 1.04rem; color: var(--text-mid); line-height: 1.82; margin-bottom: 18px; }
+    .emotion-entry .sir-ego-label, .emotion-entry .wise-one-label { font-family: var(--font-nav); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--periwinkle); display: block; margin-bottom: 6px; margin-top: 14px; }
+    .emotion-entry .wise-one-label { color: var(--gold-dark); }
+    .emotion-entry a.back-to-top { font-family: var(--font-nav); font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--periwinkle); display: inline-block; margin-top: 16px; transition: color 0.2s; }
+    .emotion-entry a.back-to-top:hover { color: var(--gold-dark); }
+
+    /* TOOLKIT */
+    .toolkit-section { background: linear-gradient(180deg, #e8deee 0%, #d9ccdf 100%); padding: 88px 32px; }
+    .toolkit-inner { max-width: 820px; margin: 0 auto; }
+    .toolkit-intro { text-align: center; margin-bottom: 40px; }
+    .toolkit-intro .section-label { color: var(--gold-dark); }
+    .toolkit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 40px; }
+    .tool-card { background: rgba(255,255,255,0.72); border-radius: 8px; padding: 22px 24px; box-shadow: 0 4px 18px rgba(80,60,120,0.08); border-top: 3px solid var(--gold); }
+    .tool-name { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; margin-bottom: 8px; }
+    .tool-subtitle { font-family: var(--font-soul); font-size: 0.95rem; font-style: italic; color: var(--deep-blue); margin-bottom: 10px; display: block; }
+    .tool-body { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); line-height: 1.75; }
+    .tool-body em { color: var(--midnight); font-style: italic; }
+
+    /* CLOSING */
+    .closing-wise { background: var(--cream); padding: 72px 32px; }
+    .closing-inner { max-width: 720px; margin: 0 auto; }
+    .closing-inner .pull { font-size: 1.38rem; }
+
+    /* NEXT BAND */
+    .next-band { background: linear-gradient(150deg, #2a4494 0%, #3d6abf 100%); padding: 80px 32px; position: relative; overflow: hidden; }
+    .next-band-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: center 40%; opacity: 0.2; pointer-events: none; }
+    .next-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .next-inner .eyebrow { color: var(--gold-light); margin-bottom: 12px; }
+    .next-title { font-family: var(--font-display); font-size: clamp(1.4rem,2.8vw,2rem); font-weight: 600; color: #fff; letter-spacing: 0.04em; line-height: 1.25; margin-bottom: 18px; }
+    .next-copy { font-family: var(--font-body); font-size: 1.04rem; color: rgba(255,255,255,0.82); line-height: 1.78; max-width: 640px; margin: 0 auto 32px; }
+    .next-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 32px; background: var(--gold); color: var(--midnight); border-radius: 4px; display: inline-block; box-shadow: 0 4px 18px rgba(201,168,76,0.3); transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 26px; border: 1.5px solid rgba(247,243,238,0.35); color: rgba(247,243,238,0.85); border-radius: 4px; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* FOOTER */
+    footer { background: var(--midnight); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 20px; }
+    .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: #fff; margin-bottom: 8px; }
+    .foot-brand em { color: var(--gold); font-style: normal; }
+    .foot-tag p { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); line-height: 1.9; }
+    .foot-h { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.6); margin-bottom: 14px; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); transition: color 0.2s; }
+    .foot-links a:hover { color: var(--gold); }
+    .foot-bottom { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-family: var(--font-nav); font-size: 0.66rem; color: rgba(255,255,255,0.2); }
+    .foot-sigil { font-family: var(--font-display); font-size: 0.64rem; letter-spacing: 0.18em; color: rgba(201,168,76,0.28); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .emoji-grid { grid-template-columns: repeat(5, 1fr); }
+      .toolkit-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+    @media (max-width: 768px) {
+      #main-nav { display: none; } .mobile-nav { display: flex; }
+      section, .emotion-entry { padding: 56px 24px; }
+      .page-header { padding-top: calc(58px + 48px); padding-bottom: 56px; padding-left: 24px; padding-right: 24px; }
+      .emoji-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+      .emoji-tile { padding: 12px 4px 10px; }
+      .emoji-tile .emoji-img { width: 44px; height: 44px; font-size: 1.9rem; }
+      .emoji-tile .emoji-label { font-size: 0.58rem; letter-spacing: 0.08em; }
+      .emotion-header { flex-direction: column; text-align: center; gap: 14px; }
+      .emotion-emoji { width: 72px; height: 72px; font-size: 2.6rem; }
+      .toolkit-section { padding: 64px 24px; }
+      .next-band { padding: 60px 24px; }
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .next-buttons { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .emoji-grid { grid-template-columns: repeat(3, 1fr); }
+      .foot-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+
+
+  <!-- JSON-LD: WebPage + Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Unlocking the Power of Emotions — Room Three",
+    "url": "https://kindredlights.org/explore-emotions",
+    "isPartOf": { "@type": "WebSite", "name": "Kindred Lights", "url": "https://kindredlights.org" },
+    "primaryImageOfPage": "https://kindredlights.org/images/emotions-full-human-range-illustration.png",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Kindred Lights", "item": "https://kindredlights.org" },
+        { "@type": "ListItem", "position": 2, "name": "Explore", "item": "https://kindredlights.org/explore" },
+        { "@type": "ListItem", "position": 3, "name": "Unlocking the Power of Emotions", "item": "https://kindredlights.org/explore-emotions" }
+      ]
+    }
+  }
+  </script>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand"><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <ul class="nav-links">
+    <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item" data-nav="explore"><a href="explore.html" class="nav-link active">Explore</a><div class="nav-panel"><span class="panel-role">The Rooms</span><div class="panel-title">The Exploratorium</div><p class="panel-desc">Five rooms to wander. Find what catches you.</p><a href="explore.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to Us?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
+      <div class="nav-dropdown">
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
+      </div>
+    </li>
+    <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
+  </ul>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <a href="index.html" class="mobile-brand"><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mobile-menu">
+  <a href="index.html" class="mob-link" data-mob="home">Home</a>
+  <a href="https://kindredlights.org/mapminder" class="mob-link gold" data-mob="mapminder">✦ Help, Now! — Free</a>
+  <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
+  <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
+  <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
+  <a href="about.html" class="mob-link" data-mob="about">About</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header" id="top">
+  <div class="page-header-bg"></div>
+  <div class="page-header-inner">
+    <span class="eyebrow reveal">Explore · Room Two</span>
+    <h1 class="header-title reveal d1">Unlocking the Power of Emotions</h1>
+    <p class="header-lede reveal d2">Emotions feel like a nuisance. They are the key to transforming your inner life, your outer life, and your relationships. Here's how to read them.</p>
+  </div>
+</div>
+
+<!-- OPENING -->
+<section>
+  <div class="section-inner reveal">
+    <p class="body">Every emotion in this list is a blockage waiting to be released. It is not a character flaw. It is not a verdict. It is not proof of anything about who you are. It is a charge that was stored in the body because, at the moment it was created, there was no safe way to let it move through.</p>
+    <p class="body"><span class="tip" tabindex="0">Sir Ego<span class="tip-box">Your ego. The hero with the wrong map.</span></span> held onto it for good reason. The feeling was too big, too dangerous, too threatening to his <span class="tip" tabindex="0">Script<span class="tip-box">Sir Ego's rules about how life should go.</span></span> to be felt fully in the moment it arrived. So he did what any brilliant survival system does: he filed it away. Pushed it down. Built a wall around it. Told himself he had handled it — and then wondered why it kept surfacing in the body, in the reactions, in the specific exhaustion of someone carrying more than they know.</p>
+    <p class="body">These are the blockages the <strong>Release</strong> step is designed to move. Each one has a shape, a history, a specific lie at its root that the <span class="tip" tabindex="0">Wise One<span class="tip-box">Your higher self. Already home.</span></span> is ready to dissolve. None of them need to be held any longer. The moment that created them is over. You are here, in this body, in this present moment — which is safe. The charge doesn't know that yet. But the Wise One does.</p>
+    <p class="body">What follows is not a diagnosis. It is a mirror — so Sir Ego can finally see what he's been carrying, why he picked it up, and why it is safe to put it down.</p>
+  </div>
+</section>
+
+<!-- WHAT EMOTIONS ACTUALLY ARE -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Before You Tap</span>
+    <h2 class="section-title">What Emotions Actually Are</h2>
+    <div class="section-rule"></div>
+    <p class="italic-whisper">This is a deep teaching. Some of it will land right away. Some will sit with you for years before it makes sense. Both are fine. Take what you can hold. Leave the rest.</p>
+    <p class="body">An emotion is <em>body feeling + mind story.</em></p>
+    <p class="body">The body feeling — the chest tightness, the throat closing, the adrenaline, the heaviness, the heat behind the eyes — is chemistry. Hormones, neurochemicals, electrical signaling in the nervous system. Real as a physical event. <strong>Neutral as information about Truth.</strong></p>
+    <p class="body">The same adrenaline flood is a sabertooth tiger approaching and a sprint toward a finish line. The same pelvic contractions are a shattered pelvis in a car accident and a baby being born. The same racing heart is terror and ecstasy. The sensation itself has no inherent meaning. It is simulation — the body doing what bodies do under a given stimulus.</p>
+    <p class="body">The emotion arrives when Sir Ego's Script hands the sensation a story. <em>Something terrible is happening. This means I am unsafe. This means I am unloved. This means I failed. This means I cannot survive this.</em> The story converts neutral physiology into suffering — or into joy, depending on the Script running.</p>
+    <p class="body">This is why the same event causes very different emotions in different people. Why the same memory can devastate you today and move you tomorrow. Why trauma is not the event itself but the meaning Sir Ego wrote under the event. <strong>The sensation is information. The story is what hurts.</strong></p>
+    <p class="pull">These emotions are never real. They never speak the Truth. They are never permanent. They exist only at the level of Sir Ego's Script running through the body's chemistry. At the level of what you actually are — at the level the Wise One is standing in — there is nothing being damaged, nothing being taken, nothing being lost.</p>
+    <p class="body">The charge moves. The story releases. What remains is what was always there underneath.</p>
+    <p class="body">This is the work. Not eliminating the sensations — your body is designed to produce them and always will. The work is disarming the stories that convert them into lasting suffering.</p>
+    <p class="body">The thirteen entries below walk Sir Ego through each story, one at a time, and show him what the Wise One has been seeing all along.</p>
+  </div>
+</section>
+
+<!-- EMOJI NAV GRID -->
+<section class="emoji-grid-section">
+  <div class="section-inner wide">
+    <div class="emoji-grid-intro reveal">
+      <span class="section-label">Find What's Alive</span>
+      <h2 class="section-title" style="margin-bottom:16px;">Which One Is Here Right Now?</h2>
+      <p>Tap whatever catches you. Come back later for the others. Each one is its own door.</p>
+    </div>
+    <div class="emoji-grid reveal d1">
+      <a href="#shame" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e12.png" alt="" /></div><div class="emoji-label">Shame</div></a>
+      <a href="#guilt" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e7.png" alt="" /></div><div class="emoji-label">Guilt</div></a>
+      <a href="#fear" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e3.png" alt="" /></div><div class="emoji-label">Fear</div></a>
+      <a href="#anger" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e5.png" alt="" /></div><div class="emoji-label">Anger</div></a>
+      <a href="#frustration" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e6.png" alt="" /></div><div class="emoji-label">Frustration</div></a>
+      <a href="#disappointment" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e1.png" alt="" /></div><div class="emoji-label">Disappointment</div></a>
+      <a href="#jealousy" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e9.png" alt="" /></div><div class="emoji-label">Jealousy</div></a>
+      <a href="#envy" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e8.png" alt="" /></div><div class="emoji-label">Envy</div></a>
+      <a href="#anxiety" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e2.png" alt="" /></div><div class="emoji-label">Anxiety</div></a>
+      <a href="#boredom" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e4.png" alt="" /></div><div class="emoji-label">Boredom</div></a>
+      <a href="#grief" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e10.png" alt="" /></div><div class="emoji-label">Grief</div></a>
+      <a href="#sadness" class="emoji-tile"><div class="emoji-img"><img src="images/emoji/e11.png" alt="" /></div><div class="emoji-label">Sadness</div></a>
+      <a href="#loneliness" class="emoji-tile"><div class="emoji-img">😶</div><div class="emoji-label">Loneliness</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- SHAME -->
+<section class="emotion-entry" id="shame">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e12.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Shame</div>
+        <span class="emotion-aspect">Distortion of · Light</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script says he should be worthy — lovable, acceptable, enough. The family system, the religious framework, the school, the culture each found in Sir Ego's need for love and belonging a lever. Shame was the tool used to keep him compliant, manageable, and small. He absorbed it not because he was weak but because he was young, and he trusted the people who were supposed to be safe. When his Script collided with their need for control, shame was installed as the explanation: something about you is simply broken. Not what you did. What you are.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One knows none of it was true. You <strong>are Light</strong> — eternal, radiant, an aspect of the Divine that no story, no wound, no institution's verdict can reach. Shame is not a truth about your nature. It is a distortion Sir Ego's Script installed to explain pain it couldn't process, and a tool others used to serve their own need for control. Your inherent wholeness was never touched. The Script of Creation did not send those experiences as evidence of your unworthiness. It sent them as curriculum — the exact forge your soul chose to discover what it is actually made of. The Light you are was never dimmed. It was waiting, patient and unchanged, for Sir Ego to stop believing the verdict.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- GUILT -->
+<section class="emotion-entry" id="guilt">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e7.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Guilt</div>
+        <span class="emotion-aspect">Distortion of · Light</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script says he should have done better — should have known, should have chosen differently, should have been someone other than who he was in that moment. When his behavior collided with his own rules, guilt arrived as the verdict: you did something wrong, and that wrong defines you. Underneath the behavior that triggered the guilt is almost always a conflict — Sir Ego caught between competing fears or desires, making the only choice available to him in that moment. But the Script doesn't care about context. It has a rule. The rule was violated. Case closed.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One knows the truth Sir Ego cannot yet see: you were riding a ride in the <span class="tip" tabindex="0">Earth Adventure Park<span class="tip-box">This lifetime. The rides the soul chose.</span></span>. A wild one, perhaps. One that cost something, or hurt someone, or looked nothing like the person you intended to be. But you were not committing a sin with eternal consequences. You were exploring the curriculum your soul designed — the exact ride required to forge the quality you came here to embody. There are no eternal consequences because you are an eternal being, and nothing that happens on the ride changes what you are at the root. Misaligned behavior is feedback, not failure. The <span class="tip" tabindex="0">Karmariculum<span class="tip-box">Your soul's custom lesson plan.</span></span> doesn't keep score. It keeps curriculum. You <strong>are inherently whole</strong> — and no ride, however wild, however costly, however much Sir Ego wishes he'd chosen differently, changes that. Light doesn't dim because the ride got dark. It waits for Sir Ego to find his way back to the exit.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- FEAR -->
+<section class="emotion-entry" id="fear">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e3.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Fear</div>
+        <span class="emotion-aspect">Distortion of · Love &amp; Peace</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Fear is not just a response to danger — it is the foundation of Sir Ego's entire Script. Every strategy he has ever deployed traces back to the original terror of the cave: I have to figure out the rules. I have to crack the code. I have to do whatever it takes to stay in the okay place and avoid the terrible one. Sir Ego didn't choose fear as his operating system. He inherited it the moment he discovered the world was not reliably safe — and built everything on top of it. His Script was written for one purpose: stay in the okay cave. The <span class="tip" tabindex="0">Script of Creation<span class="tip-box">The living intelligence running the universe.</span></span> keeps sending both caves. Sir Ego experiences this as a cosmic violation. The universe is not cooperating with the plan.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One knows there was never actually a terrible cave — there was curriculum. The oscillation Sir Ego has been desperately managing his entire life was not punishment. It was the Karmariculum delivering exactly the experiences the soul chose in order to forge the Peace that cannot be manufactured in the absence of chaos. You <strong>are Peace</strong> — not as a state to be achieved when the caves stop, but as the nature you already have underneath everything Sir Ego has been building on top of it. The Script of Creation did not design the okay cave as the destination. It designed both caves as the path to the door Sir Ego never knew existed. Love is the antidote — the Truth the Wise One has been standing in the whole time. The danger fear is scanning for is almost never in the room.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- ANGER -->
+<section class="emotion-entry" id="anger">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e5.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Anger</div>
+        <span class="emotion-aspect">Distortion of · Power</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script was written on stone tablets. It specifies how people should behave, what outcomes should arrive, what reality owes him in return for his compliance. When something collides with those tablets — when a person doesn't behave as the Script requires, when an outcome that should have happened didn't — the alarm fires. Someone is in violation. Someone must be held accountable. Anger is Sir Ego's enforcement mechanism — the sword that comes out when the Script of Creation has the audacity to deliver something other than what the tablets specified. From inside the anger, it always feels righteous. It always feels like justice.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One doesn't ask Sir Ego to put the sword down before he's ready. She asks him to look at what it's guarding. Beneath every anger is something that mattered deeply enough to hurt — and beneath that is a wound that predates this moment, this person, this violation. The Wise One's question is always the same: what wound gave rise to this? What mattered enough to hurt this much? Anger is a distortion of Power — and you <strong>are Power</strong>, sovereign and co-creative, at the level the sword can never reach. When Sir Ego turns to look at the wound underneath the weapon, the sword becomes unnecessary. The Power that was running as force becomes available as presence. The Script of Creation was never in violation. It was delivering the stepping stone the anger was standing on top of.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- FRUSTRATION -->
+<section class="emotion-entry" id="frustration">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e6.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Frustration</div>
+        <span class="emotion-aspect">Distortion of · Wisdom</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script says this door should open. He has tried the handle. He has knocked. He has pushed. He has tried again from a slightly different angle. The Script of Creation is not opening this door — and Sir Ego's conclusion is not that this might be the wrong door. His conclusion is that reality is broken, or that he is failing, or both. When the outcome doesn't materialize, Sir Ego files it as evidence of unworthiness and pushes harder. The loop runs back to shame. The frustration wasn't just about the door. It became another stone in the case against himself.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One explores many doors but remains unattached to any specific one. She trusts that the right door — aligned with the Script of Creation — will open naturally, without force. What Sir Ego calls failure, the Wise One recognizes as redirection. This is Wisdom — and you <strong>are Wisdom</strong>, at the level where the right door is always already known. Frustration is the signal, not the problem. Something in you already senses this direction is wrong — the resistance is your own deeper knowing, not the universe being difficult. The Script of Creation is not broken. It is precise. Alignment replaces effort. Surrender replaces struggle. The door that is meant for you will not require a battering ram.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- DISAPPOINTMENT -->
+<section class="emotion-entry" id="disappointment">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e1.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Disappointment</div>
+        <span class="emotion-aspect">Distortion of · Wisdom</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script wrote a story about how this was going to go. The job would come through. The person would respond the way they should. The outcome would match the effort. The Script had specifics — not just a general hope, but a detailed expectation, complete with how it would feel when it arrived. The Script of Creation delivered something else. The gap between what was scripted and what arrived lands as disappointment: the universe did not honor the terms. Something was promised and withheld.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One knows nothing was promised by anyone but Sir Ego. The Script of Creation makes no agreements with the ego's specifications. It delivers what the soul needs next, not what Sir Ego was hoping for. Disappointment is the Wisdom aspect running through the lens of attachment to a specific form — you <strong>are Wisdom</strong>, and Wisdom knows that what you actually wanted underneath the specifics is almost always still on offer, in a form Sir Ego cannot yet recognize. What arrived instead of the Script's version carries something the Script's version could not. The redirection is the gift. The Wise One trusts this before Sir Ego can see it.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- JEALOUSY -->
+<section class="emotion-entry" id="jealousy">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e9.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Jealousy</div>
+        <span class="emotion-aspect">Distortion of · Love</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script says the love, the attention, the position, the role was his. When another person appears to receive some portion of what the Script assigned to him, Sir Ego experiences the threat of loss. The Script does not ask whether the love in question is actually finite. It assumes scarcity and organizes a defense. Jealousy is Sir Ego's possession response — marking territory, watching for signs, rehearsing arguments about what was supposed to be his. Love is running through the lens of ownership.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One knows love is not a finite resource that must be guarded. You <strong>are Love</strong> — at the level scarcity cannot reach, where no one else's portion reduces yours. The love that is yours cannot be taken by anyone else having more of their own. Jealousy reveals the place Sir Ego has been believing his worth depends on being chosen over others — and the Wise One offers the deeper truth: your worth is not a contest, and love is not administered by committee. The Karmariculum may be bringing you a specific lesson about where you still locate your sufficiency outside yourself. The jealousy is the signal. What it's pointing at is the invitation.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- ENVY -->
+<section class="emotion-entry" id="envy">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e8.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Envy</div>
+        <span class="emotion-aspect">Distortion of · Light &amp; Joy</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script says abundance should be his. When the Script of Creation delivers it to someone else first — their joy, their recognition, their ease, their success — Sir Ego concludes there must be less available for himself. Your happiness diminishes mine. This is Light and Joy running through the distorting lens of scarcity consciousness — the foundational ego belief that the supply is limited and someone must lose for someone else to win. Sir Ego experiences another's abundance as evidence of his own lack. The Script of Creation, once again, appears to be distributing unfairly.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One knows that another's fulfillment is evidence of what is possible — the Script of Creation showing you something through their life that is available in yours. You <strong>are Joy</strong>. You are abundance itself — at the level scarcity cannot reach, where the supply was never limited and no one else's portion reduces yours. What you envy in another is something you already carry — unactivated. Envy is desire that doesn't yet believe in itself. Resonance attracts reality: gratitude and celebration open the field to receive what the heart truly desires. Look not outward with longing, but inward with recognition. It is already there. It has always been there.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- ANXIETY -->
+<section class="emotion-entry" id="anxiety">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e2.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Anxiety</div>
+        <span class="emotion-aspect">Distortion of · Calm</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script says the future should be controllable — that if he thinks hard enough, plans far enough, prepares thoroughly enough, he can make good things happen and prevent bad ones. The Script of Creation is under no such obligation. It is unfolding according to its own intelligence, on its own timeline, toward ends Sir Ego cannot yet see — and this is experienced as a fundamental violation of the agreement. Anxiety is Sir Ego's response: if I can just think my way through every possible scenario, I can regain control of what the Script of Creation keeps refusing to hand over. Calm is running as its distortion — the attack-defend-withdraw circuit firing at a future that hasn't arrived.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One knows the Script of Creation is benevolent and always unfolding for the highest good — even when she cannot yet see how. She stays anchored in the now — where action, insight, and healing actually occur — and moves in harmony with divine timing. You <strong>are Calm</strong> — still, centered, grounded in the eternal present where Sir Ego's worst-case scenarios have never once arrived exactly as imagined. Presence is the ground the Wise One stands on. It does not need Sir Ego's management. It needs his trust.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- BOREDOM -->
+<section class="emotion-entry" id="boredom">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e4.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Boredom</div>
+        <span class="emotion-aspect">Distortion of · Expression &amp; Joy</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script says life should arrive in an exciting, validating, purposeful form right now. The Script of Creation sent this quiet moment — this ordinary Tuesday, this uneventful afternoon, this stretch of time with nothing Sir Ego would choose on offer. Sir Ego experiences this as a violation: reality is not delivering what it owes me. He declares the moment insufficient and begins scanning for something — anything — that matches his excitement Script. Expression and Joy are being held hostage to conditions that reality is under no obligation to meet.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One finds beauty, love, and delight in all circumstances because she lives in wonder and openness to what is. You <strong>are Joy</strong> — alive in all circumstances, attached to none. Boredom is the Karmariculum's quietest invitation — the pause between stepping stones where Sir Ego is being asked to stop performing and simply be. What he's looking for is already here, in the magnificence of simply being. The dandelion is right there in the outfield. The Coach is on the field. Sir Ego just hasn't looked up yet.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- GRIEF -->
+<section class="emotion-entry" id="grief">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e10.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Grief</div>
+        <span class="emotion-aspect">Distortion of · Love</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script says what he loves should stay. It was supposed to be permanent — this person, this relationship, this chapter of life that felt essential. The Script of Creation completed the soul contract. Sir Ego experiences this as theft. The universe took something that was his, without permission, in violation of the agreement. He holds on because letting go feels like agreeing to the loss — like a betrayal of what was loved. He waits for restoration, for justice, for some resolution that will make the loss make sense on his terms.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One knows that nothing real can be lost. Only changed in form. The soul contract that brought this person, this love, this chapter into your life was agreed upon before either of you arrived. It was complete — not cut short, not stolen, but complete. The Karmariculum delivered exactly what it promised. You <strong>are Love</strong> — and love, at the level you actually are it, cannot be taken away by the ending of any form. What you love doesn't require your suffering as proof. It was real. It still is. Just differently. The grief, when it finally moves through rather than being held, does not diminish the love. It becomes the very depth of it — the measure of how real it was, and how permanently it changed you.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- SADNESS -->
+<section class="emotion-entry" id="sadness">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji"><img src="images/emoji/e11.png" alt="" /></div>
+      <div>
+        <div class="emotion-name">Sadness</div>
+        <span class="emotion-aspect">Distortion of · Peace</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script promised a certain outcome — a version of life, a relationship, a self-image that felt within reach. The Script of Creation delivered something else. The fantasy didn't become reality. The performing stops — not by choice, but by exhaustion. Sir Ego has run out of strategies, arguments, and workarounds. The Script has failed and there is no next move. What remains is the raw ache of someone whose map no longer matches the territory.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One sees this moment — the moment the performing stops — as the first honest thing. Not weakness. Not failure. Peace arriving, finally, after the war Sir Ego has been waging against reality. You <strong>are Peace</strong> — and peace, at the level you actually are it, was never dependent on the Script delivering what Sir Ego wanted. Sadness reveals where Sir Ego has been trying to extract from the outside what was always available on the inside. The hole in the heart is an illusion — nothing outside of us can fill what was never empty. The Wise One doesn't rush to fill the space. She holds it. Something true is right underneath the sadness — something the performance was covering. When Sir Ego finally stops performing, the Wise One can finally be heard.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- LONELINESS -->
+<section class="emotion-entry" id="loneliness">
+  <div class="emotion-inner reveal">
+    <div class="emotion-header">
+      <div class="emotion-emoji">😶</div>
+      <div>
+        <div class="emotion-name">Loneliness</div>
+        <span class="emotion-aspect">Distortion of · Light &amp; Love</span>
+      </div>
+    </div>
+    <span class="sir-ego-label">Sir Ego's Script</span>
+    <p class="sir-ego-para">Sir Ego's Script says others should validate him, accompany him, confirm his worth, and soothe his nervous system. When the Script of Creation sends solitude instead — when no one in the room is providing what the Script requires — Sir Ego experiences it as abandonment. The universe has failed to deliver the company he was promised. He is separate, alone, not enough to keep people close. This is the emotional weight of being out of alignment with the divine source that has never once left him — of feeling separate from the very thing he is made of.</p>
+    <span class="wise-one-label">The Wise One</span>
+    <p class="wise-one-para">The Wise One feels the presence of unity even in solitude. She knows that true connection begins within — through alignment with divine wholeness and the remembrance of what you actually are. You <strong>are Light. You are Love.</strong> You are made of the same eight aspects as the Creator — and at that level, you are never, not for one moment, alone. The Wise One has been here the whole time. Every master, every liberated soul, every being who has ever found the still point is part of the consciousness your Wise One is plugged into. Aloneness, when Sir Ego stops fighting it, becomes spaciousness rather than suffering. The inside door — the one that opens toward others only after it opens inward first — is available right now, in exactly this solitude. The connection Sir Ego has been waiting for was never outside. It was the Wise One, patient as eternity, waiting for him to look up.</p>
+    <a href="#top" class="back-to-top">↑ Back to the grid</a>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section class="toolkit-section">
+  <div class="toolkit-inner">
+    <div class="toolkit-intro reveal">
+      <span class="section-label">The Toolkit</span>
+      <h2 class="section-title">How to Let It Move</h2>
+      <div class="section-rule" style="margin-left:auto;margin-right:auto;background:var(--gold);"></div>
+      <p class="body" style="max-width:640px;margin:0 auto;">The Wise One is not prescriptive about method. What she cares about is the mechanism — moving attention from the story about the energy to the energy itself, and creating conditions where it can complete its natural motion. Every tool below does this in a different way. You don't need all of them. You need two or three that work for your particular nervous system, your particular body, your particular relationship with the closet door.</p>
+      <p class="body" style="max-width:640px;margin:20px auto 0;"><em>Try them. Notice what opens. Build your practice from what moves you.</em></p>
+    </div>
+    <div class="toolkit-grid reveal d1">
+      <div class="tool-card">
+        <div class="tool-name">The Peeling Sequence</div>
+        <span class="tool-subtitle">Why do I care?</span>
+        <p class="tool-body">Start with what's in front of you. <em>Why do I care about this?</em> Take whatever answer comes and ask again. And again. Keep going. You're not looking for the smart answer — you're looking for the one that makes your chest drop or your throat close. That's the energy. When you find the sensation, stop asking and start feeling. Follow it all the way down to the thing underneath the thing: <em>what lie about myself is this confirming right now?</em> Name it. Then hold the truth against it. That's it. That's Release.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Somatic Following</div>
+        <span class="tool-subtitle">Drop the story.</span>
+        <p class="tool-body">I know you can't — drop it anyway. Find where it's living in your body right now. Chest? Throat? Jaw? Stomach? Put your hand there if you need to. Breathe into it. Don't explain it. Don't fix it. Don't ask what it means. Just stay. You're not trying to make it go away — you're giving it your full, unhurried presence for the first time maybe ever. That's all it's ever needed. Energy held in place by inattention starts to move the moment you actually look at it.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Music &amp; Film</div>
+        <span class="tool-subtitle">Meet the feeling where it lives.</span>
+        <p class="tool-body">I have a whole playlist for this. Sad songs for the sad moments — not to wallow, but to meet the feeling where it lives. An emotion needs to be felt before it can move. Music is one of the fastest ways to give it permission. Film works the same way. The right movie at the right moment — the one that makes you sob through the third act, or laugh until the feeling breaks loose — is not escapism. It is emotional permission. You are borrowing the story to feel the thing you couldn't access on your own.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Movement</div>
+        <span class="tool-subtitle">Yoga. Walking. Running. Dance.</span>
+        <p class="tool-body">Get out of your head and into your body. Go for a run and burn off the adrenaline first — then something subtler can surface. Do a yin yoga hold for three minutes and notice what starts to open in your hips. Walk until the bilateral rhythm of your feet on the ground starts to regulate your nervous system. Dance by yourself in your kitchen with the door closed. Whatever it takes to get the body moving — the energy that's been stored in your tissue needs movement to shake loose. It is not metaphorical.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Breathwork</div>
+        <span class="tool-subtitle">Three conscious breaths.</span>
+        <p class="tool-body">If everything else feels too hard right now, start here. Three conscious breaths with your full attention on your chest. That's it. Slow inhale. Slow exhale. Hand on your heart if that helps. The breath is the fastest direct access to your nervous system you have — no prescription required, no equipment, no planning. If the alarm is so loud you can't do anything else, you can always do this. And your nervous system will always respond.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Energy Healing</div>
+        <span class="tool-subtitle">EFT Tapping. Reiki. Acupuncture.</span>
+        <p class="tool-body">These work at the level of the energy field itself — the same field the trigger just disrupted. EFT tapping sounds ridiculous until you try it in an activated state and feel the charge actually drop in real time. Acupuncture moves stuck energy through the body's physical channels. Reiki works through a practitioner's coherent field meeting yours. All three go directly to the energy instead of arguing with the story about it. Find a practitioner you trust. Try it once in a triggered state before you decide it's not for you.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Expression</div>
+        <span class="tool-subtitle">Humming. Toning. Singing.</span>
+        <p class="tool-body">Hum. Right now, if you need to. It activates the vagus nerve directly — the nerve that tells your body it's safe. Hold a long vowel sound on the exhale and feel it resonate in your chest. Sing something that matches what you're feeling, your own body as the instrument. Sir Ego finds this one embarrassing. That's usually the sign it's working.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Water</div>
+        <span class="tool-subtitle">Shower. Bath. Ocean. Rain.</span>
+        <p class="tool-body">Get in the shower. Get in the bath. Stand in the ocean. Get rained on on purpose. Water has been used for energetic clearing in every tradition on earth because it works. The physical sensation brings you into your body and out of your head. Imagine the energy flowing out and down the drain — that is an instruction, not a metaphor. This is one of the gentlest tools and one of the most reliable.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Writing — But Not Processing</div>
+        <span class="tool-subtitle">Follow the sensation.</span>
+        <p class="tool-body">Not the journaling that retells the story with more detail and a list of past grievances. The writing that follows the sensation. <em>What does this feel like right now? Does it have a color? A shape? A temperature? A weight?</em> Stream of consciousness, no editing, no audience. Write until something shifts, then stop. Burn it if it feels right. The burning is its own release.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Forgiveness Ceremony</div>
+        <span class="tool-subtitle">Make the release physical.</span>
+        <p class="tool-body">Write the name on paper and burn it. Speak the words out loud to an empty chair. Walk a labyrinth and set it down at the center. Your body believes what it does more than what it thinks — making the release a physical act lands it somewhere purely mental forgiveness cannot reach. Any ceremony that enacts the release will work. The body just needs to do the thing, not think it.</p>
+      </div>
+    </div>
+    <p class="body" style="margin-top:40px;text-align:center;max-width:620px;margin-left:auto;margin-right:auto;"><em>You'll find two or three of these that open your particular door. Those are yours. The Wise One doesn't care which ones. She only cares that the door opens.</em></p>
+    <p class="body" style="text-align:center;max-width:620px;margin:16px auto 0;"><em>The energy wants to move. It has always wanted to move. You are finally letting it.</em></p>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section style="background:var(--cream);padding:56px 32px;text-align:center;">
+  <div style="max-width:640px;margin:0 auto;">
+    <span style="font-family:var(--font-nav);font-size:0.6rem;letter-spacing:0.36em;text-transform:uppercase;color:var(--text-mid);display:block;margin-bottom:12px;">Take It With You</span>
+    <h3 style="font-family:var(--font-display);font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:600;color:var(--midnight);letter-spacing:0.03em;margin-bottom:14px;">The Emotions &amp; Toolkit Reference</h3>
+    <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-mid);line-height:1.72;margin-bottom:26px;">All thirteen emotions and all ten tools, in one printable PDF. For your desk, your refrigerator, your nightstand — wherever the next triggered moment is most likely to find you.</p>
+    <a href="downloads/emotions-and-toolkit-reference.pdf" download style="font-family:var(--font-nav);font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:14px 28px;background:var(--gold);color:var(--midnight);border-radius:4px;display:inline-block;box-shadow:0 4px 18px rgba(201,168,76,0.3);transition:background 0.2s, transform 0.15s;">Download Reference PDF ↓</a>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing-wise">
+  <div class="closing-inner reveal">
+    <span class="section-label">What the Wise One Is Doing</span>
+    <h2 class="section-title">From the Seat of the Silent Witness</h2>
+    <div class="section-rule"></div>
+    <p class="body">While all of this is moving through you, the Wise One is watching — not from somewhere else, but from the quiet ground inside you that was there before the charge and will be there after.</p>
+    <p class="body">Sir Ego may still be storming about over there — muttering, rehearsing, arms crossed, running the scenarios. The Wise One is watching all of that from a small but real distance. Not in the story. In the energy, watching it move, keeping the heart open so the movement can continue.</p>
+    <p class="pull">I see you. I know you are in it. I am here. Keep going.</p>
+    <p class="body">The Release step can happen anywhere — in a meditation, in a forgiveness circle, in a dream, in a yoga practice, in an energy healing, in an ordinary Tuesday afternoon when something finally cracks open, and you let it.</p>
+    <p class="body">With the heart open and the story set aside, the Wise One takes her position. Sir Ego exhales. The charge moves. The Script loses its grip on this trigger. And the next stepping stone — the one the Karmariculum has been waiting to offer — comes into view.</p>
+  </div>
+</section>
+
+<!-- NEXT DOOR -->
+<div class="next-band">
+  <div class="next-band-bg"></div>
+  <div class="next-inner reveal">
+    <span class="eyebrow">Next Door</span>
+    <h2 class="next-title">The Five Steps to Freedom</h2>
+    <p class="next-copy">When you're ready, the Five Steps walk you through the triggered moment itself — Recognize, Relax, Release, Receive, Respond — with the Wise One leading.</p>
+    <div class="next-buttons">
+      <a href="explore-fivesteps.html" class="btn-gold">The Hero's Path →</a>
+      <a href="explore-sir-ego.html" class="btn-outline-cream">← Sir Ego &amp; the Wise One</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Kindred <em>Lights</em></div>
+      <div class="foot-tag">
+        <p>The Age of Ego is ending.</p>
+        <p>The Age of Love is arising.</p>
+        <p>One trigger at a time.</p>
+      </div>
+    </div>
+    <div>
+      <p class="foot-h">Practice</p>
+      <ul class="foot-links">
+        <li><a href="https://kindredlights.org/mapminder">Help, Now! &mdash; Free</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="luminology-glossary.html">Luminology Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Rooms</p>
+      <ul class="foot-links">
+        <li><a href="explore-sir-ego.html">Sir Ego &amp; the Wise One</a></li>
+        <li><a href="explore-emotions.html">Power of Emotions</a></li>
+        <li><a href="explore-fivesteps.html">The Five Steps</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Connect</p>
+      <ul class="foot-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="mailto:kindred@kindredlights.org">kindred@kindredlights.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Kindred Lights. All rights reserved.</div>
+    <div class="foot-sigil">✦</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => { nav && nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => { const open = hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+  }
+  const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sir Ego &amp; the Wise One — Kindred Lights</title>
+  <meta name="description" content="Meet the two voices that have been working together all your life — until Sir Ego's Script collides with what's actually unfolding. And reality always wins." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    
+    img { height: auto; max-width: 100%; }
+    :root {
+      --cream: #F4F0EC; --midnight: #1C1D40; --deep-blue: #2C4A7C;
+      --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
+      --periwinkle: #adafdf; --lavender: #d3b6e2;
+      --text-dark: #2b2b2b; --text-mid: #4a4a4a;
+      --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
+      --nav-h: 64px; --max: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; } a { text-decoration: none; color: inherit; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.1s; } .reveal.d2 { transition-delay: 0.2s; } .reveal.d3 { transition-delay: 0.3s; }
+
+    /* NAV */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,240,236,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
+    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(28,29,64,0.10); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 40px; flex-shrink: 0; text-decoration: none; }
+    .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; filter: drop-shadow(0 2px 6px rgba(188,137,220,0.35)); }
+    .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
+    .nav-brand-text em { color: var(--gold-dark); font-style: normal; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 0; flex: 1; list-style: none; }
+    .nav-item { position: relative; }
+    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
+    .nav-link br { display: block; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--midnight); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .panel-role { font-family: var(--font-nav); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+    .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
+    .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
+    .panel-link { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
+    .panel-link:hover { color: var(--gold-light); }
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .nav-has-dropdown .nav-panel { display: none !important; }
+    .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
+    .dropdown-link:last-child { border-bottom: none; }
+    .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(244,240,236,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .mob-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
+    .mob-brand-text { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
+    .mob-brand-text em { color: var(--gold-dark); font-style: normal; }
+    .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--midnight); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--midnight); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu.open { display: block; }
+    .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mob-link:hover, .mob-link.gold { color: var(--gold); }
+    .mob-link br { display: none; }
+
+    /* TIP (inline pop-up definitions) */
+    .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
+    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--midnight); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 280px; z-index: 200; pointer-events: none; font-weight: 400; letter-spacing: normal; text-transform: none; }
+    .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding-top: calc(var(--nav-h) + 64px);
+      padding-bottom: 80px;
+      padding-left: 32px; padding-right: 32px;
+      background: linear-gradient(150deg, #2a4494 0%, #3d6abf 50%, #1e2d6e 100%);
+      position: relative; overflow: hidden;
+    }
+    .page-header-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: 28% top; opacity: 0.45; pointer-events: none; }
+    .page-header-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .eyebrow { font-family: var(--font-nav); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--lavender); display: block; margin-bottom: 16px; }
+    .header-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 600; color: #fff; letter-spacing: 0.04em; line-height: 1.15; margin-bottom: 22px; }
+    .header-lede { font-family: var(--font-soul); font-size: clamp(1.15rem,1.8vw,1.38rem); color: rgba(255,255,255,0.92); line-height: 1.58; font-style: italic; font-weight: 400; max-width: 720px; margin: 0 auto; }
+
+    /* CONTENT SECTIONS */
+    section { padding: 72px 32px; }
+    section:nth-of-type(odd) { background: var(--cream); }
+    section:nth-of-type(even) { background: #f0edf8; }
+    .section-inner { max-width: 780px; margin: 0 auto; }
+    .section-label { font-family: var(--font-nav); font-size: 0.6rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--periwinkle); display: block; margin-bottom: 8px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.4rem,2.6vw,2.1rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; line-height: 1.2; margin-bottom: 24px; }
+    .section-rule { width: 48px; height: 2px; background: var(--periwinkle); margin-bottom: 28px; }
+    p.body { font-family: var(--font-body); font-size: 1.06rem; color: var(--text-mid); line-height: 1.82; margin-bottom: 20px; }
+    p.body em { color: var(--midnight); font-style: italic; }
+    p.body strong { color: var(--midnight); font-weight: 600; }
+    .pull { font-family: var(--font-soul); font-size: 1.25rem; color: var(--midnight); line-height: 1.68; border-left: 3px solid var(--periwinkle); padding-left: 22px; margin: 32px 0; font-style: italic; }
+    .italic-whisper { font-family: var(--font-soul); font-size: 1.18rem; color: var(--midnight); line-height: 1.58; font-style: italic; margin: 24px 0 20px; }
+
+    /* GRAPHIC BLOCKS */
+    .graphic-wrap { margin: 40px 0 28px; background: #fff; border-radius: 8px; padding: 24px; box-shadow: 0 4px 20px rgba(100,80,180,0.09); }
+    .graphic-wrap img { width: 100%; height: auto; border-radius: 4px; }
+    .graphic-caption { font-family: var(--font-nav); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mid); text-align: center; margin-top: 16px; }
+
+    /* MEMOIR SECTION */
+    .memoir-section { background: linear-gradient(180deg, #e8deee 0%, #d9ccdf 100%); padding: 88px 32px; }
+    .memoir-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: center; }
+    .memoir-copy { order: 1; }
+    .memoir-cover-wrap { order: 2; position: relative; }
+    .memoir-cover { width: 100%; border-radius: 8px; box-shadow: 0 18px 52px rgba(80,60,120,0.32); display: block; }
+    .memoir-copy .section-label { color: var(--gold-dark); }
+    .memoir-copy h2 { font-family: var(--font-display); font-size: clamp(1.5rem,2.6vw,2rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; line-height: 1.2; margin-bottom: 6px; }
+    .memoir-copy .memoir-subtitle { font-family: var(--font-soul); font-size: 1.2rem; font-style: italic; color: var(--deep-blue); display: block; margin-bottom: 6px; }
+    .memoir-copy .memoir-kind { font-family: var(--font-nav); font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-mid); display: block; margin-bottom: 20px; }
+    .memoir-copy .memoir-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 24px; }
+    .memoir-copy p { font-family: var(--font-body); font-size: 1.02rem; color: var(--text-mid); line-height: 1.82; margin-bottom: 18px; }
+    .memoir-copy .memoir-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+    .btn-gold-sm { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 26px; background: var(--gold); color: var(--midnight); border-radius: 4px; display: inline-block; box-shadow: 0 4px 18px rgba(201,168,76,0.3); transition: background 0.2s, transform 0.15s; }
+    .btn-gold-sm:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .memoir-availability { font-family: var(--font-nav); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dark); display: inline-block; padding: 8px 14px; background: rgba(255,255,255,0.5); border-radius: 3px; margin-left: 4px; }
+
+    /* WHERE TO GO NEXT */
+    .next-band { background: linear-gradient(150deg, #2a4494 0%, #3d6abf 100%); padding: 80px 32px; position: relative; overflow: hidden; }
+    .next-band-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: center 40%; opacity: 0.2; pointer-events: none; }
+    .next-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .next-inner .eyebrow { color: var(--gold-light); margin-bottom: 12px; }
+    .next-title { font-family: var(--font-display); font-size: clamp(1.4rem,2.8vw,2rem); font-weight: 600; color: #fff; letter-spacing: 0.04em; line-height: 1.25; margin-bottom: 18px; }
+    .next-copy { font-family: var(--font-body); font-size: 1.04rem; color: rgba(255,255,255,0.82); line-height: 1.78; max-width: 640px; margin: 0 auto 32px; }
+    .next-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 32px; background: var(--gold); color: var(--midnight); border-radius: 4px; display: inline-block; box-shadow: 0 4px 18px rgba(201,168,76,0.3); transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 26px; border: 1.5px solid rgba(247,243,238,0.35); color: rgba(247,243,238,0.85); border-radius: 4px; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* FOOTER */
+    footer { background: var(--midnight); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 20px; }
+    .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: #fff; margin-bottom: 8px; }
+    .foot-brand em { color: var(--gold); font-style: normal; }
+    .foot-tag p { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); line-height: 1.9; }
+    .foot-h { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.6); margin-bottom: 14px; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); transition: color 0.2s; }
+    .foot-links a:hover { color: var(--gold); }
+    .foot-bottom { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-family: var(--font-nav); font-size: 0.66rem; color: rgba(255,255,255,0.2); }
+    .foot-sigil { font-family: var(--font-display); font-size: 0.64rem; letter-spacing: 0.18em; color: rgba(201,168,76,0.28); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .memoir-inner { grid-template-columns: 1fr 240px; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      #main-nav { display: none; } .mobile-nav { display: flex; }
+      section { padding: 56px 24px; }
+      .page-header { padding-top: calc(58px + 48px); padding-bottom: 56px; padding-left: 24px; padding-right: 24px; }
+      .next-band { padding: 60px 24px; }
+      .graphic-wrap { padding: 14px; }
+      .memoir-section { padding: 64px 24px; }
+      .memoir-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .memoir-cover-wrap { order: 1; max-width: 240px; margin: 0 auto; }
+      .memoir-copy { order: 2; }
+      .memoir-copy .memoir-buttons { justify-content: center; }
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .next-buttons { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .foot-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+
+
+  <!-- JSON-LD: WebPage + Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Sir Ego and the Wise One — Room One",
+    "url": "https://kindredlights.org/explore-sir-ego",
+    "isPartOf": { "@type": "WebSite", "name": "Kindred Lights", "url": "https://kindredlights.org" },
+    "primaryImageOfPage": "https://kindredlights.org/images/the-mastery-of-sir-ego-and-the-rise-of-the-wise-one-memoir-cover.jpg",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Kindred Lights", "item": "https://kindredlights.org" },
+        { "@type": "ListItem", "position": 2, "name": "Explore", "item": "https://kindredlights.org/explore" },
+        { "@type": "ListItem", "position": 3, "name": "Sir Ego and the Wise One", "item": "https://kindredlights.org/explore-sir-ego" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Book — Mastery of Sir Ego memoir -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "The Mastery of Sir Ego and the Rise of the Wise One",
+    "author": { "@type": "Person", "name": "Kindred Lights", "url": "https://kindredlights.org/about" },
+    "publisher": { "@type": "Organization", "name": "Kindred Lights", "url": "https://kindredlights.org" },
+    "bookFormat": "Paperback",
+    "genre": "Memoir",
+    "inLanguage": "en",
+    "url": "https://kindredlights.org/explore-sir-ego",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "https://kindredlights.org/images/the-mastery-of-sir-ego-and-the-rise-of-the-wise-one-memoir-cover.jpg",
+      "creator": { "@type": "Person", "name": "Kindred Lights" },
+      "copyrightNotice": "© 2026 Kindred Lights. All rights reserved."
+    },
+    "description": "The memoir of lived experience behind the Five Steps to Freedom framework — the integration of Sir Ego and the rise of the Wise One.",
+    "keywords": "memoir, Sir Ego, the Wise One, Kindred Lights, The Hero's Path of Love, spiritual awakening"
+  }
+  </script>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand"><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <ul class="nav-links">
+    <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item" data-nav="explore"><a href="explore.html" class="nav-link active">Explore</a><div class="nav-panel"><span class="panel-role">The Rooms</span><div class="panel-title">The Exploratorium</div><p class="panel-desc">Five rooms to wander. Find what catches you.</p><a href="explore.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to Us?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
+      <div class="nav-dropdown">
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
+      </div>
+    </li>
+    <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
+  </ul>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <a href="index.html" class="mobile-brand"><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mobile-menu">
+  <a href="index.html" class="mob-link" data-mob="home">Home</a>
+  <a href="https://kindredlights.org/mapminder" class="mob-link gold" data-mob="mapminder">✦ Help, Now! — Free</a>
+  <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
+  <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
+  <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
+  <a href="about.html" class="mob-link" data-mob="about">About</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-inner">
+    <span class="eyebrow reveal">Explore · Room One</span>
+    <h1 class="header-title reveal d1">Sir Ego &amp; the Wise One</h1>
+    <p class="header-lede reveal d2">Sir Ego and the Wise One have been working together all your life. Until Sir Ego's Script collides with what's actually unfolding. And reality always wins.</p>
+  </div>
+</div>
+
+<!-- OPENING -->
+<section>
+  <div class="section-inner reveal">
+    <p class="body">Two voices live in you. You already know them both.</p>
+    <p class="body">One of them is loud, strategic, and has been running the show for most of your life. The other is quieter, has been here the whole time, and tends to show up most clearly in the moments you weren't trying. Most of your good moments came from the two of them in partnership. Most of your hardest moments came from a collision Sir Ego rarely sees.</p>
+    <p class="body">This room is where you meet them formally.</p>
+  </div>
+</section>
+
+<!-- WHEN IT'S WORKING -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">When It's Working</span>
+    <h2 class="section-title">Most of the Time, Your Life Flows</h2>
+    <div class="section-rule"></div>
+    <p class="body">Your words flow. Your actions flow. You know just what is needed in the moment.</p>
+    <p class="body">You're in a tense meeting, and out of nowhere, you have an idea — the perfect win-win, the thing nobody had seen. You can feel the room shift as consensus appears where conflict had been. You didn't plan that. It came through you.</p>
+    <p class="body">Your heart is open in a conversation with a friend, and one significant insight slips out — the thing that shifts her whole perspective. You didn't rehearse it.</p>
+    <p class="body">You're driving home and a solution to a long-standing problem arrives, fully formed. You weren't trying to solve anything. It just came.</p>
+    <p class="body">This is who you truly are. The person who is on it, who knows what to do, who catches the falling child from the swing while balancing the nursing baby. Your thoughts, words, actions, heart, and intentions are aligned. You are completely present to what is — to how people are feeling, to what is needed, to the eternal now of this specific moment.</p>
+    <p class="body">The world feels right. You feel right.</p>
+    <p class="italic-whisper">And then sometimes something fires the alarm.</p>
+    <p class="body">An acute trigger: the impossible coworker, the health scare, the conversation that goes sideways without warning. Or a chronic one: a nervous system that has been in threat mode so long it forgot what the baseline feels like, a fuse so short that ordinary friction sets it off.</p>
+    <p class="body">Acute or chronic, the mechanism is identical. The alarm fires. The open heart closes. The Wise One goes quiet. The loop begins.</p>
+    <p class="body">This is the moment you blow it. Say the wrong thing. Overreact. Reach for the bottle. Whatever distraction works for you.</p>
+    <p class="body">Before we go further, let me introduce the two characters who were present for all of it.</p>
+  </div>
+</section>
+
+<!-- THE WISE ONE -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Meet Her First</span>
+    <h2 class="section-title">The Wise One</h2>
+    <div class="section-rule"></div>
+    <p class="body">She has been in the room for every moment of your life you would most want to claim as yours. Every act of genuine courage. Every time the right words arrived from somewhere you couldn't explain. Every moment you showed up for someone when it cost you something, and felt, afterward, that you had done exactly what you came here to do.</p>
+    <p class="body">That was the <span class="tip" tabindex="0">Wise One<span class="tip-box">Your higher self. Already home.</span></span> — not a separate being advising from outside, but you, operating from your truest nature. Your higher self, in constant communion with whatever tradition, framework, or name for the divine makes sense to you. She speaks every language and answers to every name. Call her what you know her as. She's the same signal no matter what you call her.</p>
+  </div>
+</section>
+
+<!-- SIR EGO -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Now Meet Her Partner</span>
+    <h2 class="section-title">Sir Ego</h2>
+    <div class="section-rule"></div>
+    <p class="body">He is the ground crew for your divine mission. The part of you attached to this body, this history, this name, this identity — the extraordinarily capable manager of your material life. The courageous and resourceful knight who braves the physical world in pursuit of noble ideals and worthy grails.</p>
+    <p class="body">He is brave. He has stood between you and pain more times than either of you can count. He has made hard calls, carried hard things, pushed through when everything in you wanted to stop. He has wanted, his entire life, exactly what you want: to be safe, to be seen, to matter, to love and be loved in return.</p>
+    <p class="body">We call him <span class="tip" tabindex="0">Sir Ego<span class="tip-box">Your ego. The hero with the wrong map.</span></span>.</p>
+    <p class="body">He is the partner, the doer, the executor. The hands in the bowl, while the Wise One supplies the spark. Together, most of the time, without your awareness, they produce everything good that comes through you. She brings the knowing. He brings the doing. The flow state is both of them working in concert.</p>
+  </div>
+</section>
+
+<!-- GRAPHIC 1 -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">How They Show Up</span>
+    <h2 class="section-title">The Two of Them, Side by Side</h2>
+    <div class="section-rule"></div>
+    <p class="body">Here's how every Sir Ego in the world shows up — when he's running smoothly, and when the alarm has fired. Mine has done every one of these things. Yours has too. So has the Sir Ego of everyone you know.</p>
+    <div class="graphic-wrap">
+      <img src="images/sir-ego-and-the-wise-one-comparison.jpg" alt="Sir Ego and the Wise One — comparison of the two voices inside you. Sir Ego's script versus the Wise One's guidance." width="1650" height="1275" loading="lazy" decoding="async" />
+      <div class="graphic-caption">The Ways of Sir Ego &amp; The Way of the Wise One</div>
+    </div>
+    <p class="body">This chart shows the two distinct ways the two of them move through the world. Both are available in every one of us. Both are always here. The Five Steps are how you find your way from one way of being to the other, in the moments when the alarm has fired and the partnership has gone offline.</p>
+  </div>
+</section>
+
+<!-- SIR EGO'S SCRIPT -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Sir Ego's Script</span>
+    <h2 class="section-title">The Two Caves</h2>
+    <div class="section-rule"></div>
+    <p class="body">The question is what happens when the partnership breaks down. And here's the answer.</p>
+    <p class="body">The moment Sir Ego's strategy was born can be captured in a single image from a dream I had.</p>
+    <p class="body">I was in a terrible place — a dark, damp cave, too tight to stand in, no food, no light, nothing to sit on. Walls pressing in. Air thick with dread. Then, just as suddenly, somewhere else: another cave, but better. Some light filtering in. A small wooden table and stool. Bread and water. Survivable. Then back to the terrible place. Then the okay place. Back and forth, back and forth — for no reason I could determine, with no warning, with no apparent control over which cave or when the shift would come.</p>
+    <p class="body">Right before waking, one desperate and crystalline thought arrived: <em>I have to figure out the rules. I have to figure out how to behave so I stay in the okay place and avoid the terrible one. There must be a code. A pattern I can crack. A way to make this stop.</em></p>
+    <p class="body">That thought is Sir Ego's strategy being born. In every soul that has ever arrived in a body and discovered that the world is not reliably safe. The specific terrible place is different for everyone — a volatile parent, an unpredictable home, a body that doesn't feel right, a playground that punishes difference. The foundational move is identical: figure out the rules. Crack the code. Deploy your unique talents to prove yourself worthy, so you stay in the okay place.</p>
+    <p class="body">That is Sir Ego's <span class="tip" tabindex="0">Script<span class="tip-box">Sir Ego's rules about how life should go.</span></span>. The strategy is reasonable, given the information available. The tragedy is the two fatal mistakes embedded in it. The first: Sir Ego accepted the oscillation between terrible and tolerable as the full range of what life could offer. He never imagined there was a door out of both caves entirely. The second: he invested everything in learning to stay in the okay place, which meant all his energy went into optimizing the game, and none went toward looking for the exit.</p>
+    <p class="pull">He didn't fail the Script. The Script failed him. And he has been carrying the weight of that impossibility ever since, working harder, refining more, certain that the solution is just around the next corner of effort.</p>
+    <p class="body">No wonder he's in knots.</p>
+    <p class="body">And here's what makes daily life what it is: <em>every other person has a Script too.</em> Eight billion Sir Egos, each one running a detailed Script, each one sincerely held, each one pursued with fervor — and none of them match.</p>
+    <p class="body">Consider the simplest version. Two people in a relationship, each with a Script about what love looks like. She has learned that love means checking in, communicating, being present. He has learned that love means giving space, providing resources, showing up when called. Neither Script is wrong. Both are sincere. But when his Script meets her Script — and neither of them knows the other has a Script, because Sir Ego believes his Script is simply reality — the collision is inevitable. She feels abandoned. He feels smothered. Both sound the alarm.</p>
+    <p class="body">Multiply this by every relationship, every family, every community, every workplace, every political system on earth. Every one is a collection of Scripts in collision, each one convinced of its own rightness, each one experiencing the others as the problem.</p>
+    <p class="pull">Sir Ego does not experience his Script as a Script. He experiences it as reality. Which means anyone who violates it is not disagreeing with him — they are defying the natural order of things.</p>
+  </div>
+</section>
+
+<!-- THE SCRIPT OF CREATION -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Under All of It</span>
+    <h2 class="section-title">The Script of Creation</h2>
+    <div class="section-rule"></div>
+    <p class="body">Under the collision between Sir Ego's Script and every other Sir Ego's Script is a deeper Script at work.</p>
+    <p class="body">Sir Ego's Script is organized around the okay place — safety, control, approval, the avoidance of the terrible cave. The <span class="tip" tabindex="0">Script of Creation<span class="tip-box">The living intelligence running the universe.</span></span> is organized around something else entirely: your soul's growth, your Karmariculum's lessons, the stepping stones that only appear in the exact moments Sir Ego is trying hardest to prevent.</p>
+    <p class="body">The Script of Creation is the master operating system that holds all eight billion Karmariculums simultaneously. Every soul on its own adventure, every free will decision accounted for in real time, every collision between scripts choreographed toward the highest good of everyone involved. It is a living intelligence, vast beyond comprehension, organizing an adventure of unimaginable complexity with the specific goal of bringing every soul home.</p>
+    <p class="pull">All the cosmology, biology, psychology, astrology, physics, metaphysics, chemistry — every field of knowledge, every level of reality — conspires for the highest good of all, offering you the perfect moment, every moment. And you have everything you need to meet that moment, or it wouldn't occur now.</p>
+    <p class="body">Every trigger is that collision — Sir Ego's Script meeting the Script of Creation at the point where they are most completely opposed. And that collision — that precise, uncomfortable, familiar, maddening moment — is the entry point. The stepping stone. The invitation.</p>
+    <p class="body">The Wise One is your direct access to the Script of Creation — your actual teacher. She knows your Karmariculum. She has your adventure's full itinerary. She has been signaling every single moment of your life, and she will keep signaling long after you close this page.</p>
+  </div>
+</section>
+
+<!-- YOUR KARMARICULUM -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Your Specific Path</span>
+    <h2 class="section-title">Your Karmariculum</h2>
+    <div class="section-rule"></div>
+    <p class="body">Your specific path through the Script of Creation has a name. We call it your <span class="tip" tabindex="0">Karmariculum<span class="tip-box">Your soul's custom lesson plan.</span></span> — your soul's custom curriculum. Your specific themes, soul contracts, birth circumstances, your particular adventure.</p>
+    <p class="body">Before you incarnated, you chose this curriculum. The specific aspects of your divine nature you came here to forge. The relationships that would press on each one. The crucibles that would do the forging. The specific fires that would reveal who you actually are, from the inside.</p>
+    <p class="body">You came to the <span class="tip" tabindex="0">Earth Adventure Park<span class="tip-box">This lifetime. The rides the soul chose.</span></span> to experience themes — intentionally. Perhaps you came to explore themes of peace, and your Karmariculum put you in circumstances of chaos and conflict so you could discover what peace actually is from the inside. Perhaps you came to explore themes of love, and your Karmariculum arranged for you to lose love in specific ways so you could meet the love that cannot be taken away. Every Karmariculum is custom-designed, down to the most painful detail, for the growth of the specific soul walking it.</p>
+    <p class="body">Once you arrived here, the curriculum was set. The roller coasters. The gentle rides. The souls who would play every role, by agreement made before any of you were born.</p>
+    <p class="body">The people who have hurt you most were in your Karmariculum. They agreed, at the soul level, to play the role that would push you to your absolute limit — because your soul knew that was what was required. When you see your life through this lens — not as what happened <em>to</em> you, but as what you arranged to forge what you came here to become — the shame dissolves. The victim story dissolves. What remains is something much more interesting: the story of a brave soul on a remarkable quest.</p>
+    <p class="body">Your Karmariculum is a lovingly chosen adventure, designed for the highest good of every soul involved. Your Wise One is walking every step of it with you.</p>
+  </div>
+</section>
+
+<!-- PERMISSION -->
+<section>
+  <div class="section-inner reveal">
+    <p class="italic-whisper">None of this requires you to believe any of it. The Script of Creation, the Karmariculum, the soul choosing its adventure — these are the maps I found that made sense of my own experience. They may resonate immediately. They may feel like too much right now. The practice works either way. It works on the nervous system. It works on the moment between the trigger and the response. It works whether you call what guides you God, the universe, your higher self, your better judgment, or simply the part of you that knows.</p>
+  </div>
+</section>
+
+<!-- THE WISE ONE'S OFFER -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Here Is What Is True</span>
+    <h2 class="section-title">And Has Been True the Whole Time</h2>
+    <div class="section-rule"></div>
+    <p class="pull">The Wise One knows everything you have been through, are going through, and will go through. She knows how to get through it, and she will walk each step with you — delivering peace, insights, creative solutions, and right action in every circumstance.</p>
+    <p class="body">Her only requirement is an open heart.</p>
+    <p class="body">You can't hear her whispers of inspiration and intuition when your heart is closed in fear, anger, hate, negativity, guilt, shame, resentment, despair. These are energetic blockages. They cover her voice. In the next door — <strong>Unlocking the Power of Emotions</strong> — you'll see what these blockages are, what they're holding in place, and how to let them move. For now: they do not tell the truth about who you are, about what has happened, or about why you are here.</p>
+    <p class="body">The offer is always on the table. The signal has always been available. The question is what happens between the signal and you.</p>
+  </div>
+</section>
+
+<!-- SIR EGO TRYING TO FIX SIR EGO -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">The Catch</span>
+    <h2 class="section-title">Sir Ego Trying to Fix Sir Ego</h2>
+    <div class="section-rule"></div>
+    <p class="body">Here's what Sir Ego hasn't been able to see on his own.</p>
+    <p class="body">Because Sir Ego is the one who reads the books, goes to the workshops, studies the frameworks, and works on himself — he's been bringing every tool that's ever been offered to his own healing. Meditation. Shadow work. Better boundaries. Cognitive behavioral therapy. Parts work. Affirmations. Journaling. He's tried them. Many of them help with something. And something keeps coming back anyway.</p>
+    <p class="body">The issue isn't Sir Ego. Sir Ego is doing exactly what he's built to do. The issue is that these methods — almost all of them — operate inside his Script and ignore his Karmariculum. They give him tools to feel better about his life, manage his reactions more skillfully, be a more evolved version of himself. What they don't do is dissolve the Script's grip on his next trigger. And what they don't recognize is that the triggers themselves are the Karmariculum delivering the exact lessons his soul chose.</p>
+    <p class="body">So every new practice gets added to the Script as one more rule he's supposed to meet.</p>
+    <div class="graphic-wrap">
+      <img src="images/self-help-vs-five-steps-to-freedom.jpg" alt="Self-Help vs. The Five Steps to Freedom — comparison chart. Where other frameworks ask Sir Ego to fix himself, the Five Steps ask him to step aside so the Wise One can come through." width="1650" height="1275" loading="lazy" decoding="async" />
+      <div class="graphic-caption">Typical Spiritual &amp; Self-Help vs. The Five Steps</div>
+    </div>
+    <p class="body">Meditate daily. Don't get angry. Journal when you feel like punching a wall. Pray for that person who hurt you. Do your shadow work. Set better boundaries. Be more self-compassionate. Be more mindful.</p>
+    <p class="body">The list gets longer. The Script gets longer. The exhaustion you've been feeling — the sense that you're doing more and more spiritual work and somehow feeling more tired and more behind — comes from exactly this. The Script stayed intact. It got more elaborate. And your Karmariculum kept delivering the same lessons in different costumes, because they still needed to be learned.</p>
+    <p class="body">The <strong>Five Steps</strong> are different at the root. They don't add to the Script — they go underneath it. They don't manage the trigger — they recognize the trigger as the Karmariculum's next invitation, and walk through it with the Wise One leading. The Wise One has access to the Script of Creation. Sir Ego has access to the Wise One — through an open heart. The steps are how.</p>
+  </div>
+</section>
+
+<!-- WHERE THE SCRIPT LIVES -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Where the Script Lives</span>
+    <h2 class="section-title">Every Ego Is Off Center</h2>
+    <div class="section-rule"></div>
+    <p class="body">The Script shows up in the roles you know by heart. Look through this one and see if anything feels familiar.</p>
+    <div class="graphic-wrap">
+      <img src="images/ideology-grid-personal-age-of-ego.png" alt="The Personal Ideology Grid — Sir Ego's four quadrants in family and personal life. Every position on the grid feels righteous from inside it, yet each is off-center. The zero point is the Y-axis." width="2200" height="1700" loading="lazy" decoding="async" />
+      <div class="graphic-caption">The Personal Grid — Ego Scripts Close to Home</div>
+    </div>
+    <p class="body">Every ego is off center. That's not the problem. Being in a body, in a specific life, with a specific Script written young — Sir Ego is going to land somewhere on this grid. So is everyone else.</p>
+    <p class="body">The problem is that everyone is off center in a <em>different</em> direction. The Authoritarian Parent is on the opposite end of the same axis as the Permissive Parent, each sincerely running their own Script, each certain they're right. The Martyr and the Entitled Child, the Workaholic and the Codependent — all pairs of opposites, each one convinced the other is the reason things aren't working.</p>
+    <p class="body">This is what every family argument is. Every workplace conflict. Every political division. Every war. Two or more Sir Egos, each off center in a different direction, each interpreting the others' directions as wrong, none of them close to the actual center. Their Scripts collide. The Script of Creation keeps delivering lessons none of them are equipped to read.</p>
+    <p class="body">And right there, at the center — outside all of them — the Wise One. Not a better point on the axis. A different dimension entirely. The Tao. The Y-axis. The place where the aspect is no longer practiced but lived. The only position with access to the actual highest good of all, because the only position plugged into the Script of Creation.</p>
+    <p class="body">You probably recognize yourself in more than one costume on this grid. That's exactly where the Recognition the Five Steps open with begins.</p>
+  </div>
+</section>
+
+<!-- MEMOIR -->
+<section class="memoir-section">
+  <div class="memoir-inner reveal">
+    <div class="memoir-copy">
+      <span class="section-label">A Life</span>
+      <h2>The Mastery of Sir Ego</h2>
+      <span class="memoir-subtitle">&amp; the Rise of the Wise One</span>
+      <span class="memoir-kind">A Memoir</span>
+      <div class="memoir-rule"></div>
+      <p>Everything in this room is lived. The dream of the two caves. The Scripts in collision. The moment Sir Ego knelt — not in defeat, but in devotion. The cause worthy of his service. The Wise One's torch, steady through all of it.</p>
+      <p>This book is the walk, not the framework. How it actually happened. Three DUIs. A malignant narcissist. The children I almost lost. The diagnosis. The Thanksgiving table that shouldn't have been possible. The long, grateful rise of the Wise One into the seat that was always hers.</p>
+      <p>Offered as a free draft, while it's still being finished. Take it with you.</p>
+      <div class="memoir-buttons">
+        <a href="downloads/mastery-of-sir-ego-draft.pdf" class="btn-gold-sm" download>Download the Draft ↓</a>
+        <span class="memoir-availability">Free · In Progress</span>
+      </div>
+    </div>
+    <div class="memoir-cover-wrap">
+      <img src="images/the-mastery-of-sir-ego-and-the-rise-of-the-wise-one-memoir-cover.jpg" alt="The Mastery of Sir Ego and the Rise of the Wise One — memoir cover by Kindred Lights" width="1333" height="2000" loading="lazy" decoding="async" class="memoir-cover" />
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO NEXT -->
+<div class="next-band">
+  <div class="next-band-bg"></div>
+  <div class="next-inner reveal">
+    <span class="eyebrow">Next Door</span>
+    <h2 class="next-title">Unlocking the Power of Emotions</h2>
+    <p class="next-copy">Emotions feel like a nuisance. They are the key to transforming your inner life, your outer life, and your relationships. Here's how to read them — one blockage at a time, with the Wise One's hand on your shoulder.</p>
+    <div class="next-buttons">
+      <a href="explore-emotions.html" class="btn-gold">Enter Room Two →</a>
+      <a href="luminology-glossary.html" class="btn-outline-cream">The Glossary</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Kindred <em>Lights</em></div>
+      <div class="foot-tag">
+        <p>The Age of Ego is ending.</p>
+        <p>The Age of Love is arising.</p>
+        <p>One trigger at a time.</p>
+      </div>
+    </div>
+    <div>
+      <p class="foot-h">Practice</p>
+      <ul class="foot-links">
+        <li><a href="https://kindredlights.org/mapminder">Help, Now! &mdash; Free</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="lh.html">Love Heroically</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Rooms</p>
+      <ul class="foot-links">
+        <li><a href="explore-sir-ego.html">Sir Ego &amp; the Wise One</a></li>
+        <li><a href="explore-emotions.html">Power of Emotions</a></li>
+        <li><a href="explore-fivesteps.html">The Five Steps</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Connect</p>
+      <ul class="foot-links">
+        <li><a href="mailto:kindred@kindredlights.org">kindred@kindredlights.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Kindred Lights. All rights reserved.</div>
+    <div class="foot-sigil">✦</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => { nav && nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => { const open = hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+  }
+  const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

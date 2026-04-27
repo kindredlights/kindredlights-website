@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Truth of Who You Are — Kindred Lights</title>
+  <meta name="description" content="There is no Undo or Redo button for the craziness in your life. It is the fire that purifies you. Here's what the fire is actually forging." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    
+    img { height: auto; max-width: 100%; }
+    :root {
+      --cream: #F4F0EC; --midnight: #1C1D40; --deep-blue: #2C4A7C;
+      --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
+      --periwinkle: #adafdf; --lavender: #d3b6e2;
+      --sky-deep: #3C8ABC; --sky-mid: #81A8CB; --sky-light: #A9D0E7;
+      --peri-deep: #AFBEDA; --peri-mid: #ABB1E0;
+      --text-dark: #2b2b2b; --text-mid: #4a4a4a;
+      --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
+      --nav-h: 64px; --max: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; } a { text-decoration: none; color: inherit; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.1s; } .reveal.d2 { transition-delay: 0.2s; } .reveal.d3 { transition-delay: 0.3s; }
+
+    /* NAV */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,240,236,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
+    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(28,29,64,0.10); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 40px; flex-shrink: 0; text-decoration: none; }
+    .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; filter: drop-shadow(0 2px 6px rgba(188,137,220,0.35)); }
+    .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
+    .nav-brand-text em { color: var(--gold-dark); font-style: normal; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 0; flex: 1; list-style: none; }
+    .nav-item { position: relative; }
+    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
+    .nav-link br { display: block; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--midnight); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .panel-role { font-family: var(--font-nav); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+    .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
+    .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
+    .panel-link { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
+    .panel-link:hover { color: var(--gold-light); }
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .nav-has-dropdown .nav-panel { display: none !important; }
+    .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
+    .dropdown-link:last-child { border-bottom: none; }
+    .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(244,240,236,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .mob-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
+    .mob-brand-text { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
+    .mob-brand-text em { color: var(--gold-dark); font-style: normal; }
+    .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--midnight); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--midnight); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu.open { display: block; }
+    .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mob-link:hover, .mob-link.gold { color: var(--gold); }
+    .mob-link br { display: none; }
+
+    /* TIP */
+    .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
+    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--midnight); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 280px; z-index: 200; pointer-events: none; font-weight: 400; letter-spacing: normal; text-transform: none; }
+    .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
+
+    /* PAGE HEADER — Room 4 shifts warmer — lavender-rose territory per cascade */
+    .page-header {
+      padding-top: calc(var(--nav-h) + 64px);
+      padding-bottom: 80px;
+      padding-left: 32px; padding-right: 32px;
+      background: linear-gradient(150deg, #7898d4 0%, #9a9ac8 50%, #b6a5cc 100%);
+      position: relative; overflow: hidden;
+    }
+    .page-header-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: 28% top; opacity: 0.4; pointer-events: none; }
+    .page-header-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .eyebrow { font-family: var(--font-nav); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #f2e5f0; display: block; margin-bottom: 16px; }
+    .header-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 600; color: #fff; letter-spacing: 0.04em; line-height: 1.15; margin-bottom: 22px; }
+    .header-lede { font-family: var(--font-soul); font-size: clamp(1.15rem,1.8vw,1.38rem); color: rgba(255,255,255,0.94); line-height: 1.58; font-style: italic; font-weight: 400; max-width: 720px; margin: 0 auto; }
+
+    /* CONTENT SECTIONS */
+    section { padding: 72px 32px; }
+    section:nth-of-type(odd) { background: var(--cream); }
+    section:nth-of-type(even) { background: #eee3ee; }
+    .section-inner { max-width: 780px; margin: 0 auto; }
+    .section-label { font-family: var(--font-nav); font-size: 0.6rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--lavender); display: block; margin-bottom: 8px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.4rem,2.6vw,2.1rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; line-height: 1.2; margin-bottom: 24px; }
+    .section-rule { width: 48px; height: 2px; background: var(--lavender); margin-bottom: 28px; }
+    p.body { font-family: var(--font-body); font-size: 1.06rem; color: var(--text-mid); line-height: 1.82; margin-bottom: 20px; }
+    p.body em { color: var(--midnight); font-style: italic; }
+    p.body strong { color: var(--midnight); font-weight: 600; }
+    .pull { font-family: var(--font-soul); font-size: 1.25rem; color: var(--midnight); line-height: 1.68; border-left: 3px solid var(--lavender); padding-left: 22px; margin: 32px 0; font-style: italic; }
+    .italic-whisper { font-family: var(--font-soul); font-size: 1.18rem; color: var(--midnight); line-height: 1.58; font-style: italic; margin: 24px 0 20px; }
+
+    /* STORY BLOCK — BFF voice rendered differently from teaching */
+    .story-block {
+      background: linear-gradient(180deg, #faf6f3 0%, #f4ecf5 100%);
+      border-left: 4px solid var(--gold);
+      padding: 36px 40px;
+      margin: 32px 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .story-block p {
+      font-family: var(--font-soul);
+      font-size: 1.18rem;
+      line-height: 1.72;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+    .story-block p:last-child { margin-bottom: 0; }
+    .story-block p em { color: var(--midnight); font-style: italic; }
+
+    /* GRAPHIC BLOCKS */
+    .graphic-wrap { margin: 40px 0 28px; background: #fff; border-radius: 8px; padding: 24px; box-shadow: 0 4px 20px rgba(100,80,180,0.09); }
+    .graphic-wrap img { width: 100%; height: auto; border-radius: 4px; }
+    .graphic-caption { font-family: var(--font-nav); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mid); text-align: center; margin-top: 16px; }
+
+    /* BBS FEATURE */
+    .bbs-feature { background: linear-gradient(180deg, #e8deee 0%, #d9ccdf 100%); padding: 88px 32px; }
+    .bbs-feature-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; gap: 64px; align-items: center; }
+    .bbs-cover-wrap { position: relative; }
+    .bbs-cover { width: 100%; border-radius: 8px; box-shadow: 0 18px 52px rgba(80,60,120,0.32); display: block; }
+    .bbs-copy .section-label { color: var(--gold-dark); }
+    .bbs-copy h2 { font-family: var(--font-display); font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; line-height: 1.2; margin-bottom: 6px; }
+    .bbs-copy .bbs-subtitle { font-family: var(--font-soul); font-size: 1.22rem; font-style: italic; color: var(--deep-blue); display: block; margin-bottom: 6px; }
+    .bbs-copy .bbs-kind { font-family: var(--font-nav); font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-mid); display: block; margin-bottom: 18px; }
+    .bbs-copy .bbs-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 22px; }
+    .bbs-copy p { font-family: var(--font-body); font-size: 1.02rem; color: var(--text-mid); line-height: 1.82; margin-bottom: 18px; }
+    .bbs-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
+    .btn-gold { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 26px; background: var(--gold); color: var(--midnight); border-radius: 4px; display: inline-block; box-shadow: 0 4px 18px rgba(201,168,76,0.3); transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline { font-family: var(--font-nav); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 22px; border: 1.5px solid rgba(28,29,64,0.3); color: var(--midnight); border-radius: 4px; display: inline-block; background: rgba(255,255,255,0.55); transition: border-color 0.2s, color 0.2s, background 0.2s; }
+    .btn-outline:hover { border-color: var(--midnight); background: rgba(255,255,255,0.85); }
+    .bbs-availability { font-family: var(--font-nav); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dark); display: inline-flex; align-items: center; padding: 8px 14px; background: rgba(255,255,255,0.5); border-radius: 3px; }
+
+    /* NEXT DOOR BAND */
+    .next-band { background: linear-gradient(150deg, #2a4494 0%, #3d6abf 100%); padding: 80px 32px; position: relative; overflow: hidden; }
+    .next-band-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: center 40%; opacity: 0.2; pointer-events: none; }
+    .next-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .next-inner .eyebrow { color: var(--gold-light); margin-bottom: 12px; }
+    .next-title { font-family: var(--font-display); font-size: clamp(1.4rem,2.8vw,2rem); font-weight: 600; color: #fff; letter-spacing: 0.04em; line-height: 1.25; margin-bottom: 18px; }
+    .next-copy { font-family: var(--font-body); font-size: 1.04rem; color: rgba(255,255,255,0.82); line-height: 1.78; max-width: 640px; margin: 0 auto 32px; }
+    .next-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 26px; border: 1.5px solid rgba(247,243,238,0.35); color: rgba(247,243,238,0.85); border-radius: 4px; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* FOOTER */
+    footer { background: var(--midnight); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 20px; }
+    .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: #fff; margin-bottom: 8px; }
+    .foot-brand em { color: var(--gold); font-style: normal; }
+    .foot-tag p { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); line-height: 1.9; }
+    .foot-h { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.6); margin-bottom: 14px; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); transition: color 0.2s; }
+    .foot-links a:hover { color: var(--gold); }
+    .foot-bottom { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-family: var(--font-nav); font-size: 0.66rem; color: rgba(255,255,255,0.2); }
+    .foot-sigil { font-family: var(--font-display); font-size: 0.64rem; letter-spacing: 0.18em; color: rgba(201,168,76,0.28); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .bbs-feature-inner { grid-template-columns: 220px 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      #main-nav { display: none; } .mobile-nav { display: flex; }
+      section { padding: 56px 24px; }
+      .page-header { padding-top: calc(58px + 48px); padding-bottom: 56px; padding-left: 24px; padding-right: 24px; }
+      .next-band { padding: 60px 24px; }
+      .graphic-wrap { padding: 14px; }
+      .story-block { padding: 24px 22px; }
+      .story-block p { font-size: 1.08rem; }
+      .bbs-feature { padding: 56px 24px; }
+      .bbs-feature-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .bbs-cover-wrap { max-width: 240px; margin: 0 auto; }
+      .bbs-buttons { justify-content: center; }
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .next-buttons { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .foot-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+
+
+  <!-- JSON-LD: WebPage + Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The Truth of Who You Are — Room Five",
+    "url": "https://kindredlights.org/explore-truth",
+    "isPartOf": { "@type": "WebSite", "name": "Kindred Lights", "url": "https://kindredlights.org" },
+    "primaryImageOfPage": "https://kindredlights.org/images/beyond-blame-and-shame-the-truth-of-who-you-are-book-cover.jpg",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Kindred Lights", "item": "https://kindredlights.org" },
+        { "@type": "ListItem", "position": 2, "name": "Explore", "item": "https://kindredlights.org/explore" },
+        { "@type": "ListItem", "position": 3, "name": "The Truth of Who You Are", "item": "https://kindredlights.org/explore-truth" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Book — Beyond Blame and Shame -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "Beyond Blame and Shame",
+    "alternateName": "Beyond Blame and Shame: The Truth of Who You Are",
+    "author": { "@type": "Person", "name": "Kindred Lights", "url": "https://kindredlights.org/about" },
+    "publisher": { "@type": "Organization", "name": "Kindred Lights", "url": "https://kindredlights.org" },
+    "bookFormat": "Paperback",
+    "inLanguage": "en",
+    "url": "https://kindredlights.org/explore-truth",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "https://kindredlights.org/images/beyond-blame-and-shame-the-truth-of-who-you-are-book-cover.jpg",
+      "creator": { "@type": "Person", "name": "Kindred Lights" },
+      "copyrightNotice": "© 2026 Kindred Lights. All rights reserved."
+    },
+    "description": "The third book in The Hero's Path of Love. The Eight Exalted Aspects — the truth of who you are at the level where shame cannot reach.",
+    "keywords": "Beyond Blame and Shame, Truth of Who You Are, Eight Aspects, Exalted Aspects, The Hero's Path of Love, Sir Ego, the Wise One, Kindred Lights"
+  }
+  </script>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand"><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <ul class="nav-links">
+    <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item" data-nav="explore"><a href="explore.html" class="nav-link active">Explore</a><div class="nav-panel"><span class="panel-role">The Rooms</span><div class="panel-title">The Exploratorium</div><p class="panel-desc">Five rooms to wander. Find what catches you.</p><a href="explore.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to Us?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
+      <div class="nav-dropdown">
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
+      </div>
+    </li>
+    <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
+  </ul>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <a href="index.html" class="mobile-brand"><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mobile-menu">
+  <a href="index.html" class="mob-link" data-mob="home">Home</a>
+  <a href="https://kindredlights.org/mapminder" class="mob-link gold" data-mob="mapminder">✦ Help, Now! — Free</a>
+  <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
+  <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
+  <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
+  <a href="about.html" class="mob-link" data-mob="about">About</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-inner">
+    <span class="eyebrow reveal">Explore · Room Four</span>
+    <h1 class="header-title reveal d1">The Truth of Who You Are</h1>
+    <p class="header-lede reveal d2">There is no Undo or Redo button for the craziness in your life. It is the fire that purifies you.</p>
+  </div>
+</div>
+
+<!-- OPENING -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Why the Crazy Stuff Happened</span>
+    <h2 class="section-title">The Question Under the Question</h2>
+    <div class="section-rule"></div>
+    <p class="body">If you've been walking the path a while, you've already asked it. Maybe in a therapist's office. Maybe on a kitchen floor. Maybe at three a.m. after the latest round of whatever your particular version of this is.</p>
+    <p class="body">Why did this happen? Why this family? Why this marriage? Why this body, this diagnosis, this addiction, this loss? Why — if the universe is benevolent, if there is any larger intelligence at work — why this <em>specific</em> set of crucibles?</p>
+    <p class="body">This room is the answer <span class="tip" tabindex="0">Sir Ego<span class="tip-box">Your ego. The hero with the wrong map.</span></span> has been unable to hear, because Sir Ego is busy trying to figure out what went wrong, who to blame, and how to make sure it never happens again. The <span class="tip" tabindex="0">Wise One<span class="tip-box">Your higher self. Already home.</span></span> has been holding the answer the whole time.</p>
+    <p class="body">The crazy stuff wasn't a malfunction. It was the mechanism.</p>
+  </div>
+</section>
+
+<!-- THE FLASH -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">The Flash</span>
+    <h2 class="section-title">What I Saw in the Meditation</h2>
+    <div class="section-rule"></div>
+    <p class="body">I saw all of this in a flash one day, in meditation. I'd like to tell you the story.</p>
+    <div class="story-block">
+      <p>The question arrived, as the deepest questions tend to, in the silence after everything else had stopped.</p>
+      <p>I had been sitting in meditation for what felt like a long time. The outer noise had quieted. The inner noise had not — but I was no longer fighting it, which is a different kind of quiet, and sometimes enough.</p>
+      <p>I asked the question I had been circling for years, the one underneath the other questions: <em>Who am I really?</em> Not the mother, the professional, the survivor, the woman rebuilding. Not the roles, the wounds, the accomplishments or the failures. Beneath all of it. Where the shame doesn't exist. Who am I there?</p>
+      <p>My deepest self answered immediately.</p>
+      <p><em>You are made in the image of God. What are His aspects?</em></p>
+      <p>And then — in the space of a breath — I saw it. Eight aspects, laid out with the clarity of something that had always been true and was only now being seen: Light. Peace. Calm. Wisdom. Love. Power. Joy. Expression. The qualities of divine nature. Not moral requirements. Not things to achieve. The actual substance of what we are made of, at the level where the shame cannot reach.</p>
+      <p>And then I saw something else. On either side of each aspect — two distortions. The swing toward excess and the swing toward deficiency. The sword and the shield. The ways Sir Ego attempts the aspect from his own limited resources, and produces instead the counterfeit.</p>
+      <p>And then I saw my own life mapped onto this. Forty-plus years of it. Every orange jumpsuit. Every courtroom loss. Every bottle. Every relationship that ended in wreckage. Every place I had swung to the sword. Every place I had swung to the shield. The crucibles that had forged each aspect. The relationships that had served as the hammers.</p>
+      <p>And I saw — in that moment, with absolute clarity — that what I had always experienced as failure and shame was actually the mechanism. The pendulum swinging. The aspect being forged. Not evidence that I had broken the system. <em>Evidence that the system was working exactly as designed.</em></p>
+    </div>
+    <p class="body">This room is what I saw in that meditation. Laid out in the maps that arrived afterward, when the flash took shape. Each map points at the same territory from a different altitude. Take what you can see. The rest becomes visible when it's ready.</p>
+  </div>
+</section>
+
+<!-- THE ARCHITECTURE -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">What You Are Made Of</span>
+    <h2 class="section-title">The Eight Aspects</h2>
+    <div class="section-rule"></div>
+    <p class="body">At the level where the shame cannot reach, you are made of eight qualities. Light. Peace. Calm. Wisdom. Love. Power. Joy. Expression. These are not achievements. They are substance. The same substance the Creator is, because you are made in that image.</p>
+    <p class="body">But Sir Ego does not have access to them directly. He has access only through the Wise One — and when he forgets the Wise One is available, he reaches for each aspect with the tools he has: his shield and his sword. The shield is the aspect practiced in deficiency — collapsed, hidden, withdrawn. The sword is the aspect practiced in excess — forced, loud, weaponized. Both are Sir Ego's sincere attempts to produce the aspect on his own. Both produce the counterfeit.</p>
+    <div class="graphic-wrap">
+      <img src="images/eight-aspects-ego-duality-to-divine-center.jpg" alt="The Eight Aspects: From Ego's Duality to Divine Center. Eight aspects (Light, Calm, Peace, Power, Wisdom, Joy, Expression, Love) shown with Sir Ego's Shield (deficient expression), The Wise One (exalted form), and Sir Ego's Sword (excessive expression). An upward arrow points from duality toward the divine center." width="1650" height="1275" loading="lazy" decoding="async" />
+      <div class="graphic-caption">The Eight Aspects — From Ego's Duality to Divine Center</div>
+    </div>
+    <p class="body">Read across any row and you'll find yourself in one of three places. The shield (hiding, fleeing, collapsing). The sword (judging, fighting, dominating). Or the center — the Wise One's radiance, presence, faith, creativity, insight, flow, authenticity, warmth.</p>
+    <p class="body">Sir Ego's entire life is a pendulum swing between the shield and the sword. When one fails, he switches to the other. When that fails, he switches back. The exhaustion you've been feeling is the pendulum itself. The Wise One has been standing at the center the whole time, waiting for Sir Ego to stop swinging and look up.</p>
+    <p class="pull">The sword and the shield are not the problem. They are sincere attempts by a courageous soul to produce the divine from human resources. The attempt was never going to work. The attempt is what brings you here.</p>
+  </div>
+</section>
+
+<!-- THE CRUCIBLE -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">The Crucible</span>
+    <h2 class="section-title">The Fire Is the Forge</h2>
+    <div class="section-rule"></div>
+    <p class="body">Here is the piece that reframes a life.</p>
+    <p class="body">The moments you have been carrying as evidence of failure — the marriage that fell apart, the addiction that nearly took you, the child who stopped speaking to you, the diagnosis, the job loss, the betrayal, the specific crucible you would most like to edit out of your story — are not what Sir Ego has been telling you they are.</p>
+    <p class="body">They are the <span class="tip" tabindex="0">Karmariculum<span class="tip-box">Your soul's custom lesson plan.</span></span> delivering the exact forge required to discover which aspect you came here to embody. The shattering was the hammer. The disillusionment was the fire. The failures were Sir Ego's shield and sword swinging, one more time, in the direction they always swing when he is being asked to stop swinging.</p>
+    <p class="body">Every time the pendulum reached the end of its arc and the old move stopped working, something was being forged. Not by you. <em>Through</em> you. The aspect itself — the Light, the Peace, the Calm, the Wisdom, the Love, the Power, the Joy, the Expression — was being refined in the specific fire your soul chose before you arrived.</p>
+    <p class="pull">What I had always experienced as failure and shame was actually the mechanism. The pendulum swinging. The aspect being forged. Not evidence that I had broken the system. Evidence that the system was working exactly as designed.</p>
+    <p class="body">This is why the practice matters, and why this teaching matters alongside it. The practice — the Five Steps — is how you walk through a triggered moment when it arrives. The teaching is why the moments arrive in the first place, and what they are forging in you as they do.</p>
+    <p class="body">Both the <span class="tip" tabindex="0">Script of Creation<span class="tip-box">The living intelligence running the universe.</span></span> and your own soul agreed, before you arrived, on the exact crucibles you would need. Nothing was a mistake. Nothing is being done to you. Everything is being done <em>through</em> you, and <em>for</em> what you came to become.</p>
+  </div>
+</section>
+
+<!-- HERO'S CRUCIBLE GRAPHIC -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">The Hero's Crucible</span>
+    <h2 class="section-title">How Each Aspect Gets Forged</h2>
+    <div class="section-rule"></div>
+    <p class="body">This next map pulls the same territory into greater detail. Each aspect shown with its duality — Sir Ego's typical ego pattern — alongside the Wise One's exalted expression. And between them, the Crucible: the specific inner work that converts the raw material of a life into the refined aspect.</p>
+    <p class="body">You'll notice the Five Steps woven right into the map. RECOGNIZE for Light. RECEIVE for Wisdom. RELEASE for Peace. RELAX for Calm. RESPOND for Power. The practice from Room Three isn't separate from this teaching. The practice is how the forge operates, one triggered moment at a time.</p>
+    <div class="graphic-wrap">
+      <img src="images/eight-aspects-soul-forge-chart.jpg" alt="Eight Aspects of the Soul's Experimentation, Ascension, and Eternal Essence. Detailed color chart with Exalted Aspect (Expression, Light, Wisdom, Joy, Love, Power, Peace, Calm), Sir Ego's Duality, Presence (chakra symbols), Hero's Crucible, and The Wise One (the exalted expression)." width="1650" height="1275" loading="lazy" decoding="async" />
+      <div class="graphic-caption">The Eight Aspects &mdash; The Hero's Crucible</div>
+    </div>
+    <p class="body">Notice where your life has landed most often in Sir Ego's Duality column. That's the forge your soul chose. That's the aspect being refined in you right now.</p>
+  </div>
+</section>
+
+<!-- FROM SHADOW TO SOVEREIGNTY -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">The Mirror</span>
+    <h2 class="section-title">From Shadow to Sovereignty</h2>
+    <div class="section-rule"></div>
+    <p class="body">This last map is the most personal of the three. It turns the teaching into first-person language — statements you'll likely recognize as ones you have either said out loud or carried silently. And next to each one, the remembrance. The sovereign truth. The Wise One's voice in your own first person.</p>
+    <div class="graphic-wrap">
+      <img src="images/shadow-to-sovereignty-ego-arc.jpg" alt="From Shadow to Sovereignty — the ego arc from wounded reactivity to sovereign co-creation through the Five Steps." width="1275" height="1650" loading="lazy" decoding="async" />
+      <div class="graphic-caption">From Shadow to Sovereignty</div>
+    </div>
+    <p class="body">Read down the left column and notice where your voice catches. That's the aspect being forged. Read across to the right column — the sovereign version. Even if you can't yet feel the Wise One's truth, notice that she is already speaking it. Notice that it is available. The gap between the shadow statement and the sovereign statement is the practice. The Five Steps are how you walk across.</p>
+    <p class="italic-whisper">You are not the distortion. You never were. You are the aspect being refined, the soul being forged, the divine image recovering its clarity. Every triggered moment is the Karmariculum turning the fire up by exactly the right amount.</p>
+  </div>
+</section>
+
+<!-- BBS FEATURE -->
+<section class="bbs-feature">
+  <div class="bbs-feature-inner">
+    <div class="bbs-cover-wrap reveal">
+      <img src="images/beyond-blame-and-shame-the-truth-of-who-you-are-book-cover.jpg" alt="Beyond Blame and Shame: The Truth of Who You Are — book cover by Kindred Lights" width="1333" height="2000" loading="lazy" decoding="async" class="bbs-cover" />
+    </div>
+    <div class="bbs-copy reveal d2">
+      <span class="section-label">The Book</span>
+      <h2>Beyond Blame &amp; Shame</h2>
+      <span class="bbs-subtitle">The Truth of Who You Are</span>
+      <span class="bbs-kind">Forthcoming</span>
+      <div class="bbs-rule"></div>
+      <p>This room is the overview. The book is the walk — one chapter per aspect, the full teaching on how each one is forged, the specific patterns Sir Ego runs when he's trying to produce it on his own, and the Wise One's way of letting the aspect emerge as what you already are.</p>
+      <p>While the book is finishing, a free summary is available for the reader who wants to carry the whole arc now, even in draft form.</p>
+      <div class="bbs-buttons">
+        <a href="downloads/beyond-blame-and-shame-summary.docx" class="btn-gold" download>Download Summary ↓</a>
+        <span class="bbs-availability">Free · In Progress</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT DOOR -->
+<div class="next-band">
+  <div class="next-band-bg"></div>
+  <div class="next-inner reveal">
+    <span class="eyebrow">Next Door</span>
+    <h2 class="next-title">Framework for Awakening</h2>
+    <p class="next-copy">Curious about all this? The Luminology Glossary holds the whole map in one place — every term, every framework, every piece of vocabulary the Kindred Lights teaching uses. Reference it whenever you want the full picture.</p>
+    <div class="next-buttons">
+      <a href="luminology-glossary.html" class="btn-outline-cream">Enter Room Five →</a>
+      <a href="explore.html" class="btn-outline-cream">Back to the Lobby</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Kindred <em>Lights</em></div>
+      <div class="foot-tag">
+        <p>The Age of Ego is ending.</p>
+        <p>The Age of Love is arising.</p>
+        <p>One trigger at a time.</p>
+      </div>
+    </div>
+    <div>
+      <p class="foot-h">Practice</p>
+      <ul class="foot-links">
+        <li><a href="https://kindredlights.org/mapminder">Help, Now! &mdash; Free</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="lh.html">Love Heroically</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Rooms</p>
+      <ul class="foot-links">
+        <li><a href="explore-sir-ego.html">Sir Ego &amp; the Wise One</a></li>
+        <li><a href="explore-emotions.html">Power of Emotions</a></li>
+        <li><a href="explore-fivesteps.html">The Five Steps</a></li>
+        <li><a href="luminology-glossary.html">Framework for Awakening</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Connect</p>
+      <ul class="foot-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="mailto:kindred@kindredlights.org">kindred@kindredlights.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Kindred Lights. All rights reserved.</div>
+    <div class="foot-sigil">✦</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => { nav && nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => { const open = hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+  }
+  const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
