@@ -223,17 +223,63 @@
     .btn-save:hover { background: var(--gold-light); }
     .save-fine { font-family: var(--font-nav); font-size: 0.6rem; color: rgba(255,255,255,0.22); margin-top: 10px; letter-spacing: 0.06em; }
     /* Kit form override — keep our dark-theme styling, neutralize Kit's defaults */
+    /* Container neutralization */
     .save-form.formkit-form { box-shadow: none !important; max-width: none !important; min-width: 0 !important; background-color: transparent !important; border-radius: 0 !important; overflow: visible !important; padding: 0 !important; margin: 0 !important; }
+    /* Hide Kit's branded clutter */
     .save-form .formkit-powered-by-convertkit-container { display: none !important; }
     .save-form .formkit-disclaimer { display: none !important; }
     .save-form .formkit-header { display: none !important; }
     .save-form .formkit-background { display: none !important; }
-    .save-form .formkit-column { padding: 0 !important; }
+    .save-form .formkit-column { padding: 0 !important; background: transparent !important; }
     .save-form .formkit-fields { display: contents !important; }
     .save-form [data-style="full"] { display: contents !important; }
-    .save-form .formkit-alert { color: #fff; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.3); margin: 12px 0 0; padding: 10px 14px; font-size: 0.9rem; }
-    .save-form .formkit-alert-success { background: rgba(201,168,76,0.15); }
+    .save-form [data-element="column"] { background: transparent !important; padding: 0 !important; }
+    /* INPUT — force our dark-theme styling to win */
+    .save-form .save-input,
+    .save-form input.formkit-input,
+    .save-form input[type="email"] { 
+      background: rgba(255,255,255,0.07) !important;
+      color: #fff !important;
+      border: 1px solid rgba(255,255,255,0.15) !important;
+      border-radius: 4px !important;
+      padding: 13px 16px !important;
+      font-family: var(--font-body) !important;
+      font-size: 1rem !important;
+      font-weight: 400 !important;
+      width: auto !important;
+    }
+    .save-form input::placeholder,
+    .save-form input::-webkit-input-placeholder { color: rgba(255,255,255,0.35) !important; opacity: 1 !important; }
+    .save-form input:focus { border-color: var(--gold) !important; outline: none !important; }
+    /* SUBMIT BUTTON — force our gold-on-midnight styling */
+    .save-form .btn-save,
+    .save-form button.formkit-submit { 
+      background: var(--gold) !important;
+      background-color: var(--gold) !important;
+      color: var(--midnight) !important;
+      border: none !important;
+      border-radius: 4px !important;
+      padding: 0 !important;
+      font-family: var(--font-nav) !important;
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+    }
+    .save-form .btn-save:hover,
+    .save-form button.formkit-submit:hover { background: var(--gold-light) !important; background-color: var(--gold-light) !important; }
+    .save-form button.formkit-submit > span { display: block; padding: 13px 24px !important; color: var(--midnight) !important; background: transparent !important; }
+    .save-form button.formkit-submit:hover > span { background: transparent !important; }
+    /* SUCCESS / ERROR alerts — match dark aesthetic */
+    .save-form .formkit-alert { color: #fff !important; background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(201,168,76,0.3) !important; margin: 12px 0 0 !important; padding: 12px 16px !important; font-size: 0.95rem !important; font-family: var(--font-body) !important; border-radius: 4px !important; }
+    .save-form .formkit-alert-success { background: rgba(201,168,76,0.12) !important; border-color: rgba(201,168,76,0.4) !important; color: #fff !important; }
+    .save-form .formkit-alert-error { background: rgba(220,80,80,0.12) !important; border-color: rgba(220,80,80,0.4) !important; }
     .save-form .formkit-spinner > div { background-color: var(--midnight) !important; }
+    /* Hide the upsell card that Kit injects after success — "Want to grow your own audience?" */
+    .formkit-modal,
+    .formkit-form-grow,
+    [class*="formkit-grow"],
+    [data-element="grow"] { display: none !important; }
 
 
     /* Start over */
@@ -272,7 +318,6 @@
       .foot-inner { flex-direction: column; text-align: center; }
     }
   </style>
-  <script src="https://f.convertkit.com/ckjs/ck.5.js" defer></script>
 </head>
 <body>
 
@@ -1260,10 +1305,12 @@ function continueToFullMap() {
     // Save card
     + '<div class="save-card"><h3 class="save-h">Save your reading</h3>'
     + '<p class="save-p">Leave your email and we\'ll send you the Emotions Inventory &amp; Release Toolkit \u2014 the full inventory of thirteen emotions and the practices for letting them move. Your map stays here for now; the toolkit goes home with you.</p>'
-    + '<form action="https://app.kit.com/forms/9376344/subscriptions" method="post" data-sv-form="9376344" data-uid="63d5a6ab6a" data-format="inline" data-version="5" class="save-form seva-form formkit-form">'
-    + '<input class="save-input formkit-input" type="email" name="email_address" placeholder="your@email.com" required aria-label="Email address" />'
-    + '<button class="btn-save formkit-submit" type="submit"><span>Send It \u2192</span></button>'
+    + '<iframe name="kit-submit-target" id="kit-submit-target" style="display:none;width:0;height:0;border:0;" onload="onKitSubmitLoad()"></iframe>'
+    + '<form action="https://app.kit.com/forms/9376344/subscriptions" method="post" target="kit-submit-target" id="map-save-form" onsubmit="return onKitSubmit()" class="save-form">'
+    + '<input class="save-input" type="email" name="email_address" placeholder="your@email.com" required aria-label="Email address" />'
+    + '<button class="btn-save" type="submit" id="map-save-btn">Send It \u2192</button>'
     + '</form>'
+    + '<div id="map-save-success" style="display:none;color:#fff;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.4);padding:14px 18px;border-radius:4px;margin-top:14px;font-family:var(--font-body);font-size:0.95rem;line-height:1.6;"><strong style="display:block;color:#c9a84c;font-family:var(--font-display);font-size:0.9rem;letter-spacing:0.06em;margin-bottom:6px;">YOUR TOOLKIT IS ON ITS WAY ✦</strong>Check your inbox in a few minutes. If you don\'t see it, check your spam folder &mdash; new senders sometimes land there at first.</div>'
     + '<p class="save-fine">Your higher self doesn\'t pursue. One email. Your map. That\'s it.</p>'
     + '</div>';
 
@@ -1320,6 +1367,37 @@ function showError(msg) {
 
 function hideError() {
   document.getElementById('error-card').classList.remove('visible');
+}
+
+
+// ====================================================================
+// Map Minder save-reading: iframe-based Kit submission
+// Form posts to a hidden iframe; on response load, show success
+// ====================================================================
+let kitSubmitInProgress = false;
+
+function onKitSubmit() {
+  const btn = document.getElementById('map-save-btn');
+  const input = document.querySelector('#map-save-form input[name="email_address"]');
+  if (!input || !input.value || !input.value.includes('@')) {
+    return false;
+  }
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Sending\u2026';
+  }
+  kitSubmitInProgress = true;
+  return true;  // allow the form to submit to the iframe
+}
+
+function onKitSubmitLoad() {
+  // The iframe loads on initial page render too — only act after a real submit
+  if (!kitSubmitInProgress) return;
+  kitSubmitInProgress = false;
+  const form = document.getElementById('map-save-form');
+  const success = document.getElementById('map-save-success');
+  if (form) form.style.display = 'none';
+  if (success) success.style.display = 'block';
 }
 
 function saveReading() {
