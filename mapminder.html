@@ -222,6 +222,19 @@
     .btn-save { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 24px; background: var(--gold); color: var(--midnight); border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
     .btn-save:hover { background: var(--gold-light); }
     .save-fine { font-family: var(--font-nav); font-size: 0.6rem; color: rgba(255,255,255,0.22); margin-top: 10px; letter-spacing: 0.06em; }
+    /* Kit form override — keep our dark-theme styling, neutralize Kit's defaults */
+    .save-form.formkit-form { box-shadow: none !important; max-width: none !important; min-width: 0 !important; background-color: transparent !important; border-radius: 0 !important; overflow: visible !important; padding: 0 !important; margin: 0 !important; }
+    .save-form .formkit-powered-by-convertkit-container { display: none !important; }
+    .save-form .formkit-disclaimer { display: none !important; }
+    .save-form .formkit-header { display: none !important; }
+    .save-form .formkit-background { display: none !important; }
+    .save-form .formkit-column { padding: 0 !important; }
+    .save-form .formkit-fields { display: contents !important; }
+    .save-form [data-style="full"] { display: contents !important; }
+    .save-form .formkit-alert { color: #fff; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.3); margin: 12px 0 0; padding: 10px 14px; font-size: 0.9rem; }
+    .save-form .formkit-alert-success { background: rgba(201,168,76,0.15); }
+    .save-form .formkit-spinner > div { background-color: var(--midnight) !important; }
+
 
     /* Start over */
     .start-over { text-align: center; margin-top: 16px; }
@@ -259,6 +272,7 @@
       .foot-inner { flex-direction: column; text-align: center; }
     }
   </style>
+  <script src="https://f.convertkit.com/ckjs/ck.5.js" defer></script>
 </head>
 <body>
 
@@ -1246,9 +1260,9 @@ function continueToFullMap() {
     // Save card
     + '<div class="save-card"><h3 class="save-h">Save your reading</h3>'
     + '<p class="save-p">Leave your email and we\'ll send you the Emotions Inventory &amp; Release Toolkit \u2014 the full inventory of thirteen emotions and the practices for letting them move. Your map stays here for now; the toolkit goes home with you.</p>'
-    + '<form action="https://app.kit.com/forms/63d5a6ab6a/subscriptions" method="post" data-sv-form="63d5a6ab6a" data-uid="63d5a6ab6a" data-format="inline" target="_blank" class="save-form">'
-    + '<input class="save-input" type="email" name="email_address" placeholder="your@email.com" required aria-label="Email address" />'
-    + '<button class="btn-save" type="submit">Send It \u2192</button>'
+    + '<form action="https://app.kit.com/forms/9376344/subscriptions" method="post" data-sv-form="9376344" data-uid="63d5a6ab6a" data-format="inline" data-version="5" class="save-form seva-form formkit-form">'
+    + '<input class="save-input formkit-input" type="email" name="email_address" placeholder="your@email.com" required aria-label="Email address" />'
+    + '<button class="btn-save formkit-submit" type="submit"><span>Send It \u2192</span></button>'
     + '</form>'
     + '<p class="save-fine">Your higher self doesn\'t pursue. One email. Your map. That\'s it.</p>'
     + '</div>';
