@@ -360,7 +360,14 @@
       <p class="error-text" id="error-text">Something went quiet on our end. Please try again in a moment.</p>
     </div>
 
-    <!-- TWO CAVES DREAM -->
+    <!-- ============================================================
+         TWO DREAMS — currently commented out for focus
+         These are beautiful metaphors but shift the page from
+         "five-minute diagnostic" to "diagnostic plus extended reading".
+         Restore by removing the surrounding comment wrappers.
+         ============================================================ -->
+    <!--
+    <!~~ TWO CAVES DREAM ~~>
     <div class="resonance-card" id="caves-dream" style="margin-bottom:24px;">
       <span class="map-section-label">The Two Caves</span>
       <img src="images/monkeys-extinct-dream-illustration.jpg" alt="The Two Caves" style="width:100%;max-width:100%;border-radius:6px;margin-bottom:18px;display:block;" />
@@ -370,7 +377,7 @@
       <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;">But there is a place beyond the two caves &mdash; a better life. Our life&rsquo;s divine plan offers us opportunities to cast off this script, reveal our true selves and live our highest path. Our inner guide knows the way. When we follow her.</p>
     </div>
 
-    <!-- PARADISE DREAM -->
+    <!~~ PARADISE DREAM ~~>
     <div class="resonance-card" id="paradise-dream" style="margin-bottom:24px;">
       <span class="map-section-label">Don&rsquo;t Make the Monkeys Extinct</span>
       <img src="images/monkeys-dream-film-reel.jpg" alt="Don't Make the Monkeys Extinct" style="width:100%;max-width:100%;border-radius:6px;margin-bottom:18px;display:block;" />
@@ -378,6 +385,8 @@
       <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">All because I cast my opinions and fears upon the divine perfection that I did not see or understand.</p>
       <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;">Our lower self judges according to our script where lions are vegetarian. Our higher self sees the next lesson in our life&rsquo;s divine plan. The situation you want to fix might be doing exactly what it is supposed to do &mdash; in ways you cannot yet see.</p>
     </div>
+    -->
+    <!-- end commented-out dreams -->
 
     <!-- CLOSING QUESTION -->
     <div id="willingness-card" style="text-align:center;padding:28px 24px;margin-bottom:8px;margin-top:8px;">
@@ -1227,7 +1236,10 @@ function continueToFullMap() {
     // Save card
     + '<div class="save-card"><h3 class="save-h">Save your reading</h3>'
     + '<p class="save-p">Leave your email and we\'ll send you the Emotions Inventory &amp; Release Toolkit \u2014 the full inventory of thirteen emotions and the practices for letting them move. Your map stays here for now; the toolkit goes home with you.</p>'
-    + '<div class="save-form"><script async data-uid="63d5a6ab6a" src="https://kindred-lights.kit.com/63d5a6ab6a/index.js"></script></div>'
+    + '<form action="https://app.kit.com/forms/63d5a6ab6a/subscriptions" method="post" data-sv-form="63d5a6ab6a" data-uid="63d5a6ab6a" data-format="inline" target="_blank" class="save-form">'
+    + '<input class="save-input" type="email" name="email_address" placeholder="your@email.com" required aria-label="Email address" />'
+    + '<button class="btn-save" type="submit">Send It \u2192</button>'
+    + '</form>'
     + '<p class="save-fine">Your higher self doesn\'t pursue. One email. Your map. That\'s it.</p>'
     + '</div>';
 
