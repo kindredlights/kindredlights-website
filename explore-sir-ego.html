@@ -87,7 +87,7 @@
       background: linear-gradient(150deg, #2a4494 0%, #3d6abf 50%, #1e2d6e 100%);
       position: relative; overflow: hidden;
     }
-    .page-header-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.jpg"); background-size: cover; background-position: 28% top; opacity: 0.45; pointer-events: none; }
+    .page-header-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: 28% top; opacity: 0.45; pointer-events: none; }
     .page-header-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
     .eyebrow { font-family: var(--font-nav); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--lavender); display: block; margin-bottom: 16px; }
     .header-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 600; color: #fff; letter-spacing: 0.04em; line-height: 1.15; margin-bottom: 22px; }
@@ -131,7 +131,7 @@
 
     /* WHERE TO GO NEXT */
     .next-band { background: linear-gradient(150deg, #2a4494 0%, #3d6abf 100%); padding: 80px 32px; position: relative; overflow: hidden; }
-    .next-band-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.jpg"); background-size: cover; background-position: center 40%; opacity: 0.2; pointer-events: none; }
+    .next-band-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: center 40%; opacity: 0.2; pointer-events: none; }
     .next-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
     .next-inner .eyebrow { color: var(--gold-light); margin-bottom: 12px; }
     .next-title { font-family: var(--font-display); font-size: clamp(1.4rem,2.8vw,2rem); font-weight: 600; color: #fff; letter-spacing: 0.04em; line-height: 1.25; margin-bottom: 18px; }
@@ -177,6 +177,22 @@
     @media (max-width: 480px) {
       .foot-grid { grid-template-columns: 1fr; gap: 24px; }
     }
+    /* Forthcoming-book note — quiet card with cover thumbnail */
+    .forthcoming-note { background: var(--cream, #F5EDE4); padding: 40px 32px; border-top: 1px solid rgba(28,29,64,0.06); border-bottom: 1px solid rgba(28,29,64,0.06); }
+    .forthcoming-note-inner { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: 90px 1fr; gap: 28px; align-items: start; border-left: 2px solid rgba(184,134,11,0.4); padding-left: 28px; }
+    .forthcoming-note-cover { width: 90px; height: auto; aspect-ratio: 1333 / 2000; object-fit: cover; box-shadow: 0 4px 16px rgba(28,29,64,0.16); border-radius: 2px; }
+    .forthcoming-note-text { font-family: var(--font-body, "Lato", sans-serif); }
+    .forthcoming-note-text .eyebrow { display: block; font-family: var(--font-nav, "Raleway", sans-serif); font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(28,29,64,0.55); margin-bottom: 12px; }
+    .forthcoming-note-text p { font-size: 0.96rem; color: rgba(28,29,64,0.78); line-height: 1.78; margin: 0 0 10px 0; }
+    .forthcoming-note-text p:last-child { margin-bottom: 0; }
+    .forthcoming-note-text em { color: rgba(28,29,64,0.92); font-style: italic; }
+    .forthcoming-note-cta { display: inline-block; margin-top: 14px; font-family: var(--font-nav, "Raleway", sans-serif); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dark, #B8860B); border-bottom: 1px solid rgba(184,134,11,0.5); padding-bottom: 1px; text-decoration: none; transition: color 0.2s ease, border-color 0.2s ease; }
+    .forthcoming-note-cta:hover { color: var(--midnight, #1C1D40); border-bottom-color: var(--midnight, #1C1D40); }
+    @media (max-width: 640px) {
+      .forthcoming-note-inner { grid-template-columns: 1fr; padding-left: 20px; }
+      .forthcoming-note-cover { width: 80px; margin-bottom: 4px; }
+    }
+
   </style>
 
 
@@ -234,6 +250,15 @@
     <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
     <li class="nav-item" data-nav="explore"><a href="explore.html" class="nav-link active">Explore</a><div class="nav-panel"><span class="panel-role">The Rooms</span><div class="panel-title">The Exploratorium</div><p class="panel-desc">Five rooms to wander. Find what catches you.</p><a href="explore.html" class="panel-link">Enter →</a></div></li>
     <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to Us?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="series"><a href="#" class="nav-link">The Series ▾</a>
+      <div class="nav-dropdown" style="min-width:280px;">
+        <a href="lh.html" class="dropdown-link">Love Heroically</a>
+        <a href="explore-truth.html" class="dropdown-link">Beyond Blame &amp; Shame</a>
+        <a href="luminology-glossary.html" class="dropdown-link">Luminology</a>
+        <a href="ageofego.html" class="dropdown-link">What Happened to Us?</a>
+        <a href="explore-sir-ego.html" class="dropdown-link">The Mastery of Sir Ego</a>
+      </div>
+    </li>
     <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
       <div class="nav-dropdown">
         <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
@@ -263,6 +288,12 @@
   <a href="index.html" class="mob-link" data-mob="home">Home</a>
   <a href="https://kindredlights.org/mapminder" class="mob-link gold" data-mob="mapminder">✦ Help, Now! — Free</a>
   <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
+  <a href="#" class="mob-link" data-mob="series" onclick="return false;">The Series</a>
+  <a href="lh.html" class="mob-link" data-mob="lh">&nbsp;&nbsp;· Love Heroically</a>
+  <a href="explore-truth.html" class="mob-link" data-mob="bbs">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
+  <a href="luminology-glossary.html" class="mob-link" data-mob="luminology">&nbsp;&nbsp;· Luminology</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego-series">&nbsp;&nbsp;· What Happened to Us?</a>
+  <a href="explore-sir-ego.html" class="mob-link" data-mob="mastery">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
   <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
   <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
   <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
@@ -288,6 +319,19 @@
     <p class="header-lede reveal d2">Sir Ego and the Wise One have been working together all your life. Until Sir Ego's Script collides with what's actually unfolding. And reality always wins.</p>
   </div>
 </div>
+<!-- FORTHCOMING BOOK NOTE -->
+<section class="forthcoming-note">
+  <div class="forthcoming-note-inner reveal">
+    <img src="images/the-mastery-of-sir-ego-and-the-rise-of-the-wise-one-memoir-cover.jpg" alt="The Mastery of Sir Ego and the Rise of the Wise One &mdash; memoir cover" class="forthcoming-note-cover" loading="lazy" decoding="async" />
+    <div class="forthcoming-note-text">
+      <span class="eyebrow">A note from Kindred Lights</span>
+      <p>This page articulates the teaching at the heart of the memoir <em>The Mastery of Sir Ego and the Rise of the Wise One</em> &mdash; three DUIs, a jail floor, a custody battle, a Thanksgiving table rebuilt from wreckage. The framework on this page narrated as it was actually lived.</p>
+      <p>The memoir is available now as a free PDF download while it awaits republishing.</p>
+      <a href="downloads/mastery-of-sir-ego.pdf" class="forthcoming-note-cta" download>Download the Memoir &mdash; Free PDF &rarr;</a>
+    </div>
+  </div>
+</section>
+
 
 <!-- OPENING -->
 <section>
