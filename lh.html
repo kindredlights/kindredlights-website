@@ -102,7 +102,7 @@
     .section-rule { width: 48px; height: 2px; background: var(--periwinkle); margin-bottom: 24px; }
     /* Page header */
     .page-header { padding-top: calc(var(--nav-h) + 56px); padding-bottom: 56px; padding-left: 32px; padding-right: 32px; background: linear-gradient(150deg, #2a4494 0%, #3d6abf 50%, #1e2d6e 100%); position: relative; overflow: hidden; text-align: center; }
-    .page-header-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.jpg"); background-size: cover; background-position: center top; opacity: 0.3; pointer-events: none; }
+    .page-header-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: center top; opacity: 0.3; pointer-events: none; }
     .page-header-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
     .page-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 700; color: #fff; letter-spacing: 0.04em; margin-bottom: 12px; line-height: 1.2; }
     .page-header .subtitle { font-family: var(--font-soul); font-size: 1.2rem; color: rgba(255,255,255,0.75); margin-bottom: 8px; }
@@ -162,6 +162,50 @@
     @media (max-width: 900px) { .book-layout { grid-template-columns: 200px 1fr; gap: 48px; } .diff-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) { #main-nav { display: none; } .mobile-nav { display: flex; } .book-layout { grid-template-columns: 1fr; padding: 48px 24px; } .book-cover-col { position: static; display: flex; gap: 20px; align-items: flex-start; } .cover-wrap { width: 140px; flex-shrink: 0; } .who-grid { grid-template-columns: 1fr; } .diff-grid { grid-template-columns: 1fr; } .foot-grid { grid-template-columns: 1fr 1fr; } .mm-tab { display: none; } }
     @media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; gap: 24px; } .book-cover-col { flex-direction: column; } .cover-wrap { width: 100%; max-width: 180px; margin: 0 auto; } }
+
+    /* Page TOC — minimal italic section index */
+    .page-toc { padding: 32px 24px 16px; max-width: 720px; margin: 0 auto; text-align: center; background: var(--cream); }
+    .page-toc-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; line-height: 1.9; color: rgba(28,29,64,0.62); margin: 0; }
+    .page-toc-prefix { color: rgba(28,29,64,0.45); margin-right: 6px; font-size: 0.95rem; }
+    .page-toc a { color: rgba(28,29,64,0.78); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; padding: 0 2px; }
+    .page-toc a:hover { color: var(--gold-dark, #B8860B); border-bottom-color: rgba(184,134,11,0.4); }
+    .page-toc-sep { color: rgba(28,29,64,0.28); margin: 0 4px; }
+    @media (max-width: 640px) {
+      .page-toc { padding: 24px 18px 12px; }
+      .page-toc-line { font-size: 0.98rem; line-height: 2; }
+      .page-toc-prefix { display: block; margin-bottom: 4px; }
+    }
+
+    /* Author bio block — quiet card on cream */
+    .author-bio { padding: 64px 32px; background: var(--cream); }
+    .author-bio-inner { max-width: 720px; margin: 0 auto; }
+    .author-bio .eyebrow { display: block; margin-bottom: 16px; }
+    .author-bio h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 24px; }
+    .author-bio p { font-family: var(--font-body); font-size: 1.02rem; line-height: 1.82; color: var(--text-mid); margin-bottom: 16px; }
+    .author-bio p:last-child { margin-bottom: 0; }
+
+    /* Sample passage — pull-quote treatment with cream and quiet gold accent */
+    .sample-passage { padding: 64px 32px; background: linear-gradient(180deg, var(--cream) 0%, #f8f4ec 100%); }
+    .sample-passage-inner { max-width: 680px; margin: 0 auto; }
+    .sample-passage .eyebrow { display: block; margin-bottom: 16px; text-align: center; }
+    .sample-passage h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 32px; text-align: center; }
+    .sample-passage-body { border-left: 2px solid rgba(184,134,11,0.35); padding-left: 28px; }
+    .sample-passage-body p { font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-mid); margin-bottom: 18px; font-style: italic; }
+    .sample-passage-body p:last-child { margin-bottom: 0; }
+    .sample-source { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.12em; color: rgba(28,29,64,0.5); margin-top: 24px; text-align: center; }
+
+    /* Available at — buy buttons row, calibrated for warm presence rather than urgency */
+    .available-at { padding: 56px 32px; background: var(--cream); text-align: center; }
+    .available-at-inner { max-width: 680px; margin: 0 auto; }
+    .available-at .eyebrow { display: block; margin-bottom: 12px; }
+    .available-at h2 { font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.5rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 20px; }
+    .available-at-msg { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); line-height: 1.72; margin-bottom: 24px; }
+    .available-at-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .available-at-link { display: inline-block; padding: 10px 20px; border: 1px solid rgba(28,29,64,0.16); border-radius: 6px; font-family: var(--font-body); font-size: 0.92rem; color: rgba(28,29,64,0.55); background: rgba(255,255,255,0.6); transition: all 0.2s ease; text-decoration: none; }
+    .available-at-link.live { color: var(--midnight); border-color: rgba(28,29,64,0.3); background: #fff; cursor: pointer; }
+    .available-at-link.live:hover { border-color: var(--gold-dark, #B8860B); color: var(--gold-dark, #B8860B); }
+    .available-at-link.placeholder { cursor: default; font-style: italic; }
+    @media (max-width: 480px) { .available-at-row { flex-direction: column; align-items: stretch; } }
 
   </style>
 
@@ -278,6 +322,22 @@
   </div>
 </div>
 
+  <!-- ON THIS PAGE — section index -->
+  <nav class="page-toc" aria-label="On this page">
+    <p class="page-toc-line">
+      <span class="page-toc-prefix">Jump to:</span>
+      <a href="#about-the-book">About the Book</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#who-its-for">Who It&rsquo;s For</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#about-the-author">About the Author</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#sample">A Sample</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#notify">Stay Connected</a>
+    </p>
+  </nav>
+
 <!-- BOOK CONTENT -->
 <div style="background:var(--cream);">
 <div class="book-layout">
@@ -293,24 +353,23 @@
   </div>
 
   <!-- Copy -->
-  <div class="reveal d2">
-    <span class="eyebrow">The Book</span>
-    <h2 style="font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:600;color:var(--midnight);letter-spacing:0.04em;line-height:1.2;margin-bottom:8px">Love Heroically</h2>
-    <p style="font-family:var(--font-soul);font-size:1rem;color:var(--text-mid);margin-bottom:20px">Five Steps to Freedom</p>
+  <div class="reveal d2" id="about-the-book">
+    <span class="eyebrow">About the Book</span>
+    <p style="font-family:var(--font-soul);font-size:1rem;color:var(--text-mid);margin-bottom:20px">Five Steps to Freedom &mdash; the practice manual</p>
     <div class="section-rule"></div>
 
     <p class="book-hook">You have a persistent problem. And you've tried everything. The therapy helped. The books named it. The workshops gave you tools that work beautifully — until the moment arrives and they simply aren't available. Here it is again. Same situation, different day. What if the moment just before the freight train leaves the station is actually a choice point? A small one — almost invisible. But enough.</p>
 
     <p class="book-body">A practice manual for the triggered moment. Not the calm after. Not the journal entry the next morning. The actual moment — while the freight train is moving, while every justification is available. What does it mean to love heroically? Choosing love when fear has every justification. Staying open when everything in you wants to close. Showing up from the part of you that already knows the way through. That is not a coping mechanism. It is a way of being.</p>
 
-    <div class="section-h3">Three Things This Book Does</div>
+    <h2 class="section-h3">Three Things This Book Does</h2>
     <ol class="three-things">
       <li>Shows you the fire — custody battles, jail floors, impossible Thanksgivings that turned out to be miracles.</li>
       <li>Walks you through the steps — five steps, ten chapters in couplet pairs. Both the <span class="tip" tabindex="0">Sir Ego<span class="tip-box">Your ego. The hero with the wrong map.</span></span> chapter and the <span class="tip" tabindex="0">Wise One<span class="tip-box">Your higher self. Already home.</span></span> chapter at every step.</li>
       <li>Meets you where you are — in the loop, in the mess, in the moment after you've already blown it again.</li>
     </ol>
 
-    <div class="section-h3">Who It's For</div>
+    <h2 id="who-its-for" class="section-h3">Who It&rsquo;s For</h2>
     <div class="who-grid">
       <div class="who-item">The person who knows what to do and can't do it in the moment.</div>
       <div class="who-item">The survivor of a narcissistic relationship still triggered years later.</div>
@@ -334,6 +393,44 @@
   </div>
 </div>
 </div>
+
+<!-- AUTHOR BIO -->
+<section class="author-bio" id="about-the-author">
+  <div class="author-bio-inner reveal">
+    <span class="eyebrow">About the Author</span>
+    <h2>Kindred Lights</h2>
+    <p>Kindred Lights is the pen name of a writer who spent two decades walking the path she now teaches. The framework in these pages was not built in a study. It was assembled, one triggered moment at a time, in the everyday wreckage of a life that included three DUIs, a jail floor, a broken family, and the slow patient work of rebuilding everything from the inside out.</p>
+    <p>The credentials on paper are real &mdash; an MBA, a CPA, decades in business &mdash; but they are not what makes the writing land. What makes the writing land is that she has done the practice. She has sat in the moment the freight train was leaving the station and chosen, again and again, to stay open. The book is a report from that work, written for the readers who recognize it.</p>
+    <p>She is a longtime devotee of Paramhansa Yogananda and lives in spiritual community at Ananda. She is also a widow, a mother, a grandmother, and a recent traveler through breast cancer. The Wise One has been with her through all of it.</p>
+  </div>
+</section>
+
+<!-- SAMPLE PASSAGE -->
+<section class="sample-passage" id="sample">
+  <div class="sample-passage-inner reveal">
+    <span class="eyebrow">A Sample</span>
+    <h2>From the Book</h2>
+    <div class="sample-passage-body">
+      <p>[Sample passage to be added &mdash; two or three paragraphs from the introduction or an early chapter that let the reader taste the voice of the book itself. The minimalist gold border to the left of this block sets the passage apart as a quoted excerpt; the cream gradient background gives it visual breathing room from the surrounding sections. The visitor reads the sample, feels the writing, and decides whether to go further. This block is calibrated for taste, not pitch.]</p>
+    </div>
+    <p class="sample-source">From <em>Love Heroically: The Five Steps to Freedom</em></p>
+  </div>
+</section>
+
+<!-- AVAILABLE AT -->
+<section class="available-at">
+  <div class="available-at-inner reveal">
+    <span class="eyebrow">The Book</span>
+    <h2>Where to Find It</h2>
+    <p class="available-at-msg">Love Heroically is preparing for release. We&rsquo;ll add direct links to your preferred retailers as the book becomes available at each. For now &mdash; if you&rsquo;d like a note when the book is ready, the launch list below is the easiest way to know.</p>
+    <div class="available-at-row">
+      <span class="available-at-link placeholder">Amazon &mdash; coming soon</span>
+      <span class="available-at-link placeholder">Bookshop.org &mdash; coming soon</span>
+      <span class="available-at-link placeholder">Apple Books &mdash; coming soon</span>
+      <span class="available-at-link placeholder">Barnes &amp; Noble &mdash; coming soon</span>
+    </div>
+  </div>
+</section>
 
 <!-- TRIGGER METER STRIP -->
 <div style="background:#2d2b5e;padding:56px 32px;">
