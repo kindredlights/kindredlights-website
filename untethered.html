@@ -15,7 +15,7 @@
     "name": "Beyond the Witness — The Hero's Path of Love",
     "url": "https://kindredlights.org/untethered",
     "isPartOf": { "@type": "WebSite", "name": "Kindred Lights", "url": "https://kindredlights.org" },
-    "primaryImageOfPage": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.jpg",
+    "primaryImageOfPage": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.png",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -38,7 +38,7 @@
       "name": "Kindred Lights",
       "url": "https://kindredlights.org"
     },
-    "image": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.jpg",
+    "image": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.png",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://kindredlights.org/untethered" }
   }
   </script>
@@ -271,6 +271,19 @@
       .faq-q { padding: 18px 22px; padding-right: 48px; font-size: 1.08rem; }
       .faq-a { padding: 4px 22px 22px; }
     }
+    /* Page TOC — minimal italic section index */
+    .page-toc { padding: 32px 24px 16px; max-width: 720px; margin: 0 auto; text-align: center; }
+    .page-toc-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; line-height: 1.9; color: rgba(28,29,64,0.62); margin: 0; }
+    .page-toc-prefix { color: rgba(28,29,64,0.45); margin-right: 6px; font-size: 0.95rem; }
+    .page-toc a { color: rgba(28,29,64,0.78); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; padding: 0 2px; }
+    .page-toc a:hover { color: var(--gold-dark, #B8860B); border-bottom-color: rgba(184,134,11,0.4); }
+    .page-toc-sep { color: rgba(28,29,64,0.28); margin: 0 4px; }
+    @media (max-width: 640px) {
+      .page-toc { padding: 24px 18px 12px; }
+      .page-toc-line { font-size: 0.98rem; line-height: 2; }
+      .page-toc-prefix { display: block; margin-bottom: 4px; }
+    }
+
   </style>
 <!-- FAQPage JSON-LD -->
 <script type="application/ld+json">
@@ -441,9 +454,27 @@
     <p class="v-tagline">You have done years of witness work. You know the samskara. You know suppress, express, transcend. You can sit with the energy and let it pass through — most of the time. And then there are the triggers that fire and do not move, no matter how clearly you understand the teaching, no matter how patient the witness becomes. This is for the long-time student of the witness tradition who has hit the wall the witness alone cannot move — and is ready for the missing relational layer that makes the practice come together.</p>
   </div>
 </section>
+  <!-- ON THIS PAGE — section index -->
+  <nav class="page-toc" aria-label="On this page">
+    <p class="page-toc-line">
+      <span class="page-toc-prefix">Jump to:</span>
+      <a href="#where-you-are">Where You Are</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-script">The Script</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-reframe">The Reframe</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-karmariculum">The Karmariculum</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-practice">The Practice</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#faq">Common Questions</a>
+    </p>
+  </nav>
+
 
 <!-- LAYER 1 — THE WOUND NAMED -->
-<section class="v-section" style="background:#F5EDEA;">
+<section class="v-section" style="background:#F5EDEA;" id="where-you-are">
   <div class="v-section-inner reveal">
     <span class="v-section-label">Where It Hurts</span>
     <h2 class="v-h2">The witness is real.<br>Some samskaras still won't move.</h2>
@@ -458,7 +489,7 @@
 </section>
 
 <!-- LAYER 2 — SIR EGO'S SCRIPT -->
-<section class="v-section" style="background:#F5EDE4;">
+<section class="v-section" style="background:#F5EDE4;" id="the-script">
   <div class="v-section-inner reveal">
     <span class="v-section-label">Sir Ego's Script in This Terrain</span>
     <h2 class="v-h2">The trouble is not Sir Ego.<br>The trouble is his script.</h2>
@@ -474,7 +505,7 @@
 </section>
 
 <!-- LAYER 3 — COLLISION POINT -->
-<section class="v-section" style="background:#F2EDE0;">
+<section class="v-section" style="background:#F2EDE0;" id="the-reframe">
   <div class="v-section-inner reveal">
     <span class="v-section-label">The Collision Point</span>
     <h2 class="v-h2">The witness teaches the energy.<br>The cause lives in the mind.</h2>
@@ -523,7 +554,7 @@
 </section>
 
 <!-- LAYER 5 — SOUL ARCHITECTURE -->
-<section class="aspects-section">
+<section class="aspects-section" id="the-karmariculum">
   <div class="aspects-inner reveal">
     <span class="v-section-label" style="color:rgba(255,255,255,0.7)">The Soul Architecture</span>
     <h2 class="v-h2" style="color:#fff;margin-bottom:24px;">This is the Karmariculum at work.</h2>
@@ -561,7 +592,7 @@
 </section>
 
 <!-- LAYER 6 — FIVE STEPS -->
-<section class="steps-section">
+<section class="steps-section" id="the-practice">
   <div class="steps-inner reveal">
     <span class="v-section-label" style="color:var(--gold-dark)">The Five Steps in This Terrain</span>
     <h2 class="v-h2" style="color:var(--midnight);margin-bottom:24px;">How the practice works<br>when the witness meets the script.</h2>
@@ -676,7 +707,7 @@
 </section>
 
 <!-- COMMON QUESTIONS — untethered -->
-<section class="faq-section">
+<section class="faq-section" id="faq">
   <div class="faq-inner reveal">
     <span class="v-section-label">Common Questions</span>
     <h2 class="v-h2">Questions Readers Have Asked</h2>

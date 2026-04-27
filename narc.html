@@ -80,7 +80,7 @@
     .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--midnight); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 240px; z-index: 200; pointer-events: none; }
     .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
     .v-hero { padding-top: calc(var(--nav-h) + 56px); padding-bottom: 56px; padding-left: 32px; padding-right: 80px; background: linear-gradient(160deg, #1c2a4a 0%, #2a3d6e 60%, #1c2a4a 100%); position: relative; overflow: hidden; }
-    .v-hero-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.jpg"); background-size: cover; background-position: 28% top; opacity: 0.3; pointer-events: none; }
+    .v-hero-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: 28% top; opacity: 0.3; pointer-events: none; }
     .v-hero-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
     .v-eyebrow { font-family: var(--font-nav); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
     .v-h1 { font-family: var(--font-display); font-size: clamp(2rem,4vw,3rem); font-weight: 700; color: #fff; letter-spacing: 0.04em; line-height: 1.15; margin-bottom: 20px; }
@@ -177,6 +177,19 @@
       .faq-q { padding: 18px 22px; padding-right: 48px; font-size: 1.08rem; }
       .faq-a { padding: 4px 22px 22px; }
     }
+    /* Page TOC — minimal italic section index */
+    .page-toc { padding: 32px 24px 16px; max-width: 720px; margin: 0 auto; text-align: center; }
+    .page-toc-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; line-height: 1.9; color: rgba(28,29,64,0.62); margin: 0; }
+    .page-toc-prefix { color: rgba(28,29,64,0.45); margin-right: 6px; font-size: 0.95rem; }
+    .page-toc a { color: rgba(28,29,64,0.78); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; padding: 0 2px; }
+    .page-toc a:hover { color: var(--gold-dark, #B8860B); border-bottom-color: rgba(184,134,11,0.4); }
+    .page-toc-sep { color: rgba(28,29,64,0.28); margin: 0 4px; }
+    @media (max-width: 640px) {
+      .page-toc { padding: 24px 18px 12px; }
+      .page-toc-line { font-size: 0.98rem; line-height: 2; }
+      .page-toc-prefix { display: block; margin-bottom: 4px; }
+    }
+
   </style>
 
 
@@ -188,7 +201,7 @@
     "name": "After Narcissistic Abuse — The Hero's Path of Love",
     "url": "https://kindredlights.org/narc",
     "isPartOf": { "@type": "WebSite", "name": "Kindred Lights", "url": "https://kindredlights.org" },
-    "primaryImageOfPage": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.jpg",
+    "primaryImageOfPage": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.png",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -211,7 +224,7 @@
       "name": "Kindred Lights",
       "url": "https://kindredlights.org"
     },
-    "image": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.jpg",
+    "image": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.png",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://kindredlights.org/narc" }
   }
   </script>
@@ -406,8 +419,26 @@
     <p class="v-tagline">And somewhere along the way you stopped trusting your own perception. This is for people who have done the therapy — and are still triggered years later.</p>
   </div>
 </section>
+  <!-- ON THIS PAGE — section index -->
+  <nav class="page-toc" aria-label="On this page">
+    <p class="page-toc-line">
+      <span class="page-toc-prefix">Jump to:</span>
+      <a href="#where-you-are">Where You Are</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-script">The Script</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-reframe">The Reframe</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-karmariculum">The Karmariculum</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-practice">The Practice</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#faq">Common Questions</a>
+    </p>
+  </nav>
 
-<section class="v-section" style="background:var(--cream);">
+
+<section class="v-section" style="background:var(--cream);" id="where-you-are">
   <div class="v-section-inner reveal">
     <span class="v-section-label">Where It Hurts</span>
     <h2 class="v-h2">You gave everything.</h2>
@@ -419,7 +450,7 @@
   </div>
 </section>
 
-<section class="v-section" style="background:#f0ede8;">
+<section class="v-section" style="background:#f0ede8;" id="the-script">
   <div class="v-section-inner reveal">
     <span class="v-section-label">Sir Ego's Script in This Terrain</span>
     <h2 class="v-h2">The script that got you here<br>was written before you arrived.</h2>
@@ -433,7 +464,7 @@
   </div>
 </section>
 
-<section class="v-section" style="background:#e8e4f0;">
+<section class="v-section" style="background:#e8e4f0;" id="the-reframe">
   <div class="v-section-inner reveal">
     <span class="v-section-label">The Collision Point</span>
     <h2 class="v-h2">Two scripts running<br>in opposite directions.</h2>
@@ -477,7 +508,7 @@
   </div>
 </section>
 
-<section class="aspects-section">
+<section class="aspects-section" id="the-karmariculum">
   <div class="aspects-inner reveal">
     <span class="v-section-label" style="color:rgba(255,255,255,0.7)">The Soul Architecture</span>
     <h2 class="v-h2" style="color:#fff;margin-bottom:24px;">This is the Karmariculum at work.</h2>
@@ -513,7 +544,7 @@
   </div>
 </section>
 
-<section class="steps-section">
+<section class="steps-section" id="the-practice">
   <div class="steps-inner reveal">
     <span class="v-section-label" style="color:var(--gold-dark)">The Five Steps in This Terrain</span>
     <h2 class="v-h2" style="color:var(--midnight);margin-bottom:40px;">How the practice works<br>in the triggered moment.</h2>
@@ -576,7 +607,7 @@
 </section>
 
 <!-- COMMON QUESTIONS — narc -->
-<section class="faq-section">
+<section class="faq-section" id="faq">
   <div class="faq-inner reveal">
     <span class="v-section-label">Common Questions</span>
     <h2 class="v-h2">Questions Readers Have Asked</h2>

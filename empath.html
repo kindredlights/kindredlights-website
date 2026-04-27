@@ -15,7 +15,7 @@
     "name": "The Empath Alchemist — The Hero's Path of Love",
     "url": "https://kindredlights.org/empath",
     "isPartOf": { "@type": "WebSite", "name": "Kindred Lights", "url": "https://kindredlights.org" },
-    "primaryImageOfPage": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.jpg",
+    "primaryImageOfPage": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.png",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -38,7 +38,7 @@
       "name": "Kindred Lights",
       "url": "https://kindredlights.org"
     },
-    "image": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.jpg",
+    "image": "https://kindredlights.org/images/sun-angel-hero-kindred-lights.png",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://kindredlights.org/empath" }
   }
   </script>
@@ -268,6 +268,19 @@
       .faq-q { padding: 18px 22px; padding-right: 48px; font-size: 1.08rem; }
       .faq-a { padding: 4px 22px 22px; }
     }
+    /* Page TOC — minimal italic section index */
+    .page-toc { padding: 32px 24px 16px; max-width: 720px; margin: 0 auto; text-align: center; }
+    .page-toc-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; line-height: 1.9; color: rgba(28,29,64,0.62); margin: 0; }
+    .page-toc-prefix { color: rgba(28,29,64,0.45); margin-right: 6px; font-size: 0.95rem; }
+    .page-toc a { color: rgba(28,29,64,0.78); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; padding: 0 2px; }
+    .page-toc a:hover { color: var(--gold-dark, #B8860B); border-bottom-color: rgba(184,134,11,0.4); }
+    .page-toc-sep { color: rgba(28,29,64,0.28); margin: 0 4px; }
+    @media (max-width: 640px) {
+      .page-toc { padding: 24px 18px 12px; }
+      .page-toc-line { font-size: 0.98rem; line-height: 2; }
+      .page-toc-prefix { display: block; margin-bottom: 4px; }
+    }
+
   </style>
 <!-- FAQPage JSON-LD -->
 <script type="application/ld+json">
@@ -456,9 +469,27 @@
     <p class="v-tagline">You feel everything everyone else feels. You always have. You walk into a room and you can tell who is upset before anyone says a word. You leave most social events depleted in a way nobody else seems to be. You have been told your whole life you are too sensitive, that you take things too personally, that you need thicker skin. And every empath book you have read has taught you to shield, to protect, to set energetic boundaries. None of it has felt entirely right. Because the gift was never a vulnerability to be managed. The gift was an apparatus. And the apparatus has a higher use than absorbing other people's storms.</p>
   </div>
 </section>
+  <!-- ON THIS PAGE — section index -->
+  <nav class="page-toc" aria-label="On this page">
+    <p class="page-toc-line">
+      <span class="page-toc-prefix">Jump to:</span>
+      <a href="#where-you-are">Where You Are</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-script">The Script</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-reframe">The Reframe</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-karmariculum">The Karmariculum</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-practice">The Practice</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#faq">Common Questions</a>
+    </p>
+  </nav>
+
 
 <!-- LAYER 1 — THE WOUND NAMED -->
-<section class="v-section" style="background:#F5EDEA;">
+<section class="v-section" style="background:#F5EDEA;" id="where-you-are">
   <div class="v-section-inner reveal">
     <span class="v-section-label">Where It Hurts</span>
     <h2 class="v-h2">Their energy keeps ending up in you.</h2>
@@ -489,7 +520,7 @@
 </section>
 
 <!-- LAYER 2 — SIR EGO'S SCRIPT -->
-<section class="v-section" style="background:#F5EDE4;">
+<section class="v-section" style="background:#F5EDE4;" id="the-script">
   <div class="v-section-inner reveal">
     <span class="v-section-label">Sir Ego's Script in This Terrain</span>
     <h2 class="v-h2">The trouble is not Sir Ego.<br>The trouble is his script.</h2>
@@ -504,7 +535,7 @@
 </section>
 
 <!-- LAYER 3 — COLLISION POINT -->
-<section class="v-section" style="background:#F2EDE0;">
+<section class="v-section" style="background:#F2EDE0;" id="the-reframe">
   <div class="v-section-inner reveal">
     <span class="v-section-label">The Collision Point</span>
     <h2 class="v-h2">The empath gift has three octaves.<br>You have been working in the first.</h2>
@@ -565,7 +596,7 @@
 </section>
 
 <!-- LAYER 5 — SOUL ARCHITECTURE -->
-<section class="aspects-section">
+<section class="aspects-section" id="the-karmariculum">
   <div class="aspects-inner reveal">
     <span class="v-section-label" style="color:rgba(255,255,255,0.7)">The Soul Architecture</span>
     <h2 class="v-h2" style="color:#fff;margin-bottom:24px;">This is the Karmariculum at work.</h2>
@@ -603,7 +634,7 @@
 </section>
 
 <!-- LAYER 6 — FIVE STEPS -->
-<section class="steps-section">
+<section class="steps-section" id="the-practice">
   <div class="steps-inner reveal">
     <span class="v-section-label" style="color:var(--gold-dark)">The Five Steps in This Terrain</span>
     <h2 class="v-h2" style="color:var(--midnight);margin-bottom:40px;">How the practice works<br>when the storm walks into the room.</h2>
@@ -707,7 +738,7 @@
 </section>
 
 <!-- COMMON QUESTIONS — empath -->
-<section class="faq-section">
+<section class="faq-section" id="faq">
   <div class="faq-inner reveal">
     <span class="v-section-label">Common Questions</span>
     <h2 class="v-h2">Questions Readers Have Asked</h2>
