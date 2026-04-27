@@ -165,6 +165,17 @@
       header h1 { font-size: 2rem; }
       main { padding: 0 16px 60px; }
     }
+    /* Forthcoming-book note — dark-themed for cosmology page */
+    .forthcoming-note { background: linear-gradient(180deg, #10102a 0%, #0a0a1a 100%); padding: 48px 24px; border-top: 1px solid #2a2050; border-bottom: 1px solid #2a2050; }
+    .forthcoming-note-inner { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: 100px 1fr; gap: 32px; align-items: center; border-left: 2px solid rgba(201,168,76,0.45); padding-left: 28px; }
+    .forthcoming-note-cover { width: 100px; height: auto; aspect-ratio: 1333 / 2000; object-fit: cover; box-shadow: 0 6px 24px rgba(0,0,0,0.55); border-radius: 2px; }
+    .forthcoming-note-text .eyebrow { display: block; font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: #c9a84c; margin-bottom: 14px; font-family: 'Georgia', serif; }
+    .forthcoming-note-text p { font-size: 0.96rem; color: #c8c4d8; line-height: 1.78; margin: 0 0 10px 0; font-family: 'Georgia', serif; }
+    .forthcoming-note-text p:last-child { margin-bottom: 0; }
+    .forthcoming-note-text em { color: #e8e4d8; font-style: italic; }
+    @media (max-width: 640px) { .forthcoming-note-inner { grid-template-columns: 1fr; padding-left: 20px; } .forthcoming-note-cover { width: 90px; } }
+
+
   </style>
 
 
@@ -221,6 +232,18 @@
   <p class="tagline">A Framework for Awakening</p>
   <p class="intro">A living glossary of the core concepts, players, and principles of the Kindred Lights cosmology — the complete architecture of human consciousness, ego, and the soul's journey home.</p>
 </header>
+<!-- FORTHCOMING BOOK NOTE -->
+<section class="forthcoming-note">
+  <div class="forthcoming-note-inner">
+    <img src="images/luminology-a-framework-for-awakening-book-cover.jpg" alt="Luminology: A Framework for Awakening — book cover" class="forthcoming-note-cover" loading="lazy" decoding="async" />
+    <div class="forthcoming-note-text">
+      <span class="eyebrow">A note from Kindred Lights</span>
+      <p>This glossary articulates the framework — the architecture of <em>Luminology: A Framework for Awakening</em>, a forthcoming book in the Hero&rsquo;s Path of Love.</p>
+      <p>The glossary holds the framework in working form. The book will lay it out as the complete reference.</p>
+    </div>
+  </div>
+</section>
+
 
 <nav class="toc">
   <h2>Contents</h2>
