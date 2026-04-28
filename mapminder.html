@@ -215,6 +215,19 @@
     .save-card { background: var(--midnight); border-radius: 10px; border: 1px solid rgba(201,168,76,0.3); padding: 36px 36px; margin-top: 8px; text-align: center; box-shadow: 0 6px 32px rgba(28,29,64,0.18); }
     .save-h { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: #fff; letter-spacing: 0.04em; margin-bottom: 8px; }
     .save-p { font-family: var(--font-body); font-size: 0.96rem; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 22px; }
+
+    /* Gift block — two PDF buttons, no email capture */
+    .gift-card { background: var(--midnight); border-radius: 10px; border: 1px solid rgba(201,168,76,0.3); padding: 36px 36px; margin-top: 8px; text-align: center; box-shadow: 0 6px 32px rgba(28,29,64,0.18); }
+    .gift-h { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: #fff; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .gift-p { font-family: var(--font-body); font-size: 0.96rem; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 26px; }
+    .gift-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+    .btn-gift { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; font-family: var(--font-nav); padding: 16px 26px; background: var(--gold); color: var(--midnight); border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s, transform 0.15s; min-width: 230px; text-decoration: none; }
+    .btn-gift:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-gift:disabled { opacity: 0.6; cursor: wait; transform: none; }
+    .btn-gift-line1 { font-size: 0.86rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .btn-gift-line2 { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
+    .gift-fine { font-family: var(--font-nav); font-size: 0.62rem; color: rgba(255,255,255,0.32); margin-top: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+    @media (max-width: 640px) { .btn-gift { width: 100%; min-width: 0; } }
     .save-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .save-input { flex: 1; min-width: 200px; max-width: 280px; padding: 13px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: #fff; border-radius: 4px; outline: none; transition: border-color 0.2s; }
     .save-input:focus { border-color: var(--gold); }
@@ -318,6 +331,7 @@
       .foot-inner { flex-direction: column; text-align: center; }
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
@@ -1300,16 +1314,21 @@ function continueToFullMap() {
     + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:none;border:1.5px solid rgba(28,29,64,0.3);color:var(--text-mid);padding:10px 20px;border-radius:4px;cursor:pointer;">\u2190 Try a Different Vibe</button>'
     + '</div>'
 
-    // Save card
-    + '<div class="save-card"><h3 class="save-h">Save your reading</h3>'
-    + '<p class="save-p">Leave your email and we\'ll send you the Emotions Inventory &amp; Release Toolkit \u2014 the full inventory of thirteen emotions and the practices for letting them move. Your map stays here for now; the toolkit goes home with you.</p>'
-    + '<iframe name="kit-submit-target" id="kit-submit-target" style="display:none;width:0;height:0;border:0;" onload="onKitSubmitLoad()"></iframe>'
-    + '<form action="https://app.kit.com/forms/9376344/subscriptions" method="post" target="kit-submit-target" id="map-save-form" onsubmit="return onKitSubmit()" class="save-form">'
-    + '<input class="save-input" type="email" name="email_address" placeholder="your@email.com" required aria-label="Email address" />'
-    + '<button class="btn-save" type="submit" id="map-save-btn">Send It \u2192</button>'
-    + '</form>'
-    + '<div id="map-save-success" style="display:none;color:#fff;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.4);padding:14px 18px;border-radius:4px;margin-top:14px;font-family:var(--font-body);font-size:0.95rem;line-height:1.6;"><strong style="display:block;color:#c9a84c;font-family:var(--font-display);font-size:0.9rem;letter-spacing:0.06em;margin-bottom:6px;">YOUR TOOLKIT IS ON ITS WAY ✦</strong>Check your inbox in a few minutes. If you don\'t see it, check your spam folder &mdash; new senders sometimes land there at first.</div>'
-    + '<p class="save-fine">Your higher self doesn\'t pursue. One email. Your map. That\'s it.</p>'
+    // Gift block — two PDF downloads, no email, no obligation
+    + '<div class="gift-card">'
+    + '<h3 class="gift-h">Take it home with you</h3>'
+    + '<p class="gift-p">Two PDFs. Yours to keep, share, or print. No email, no signup, no strings.</p>'
+    + '<div class="gift-buttons">'
+    + '<button onclick="generateMapPDF()" class="btn-gift" id="map-pdf-btn">'
+    + '<span class="btn-gift-line1">A Map for This Moment</span>'
+    + '<span class="btn-gift-line2">Your personalized reading \u00b7 PDF</span>'
+    + '</button>'
+    + '<a href="downloads/emotions-inventory-and-release-toolkit.pdf" download class="btn-gift">'
+    + '<span class="btn-gift-line1">The Release Toolkit</span>'
+    + '<span class="btn-gift-line2">13 emotions \u00b7 10 practices \u00b7 PDF</span>'
+    + '</a>'
+    + '</div>'
+    + '<p class="gift-fine">Both free. The Map Minder is always free.</p>'
     + '</div>';
 
   const responseArea = document.getElementById('response-area');
@@ -1318,6 +1337,289 @@ function continueToFullMap() {
 }
 
 
+
+
+// ══════════════════════════════════════════════════════════════
+// PDF GENERATION — A Map for This Moment
+// Plain-paper, ink-friendly, single-column, thin black rules between sections.
+// ══════════════════════════════════════════════════════════════
+function generateMapPDF() {
+  const data = window._pendingMapData;
+  if (!data) {
+    alert('No map data available yet. Please complete a reading first.');
+    return;
+  }
+
+  const btn = document.getElementById('map-pdf-btn');
+  if (btn) {
+    btn.disabled = true;
+    const line1 = btn.querySelector('.btn-gift-line1');
+    if (line1) line1.textContent = 'Preparing\u2026';
+  }
+
+  try {
+    // Get jsPDF — UMD bundle exposes it as window.jspdf.jsPDF
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'pt', format: 'letter' });
+
+    // Page setup
+    const PAGE_W = 612;          // letter width in pt
+    const PAGE_H = 792;          // letter height in pt
+    const MARGIN_X = 64;
+    const MARGIN_TOP = 64;
+    const MARGIN_BOTTOM = 72;
+    const TEXT_W = PAGE_W - 2 * MARGIN_X;
+    let y = MARGIN_TOP;
+
+    // Pull data fields
+    const s4 = data.step4_receive || {};
+    const s5 = data.step5_respond || {};
+    const aspectFlavor = s4.aspect_pole_flavor || '';
+    const aspectData = (typeof getAspectData === 'function') ? getAspectData(aspectFlavor) : null;
+    const emotionData = (typeof getEmotionData === 'function') ? getEmotionData(data.dominant_emotion || '') : null;
+
+    // Get user's input
+    const sitInput = document.getElementById('situation-input');
+    const shouldInput = document.getElementById('should-input');
+    const userInput = sitInput ? sitInput.value.trim() : '';
+    const userShould = shouldInput ? shouldInput.value.trim() : '';
+
+    // ─── Helpers ───────────────────────────────────────────────
+    function ensureSpace(needed) {
+      if (y + needed > PAGE_H - MARGIN_BOTTOM) {
+        addFooter();
+        doc.addPage();
+        y = MARGIN_TOP;
+      }
+    }
+
+    function addFooter() {
+      const pageNum = doc.internal.getCurrentPageInfo().pageNumber;
+      doc.setFont('times', 'italic');
+      doc.setFontSize(9);
+      doc.setTextColor(120, 120, 120);
+      doc.text('A Map for This Moment  \u00b7  kindredlights.org/mapminder', PAGE_W / 2, PAGE_H - 36, { align: 'center' });
+      doc.setTextColor(0, 0, 0);
+    }
+
+    function rule(opts) {
+      opts = opts || {};
+      const w = opts.width || TEXT_W;
+      const lineX = (PAGE_W - w) / 2;
+      doc.setDrawColor(0, 0, 0);
+      doc.setLineWidth(opts.thick ? 1 : 0.4);
+      doc.line(lineX, y, lineX + w, y);
+    }
+
+    function sectionLabel(label) {
+      ensureSpace(40);
+      y += 18;
+      rule({ width: 80 });
+      y += 14;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8.5);
+      doc.setTextColor(0, 0, 0);
+      const wide = label.toUpperCase().split('').join(' ');
+      doc.text(wide, MARGIN_X, y);
+      y += 22;
+    }
+
+    function bodyText(text, opts) {
+      if (!text) return;
+      opts = opts || {};
+      const cleanText = stripHtml(text);
+      doc.setFont('times', opts.italic ? 'italic' : 'normal');
+      doc.setFontSize(opts.size || 11);
+      doc.setTextColor(0, 0, 0);
+      const lines = doc.splitTextToSize(cleanText, TEXT_W);
+      const lineHeight = (opts.size || 11) * 1.45;
+      lines.forEach(function(line) {
+        ensureSpace(lineHeight + 2);
+        doc.text(line, MARGIN_X, y);
+        y += lineHeight;
+      });
+      y += 4;
+    }
+
+    function smallLabel(text) {
+      ensureSpace(20);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.setTextColor(70, 70, 70);
+      doc.text(text.toUpperCase(), MARGIN_X, y);
+      doc.setTextColor(0, 0, 0);
+      y += 13;
+    }
+
+    function spacer(amount) {
+      y += amount || 8;
+    }
+
+    function stripHtml(text) {
+      // Remove HTML tags, decode common entities
+      return String(text)
+        .replace(/<[^>]+>/g, '')
+        .replace(/&mdash;/g, '\u2014')
+        .replace(/&ndash;/g, '\u2013')
+        .replace(/&rsquo;/g, '\u2019')
+        .replace(/&lsquo;/g, '\u2018')
+        .replace(/&ldquo;/g, '\u201C')
+        .replace(/&rdquo;/g, '\u201D')
+        .replace(/&hellip;/g, '\u2026')
+        .replace(/&amp;/g, '&')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&[a-z]+;/g, '')
+        .trim();
+    }
+
+    // ─── HEADER ────────────────────────────────────────────────
+    doc.setFont('times', 'normal');
+    doc.setFontSize(22);
+    doc.setTextColor(0, 0, 0);
+    doc.text('A Map for This Moment', PAGE_W / 2, y + 8, { align: 'center' });
+    y += 36;
+    doc.setFont('times', 'italic');
+    doc.setFontSize(11);
+    doc.setTextColor(80, 80, 80);
+    doc.text('from the Map Minder  \u00b7  kindredlights.org', PAGE_W / 2, y, { align: 'center' });
+    doc.setTextColor(0, 0, 0);
+    y += 24;
+    rule({ thick: true });
+    y += 28;
+
+    // ─── USER'S INPUT ──────────────────────────────────────────
+    if (userInput) {
+      smallLabel('You wrote');
+      bodyText(userInput, { italic: true, size: 10.5 });
+      if (userShould) {
+        spacer(4);
+        smallLabel('What you thought should be happening');
+        bodyText(userShould, { italic: true, size: 10.5 });
+      }
+    }
+
+    // ─── YOUR STORY ────────────────────────────────────────────
+    if (s4.noble_framing) {
+      sectionLabel('Your Story');
+      bodyText(s4.noble_framing);
+    }
+
+    // ─── THE ASPECT ────────────────────────────────────────────
+    if (aspectData) {
+      sectionLabel('The Aspect');
+      bodyText('This is one of eight soul themes every human navigates. Here is how the ' + aspectData.wise_one + ' theme is showing up:');
+      spacer(4);
+
+      smallLabel('The Sword');
+      bodyText(aspectData.sword);
+
+      smallLabel('The Shield');
+      bodyText(aspectData.shield);
+
+      smallLabel('The Higher Self');
+      bodyText(aspectData.wise_one + ' \u2014 this is where you are headed.', { italic: true });
+    }
+
+    // ─── THE CURRICULUM ────────────────────────────────────────
+    if (s4.karmariculum) {
+      sectionLabel('The Curriculum');
+      bodyText(s4.karmariculum);
+    }
+
+    // ─── THE TRUTH ─────────────────────────────────────────────
+    if (s4.the_truth) {
+      sectionLabel('The Truth');
+      bodyText(s4.the_truth, { italic: true, size: 12 });
+    }
+
+    // ─── STEP THREE - RELEASE ──────────────────────────────────
+    sectionLabel('Step Three  \u00b7  Release');
+    bodyText('Sit with this for a moment before you read on. You do not need to understand it. You just need to feel it.');
+
+    if (emotionData) {
+      spacer(6);
+      smallLabel("What is present right now");
+
+      smallLabel("Sir Ego's voice");
+      bodyText(emotionData.ego, { italic: true });
+
+      smallLabel("The Wise One's voice");
+      bodyText(emotionData.wise_one);
+
+      smallLabel("Sit with this question");
+      bodyText(emotionData.question, { italic: true });
+    }
+
+    spacer(4);
+    bodyText('If you want to go deeper: take a few minutes to write. Not the story \u2014 the feeling itself. Sit with that question. Write without editing until something shifts. Then stop.');
+    bodyText('Some people find it helps to burn what they wrote. The writing names it. The fire releases it.', { italic: true, size: 10 });
+
+    // ─── STEP FOUR - RECEIVE ───────────────────────────────────
+    if (aspectData && aspectData.seed) {
+      sectionLabel('Step Four  \u00b7  Receive');
+      bodyText('After Release softens what was gripped, Receive is where the Wise One\u2019s knowing becomes audible. Read this slowly. Let it land rather than thinking about it.', { italic: true, size: 10.5 });
+      spacer(4);
+      bodyText('\u201C' + aspectData.seed + '\u201D', { italic: true, size: 12 });
+      spacer(4);
+      bodyText('Sit with this question. Open your heart. Trust that the insight you need will come \u2014 not from thinking harder, but from listening more quietly.');
+    }
+
+    // ─── STEP FIVE - RESPOND ───────────────────────────────────
+    sectionLabel('Step Five  \u00b7  Respond');
+    bodyText('Once the energy shifts, your natural wisdom comes through. You already know how to respond well \u2014 you do it every day. The distortion was the only thing in the way.');
+
+    if (aspectData && aspectData.hack) {
+      spacer(6);
+      smallLabel('Heart Hack \u2014 if you want to go further');
+      bodyText('If you want to cause an immediate energy shift in this exact area, step outside your comfort zone and try this:');
+      spacer(2);
+      bodyText(aspectData.hack);
+      bodyText('Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.', { italic: true, size: 10 });
+    }
+
+    // ─── CLOSING BLESSING ──────────────────────────────────────
+    spacer(20);
+    rule({ thick: true });
+    spacer(20);
+    doc.setFont('times', 'normal');
+    doc.setFontSize(11);
+    doc.setTextColor(0, 0, 0);
+    const closing1 = 'You have just walked the Five Steps to Freedom.';
+    const closing2 = 'This is the practice \u2014 not perfectly, but actually.';
+    doc.text(closing1, PAGE_W / 2, y, { align: 'center' }); y += 18;
+    doc.text(closing2, PAGE_W / 2, y, { align: 'center' }); y += 28;
+
+    doc.setFont('times', 'italic');
+    doc.setFontSize(11);
+    const blessing = 'Whatever brought you here today was not a mistake. The pain is real. The love underneath it is more real. You are held by something that has never once lost track of you.';
+    const blessingLines = doc.splitTextToSize(blessing, TEXT_W - 60);
+    blessingLines.forEach(function(line) {
+      doc.text(line, PAGE_W / 2, y, { align: 'center' });
+      y += 16;
+    });
+
+    // ─── FOOTER ON LAST PAGE ───────────────────────────────────
+    addFooter();
+
+    // Save with friendly filename
+    doc.save('a-map-for-this-moment.pdf');
+
+    // Reset button
+    if (btn) {
+      btn.disabled = false;
+      const line1 = btn.querySelector('.btn-gift-line1');
+      if (line1) line1.textContent = 'A Map for This Moment';
+    }
+  } catch (err) {
+    console.error('PDF generation error:', err);
+    alert('Something went wrong generating the PDF. Please try again or take a screenshot of your reading.');
+    if (btn) {
+      btn.disabled = false;
+      const line1 = btn.querySelector('.btn-gift-line1');
+      if (line1) line1.textContent = 'A Map for This Moment';
+    }
+  }
+}
 
 
 // ══════════════════════════════════════════════════════════════
