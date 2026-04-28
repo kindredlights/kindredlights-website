@@ -1498,6 +1498,44 @@ function generateMapPDF() {
       }
     }
 
+    // ─── STEP ONE - RECOGNIZE ──────────────────────────────────
+    sectionLabel('Step One  \u00b7  Recognize');
+    bodyText('You have a script for how things should go. So does everyone else. And underneath both, there is a third \u2014 the one the universe is actually running.');
+    bodyText('That is where the friction comes from \u2014 three scripts running at once, with only one of them holding the whole picture.');
+
+    // step1_bridge (if user diagnosed as stuck before Recognize landed)
+    if (data.step1_bridge && data.diagnostic_typology === 'step1') {
+      spacer(6);
+      bodyText(data.step1_bridge, { italic: true });
+    }
+
+    // other_scripts — what the other person or Script of Creation might be running
+    if (Array.isArray(data.other_scripts) && data.other_scripts.length > 0) {
+      spacer(6);
+      smallLabel('What other scripts might be running');
+      data.other_scripts.forEach(function(script) {
+        if (script && typeof script === 'string') {
+          bodyText(script, { italic: true });
+        } else if (script && script.text) {
+          bodyText(script.text, { italic: true });
+        }
+      });
+    }
+
+    // ─── STEP TWO - RELAX ──────────────────────────────────────
+    sectionLabel('Step Two  \u00b7  Relax');
+    bodyText('Your first instinct is to fix this right now. That impulse is your ego reading from his script. It got you here. It will not get you out.');
+    bodyText('But you just saw the conflict. That means there is a crack. Something wiser can come through \u2014 if you are willing to pause long enough to let it.');
+    bodyText('The universe already has a plan for this. Before you go fix it, consider:');
+    spacer(8);
+    // Centered callout: Don't make the monkeys extinct
+    doc.setFont('times', 'italic');
+    doc.setFontSize(12.5);
+    doc.text('Don\u2019t make the monkeys extinct.', PAGE_W / 2, y, { align: 'center' });
+    y += 22;
+    spacer(4);
+    bodyText('You chose to see this differently. That choice is the practice.', { italic: true });
+
     // ─── YOUR STORY ────────────────────────────────────────────
     if (s4.noble_framing) {
       sectionLabel('Your Story');
