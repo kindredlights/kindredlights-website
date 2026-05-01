@@ -125,7 +125,7 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* Response area */
-    #response-area { display: none; }
+    #response-area { display: none; scroll-margin-top: calc(var(--nav-h) + 24px); }
     #response-area.visible { display: block; }
 
     /* ── IMMERSIVE READING CONTAINER ── */
@@ -326,6 +326,7 @@
 
     @media (max-width: 768px) {
       #main-nav { display: none; } .mobile-nav { display: flex; }
+      #response-area { scroll-margin-top: 82px; } /* mobile nav (58px) + 24px buffer */
       .hero { padding-right: 32px; min-height: auto; }
       .input-card, .map-card, .resonance-card { padding: 24px; }
       .books-row { grid-template-columns: 1fr; }
