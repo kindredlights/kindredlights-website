@@ -317,7 +317,67 @@ Sitemap: https://kindredlights.org/sitemap.xml</code></pre>
 
 <hr class="rule" />
 
-<!-- THINGS DELIBERATELY NOT ON THE LIST -->
+<!-- MAP MINDER TESTING -->
+<h2><span class="eyebrow">After v3 Goes Live</span>Testing the Map Minder</h2>
+<p class="section-intro">Two ways to test, depending on what you want to see:</p>
+
+<h3>1. Test the full experience (slow, but real)</h3>
+<p>Open <code>kindredlights.org/mapminder</code> in a browser, type a scenario, click through the whole flow. This is what visitors see — the loading orbs, the gradient room, the bridge cards, the map, the PDF. Use this when you want to feel the experience the way a visitor will. Use it sparingly; each run takes a few minutes.</p>
+
+<h3>2. Test the API directly (fast)</h3>
+<p>Open <code>kindredlights.org/api-test</code>. This is a private testing page that calls the same Netlify function the production site uses, but with no UI between you and the response. You see:</p>
+<ul>
+  <li>The <strong>diagnostic typology</strong> the AI chose (step1 / step2 / step3a / step3b)</li>
+  <li>The <strong>aspect</strong>, <strong>archetype</strong>, <strong>emotion</strong>, <strong>reader role</strong>, and <strong>body location</strong> the AI identified</li>
+  <li>A <strong>schema completeness check</strong> — green checks for fields that are populated, red marks for fields that are missing or empty</li>
+  <li>The <strong>full generated content</strong> for every field, side by side, easy to scan</li>
+  <li>The <strong>raw JSON</strong> for copy/paste into a sharing thread or a bug report</li>
+</ul>
+<p>Use this when you want to:</p>
+<ul>
+  <li>Run multiple test cases quickly to verify the architecture holds across aspects</li>
+  <li>Catch a malformed response without wading through the whole UI</li>
+  <li>Compare what the AI returned against what was specified in the spec document</li>
+  <li>Confirm a system prompt change is producing the expected effect before pushing to production</li>
+</ul>
+
+<h3>The five preset test cases</h3>
+<p>The tester has five preset buttons that load known-good test scenarios from the v3 spec. Each one targets a different aspect and typology so the architecture is exercised across its range:</p>
+<ul>
+  <li><strong>Daughter / Love</strong> — the calibration target. Type 1 surface, Love-aspect parenting, rescuer-mother. If this case looks wrong, something fundamental is off.</li>
+  <li><strong>Coworkers / Power</strong> — Power-aspect work conflict. Type 3a. Tests sword/shield translation away from relational language.</li>
+  <li><strong>Panic / Calm</strong> — Type 2 (active nervous-system flooding). Should produce a step2_bridge and Calm-aspect content.</li>
+  <li><strong>Shame / Light</strong> — Type 3a. Internal-only stuckness with no other person. Tests the seed paragraph's flexibility for non-relational situations.</li>
+  <li><strong>Grief / Peace</strong> — Type 3b (energy-stuck without belief work). Tests felt-sense routing and grief-specific Peace-aspect content.</li>
+</ul>
+
+<h3>What to look for when reading a test result</h3>
+<p>Quick visual scan in this order:</p>
+<ol>
+  <li><strong>Schema completeness check.</strong> Should be all green except for whichever bridge field is correctly empty (step1_bridge empty unless typology is step1, step2_bridge empty unless typology is step2). Any red on a required field means that field needs investigation in the system prompt.</li>
+  <li><strong>Typology and aspect identification.</strong> Does the AI's classification match what you'd expect for this scenario? If you'd call it Type 3a and the AI returned Type 1, that's a diagnostic-routing question. If you'd call it Love and the AI returned Power, that's an aspect-identification question.</li>
+  <li><strong>The seed paragraphs.</strong> These are the load-bearing transformation work. Read them aloud. Do they hold up the perspective? Honor the conditioning? Point at friction without diagnosing the wound? If something feels coachy or therapy-register, the system prompt's no-go list isn't being honored.</li>
+  <li><strong>The closing recognition.</strong> FAQ-pattern, past tense, no homework. <em>"What if the part of you who has been [quality] has been the one quietly [past-tense work]…?"</em> If it's a present-tense question handing the ego a task, that's drift back toward the old pattern.</li>
+  <li><strong>The other_scripts possibilities.</strong> Each should be specific to the scenario, point at a different operative, and use framework-receptive vocabulary like <em>karmariculum</em> and <em>soul</em>. Generic "It could be that they are stressed" results mean the AI is hedging.</li>
+</ol>
+
+<h3>Testing a system prompt change before deploying it</h3>
+<p>The tester loads the live SYSTEM_PROMPT from <code>/mapminder.html</code> at the top of the page. So the workflow for testing a prompt change is:</p>
+<ol>
+  <li>Edit the system prompt in your local copy of <code>mapminder.html</code></li>
+  <li>Open the local file in your browser (or push to a Netlify branch deploy first if your edits depend on the function)</li>
+  <li>Open <code>api-test.html</code> from the same source — it pulls the prompt from the same page it lives next to</li>
+  <li>Run the five preset tests and look at the output</li>
+  <li>If outputs look right, push the live <code>mapminder.html</code> to <code>main</code></li>
+</ol>
+<p>The tester will refuse to run if it can't load the prompt — there's a green "Loaded" pill at the top showing the character count of the prompt it's using. If it says "Failed", the source URL is wrong or the file doesn't have a <code>const SYSTEM_PROMPT = ...</code> declaration at all.</p>
+
+<h3>Where the file lives</h3>
+<pre><code>kindredlights.org/api-test           ← public URL (noindex via meta)
+kindredlights-website/api-test.html  ← repo path</code></pre>
+<p>The file has a <code>noindex, nofollow</code> meta tag so it won't show up in search. It's at a discoverable URL, but anyone who hits it would just see a tester they can't use without your context. If you want it locked down further, add it to <code>robots.txt</code> or move it under a <code>/admin/</code> path.</p>
+
+<hr class="rule" />
 <h2><span class="eyebrow">Clarity</span>Things Deliberately Not On The List</h2>
 <p class="section-intro">So they don't clutter your head:</p>
 <ul>

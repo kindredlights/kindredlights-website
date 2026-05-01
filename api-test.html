@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Map Minder API Tester — Kindred Lights</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #1C1D40; color: #f4f0ec; padding: 32px; line-height: 1.6; min-height: 100vh; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; font-weight: 600; margin-bottom: 6px; }
+  .subtitle { color: rgba(255,255,255,0.6); margin-bottom: 24px; font-size: 0.9rem; }
+  .source-row { display: flex; gap: 12px; align-items: center; padding: 12px 16px; background: rgba(255,255,255,0.04); border-radius: 6px; margin-bottom: 28px; flex-wrap: wrap; }
+  .source-row label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin: 0; }
+  .source-row input { flex: 1; min-width: 280px; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; background: rgba(0,0,0,0.2); color: #f4f0ec; font-family: inherit; font-size: 0.92rem; }
+  .source-status { font-size: 0.84rem; padding: 4px 10px; border-radius: 4px; }
+  .source-status.unloaded { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); }
+  .source-status.loaded { background: rgba(44,107,90,0.25); color: #95e5be; }
+  .source-status.failed { background: rgba(220,80,80,0.2); color: #ffc8c8; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  @media (max-width: 768px) { .row { grid-template-columns: 1fr; } }
+  label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+  textarea { width: 100%; padding: 12px 14px; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; background: rgba(255,255,255,0.04); color: #f4f0ec; font-family: inherit; font-size: 0.95rem; resize: vertical; }
+  textarea:focus { outline: none; border-color: #C9A84C; }
+  textarea#situation { min-height: 120px; }
+  textarea#should { min-height: 80px; }
+  .controls { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  button { padding: 10px 18px; border: none; border-radius: 4px; font-family: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer; }
+  .btn-primary { background: #C9A84C; color: #1C1D40; }
+  .btn-primary:hover { background: #E8D48A; }
+  .btn-primary:disabled { opacity: 0.5; cursor: wait; }
+  .btn-secondary { background: transparent; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.06); }
+  .preset-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+  .preset { padding: 6px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; color: rgba(255,255,255,0.8); font-size: 0.84rem; cursor: pointer; }
+  .preset:hover { background: rgba(201,168,76,0.15); border-color: #C9A84C; }
+  .status { padding: 10px 14px; border-radius: 4px; margin-bottom: 16px; font-size: 0.9rem; display: none; }
+  .status.show { display: block; }
+  .status.loading { background: rgba(173,175,223,0.15); border-left: 3px solid #adafdf; }
+  .status.error { background: rgba(220,80,80,0.15); border-left: 3px solid #dc5050; color: #ffc8c8; }
+  .status.success { background: rgba(44,107,90,0.2); border-left: 3px solid #2C6B5A; }
+  .output { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 18px; margin-top: 16px; }
+  .output h3 { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 12px; }
+  pre { font-family: "SF Mono", Menlo, Monaco, Consolas, monospace; font-size: 0.84rem; line-height: 1.55; color: #e8e6d8; white-space: pre-wrap; word-break: break-word; max-height: 500px; overflow-y: auto; }
+  .field-grid { display: grid; gap: 14px; margin-top: 16px; }
+  .field { padding: 12px 16px; background: rgba(255,255,255,0.04); border-left: 3px solid #adafdf; border-radius: 4px; }
+  .field-name { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #C9A84C; margin-bottom: 6px; }
+  .field-value { font-size: 0.95rem; color: rgba(255,255,255,0.88); white-space: pre-wrap; }
+  .meta-row { display: flex; gap: 18px; flex-wrap: wrap; padding: 12px 16px; background: rgba(255,255,255,0.04); border-radius: 4px; margin-bottom: 16px; }
+  .meta-item { font-size: 0.85rem; }
+  .meta-label { color: rgba(255,255,255,0.5); margin-right: 6px; }
+  .meta-value { color: #C9A84C; font-weight: 600; }
+  .check { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin: 4px 0; }
+  .check.pass::before { content: "✓ "; color: #6ec594; font-weight: 700; }
+  .check.fail::before { content: "✗ "; color: #dc8888; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Map Minder API Tester</h1>
+<p class="subtitle">Pulls the live SYSTEM_PROMPT from <code>/mapminder.html</code> and calls the same Netlify function the production site uses. Same prompt. Same model. Same proxy. No UI between you and the response.</p>
+<div class="source-row">
+<label>Source page</label>
+<input type="text" id="sourceUrl" value="/mapminder.html" />
+<button class="btn-secondary" id="loadSource">Load Prompt</button>
+<span class="source-status unloaded" id="sourceStatus">Not loaded yet</span>
+</div>
+<div class="preset-row">
+<button class="preset" data-preset="daughter">Daughter / Love</button>
+<button class="preset" data-preset="work">Coworkers / Power</button>
+<button class="preset" data-preset="anxiety">Panic / Calm</button>
+<button class="preset" data-preset="shame">Shame / Light</button>
+<button class="preset" data-preset="grief">Grief / Peace</button>
+</div>
+<div class="row">
+<div>
+<label for="situation">Visitor wrote</label>
+<textarea id="situation" placeholder="What's not moving in your life right now?"></textarea>
+</div>
+<div>
+<label for="should">What they thought should be happening</label>
+<textarea id="should" placeholder="What did you expect would be different?"></textarea>
+</div>
+</div>
+<div class="controls">
+<button class="btn-primary" id="run" disabled>Run Test</button>
+<button class="btn-secondary" id="clear">Clear</button>
+<button class="btn-secondary" id="copy">Copy JSON</button>
+</div>
+<div class="status" id="status"></div>
+<div id="results" style="display:none;">
+<div class="meta-row">
+<div class="meta-item"><span class="meta-label">Typology</span><span class="meta-value" id="m-typology">—</span></div>
+<div class="meta-item"><span class="meta-label">Aspect</span><span class="meta-value" id="m-aspect">—</span></div>
+<div class="meta-item"><span class="meta-label">Archetype</span><span class="meta-value" id="m-archetype">—</span></div>
+<div class="meta-item"><span class="meta-label">Emotion</span><span class="meta-value" id="m-emotion">—</span></div>
+<div class="meta-item"><span class="meta-label">Reader role</span><span class="meta-value" id="m-role">—</span></div>
+<div class="meta-item"><span class="meta-label">Body location</span><span class="meta-value" id="m-body">—</span></div>
+</div>
+<div class="output"><h3>Schema completeness</h3><div id="checks"></div></div>
+<div class="output"><h3>Generated content (rendered fields)</h3><div class="field-grid" id="fields"></div></div>
+<div class="output"><h3>Raw JSON</h3><pre id="raw"></pre></div>
+</div>
+</div>
+<script>
+const PRESETS = {
+  daughter: { situation: "My daughter is struggling at school and resists my advice to help her.", should: "She should do well in school so she gets into a good college." },
+  work: { situation: "I keep proposing the right strategies at work and nobody implements them. I'm getting close to just checking out entirely.", should: "They should follow the obvious better path forward." },
+  anxiety: { situation: "I keep having panic attacks at work and I can't seem to stop them. My chest tightens and my hands shake and I can barely think.", should: "I should be able to handle the pressure." },
+  shame: { situation: "I keep ending up in the same shame spiral about my body and I don't know why. Every time I look in the mirror I hear all the reasons I'm not enough.", should: "I should be able to feel okay about myself by now." },
+  grief: { situation: "The grief comes in waves I can't think my way out of. It's been six months and I'm still flattened by it sometimes.", should: "I should be further along by now." }
+};
+const REQUIRED_FIELDS = ['diagnostic_typology','validating_opening','other_scripts','monkeys_bridging_line','aspect_identified','aspect_archetype','aspect_plain','body_location','reader_role','dominant_emotion','seed_paragraph_triangle','seed_paragraph_conditioning','seed_paragraph_friction','release_ego_aspect','release_higher_aspect','release_question','closing_recognition'];
+const CONDITIONAL_FIELDS = ['step1_bridge','step2_bridge'];
+const ALL_FIELDS = [...REQUIRED_FIELDS, ...CONDITIONAL_FIELDS];
+let LIVE_SYSTEM_PROMPT = null;
+
+document.querySelectorAll('.preset').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const p = PRESETS[btn.dataset.preset];
+    if (p) {
+      document.getElementById('situation').value = p.situation;
+      document.getElementById('should').value = p.should;
+    }
+  });
+});
+document.getElementById('loadSource').addEventListener('click', loadSystemPrompt);
+document.getElementById('clear').addEventListener('click', () => {
+  document.getElementById('situation').value = '';
+  document.getElementById('should').value = '';
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('status').className = 'status';
+});
+document.getElementById('copy').addEventListener('click', () => {
+  const raw = document.getElementById('raw').textContent;
+  if (raw) {
+    navigator.clipboard.writeText(raw).then(() => {
+      const s = document.getElementById('status');
+      s.textContent = 'JSON copied to clipboard.';
+      s.className = 'status show success';
+      setTimeout(() => { s.className = 'status'; }, 1800);
+    });
+  }
+});
+
+async function loadSystemPrompt() {
+  const url = document.getElementById('sourceUrl').value.trim() || '/mapminder.html';
+  const sourceStatus = document.getElementById('sourceStatus');
+  sourceStatus.className = 'source-status unloaded';
+  sourceStatus.textContent = 'Loading...';
+  try {
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const html = await resp.text();
+    const match = html.match(/const\s+SYSTEM_PROMPT\s*=\s*`([\s\S]*?)`\s*;/);
+    if (!match) throw new Error('SYSTEM_PROMPT not found in source');
+    LIVE_SYSTEM_PROMPT = match[1];
+    sourceStatus.className = 'source-status loaded';
+    sourceStatus.textContent = 'Loaded — ' + LIVE_SYSTEM_PROMPT.length.toLocaleString() + ' chars';
+    document.getElementById('run').disabled = false;
+  } catch (e) {
+    sourceStatus.className = 'source-status failed';
+    sourceStatus.textContent = 'Failed: ' + e.message;
+    document.getElementById('run').disabled = true;
+  }
+}
+loadSystemPrompt();
+
+document.getElementById('run').addEventListener('click', async () => {
+  if (!LIVE_SYSTEM_PROMPT) { showStatus('error', 'System prompt not loaded. Click "Load Prompt" first.'); return; }
+  const situation = document.getElementById('situation').value.trim();
+  const should = document.getElementById('should').value.trim();
+  if (!situation) { showStatus('error', 'Please enter what the visitor wrote.'); return; }
+  const userMsg = should ? situation + "\n\nWhat I thought should be happening: " + should : situation;
+  const runBtn = document.getElementById('run');
+  runBtn.disabled = true;
+  runBtn.textContent = 'Running...';
+  showStatus('loading', 'Calling the API… this usually takes 8-20 seconds.');
+  document.getElementById('results').style.display = 'none';
+  const t0 = Date.now();
+  try {
+    const response = await fetch('/.netlify/functions/mapminder', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ system: LIVE_SYSTEM_PROMPT, messages: [{ role: 'user', content: userMsg }] })
+    });
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error('HTTP ' + response.status + ': ' + errText.substring(0, 300));
+    }
+    const data = await response.json();
+    if (data.error) throw new Error(data.error + (data.detail ? ' — ' + data.detail : ''));
+    const cleaned = data.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+    let parsed;
+    try { parsed = JSON.parse(cleaned); }
+    catch (e) { throw new Error('JSON parse failed. Raw text:\n\n' + cleaned.substring(0, 500)); }
+    const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+    showStatus('success', 'Complete in ' + elapsed + 's.');
+    renderResults(parsed);
+  } catch (e) {
+    showStatus('error', 'Error: ' + e.message);
+    console.error(e);
+  } finally {
+    runBtn.disabled = false;
+    runBtn.textContent = 'Run Test';
+  }
+});
+
+function showStatus(type, msg) {
+  const s = document.getElementById('status');
+  s.className = 'status show ' + type;
+  s.textContent = msg;
+}
+
+function renderResults(data) {
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('m-typology').textContent = data.diagnostic_typology || '—';
+  document.getElementById('m-aspect').textContent = data.aspect_identified || '—';
+  document.getElementById('m-archetype').textContent = data.aspect_archetype || '—';
+  document.getElementById('m-emotion').textContent = data.dominant_emotion || '—';
+  document.getElementById('m-role').textContent = data.reader_role || '—';
+  document.getElementById('m-body').textContent = data.body_location || '—';
+  const checks = document.getElementById('checks');
+  checks.innerHTML = '';
+  let pass = 0;
+  REQUIRED_FIELDS.forEach(field => {
+    const v = data[field];
+    const present = v !== undefined && v !== null;
+    const meaningful = present && (Array.isArray(v) ? v.length > 0 : String(v).trim().length > 0);
+    const div = document.createElement('div');
+    div.className = 'check ' + (meaningful ? 'pass' : 'fail');
+    div.textContent = field + (meaningful ? '' : (present ? ' (empty)' : ' (missing)'));
+    checks.appendChild(div);
+    if (meaningful) pass++;
+  });
+  CONDITIONAL_FIELDS.forEach(field => {
+    const v = data[field];
+    const meaningful = v && String(v).trim().length > 0;
+    const expected = (field === 'step1_bridge' && data.diagnostic_typology === 'step1') || (field === 'step2_bridge' && data.diagnostic_typology === 'step2');
+    const ok = expected ? meaningful : !meaningful;
+    const div = document.createElement('div');
+    div.className = 'check ' + (ok ? 'pass' : 'fail');
+    div.textContent = field + ' — ' + (expected ? (meaningful ? 'expected and present' : 'expected but missing') : (meaningful ? 'present (typology was ' + data.diagnostic_typology + ', should be empty)' : 'correctly empty'));
+    checks.appendChild(div);
+  });
+  const summary = document.createElement('div');
+  summary.style.cssText = 'margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.88rem;color:rgba(255,255,255,0.6);';
+  summary.textContent = pass + ' of ' + REQUIRED_FIELDS.length + ' required fields populated.';
+  checks.appendChild(summary);
+  const grid = document.getElementById('fields');
+  grid.innerHTML = '';
+  ALL_FIELDS.forEach(field => {
+    const v = data[field];
+    if (v === undefined || v === null) return;
+    if (Array.isArray(v) && v.length === 0) return;
+    if (typeof v === 'string' && v.trim() === '') return;
+    const fdiv = document.createElement('div');
+    fdiv.className = 'field';
+    const fname = document.createElement('div');
+    fname.className = 'field-name';
+    fname.textContent = field;
+    const fval = document.createElement('div');
+    fval.className = 'field-value';
+    if (Array.isArray(v)) { fval.textContent = v.map((s, i) => (i+1) + '. ' + s).join('\n\n'); }
+    else { fval.textContent = v; }
+    fdiv.appendChild(fname);
+    fdiv.appendChild(fval);
+    grid.appendChild(fdiv);
+  });
+  document.getElementById('raw').textContent = JSON.stringify(data, null, 2);
+}
+</script>
+</body>
+</html>
