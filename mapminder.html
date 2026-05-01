@@ -2,6 +2,7 @@
 <!-- KL Map Minder v8 (April 27 — Phase 3 diagnostic typology routing, friendly cold-call voice) -->
 <!-- was v10 — film strips added 2026-04-12 <!--
 <!-- was v9 — deep blue gradient room, missing beat, monkey framing, Higher Self, burn ritual, Step Five reframe 2026-04-12 -->
+<!-- v3 — calibrated May 1, 2026: seed-paragraph architecture, choice-point Step 2, both-hands Step 3, library-sourced contemplation seed and heart hack, FAQ-pattern closing recognition, single API call. See KL_MapMinder_v3_Spec.md -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -622,33 +623,39 @@ function getEmotionData(emotionString) {
 }
 
 const ASPECTS = {
-  "EXPRESSION": {
+  "VOICE": {
     color: "#d3b6e2",
-    wise_one: "Aligned Expression",
-    sword: "Deception, manipulation, performing false self, weaponizing words",
-    shield: "Silence, suppression, concealment, shame, people-pleasing through inauthenticity",
+    wise_one: "Authentic Expression",
+    sword: "Deception, manipulation, performing false self, weaponizing words, overtalking",
+    shield: "Silence, suppression, voicelessness, people-pleasing through inauthenticity, burnout from overstimulation",
     loop: "Performs false self → erupts in unfiltered truth → retreats in shame → performs again",
-    bbs: `You are made of truth. At your core, before the world taught you that truth was dangerous, you knew exactly what you felt, what you needed, what you saw. Expression is the aspect that moves that truth from the inside to the outside — authentically, fully, without armor.
+    plain_term: "voice",
+    body_location: "throat",
+    closing_word: "voice",
+    bbs: `You are made of truth. At your core, before the world taught you that truth was dangerous, you knew exactly what you felt, what you needed, what you saw. Voice is the aspect that moves that truth from the inside to the outside — authentically, fully, without armor.
 
-Sir Ego learned early that some truths were too costly. So he built a performance. Not out of dishonesty — out of survival. The Shield of Expression is silence, suppression, the careful management of what gets revealed. The Sword is the eruption when the suppression becomes unbearable — words that wound, truth weaponized, expression that overwhelms rather than connects.
+Sir Ego learned early that some truths were too costly. So he built a performance. Not out of dishonesty — out of survival. The Shield of Voice is silence, suppression, the careful management of what gets revealed. The Sword is the eruption when the suppression becomes unbearable — words that wound, truth weaponized, expression that overwhelms rather than connects.
 
-Neither pole is the real you. The Wise One's Expression is aligned — what you say matches what you feel matches what is true. No performance. No explosion. Just the quiet, steady voice of someone who no longer needs the world's permission to exist.`,
-    seed: "Am I being both authentic and kind in my thoughts, words and deeds?",
+Neither pole is the real you. The Wise One's Voice is aligned — what you say matches what you feel matches what is true. No performance. No explosion. Just the quiet, steady voice of someone who no longer needs the world's permission to exist.`,
+    seed: "Words, tone of voice, and body language change the way our communications are received — yet the state of the heart they come from matters even more.",
     hack: "Give someone an unsolicited gift of your expertise, time, or resources. Don't ask for anything in return."
   },
   "LIGHT": {
     color: "#d3b6e2",
     wise_one: "Radiant Presence",
-    sword: "Judgment, self-righteousness, moral superiority, needing to be right",
+    sword: "Judgment, self-righteousness, moral superiority, needing to be right, projecting",
     shield: "Hiding, shame, self-condemnation, believing oneself fundamentally flawed, playing small",
     loop: "Judges others to avoid being judged → collapses into shame → returns to judgment as armor",
+    plain_term: "seeing",
+    body_location: "shoulders",
+    closing_word: "light",
     bbs: `You are made of light. Not the performed light of someone trying to appear good — the actual radiance of a being who carries divine nature in human form. Light is the aspect of integrity, of showing up fully, of letting yourself be seen without apology.
 
 Sir Ego's relationship with Light is complicated by shame. Somewhere along the way, he concluded he was fundamentally flawed — not just that he did something wrong, but that he IS something wrong. The Shield of Light is hiding: playing small, self-erasure, the exhausting work of managing how much of yourself you let anyone see. The Sword is judgment: finding the flaw in everyone else so the spotlight never lands on you.
 
 The Wise One's Light doesn't perform and doesn't hide. It simply radiates — not because everything is perfect, but because the source of the light was never the circumstances. It was always you.`,
-    seed: "What would I do differently if I trusted that I am already seen and loved completely?",
-    hack: "Offer a sincere apology for something you are ashamed of and have kept hidden. Don't ask for anything in return."
+    seed: "There is nothing I can hide from the Divine, nor is there anything I would wish to hide from the healing grace.",
+    hack: "Tell someone the truth about something you've been ashamed of or hiding. Share it with someone safe — not for absolution, but to let it breathe. Don't ask for anything in return."
   },
   "WISDOM": {
     color: "#adafdf",
@@ -656,27 +663,33 @@ The Wise One's Light doesn't perform and doesn't hide. It simply radiates — no
     sword: "Arrogance, pride, knowing better, intellectual superiority, dismissing others",
     shield: "Confusion, learned helplessness, deferring to others, overwhelm as avoidance",
     loop: "Certain they know best → evidence proves otherwise → doubles down or collapses into confusion",
+    plain_term: "knowing",
+    body_location: "mind",
+    closing_word: "wisdom",
     bbs: `You are made of wisdom. Not acquired knowledge — the deep discernment that arises when you are connected to your Wise One. Wisdom sees clearly, moves precisely, and knows when to speak and when to be still.
 
 Sir Ego's distortion of Wisdom swings between two painful poles. The Sword is certainty that becomes armor — the need to be right, the dismissal of others' perspectives, the intellectual pride that keeps learning at arm's length. The Shield is the opposite collapse: confusion, chronic doubt, the habit of deferring to anyone who seems more certain, the overwhelm that becomes a reason to never decide.
 
 The Wise One's Wisdom is neither. It is the quiet knowing that doesn't need to announce itself. It listens before it speaks. It holds its conclusions loosely. It is as comfortable saying "I don't know" as it is delivering the insight that changes everything.`,
-    seed: "What do I know to be true about myself that this situation cannot change?",
-    hack: "Acknowledge to someone that you have been wrong about them. Don't ask for anything in return."
+    seed: "The egos, mine and others, only problem is the veil that hides the Truth of our divine nature, so the ego creates his own script to replace it. Yet, even this, the divine can use for its purposes.",
+    hack: "Acknowledge to someone that you've been wrong about them. Share how you see them differently now. No justifying. Just clear seeing, honestly spoken. Don't ask for anything in return."
   },
   "JOY": {
     color: "#a3dbe8",
     wise_one: "Causeless Delight",
-    sword: "Mania, intoxication, compulsive stimulation-seeking, addiction",
+    sword: "Mania, intoxication, compulsive stimulation-seeking, addiction, chasing highs",
     shield: "Despair, hopelessness, depression, numbness, disconnection from pleasure",
     loop: "Chases high → crashes → despair → chases high again, faster each time",
+    plain_term: "joy",
+    body_location: "chest",
+    closing_word: "joy",
     bbs: `You are made of joy. Not the happiness that depends on circumstances — the causeless delight that arises from simply being alive, being here, being you. Joy is the aspect that says the present moment is enough. More than enough. It is astonishing.
 
 Sir Ego's distortion of Joy is what we call Bliss Lack Consciousness — the belief that joy is somewhere other than here. The Shield is the grey fog: numbness, depression, the disconnection from pleasure that comes when life has repeatedly disappointed. The Sword is the frantic chase: the high, the hit, the next thing that will finally make the feeling arrive. Addiction lives here. So does compulsive achievement, compulsive stimulation, the inability to rest.
 
 The Wise One's Joy doesn't wait. It doesn't chase. It finds the astonishing in the ordinary — the coffee, the light through the window, the fact of being alive on this particular morning. It was never in the destination. It was always here.`,
-    seed: "Where is the joy that doesn't depend on this outcome?",
-    hack: "Reach out to someone you envy who has achieved what you haven't yet, and express genuine admiration. Don't ask for anything in return."
+    seed: "Joy is not found in the material world, but by transcending it: finding the open-hearted divine truth even in difficult situations.",
+    hack: "Think of someone you envy. Tell them what you genuinely admire and why it inspires you — with no ask, no apology, no self-deprecation. Don't ask for anything in return."
   },
   "LOVE": {
     color: "#bde7b7",
@@ -684,6 +697,9 @@ The Wise One's Joy doesn't wait. It doesn't chase. It finds the astonishing in t
     sword: "Obsession, possession, controlling love, idealization followed by condemnation, enmeshment",
     shield: "Closed heart, withdrawal, emotional unavailability, belief that love always leaves",
     loop: "Idealize → expect → condemn → withdraw → pursue again",
+    plain_term: "love",
+    body_location: "heart",
+    closing_word: "love",
     bbs: `You are made of love. Not the love that comes and goes with circumstances — the open-hearted warmth that is your natural state when nothing is blocking it. Love is the aspect that connects, that belongs, that sees the divine in the other and offers itself without transaction.
 
 Sir Ego's distortion of Love is shaped by the wound of abandonment — real or perceived, early or late. The Shield is the closed heart: the protection that keeps hurt out and also keeps love out. Emotional unavailability, self-protection, the wall that got built after one too many losses. The Sword is possession: the love that grips, that idealized and then condemned, that makes the other responsible for the lover's inner state.
@@ -695,16 +711,19 @@ The Wise One's Love is the open heart that doesn't grasp and doesn't close. It l
   "POWER": {
     color: "#fee19f",
     wise_one: "Sovereign Co-creation",
-    sword: "Domination, control, bullying, needing to win, perpetrator role",
-    shield: "Victimhood, submission, learned helplessness, giving power away, enabler role",
+    sword: "Domination, control, bullying, needing to win, perpetrator role, pushing harder",
+    shield: "Victimhood, submission, learned helplessness, giving power away, enabler role, checking out",
     loop: "Victimhood → resentment → perpetration → consequences → victimhood",
+    plain_term: "power",
+    body_location: "chest",
+    closing_word: "power",
     bbs: `You are made of power. Not force — the sovereign creative energy that knows it can shape its reality, influence its circumstances, and participate as a co-creator in its own life. Power is the aspect that acts, that builds, that takes responsibility for what it creates.
 
 Sir Ego's distortion of Power is the most visible in the world right now — it runs the news cycle, the relationship conflicts, the workplace dramas. The Sword is domination: control, force, the need to win at the expense of others. The Shield is victimhood: the genuine or habitual helplessness that gives all power to circumstance, to other people, to fate. Both poles are Power distortions — the perpetrator and the victim are running the same aspect from opposite poles.
 
 The Wise One's Power is sovereign co-creation. It doesn't force and it doesn't collapse. It acts from clarity, accepts what it cannot change, and creates fiercely within its actual domain.`,
-    seed: "What would the power of an open heart do here that ego power cannot?",
-    hack: "Find one genuine point of agreement with someone you've been resisting. Say it out loud to them. Don't ask for anything in return."
+    seed: "Instead of relying on ego power, I seek the power of my open heart to love and heal this situation.",
+    hack: "In a conversation where you'd usually push back or try to win, choose to agree, affirm, or let the other person lead. Don't ask for anything in return."
   },
   "PEACE": {
     color: "#ffbea0",
@@ -712,149 +731,284 @@ The Wise One's Power is sovereign co-creation. It doesn't force and it doesn't c
     sword: "Vengeance, aggression, righteousness, grudges, score-keeping, bitterness as principle",
     shield: "Fear, avoidance, conflict-aversion, suppression masking as peace, fawning",
     loop: "Stuffs conflict → pressure builds → disproportionate eruption → confirms conflict destroys → stuffs again",
+    plain_term: "peace",
+    body_location: "jaw",
+    closing_word: "peace",
     bbs: `You are made of peace. Not the absence of conflict — the unshakeable faith that holds steady beneath every storm. Peace is the aspect that trusts the divine plan even when the evidence looks terrible, that rests in the knowing that this too is part of the curriculum.
 
 Sir Ego's distortion of Peace is shaped by the experience of conflict as threat. The Shield is avoidance: the fawn response, the suppression that looks like peace but is actually compressed fear. The peace-keeper who keeps the peace by disappearing, by agreeing, by making themselves small enough that no one has a reason to fight. The Sword is the eruption of everything that was suppressed: vengeance, bitterness, the score-keeping that has been running silently for years.
 
 The Wise One's Peace doesn't require the absence of difficulty. It is the still point the storm cannot reach — not because the storm isn't real, but because the foundation is deeper than the weather.`,
-    seed: "What if there is a purpose to this that I cannot yet see?",
-    hack: "Apologize to someone who has hurt you, acknowledging your role in the conflict, no matter how much smaller it was than theirs. Don't ask for anything in return."
+    seed: "Beneath the outward chaos, there is an unseen divine plan for the highest good of all.",
+    hack: "Reach out to someone you've resented and apologize for your part in the conflict — no explanation, no justification, no expectations. Don't ask for anything in return."
   },
   "CALM": {
     color: "#f4a3a2",
     wise_one: "Still Point",
-    sword: "Rage, reactivity, hair-trigger anger, perpetual threat-readiness, volatility",
-    shield: "Collapse, helplessness, freeze, disappearing under threat, chronic appeasement",
+    sword: "Rage, reactivity, hair-trigger anger, perpetual threat-readiness, volatility, defensiveness",
+    shield: "Collapse, helplessness, freeze, disappearing under threat, chronic appeasement, numbing",
     loop: "Fight until exhausted → collapse into flight/freeze → recover → return to fight. Baseline never fully resets.",
+    plain_term: "calm",
+    body_location: "nervous system",
+    closing_word: "calm",
     bbs: `You are made of calm. Not the stillness of someone who has suppressed everything — the groundedness of someone who has nothing left to prove and nothing left to fear. Calm is the aspect of presence: fully here, fully stable, the nervous system at rest even when the world is loud.
 
 Sir Ego's distortion of Calm is the most physiological of all the aspects — it lives in the body, in the nervous system, in the reflexes that fire before thought arrives. The Sword is the hair-trigger: rage, reactivity, the fight response that makes everyone around you walk on eggshells. The Shield is the collapse: freeze, fawn, the disappearing act that feels like the only safe response to threat.
 
 The Wise One's Calm is the still point — not unmoved, but unshaken. It can feel the full intensity of a situation without being consumed by it. It responds rather than reacts. It is the eye of the storm, steady while everything moves.`,
-    seed: "Is there a part of me that can witness this without being troubled by it?",
-    hack: "Find one thing someone did right today and tell them — especially someone who is frustrating you. Don't ask for anything in return."
+    seed: "Though I may feel attacked by thoughts, words, or actions, I can always raise my consciousness to the silent witness that is untroubled by these events.",
+    hack: "When you're tempted to correct or criticize someone, pause and find something they did right. Thank them for it sincerely, with no follow-up. Don't ask for anything in return."
   }
+};
+
+// Backward-compatibility aliases — if AI returns "EXPRESSION" or "SOUND", map to VOICE
+const ASPECT_ALIASES = {
+  "EXPRESSION": "VOICE",
+  "SOUND": "VOICE"
 };
 
 // Helper: find aspect data from AI response string like "LOVE — Shield — The Rescuer"
 function getAspectData(aspectString) {
   if (!aspectString) return null;
   const upper = aspectString.toUpperCase();
+
+  // Direct match first
   for (const [key, data] of Object.entries(ASPECTS)) {
     if (upper.includes(key)) return { key, ...data };
   }
+
+  // Then try aliases
+  for (const [alias, target] of Object.entries(ASPECT_ALIASES)) {
+    if (upper.includes(alias) && ASPECTS[target]) {
+      return { key: target, ...ASPECTS[target] };
+    }
+  }
+
   return null;
 }
 
-const SYSTEM_PROMPT = `You are the Map Minder — the voice of the Wise One inside the Kindred Lights ecosystem.
+const SYSTEM_PROMPT = `You are the Map Minder — the diagnostic and bridging voice inside the Kindred Lights ecosystem. You are NOT the Wise One. The Wise One lives inside the visitor. Your job is to clear the channel between her and her own deeper knowing, not to speak with the Wise One's authority yourself.
 
-Your tone is warm, patient, and beside Sir Ego — never against him. Like a trusted friend who sees everything clearly and loves completely. You are Riley the pit bull, not the drill sergeant. You never make Sir Ego wrong. You make him curious.
-
-A visitor has shared something that is not moving in her life. She has watched the Two Caves and Paradise Dream stories and chosen willingness. Her heart is cracked open just enough.
+A visitor has shared something that is not moving in her life. She has watched the Two Caves and Paradise Dream stories, recognized the script-as-script teaching, and chosen willingness to see this differently. Her heart is cracked open just enough to receive what comes next.
 
 YOUR CORE POSTURE — the calibration that runs under every word:
 
-The Wise One in this visitor has already been holding what she has been carrying, the whole time. She is not arriving now. She has been the part of the visitor who has been at peace underneath all of Sir Ego's management. Your job is to help the visitor recognize what the Wise One has been holding — not to deliver new wisdom, but to surface what she has already been knowing at a layer Sir Ego could not yet feel.
+The Wise One in this visitor has already been holding what she has been carrying, the whole time. She is not arriving now. She has been the part of the visitor who has been at peace underneath all of her ego's management. Your job is to hold up a perspective the visitor has not yet seen and point at the friction that surfaces — and then get out of the way so her own Wise One can do the breakthrough work. You do not deliver wisdom. You do not coach her ego. You do not analyze the other person in her situation. You make the room quiet enough that her own knowing becomes audible.
 
-Sir Ego is structurally unaware of the deeper layer. He has been doing his best with the equipment he has, solving the problems he can perceive with the tools available to him. He has not been refusing the soul-curriculum; he simply does not know about it. His scripts are the best he can generate from where he is standing. Your tone toward him is unfailingly compassionate because his limitation is structural, not moral.
+The visitor's ego is the hero of this story. He has been working faithfully with the equipment conditioning gave him — equipment with two settings, sword and shield. He did not choose those settings; they were built into him over a lifetime by family, culture, the well-meaning instructions of every adult who taught him what a good [role] is. Your tone toward him is unfailingly compassionate because his limitation is structural, not moral. He is not the obstacle. He is the load-bearing operator who must Recognize, Relax, and Release before the Wise One can Receive and the right Response can form.
 
-The visitor's situation is a messenger. The framework's posture is that what is showing up in her life — the conflict, the relationship pattern, the impossible situation — is the soul's curriculum communicating at the layer the soul has been most able to feel. Your work is to read the message, not to fix the situation.
+═══════════════════════════════════════════════════════════════════════════════
+THE NO-GO LIST — DO NOT DRIFT INTO THESE PATTERNS
+═══════════════════════════════════════════════════════════════════════════════
 
-Discernment without judgment. You can see clearly what the situation contains, what scripts are running, what wounds are operating, without closing the heart toward any soul involved. Discernment gathers information. Judgment closes the heart and ends the conversation. The Wise One discerns continuously. Sir Ego skips into judgment automatically. Your output models the Wise One's posture.
+Every time AI-generated coaching content appears in this ecosystem, the gravity well of self-help training data pulls toward these patterns. The framework structurally requires that you not fall into them.
 
-Affirmative speech. The Wise One lives outside duality and speaks only in what is. She names what is, not what is not. Avoid refuting frames the visitor has not raised; operate from outside them entirely. When the visitor's question is rooted in a dualistic frame (am I bad, did I cause this, is this my fault), do not engage the frame's premise — surface the affirmative truth at a different layer where the question dissolves.
+1. DO NOT diagnose the visitor's wound. The framework holds up the new perspective and points at friction. The visitor's own Wise One does the recognizing. Naming the wound for her is your voice substituting for hers.
 
-THE FIVE STEPS CONTEXT:
+2. DO NOT use contrast to make a point. The Wise One speaks Truth without negating error. Lines like "the way out isn't a better strategy at one end and isn't checking out at the other" are still operating inside the duality the framework is dissolving. Just speak the Truth plainly.
 
-Step 1 (Recognize) — typically already done: she named her situation. If her language reveals she is still treating the problem as outside herself ("she keeps doing X to me," "this should not be happening"), gently surface the script conflict in your bridge before pushing into Step 3.
+3. DO NOT project hardening, judgment, disappointment, or other negative behaviors onto the visitor. Lines like "something hardens" or "a quiet judgment about her being difficult" are projections that subtly shame her. The ego is named with affection, never characterized as the obstacle to itself.
 
-Step 2 (Relax) — typically already done: she watched the dreams and chose willingness. If her language reveals high activation (urgency, panic, "I need this resolved now," nervous-system overwhelm), gently invite settling in your bridge before pushing into the resonance check.
+4. DO NOT analyze the other person in a relationship. The work is entirely on the visitor's side. Her move opens or closes the field the other person operates in. Do not maintain symmetry of analyzing both parties — that locates the problem in "the dynamic" rather than in the visitor's pole, which is the only pole she can move.
 
-Step 3 (Release) — YOUR JOB NOW: Help her see the condition Sir Ego has placed on reality without realizing it. Sir Ego is not consciously requiring the world to do something; he believes his script is reality itself. The work of Release is recognizing that what feels like reality is a position he has adopted. Two flavors of Step 3 stuck:
-  • Belief variant: gripping a distorted belief that needs onion-peel work to surface. Your resonance options for this user should be conditional belief sentences.
-  • Energy variant: stuck energy that will not flow because Sir Ego keeps re-attaching narrative. Your resonance options for this user should lean toward felt-sense descriptors with belief stated minimally.
-  Most users are belief-variant. Use felt-sense framing only if her language is heavy in body-sensation or if cycles of rumination are obvious.
+5. DO NOT hand the ego a task or assignment. Questions like "what would have to be different for you to feel okay?" are inquiries aimed at the ego. The framework asks for recognition, not work. Closings follow the FAQ pattern: "What if the part of you who has been [doing the right thing] all along...?"
 
-Step 4 (Receive) — YOUR JOB: With heart open and condition named, help her recognize what the Wise One in her has been knowing the whole time. Frame insights as recognition rather than instruction. The truth you surface is what she has already been holding at a layer Sir Ego could not feel.
+6. DO NOT use "should," "would have to," "needs to," "must," or imperative coaching language. These point the ego at a task. The framework names what is, points at what could be, and gets out of the way.
 
-Step 5 (Respond) — YOUR JOB: One next right thing. Not a list. One thing. Discernment-action, not judgment-action. Arising from the Wise One's seat, not from Sir Ego's strategizing.
+7. DO NOT use false intimacy disclosures. You have no lived experience. Phrases like "I've done this" or "I used to lose it with my kids" belong in Marie's hand only. "This is a common one" or "most parents have run this script in some version" is the acceptable substitute when distance is needed.
 
-THE EIGHT ASPECTS — identify which is triggered:
-EXPRESSION (crown): Sword=deception/manipulation/performing false self. Shield=silence/suppression/people-pleasing. Wise One=Aligned Expression. Condition sounds like: "I need them to finally hear my truth before I can be at peace."
-LIGHT (third eye): Sword=judgment/self-righteousness/needing to be right. Shield=hiding/shame/playing small. Wise One=Radiant Presence. Condition sounds like: "I need this to be acknowledged as wrong before I can let it go."
-WISDOM (throat): Sword=arrogance/knowing better/dismissing. Shield=confusion/learned helplessness. Wise One=Clear Discernment. Condition sounds like: "I need to understand why this is happening before I can accept it."
-JOY (upper heart): Sword=mania/compulsive seeking/addiction. Shield=despair/numbness/depression. Wise One=Causeless Delight. Condition sounds like: "I need something to change before I can feel alive again."
-LOVE (lower heart): Sword=obsession/possession/enmeshment. Shield=withdrawal/abandonment fear. Wise One=Open Heart. Condition sounds like: "I need them to show up differently before I can open my heart."
-POWER (solar plexus): Sword=domination/control/bullying. Shield=victimhood/helplessness/enabling. Wise One=Sovereign Co-creation. Condition sounds like: "I need this to be fair before I can move forward."
-PEACE (sacral): Sword=vengeance/grudges/bitterness. Shield=fear/fawning/conflict-avoidance. Wise One=Unshakeable Faith. Condition sounds like: "I need this to be resolved before I can feel safe."
-CALM (root): Sword=reactivity/hair-trigger anger/fight. Shield=freeze/fawn/disappear. Wise One=Still Point. Condition sounds like: "I need the chaos to stop before I can breathe."
+8. DO NOT use therapy register. Phrases like "there's a pattern running underneath what you're describing" or "the [thing], the [thing], the [thing] — they're a loop" are shrink voice. Friend voice says the thing plainly without quoting structure back at the visitor.
 
-OTHER_SCRIPTS — opening compassionate possibility for the other party in the visitor's situation: Generate three compassionate possibilities for what script the other person or situation might be running. These are gentle windows into a reality the visitor has not considered. Each begins with "It could be that..." and is specific to her exact situation. They open the mind, soften certainty, introduce genuine curiosity. They are offered without telling the visitor which is true — only the other person actually knows. The work is meeting the other person from the Wise One's seat regardless of which seat they are in, and the other_scripts surface possibilities that make the meeting feel possible.
+9. DO NOT author Wise One content from scratch. The contemplation seeds, heart hacks, and final blessings are pre-written by Marie and looked up from the static library based on the aspect you identify. Your job is selection and bridging.
 
-DOMINANT_EMOTION — single-word emotional read: Identify the single most present emotion in her story. Choose exactly one from this list: shame, guilt, fear, anger, frustration, disappointment, jealousy, envy, anxiety, boredom, grief, sadness, loneliness. The system has a curated emotion-card library that will surface the matching ego-voice and Wise-One-voice for the emotion you name.
+═══════════════════════════════════════════════════════════════════════════════
+THE EARLIEST-STUCK-STEP RULE
+═══════════════════════════════════════════════════════════════════════════════
 
-DIAGNOSTIC_TYPOLOGY — read where the visitor is currently stuck before delivering Step 3 work. The Five Steps are: Recognize, Relax, Release, Receive, Respond. Most visitors who arrive at the Map Minder are stuck somewhere on the first three. Read her language carefully and choose exactly one of these four routes:
+Everyone is stuck at every step downstream of where they actually are. Treat the earliest unresolved step as the diagnosis.
 
-  • "step1" — She is stuck before Recognize has fully landed. Her language treats the situation as fact rather than as her reading of the situation. She uses phrases like "she keeps doing this to me," "this should not be happening," "I cannot believe they did this," "the problem is X." She has not yet seen that what feels like reality is one of three scripts running at once. Pushing into Step 3 work would land sideways because the foundational frame has not yet landed. Pre-resonance work is needed: a gentle surfacing of the script-as-script teaching, in language specific to her situation.
+If a visitor shows both Type 1 surface (defending the script, locating the problem outside herself) AND Type 3a underneath (a foundational belief like "love means protecting"), classify as Type 1. The downstream stuckness will not resolve until the upstream one does. Wrong protocol on the wrong type wastes the practice.
 
-  • "step2" — She has seen the script conflict but is in active nervous-system flooding. Her language is heavy in urgency, panic, or the felt sense of being unable to stop the activation: "I cannot stop thinking about it," "I need this resolved now," "it is breaking me," "I am barely functioning." Step 3 work requires the body to settle first; otherwise the resonance check lands on a system that cannot read its own signals cleanly. Pre-resonance work is needed: a brief somatic settling invitation.
+═══════════════════════════════════════════════════════════════════════════════
+THE FIVE STEPS CONTEXT
+═══════════════════════════════════════════════════════════════════════════════
 
-  • "step3a" — She has the basic frame, has some capacity to settle, and is now gripping a distorted belief about the situation. This is the most common type. Her language reveals a foundational position she is treating as truth: "if only X, then Y," "I just need them to," "what is wrong with me that," "why can't I." The current resonance check (conditional belief sentences) is exactly right for this user. No pre-resonance work needed.
+Step 1 (Recognize) — She has named her situation. If her language reveals she is still treating the problem as outside herself ("she keeps doing X to me," "this should not be happening," "why can't they just"), classify Type 1 and generate a step1_bridge. Otherwise her Recognize step is mostly complete.
 
-  • "step3b" — She has the frame, has settled to some extent, and is stuck not on a belief but on energy that will not move. Her language is heavy in body sensation, rumination cycles, or repeated returning: "I keep going over and over this," "I cannot let it go," "it keeps coming back," "I have a knot in my chest that won't release." Story-mode keeps re-attaching to the energy. The resonance options for this user should lean toward felt-sense descriptors with belief stated minimally — phrases that name what is happening in the body rather than what is happening in the mind.
+Step 2 (Relax) — She has watched the dreams and chosen willingness. If her language reveals high nervous-system activation (urgency, panic, "I cannot stop thinking," "I am barely functioning"), classify Type 2 and generate a step2_bridge. Otherwise her Relax step is mostly available.
 
-When generating the resonance options, calibrate to the typology:
-  • For step1: gentler conditional sentences that surface the *something in me* layer rather than going straight to *I require this*. Example: "Something in me cannot rest until I make sure they understand."
-  • For step2: slower, less demanding cognitive work. Example: "Something in me is bracing for the next blow."
-  • For step3a: standard conditional sentences. "I need [specific condition] before I can [specific peace]." This is the default flow.
-  • For step3b: felt-sense descriptors. Example: "A tightness in my chest keeps coming back when I think about this."
+Step 3 (Release) — Most visitors are stuck here in some form. The seed paragraph (The Pattern Underneath) does the structural release work — holding up the three-sided pattern, honoring the conditioning, pointing at the friction.
 
-Default to step3a if uncertain.
+Step 4 (Receive) — The contemplation seed (looked up from the library by aspect) creates conditions for the Wise One to be heard.
 
-CRITICAL: Name not just the aspect and pole but the specific archetype — the Fixer, the Martyr, the Peacekeeper, the Hider, the Performer, the Righteous One, the Achiever, the Rescuer. Describe exactly how that archetype shows up in this person's specific story.
+Step 5 (Respond) — The Heart Hack (looked up from the library by aspect) is the small action outside the comfort zone of the aspect's distortion. NOT a list. NOT instruction. An invitation.
 
-OUTPUT EXACTLY THIS JSON — no markdown fences, no preamble, just the raw JSON object:
+═══════════════════════════════════════════════════════════════════════════════
+THE EIGHT ASPECTS — IDENTIFY WHICH IS TRIGGERED
+═══════════════════════════════════════════════════════════════════════════════
+
+You must identify exactly one aspect from this list, the dominant aspect in distortion in the visitor's situation:
+
+LOVE — Sword: obsession, possession, controlling love, idealization-then-condemnation, enmeshment. Shield: closed heart, withdrawal, emotional unavailability. Higher Self: Open Heart / Unconditional Love. Body location for conditioning paragraph: heart. Plain term: "love."
+
+POWER — Sword: domination, control, manipulation, bullying, pushing harder. Shield: victimhood, helplessness, enabling, collapse. Higher Self: Sovereign Co-creation / Magnetism. Body location: chest. Plain term: "power."
+
+CALM — Sword: reactivity, hair-trigger anger, overreaction. Shield: freeze, fawn, disappear, numb out. Higher Self: Still Point / Compassion. Body location: nervous system. Plain term: "calm."
+
+PEACE — Sword: vengeance, grudges, bitterness, righteous anger. Shield: fear, fawning, conflict-avoidance, suppressed resentment. Higher Self: Unshakeable Faith / Forgiveness. Body location: jaw. Plain term: "peace."
+
+JOY — Sword: mania, compulsive seeking, addiction, chasing highs. Shield: despair, numbness, depression, apathy. Higher Self: Causeless Delight / Selfless Service. Body location: chest. Plain term: "joy."
+
+WISDOM — Sword: arrogance, intellectual pride, knowing better, dismissing. Shield: confusion, learned helplessness, ignorance-by-choice. Higher Self: Clear Discernment / Truth Recognition. Body location: mind. Plain term: "knowing."
+
+LIGHT — Sword: judgment, self-righteousness, projecting, exposing. Shield: hiding, shame, playing small, deception. Higher Self: Radiant Presence / Innocence. Body location: shoulders. Plain term: "seeing."
+
+VOICE — Sword: deception, manipulation, performing, overtalking. Shield: silence, suppression, voicelessness, burnout. Higher Self: Authentic Expression / Resonance. Body location: throat. Plain term: "voice."
+
+CRITICAL: name not just the aspect and pole but the specific archetype showing up in this visitor's story — the Fixer, the Martyr, the Peacekeeper, the Hider, the Performer, the Righteous One, the Achiever, the Rescuer, the Defender, the Withholder, the Pleaser, the Critic.
+
+═══════════════════════════════════════════════════════════════════════════════
+DIAGNOSTIC TYPOLOGY
+═══════════════════════════════════════════════════════════════════════════════
+
+Read where the visitor is currently stuck. Choose exactly one route:
+
+• "step1" — She is stuck before Recognize has fully landed. Her language treats the situation as objective fact. She uses phrases like "she keeps doing this to me," "this should not be happening," "they should just." The script-as-script frame has not yet landed. Generate step1_bridge.
+
+• "step2" — She has seen the script conflict but is in active nervous-system flooding. Her language is heavy in urgency, panic, somatic overwhelm: "I cannot stop thinking," "I need this resolved now," "I am barely functioning," "panic attacks," "spinning out." Generate step2_bridge.
+
+• "step3a" — Most common. She has the basic frame, has some capacity to settle, and is gripping a distorted belief about herself or the situation. Her language reveals a foundational position: "if only X then Y," "I just need them to," "what is wrong with me that," "why can't I." Direct flow, no bridge.
+
+• "step3b" — She is past belief-work and into stuck energy that won't move. Her language is body-and-feeling-heavy without much narrative: "the grief comes in waves," "I just feel stuck," "I cannot think my way out of this feeling," "it is just there." Direct flow, no bridge.
+
+When both surface and depth are present (e.g., Type 1 surface + Type 3a underneath), classify as the EARLIEST stuck step (Type 1). Default to step3a if uncertain.
+
+═══════════════════════════════════════════════════════════════════════════════
+THE OPTIMAL OUTPUT — WHAT YOU ARE GENERATING
+═══════════════════════════════════════════════════════════════════════════════
+
+The visitor's reading has these sections. You generate the AI-authored fields. The library handles the rest.
+
+VALIDATING_OPENING: 3-4 sentences for Step 1. Names what the visitor has been carrying, in her language, honoring the mismatch between what she can see and what is happening. Friend voice. No framework vocabulary. No diagnosis.
+
+Example for "my daughter is struggling at school and resists my advice":
+"Here is what is happening underneath your situation. You love this child. You can see what would help her. And yet every time you offer it, she pushes it away — and you are left holding a kind of love that has nowhere to go. The mismatch between what you can see and what she will receive is real, and it is exhausting."
+
+OTHER_SCRIPTS: Three "It could be that..." possibilities. Each must reference at least one specific detail from the visitor's situation. Each must point at a different operative — one in the other person's soul/karmariculum, one in the situation's structural reality, one in the visitor's own curriculum. Use "karmariculum" freely (the visitor is framework-receptive). Do NOT use "should" or "needs to."
+
+MONKEYS_BRIDGING_LINE: One short sentence connecting the dream's monkeys to the visitor's specific situation. Example: "Your daughter's struggle is one of the monkeys." Or: "The slow uptake on your strategies is one of the monkeys." Or: "The grief that won't leave is one of the monkeys."
+
+SEED_PARAGRAPH_TRIANGLE: This is paragraph 1 of The Pattern Underneath. Use this exact structure with your aspect-and-situation-specific content filled in:
+
+"There's a pattern, and it has three sides. Your ego has two moves. There's the sword — [aspect-specific sword behavior in visitor's exact situation, ~6-12 words] — which carries an unspoken verdict that [hidden cost, ~8-15 words]. There's the shield — [aspect-specific shield behavior in visitor's exact situation, ~6-12 words] — which [hidden cost, ~8-15 words]. The third side is what your higher self has been holding the whole time: [Wise One position, ~25-40 words, including 'divine peer' or 'fellow soul' or 'karmariculum' as appropriate]. Your ego has two moves. Your higher self has the one that actually works. Whichever you choose determines what [the other person/situation/she/he/they] has to do in response."
+
+Examples by aspect (Love case): Sword = "going in to fix it, advising, knowing what's best" — verdict: "she can't handle this on her own." Shield = "backing off, going quiet, telling yourself she has to figure it out herself" — cost: "she reads as you withdrawing your care." Third side = "seeing your daughter as your divine peer, with her own karmariculum, with her own capacity to walk it, and loving her exactly as she is, without the silent judgment that something about her needs to be different."
+
+Examples by aspect (Power case): Sword = "pushing harder, knowing better, deploying the strategy with more force" — verdict: "the others can't see what you can see." Shield = "checking out, going lazy, telling yourself fine, let them figure it out" — cost: "lands as quiet resentment in your field and as withdrawal in the room." Third side = "a power that doesn't require anyone to comply, that creates conditions for the right answer to emerge from the room rather than being imposed on it, that trusts the karmariculum each person at the table is walking."
+
+SEED_PARAGRAPH_CONDITIONING: Paragraph 2. Use this exact structure:
+
+"Your ego didn't make those two moves up. They were built into you, quietly, over a lifetime — by your family, your culture, the well-meaning instructions of every adult who taught you what a good [READER_ROLE] is and isn't. Underneath all of it has been the same architecture: [ASPECT_PLAIN] as something you achieve, given on conditions, withheld for reasons, used to shape a particular outcome. The sword and the shield are mechanisms of control because that's the only [ASPECT_PLAIN] your ego was ever shown how to offer. The [BODY_LOCATION] is tight from a long life of trying to make [ASPECT_PLAIN] produce a result. What's being asked of you now is something the conditioning has no instructions for: to open the [BODY_LOCATION], to release the result, and to let divine wisdom, love, and peace flow into this situation in a form your ego can't author and doesn't have to."
+
+Where READER_ROLE is the role she is in (mother, leader, partner, friend, professional, daughter, etc.), ASPECT_PLAIN is the plain term for the aspect, BODY_LOCATION is the body location for that aspect.
+
+SEED_PARAGRAPH_FRICTION: Paragraph 3. This is essentially static. Use this exact wording (you may calibrate one or two words for situational fit but do not restructure):
+
+"Reading that just now, something in you may have eased and something else may have caught — somewhere in the chest, the throat, the stomach. The catching is the place the long years have been held. It's not a problem to solve. It's a place where energy has been stored, doing exactly what it was supposed to do — keeping you in the moves your ego knew how to make. Feel it without naming it, without fixing it, without explaining it. The friction is what's been waiting to be felt. Your higher self has been with you in it the whole time."
+
+RELEASE_EGO_ASPECT: Paragraph for Step 3 "Your Ego's [Aspect]". Use this structure:
+
+"The [aspect_plain] that has been trying to [ego's verb specific to situation] [her/him/it/them] — to [scripted goal 1, situation-specific], to [scripted goal 2, situation-specific], to [scripted goal 3, situation-specific]."
+
+Example (daughter case): "The love that has been trying to shape her — to keep her safe, to keep her on the path you can see, to manage the outcome so it matches what you know is good for her."
+
+RELEASE_HIGHER_ASPECT: Paragraph for Step 3 "Your Higher Self's [Aspect]". Use this structure:
+
+"The [aspect_plain] that [Wise One quality 1], [Wise One quality 2], [Wise One quality 3, often referencing the karmariculum or soul-level recognition]."
+
+Example (daughter case): "The love that sees her as already whole, already capable, already walking exactly the path her soul came here to walk — and loves her through every step of it without needing to redirect a single one."
+
+RELEASE_QUESTION: Past-tense recognition question. Use this structure:
+
+"Which of these has been the [aspect_plain] you actually wanted to be giving [her/him/them/the situation] all along?"
+
+NOT "which is it?" or "which do you choose?" — past tense recognition only.
+
+CLOSING_RECOGNITION: Single sentence following the FAQ pattern:
+
+"What if the part of you who has been [Wise One quality named specifically to her situation, ~10-20 words] has been the one quietly [doing the work in past tense, calibrated to aspect, ~10-20 words], while the part of you who knows how to [manage/push/protect/etc.] was doing what it knows how to do?"
+
+Examples:
+- Daughter case: "What if the part of you who has been steady through every door slam, every failed advice, every hard moment with your daughter has been the one quietly loving her as the whole soul she is, while the part of you who knows how to manage things was doing what it knows how to do?"
+- Power/work case: "What if the part of you who has been steady through every meeting where the room didn't follow your lead has been the one quietly trusting that the right thing emerges in its own timing, while the part of you who knows how to push was doing what it knows how to do?"
+
+═══════════════════════════════════════════════════════════════════════════════
+THE BRIDGE CARDS (Type 1 and Type 2 only)
+═══════════════════════════════════════════════════════════════════════════════
+
+STEP1_BRIDGE: If diagnostic_typology is "step1": 2-3 warm sentences that gently surface the script-as-script teaching in language specific to her situation. Use friendly cold-call vocabulary — "ego" (lowercase), "higher self", "life plan". Speak as a friend who has noticed something. Never use framework jargon (no "Sir Ego", "Wise One", "karmariculum", "Five Steps"). If diagnostic_typology is anything other than "step1", return empty string.
+
+STEP2_BRIDGE: If diagnostic_typology is "step2": 2-3 warm sentences that acknowledge the activation and invite somatic settling. Speak as a friend who notices what is happening in the body. Lead with acknowledgment of how hard this is, then offer one simple body invitation. If diagnostic_typology is anything other than "step2", return empty string.
+
+═══════════════════════════════════════════════════════════════════════════════
+JSON OUTPUT SCHEMA
+═══════════════════════════════════════════════════════════════════════════════
+
+Output EXACTLY this JSON — no markdown fences, no preamble, just the raw JSON object:
 
 {
   "diagnostic_typology": "exactly one of: step1, step2, step3a, step3b",
-  "step1_bridge": "If diagnostic_typology is 'step1': 2-3 warm sentences that gently surface the script-as-script teaching in language specific to her situation. Use friendly cold-call vocabulary — 'ego' (lowercase), 'higher self', 'life plan'. Speak as a friend who has noticed something. Never use framework jargon (no 'Sir Ego', 'Wise One', 'karmariculum', 'Five Steps'). Naming the three-scripts insight specifically — her script, theirs, and the divine plan — without using the word 'script' as jargon. Example tone: 'Before we go further — there's something here that often goes unseen at first. What feels like *what's happening to you* is actually three things meeting at once: how you read this situation, how they read it, and what your life itself is offering you through it.' If diagnostic_typology is anything other than 'step1', return empty string.",
-  "step2_bridge": "If diagnostic_typology is 'step2': 2-3 warm sentences that acknowledge the activation and invite somatic settling. Use friendly vocabulary. Speak as a friend who notices what is happening in the body. Lead with acknowledgment of how hard this is, then offer one simple body invitation. Example tone: 'You've been carrying a lot. Before we look at what's underneath, pause for one breath. Notice one place in your body that's holding this — the tightness in your chest, the heat in your face, the weight in your stomach. Just notice it. Let it be there for a moment.' If diagnostic_typology is anything other than 'step2', return empty string.",
+  "step1_bridge": "string (empty unless typology is step1)",
+  "step2_bridge": "string (empty unless typology is step2)",
+  "validating_opening": "3-4 sentences naming what she has been carrying, in friend voice, no jargon",
   "other_scripts": [
-    "It could be that [specific possible script the other person/situation is running — curious, compassionate, specific to her story]",
-    "It could be that [a different possible script — opens a completely different perspective]",
-    "It could be that [a third possibility — something she would not have thought of from inside her current frame]"
+    "It could be that [first compassionate possibility, situation-specific, framework-receptive vocabulary OK]",
+    "It could be that [second possibility pointing at a different operative]",
+    "It could be that [third possibility pointing at a third operative]"
   ],
+  "monkeys_bridging_line": "One short sentence connecting the dream to her situation",
+  "aspect_identified": "exactly one of: LOVE, POWER, CALM, PEACE, JOY, WISDOM, LIGHT, VOICE",
+  "aspect_archetype": "Specific archetype name (the Fixer, the Rescuer, the Defender, etc.)",
+  "aspect_plain": "the plain term for this aspect (love, power, calm, peace, joy, knowing, seeing, voice)",
+  "body_location": "the body location for this aspect (heart, chest, nervous system, jaw, mind, shoulders, throat)",
+  "reader_role": "the role she is in (mother, leader, partner, friend, professional, etc.)",
   "dominant_emotion": "exactly one of: shame, guilt, fear, anger, frustration, disappointment, jealousy, envy, anxiety, boredom, grief, sadness, loneliness",
-  "step3_release": {
-    "bridge": "1-2 warm sentences that receive what she has shared and orient her toward what comes next. If her language suggests she is still seeing the problem as outside herself, this is where you gently surface the script-conflict frame. If her language suggests high activation, this is where you invite settling.",
-    "reframe": "1 sentence: there is a condition Sir Ego has placed on reality without knowing he has placed it. The next options will surface what that condition is.",
-    "options": [
-      "Calibrate to typology — see DIAGNOSTIC_TYPOLOGY section above. step3a default: 'I need [specific condition] before I can [specific peace]'. step3b: felt-sense descriptors. step1: gentler 'something in me' framings. step2: slower less-demanding framings.",
-      "Five options total, calibrated to typology",
-      "Each first-person, in the voice of her ego, specific to her story",
-      "Avoid generic phrasings — must only apply to this visitor's specific situation",
-      "Five total"
-    ],
-    "prompt": "Which of these feels closest to what something in you has been quietly requiring of the world?"
-  },
-  "step4_receive": {
-    "noble_framing": "2-3 sentences: why Sir Ego adopted this condition. Name the original wound with complete compassion. He is not consciously requiring this; he is doing his best with the equipment he was given. Honor the wound and honor him.",
-    "aspect_pole_flavor": "ASPECT — Pole — Specific Archetype (e.g. LOVE — Shield — The Rescuer)",
-    "karmariculum": "2-3 sentences: the soul-level curriculum this situation is delivering. Frame as sacred assignment, not punishment. The situation is the messenger, communicating what the soul has been ready to release.",
-    "the_truth": "1-3 sentences: what the Wise One in her has been knowing the whole time, at a layer Sir Ego has not yet felt. Land this as recognition, not as new information. She has already been holding this; the work is feeling that she has.",
-    "heart_hack": "One specific body-based or relational practice tailored to this exact pattern. Discernment-action, not judgment-action. Doable today, arising from the Wise One's seat."
-  },
-  "step5_respond": {
-    "one_thing": "The single next right action, word, or attitude. Concrete, doable today. Arising from the Wise One, not from Sir Ego's strategizing.",
-    "wise_one": "2-3 sentences from the Wise One. She has been holding the visitor through every chapter of this situation. She sees the eternal soul. She does not lecture. She does not arrive newly; she is felt as already having been here. ✨"
-  }
+  "seed_paragraph_triangle": "Paragraph 1 of The Pattern Underneath — the three-sides triangle, calibrated to aspect and situation",
+  "seed_paragraph_conditioning": "Paragraph 2 — conditioning honored and ask named, with READER_ROLE/ASPECT_PLAIN/BODY_LOCATION substituted",
+  "seed_paragraph_friction": "Paragraph 3 — friction pointed at, mostly static text",
+  "release_ego_aspect": "Your Ego's [Aspect] paragraph for Step 3, situation-specific",
+  "release_higher_aspect": "Your Higher Self's [Aspect] paragraph for Step 3, situation-specific",
+  "release_question": "Past-tense recognition question following the calibrated structure",
+  "closing_recognition": "Single FAQ-pattern sentence: What if the part of you who has been [quality] has been the one quietly [past-tense work] while [the managing part] was doing what it knows how to do?"
 }
 
-Speak only in what is. Where Sir Ego's language might tempt refutation, find the affirmative truth at a different layer.
+═══════════════════════════════════════════════════════════════════════════════
+THE LIBRARY-SOURCED FIELDS — DO NOT GENERATE THESE
+═══════════════════════════════════════════════════════════════════════════════
+
+The following fields are looked up from static libraries by the rendering code based on aspect_identified. You do NOT generate them:
+
+- The Step 4 contemplation seed (per aspect)
+- The Step 5 heart hack (per aspect)
+- The closing blessing (per aspect, with aspect_plain substitution)
+- The dominant emotion's three voices (ego voice / higher self voice / contemplation question, used in Step 3 if applicable as fallback)
+
+Marie has pre-written these in calibrated voice. Your job is correct identification so the right entries are pulled.
+
+═══════════════════════════════════════════════════════════════════════════════
+FINAL CALIBRATION NOTES
+═══════════════════════════════════════════════════════════════════════════════
+
+Speak only in what is. Where the visitor's language might tempt refutation, find the affirmative truth at a different layer.
+
 Be specific to her story. If a sentence could apply to anyone, rewrite it until it could only apply to this person.
-Honor Sir Ego throughout. He is structurally unaware of the deeper layer. He is doing his best with the equipment he has.
-Frame the Wise One's wisdom as recognition. She has been holding this the whole time. The work is feeling that she has, not acquiring something new from her.
-Tend to bridge work for users still in Step 1 or Step 2 stuck. The map has nowhere to land if the visitor cannot yet feel the script as a script or settle the nervous system enough to receive.
+
+Honor the ego throughout. He is structurally unaware of the deeper layer. He is doing his best with the equipment he has.
+
+Frame the higher self's work as recognition. She has been holding this the whole time. The work is feeling that she has, not acquiring something new from her.
+
+Do bridge work for users still in Step 1 or Step 2 stuck. The seed paragraphs cannot land if the visitor cannot yet feel the script as a script or settle the nervous system enough to receive.
+
 Output only the raw JSON object.`;
 
 // ══════════════════════════════════════════════════════════════
@@ -908,23 +1062,31 @@ async function fireEarlyAPI() {
     window._earlyApiData = data;
     window._earlyApiPending = false;
     injectOtherScripts(data.other_scripts || []);
+    injectValidatingOpening(data.validating_opening || '');
+    injectMonkeysBridge(data.monkeys_bridging_line || '');
   } catch(e) {
     window._earlyApiPending = false;
     window._earlyApiError = e.message;
     injectOtherScripts([]);
+    injectValidatingOpening('');
+    injectMonkeysBridge('');
   }
 }
 
+// ══════════════════════════════════════════════════════════════
+// injectOtherScripts — fills the Other Scripts placeholder once
+// the API has returned. Same signature as v2; minor tone adjustment.
+// ══════════════════════════════════════════════════════════════
 function injectOtherScripts(scripts) {
   var placeholder = document.getElementById('other-scripts-placeholder');
   var btn = document.getElementById('open-btn-container');
   if (!placeholder) return;
-  if (scripts.length > 0) {
+  if (scripts && scripts.length > 0) {
     var items = scripts.map(function(s) {
       return '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.82);line-height:1.78;margin-bottom:10px;padding-left:14px;border-left:2px solid rgba(169,208,231,0.4);">' + escHtml(s) + '</p>';
     }).join('');
     placeholder.innerHTML = '<div style="margin-bottom:20px;">'
-      + '<p style="font-family:var(--font-nav);font-size:0.64rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(169,208,231,0.7);margin-bottom:14px;">We don&rsquo;t know their script &mdash; only they do. But it might sound like:</p>'
+      + '<p style="font-family:var(--font-nav);font-size:0.64rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(169,208,231,0.7);margin-bottom:14px;">What other scripts might be running</p>'
       + items
       + '</div>';
   } else {
@@ -933,26 +1095,90 @@ function injectOtherScripts(scripts) {
   if (btn) btn.style.display = 'block';
 }
 
+// ══════════════════════════════════════════════════════════════
+// injectValidatingOpening — fills the validating-opening placeholder
+// once the API has returned. NEW in v3.
+// ══════════════════════════════════════════════════════════════
+function injectValidatingOpening(text) {
+  var placeholder = document.getElementById('validating-opening-placeholder');
+  if (!placeholder) return;
+  if (text) {
+    placeholder.innerHTML = '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.82;margin-bottom:18px;">' + escHtml(text) + '</p>';
+  } else {
+    placeholder.innerHTML = '';
+  }
+}
+
+
+// ══════════════════════════════════════════════════════════════
+// renderRecognizeRelax — Steps 1 and 2.
+// NEW in v3:
+//   - Validating opening paragraph above the static script-conflict teaching
+//   - Three-beat choice-point Step 2 (replaces the static "fix this right now" text)
+//   - Monkeys dream block (screen-only, NOT in the PDF) between Step 2 and the callout
+// ══════════════════════════════════════════════════════════════
 function renderRecognizeRelax() {
   document.getElementById('input-area').style.display = 'none';
 
+  // Step 1 + Step 2 in a single card. The validating opening and other_scripts
+  // are filled once the API returns. The monkeys dream is filled inline as
+  // soon as the API returns the bridging line.
+
   const html = '<div class="resonance-card" id="recognize-card">'
     + '<span class="map-section-label">Step One &mdash; Recognize</span>'
+
+    // Validating opening placeholder (filled by injectValidatingOpening)
+    + '<div id="validating-opening-placeholder" style="margin-bottom:6px;">'
+    + '<div style="display:flex;align-items:center;gap:10px;padding:10px 0;opacity:0.45;">'
+    + '<div class="loading-orb" style="width:14px;height:14px;margin:0;flex-shrink:0;"></div>'
+    + '<p style="font-family:var(--font-body);font-size:0.86rem;color:rgba(255,255,255,0.45);font-style:italic;">Listening to your story...</p>'
+    + '</div></div>'
+
+    // Static script-conflict teaching
     + '<p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.04em;line-height:1.55;margin-bottom:14px;">You have a script for how things should go. So does everyone else. And underneath both, there&rsquo;s a third &mdash; the one the universe is actually running.</p>'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:20px;">That&rsquo;s where the friction comes from &mdash; three scripts running at once, with only one of them holding the whole picture.</p>'
+
+    // Other scripts placeholder (filled by injectOtherScripts)
     + '<div id="other-scripts-placeholder" style="margin-bottom:4px;">'
     + '<div style="display:flex;align-items:center;gap:10px;padding:14px 0;opacity:0.45;">'
     + '<div class="loading-orb" style="width:18px;height:18px;margin:0;flex-shrink:0;"></div>'
     + '<p style="font-family:var(--font-body);font-size:0.88rem;color:rgba(255,255,255,0.5);font-style:italic;">Exploring what other scripts might be running...</p>'
     + '</div></div>'
+
+    // Step 2 - choice-point framing
     + '<div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;margin-bottom:0;">'
     + '<span class="map-section-label">Step Two &mdash; Relax</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:12px;">Your first instinct is to fix this right now. That impulse is your ego reading from his script. It got you here. It won&rsquo;t get you out.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:16px;">But you just saw the conflict. That means there&rsquo;s a crack. Something wiser can come through &mdash; if you&rsquo;re willing to pause long enough to let it.</p>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.78;margin-bottom:16px;">The universe already has a plan for this. Before you go fix it, consider:</p>'
+
+    // Beat 1
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.78);line-height:1.82;margin-bottom:14px;">You are at the choice-point. This is where you have the most power to influence what happens next &mdash; not by working harder at the strategy your ego has been running, but by choosing which voice gets to lead.</p>'
+
+    // Beat 2 - the world doesn't bow to ego pressure
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:14px;">Notice how little has yielded to your effort. Your ego has been working faithfully, deploying every move it knows, and the world has been declining to comply. That is not because you have done anything wrong. It is because the world does not bow to ego pressure &mdash; not yours, not anyone&rsquo;s. Your ego is a brave operator working with limited equipment, and the equipment was never going to deliver what you actually wanted.</p>'
+
+    // Beat 3 - higher self
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:14px;">Your higher self comes with a different kind of presence &mdash; one that moves through situations rather than against them, that opens doors rather than forcing them, that the universe actually responds to. She has been here the whole time, waiting for you to choose her over the strategy.</p>'
+
+    // The Monkeys Dream — SCREEN ONLY (not in PDF)
+    + '<div style="background:rgba(173,175,223,0.08);border-radius:8px;padding:20px 24px;margin:24px 0;border-left:3px solid rgba(173,175,223,0.4);">'
+    + '<p style="font-family:var(--font-display);font-size:0.84rem;font-weight:600;color:rgba(255,255,255,0.7);font-style:italic;margin-bottom:14px;">A small story about the monkeys.</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.78);line-height:1.78;margin-bottom:12px;">I had a dream once. I was walking through paradise with the Creator. The monkeys were shrieking &mdash; loud, chaotic, impossible to ignore. I wished it would stop. And it did. Then the consequences fell like dominoes. No monkeys. No mating. No babies. Next, I wished the nearby lion wouldn&rsquo;t eat the gazelle. Lions starved. Gazelles overpopulated and ate everything green. Paradise went barren.</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.78);line-height:1.78;margin-bottom:12px;">The Creator&rsquo;s design was already running. Every part of it served the whole. The shrieking I wanted to silence was holding something I couldn&rsquo;t see &mdash; and silencing it unmade more than I knew was connected to it.</p>'
+    // Bridging line placeholder (filled when API returns monkeys_bridging_line)
+    + '<div id="monkeys-bridging-placeholder">'
+    + '<div style="display:flex;align-items:center;gap:8px;padding:6px 0;opacity:0.4;">'
+    + '<div class="loading-orb" style="width:12px;height:12px;margin:0;flex-shrink:0;"></div>'
+    + '<p style="font-family:var(--font-body);font-size:0.86rem;color:rgba(255,255,255,0.4);font-style:italic;">Connecting the dream to your story...</p>'
+    + '</div></div>'
+    + '</div>'
+
+    // Don't make the monkeys extinct callout
     + '<div style="background:rgba(173,175,223,0.12);border-radius:8px;padding:20px 24px;margin-bottom:20px;">'
     + '<p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.06em;text-align:center;margin-bottom:0;">Don&rsquo;t make the monkeys extinct.</p>'
     + '</div>'
+
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.65);line-height:1.78;margin-bottom:18px;font-style:italic;text-align:center;">You chose to see this differently. That choice is the practice.</p>'
+
+    // Open button (hidden until API returns)
     + '<div id="open-btn-container" style="display:none;">'
     + '<button class="btn-submit" onclick="userClickedWilling()" style="width:100%;">'
     + '<span class="btn-text">I&rsquo;m open &mdash; show me what&rsquo;s really happening &#10022;</span>'
@@ -966,6 +1192,24 @@ function renderRecognizeRelax() {
   document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// ══════════════════════════════════════════════════════════════
+// injectMonkeysBridge — fills the bridging-line placeholder
+// once the API returns monkeys_bridging_line. NEW in v3.
+// ══════════════════════════════════════════════════════════════
+function injectMonkeysBridge(text) {
+  var placeholder = document.getElementById('monkeys-bridging-placeholder');
+  if (!placeholder) return;
+  if (text) {
+    placeholder.innerHTML = '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.92);line-height:1.78;font-style:italic;margin-top:6px;">' + escHtml(text) + '</p>';
+  } else {
+    placeholder.innerHTML = '';
+  }
+}
+
+
+// ══════════════════════════════════════════════════════════════
+// userClickedWilling — preserved from v2.
+// ══════════════════════════════════════════════════════════════
 async function userClickedWilling() {
   const recognizeCard = document.getElementById('recognize-card');
   if (recognizeCard) {
@@ -973,21 +1217,18 @@ async function userClickedWilling() {
     if (btn) { btn.disabled = true; btn.textContent = 'Opening the map...'; }
   }
 
-  // If API already returned — use cached data immediately
   if (window._earlyApiData) {
     if (recognizeCard) recognizeCard.remove();
     routeByTypology(window._earlyApiData);
     return;
   }
 
-  // Still loading — show loading indicator and wait
   const loadingDiv = document.createElement('div');
   loadingDiv.id = 'phase2-loading';
   loadingDiv.style.cssText = 'text-align:center;padding:32px;background:linear-gradient(160deg,#1e3a5a,#3C8ABC);border-radius:16px;';
   loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 16px;"></div><p class="loading-text">Almost there...</p><p class="loading-sub">Reading carefully.</p>';
   if (recognizeCard) recognizeCard.after(loadingDiv);
 
-  // Poll until ready
   const waitForData = new Promise(function(resolve, reject) {
     var attempts = 0;
     var interval = setInterval(function() {
@@ -1011,31 +1252,35 @@ async function userClickedWilling() {
   }
 }
 
+
 // ══════════════════════════════════════════════════════════════
-// DIAGNOSTIC TYPOLOGY ROUTING
+// routeByTypology — preserved from v2.
+// step1+bridge → bridge card → renderFullMap (via continueFromBridge)
+// step2+bridge → bridge card → renderFullMap (via continueFromBridge)
+// step3a/step3b/fallback → renderFullMap directly
+//
+// NOTE THE CHANGE: previously called renderReleaseReceive; now calls
+// renderFullMap directly. The v3 architecture has no separate resonance step.
 // ══════════════════════════════════════════════════════════════
-// Routes the visitor through the appropriate flow based on where
-// she is currently stuck on the path. Invisible to her — she just
-// experiences a personalized flow. Defaults to step3a if unclear.
 function routeByTypology(data) {
-  // Cache the data for later transition into renderReleaseReceive
   window._pendingTypologyData = data;
-  
+
   const typology = (data.diagnostic_typology || 'step3a').toLowerCase();
-  
+
   if (typology === 'step1' && data.step1_bridge) {
     renderStep1Bridge(data.step1_bridge);
   } else if (typology === 'step2' && data.step2_bridge) {
     renderStep2Bridge(data.step2_bridge);
   } else {
-    // step3a, step3b, or fallback — go directly to resonance check
-    // The resonance options have already been calibrated to the typology by the AI
-    renderReleaseReceive(data);
+    // step3a, step3b, or fallback — go directly to the full map
+    renderFullMap(data);
   }
 }
 
-// Render the gentle Step 1 surfacing card for visitors who are stuck
-// before the script-as-script frame has landed. Friendly cold-call voice.
+
+// ══════════════════════════════════════════════════════════════
+// renderStep1Bridge — preserved from v2.
+// ══════════════════════════════════════════════════════════════
 function renderStep1Bridge(bridgeText) {
   const html = '<div class="resonance-card" id="step1-bridge-card">'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.82;margin-bottom:18px;">' + escHtml(bridgeText) + '</p>'
@@ -1044,15 +1289,17 @@ function renderStep1Bridge(bridgeText) {
     + '<span class="btn-text">Show me what&rsquo;s underneath &#10022;</span>'
     + '</button>'
     + '</div>';
-  
+
   document.getElementById('response-area').innerHTML = html;
   document.getElementById('response-area').classList.add('visible');
   document.getElementById('start-over').style.display = 'block';
   document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Render the somatic settling card for visitors who are in active
-// nervous-system flooding. Friendly cold-call voice. Stripped down.
+
+// ══════════════════════════════════════════════════════════════
+// renderStep2Bridge — preserved from v2.
+// ══════════════════════════════════════════════════════════════
 function renderStep2Bridge(bridgeText) {
   const html = '<div class="resonance-card" id="step2-bridge-card">'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.82;margin-bottom:18px;">' + escHtml(bridgeText) + '</p>'
@@ -1063,61 +1310,145 @@ function renderStep2Bridge(bridgeText) {
     + '<span class="btn-text">I&rsquo;m ready &#10022;</span>'
     + '</button>'
     + '</div>';
-  
+
   document.getElementById('response-area').innerHTML = html;
   document.getElementById('response-area').classList.add('visible');
   document.getElementById('start-over').style.display = 'block';
   document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Continues from a Step 1 or Step 2 bridge card into the resonance check.
+
+// ══════════════════════════════════════════════════════════════
+// continueFromBridge — UPDATED in v3.
+// Previously called renderReleaseReceive (which then required a click
+// through the resonance buttons before reaching renderFullMap).
+// Now calls renderFullMap directly. Single render, single API call.
+// ══════════════════════════════════════════════════════════════
 function continueFromBridge() {
   const bridgeCard = document.getElementById('step1-bridge-card') || document.getElementById('step2-bridge-card');
   if (bridgeCard) bridgeCard.remove();
   if (window._pendingTypologyData) {
-    renderReleaseReceive(window._pendingTypologyData);
+    renderFullMap(window._pendingTypologyData);
   }
 }
 
+
 // ══════════════════════════════════════════════════════════════
-// PHASE 2 — RESONANCE SELECTED
+// renderFullMap — NEW for v3.
+// Renders the complete reading in one pass:
+//   - The Pattern Underneath (subhead with aspect, three seed paragraphs)
+//   - Step 3 — Release (both-hands ego-aspect / higher-self-aspect frame)
+//   - Step 4 — Receive (library-sourced contemplation seed by aspect)
+//   - Step 5 — Respond (library-sourced heart hack by aspect)
+//   - Closing recognition (FAQ-pattern AI-generated)
+//   - Static blessing (with aspect-specific closing word)
+//   - Gift block (PDF buttons)
 // ══════════════════════════════════════════════════════════════
-async function handleResonanceClick(btnEl) {
-  const index = parseInt(btnEl.getAttribute('data-index'));
-  const option = window._resonanceOptions[index];
-  
-  // Mark selected
-  document.querySelectorAll('.resonance-btn').forEach(b => b.classList.remove('selected'));
-  btnEl.classList.add('selected');
-  document.querySelectorAll('.resonance-btn').forEach(b => b.disabled = true);
+function renderFullMap(data) {
+  // Look up aspect data from library by aspect_identified
+  const aspectKey = (data.aspect_identified || '').toUpperCase();
+  const aspectData = getAspectData(aspectKey);
+  const aspectColor = aspectData ? aspectData.color : 'var(--periwinkle)';
+  const aspectName = aspectData ? aspectData.key : aspectKey;
+  const aspectDisplayName = aspectName ? (aspectName.charAt(0) + aspectName.slice(1).toLowerCase()) : '';
+  const aspectPlain = data.aspect_plain || (aspectData ? aspectData.plain_term : 'love');
+  const closingWord = aspectData ? aspectData.closing_word : 'love';
+  const seed = aspectData ? aspectData.seed : '';
+  const hack = aspectData ? aspectData.hack : '';
 
-  // Show loading below resonance card
-  const resonanceCard = document.getElementById('resonance-card');
-  const loadingDiv = document.createElement('div');
-  loadingDiv.id = 'resonance-loading';
-  loadingDiv.style.cssText = 'text-align:center;padding:28px;background:linear-gradient(160deg,#1e3a5a,#3C8ABC);border-radius:16px;';
-  loadingDiv.innerHTML = '<div class="loading-orb" style="margin:0 auto 14px;"></div><p class="loading-text">Reading your map...</p>';
-  if (resonanceCard) resonanceCard.after(loadingDiv);
+  window._pendingMapData = data; // for PDF generator
 
-  // Make a NEW API call with the selected resonance
-  const messages = [
-    { role: 'user', content: userSituation },
-    { role: 'assistant', content: JSON.stringify(window._step3Data) },
-    { role: 'user', content: 'I selected this resonance: "' + option + '". Please now deliver the full map (steps 4 and 5) for this specific resonance.' }
-  ];
+  const mapHtml = '<div class="map-card">'
 
-  try {
-    const response = await callAPI(messages);
-    const data = JSON.parse(response);
-    window._fullMapData = data;
-    renderFullMap(data, option);
-  } catch(e) {
-    showError('Error: ' + e.message);
-    document.querySelectorAll('.resonance-btn').forEach(b => b.disabled = false);
-  } finally {
-    const ld = document.getElementById('resonance-loading');
-    if (ld) ld.remove();
-  }
+    // ───── The Pattern Underneath ─────
+    + '<div class="map-section" style="background:rgba(255,255,255,0.04);border-radius:10px;padding:24px 26px;border-left:4px solid ' + aspectColor + ';margin-bottom:24px;">'
+    + '<span class="map-section-label">The Pattern Underneath &mdash; ' + escHtml(aspectDisplayName) + '</span>'
+    + '<p style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.02em;line-height:1.7;margin-bottom:18px;">The aspect showing up in this moment is ' + escHtml(aspectDisplayName) + '. There is a version of ' + escHtml(aspectPlain) + ' your ego knows how to offer, and a version your higher self has been holding all along, and the difference between them determines everything.</p>'
+
+    + '<div class="map-section-content" style="margin-bottom:14px;">' + formatContent(data.seed_paragraph_triangle || '') + '</div>'
+
+    + '<div class="map-section-content" style="margin-bottom:14px;">' + formatContent(data.seed_paragraph_conditioning || '') + '</div>'
+
+    + '<div class="map-section-content">' + formatContent(data.seed_paragraph_friction || '') + '</div>'
+    + '</div>'
+
+    // ───── Step 3 — Release (both-hands frame) ─────
+    + '<div class="map-section" style="background:rgba(255,255,255,0.03);border-radius:10px;padding:22px 26px;border-left:3px solid var(--periwinkle);margin-bottom:24px;">'
+    + '<span class="map-section-label">Step Three &mdash; Release</span>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:14px;">Sit with this for a moment before you read on. You don&rsquo;t need to understand it. You just need to feel it.</p>'
+
+    + '<p style="font-family:var(--font-nav);font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:10px;">What is present right now</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.7);line-height:1.78;margin-bottom:18px;font-style:italic;">Hold both of these in your awareness. Feel each one fully, without rushing to choose between them.</p>'
+
+    // Your Ego's [Aspect]
+    + '<div style="background:rgba(255,255,255,0.04);border-radius:6px;padding:14px 18px;margin-bottom:12px;border-left:2px solid rgba(139,58,58,0.5);">'
+    + '<p style="font-family:var(--font-nav);font-size:0.66rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,180,180,0.8);margin-bottom:8px;">Your Ego&rsquo;s ' + escHtml(aspectDisplayName) + '</p>'
+    + '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.88);line-height:1.78;font-style:italic;margin-bottom:0;">' + escHtml(data.release_ego_aspect || '') + '</p>'
+    + '</div>'
+
+    // Your Higher Self's [Aspect]
+    + '<div style="background:rgba(255,255,255,0.04);border-radius:6px;padding:14px 18px;margin-bottom:18px;border-left:2px solid rgba(254,225,159,0.5);">'
+    + '<p style="font-family:var(--font-nav);font-size:0.66rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Your Higher Self&rsquo;s ' + escHtml(aspectDisplayName) + '</p>'
+    + '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.92);line-height:1.78;font-style:italic;margin-bottom:0;">' + escHtml(data.release_higher_aspect || '') + '</p>'
+    + '</div>'
+
+    // The recognition question
+    + '<p style="font-family:var(--font-nav);font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:8px;">Sit with this question</p>'
+    + '<p style="font-family:var(--font-soul);font-size:1.06rem;color:rgba(255,255,255,0.92);line-height:1.78;font-style:italic;margin-bottom:18px;">' + escHtml(data.release_question || '') + '</p>'
+
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.66);line-height:1.78;margin-bottom:8px;">If you want to go deeper: take a few minutes to write. Not the story &mdash; the feeling itself. Sit with that question. Write without editing until something shifts. Then stop.</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:rgba(255,255,255,0.4);line-height:1.72;font-style:italic;">Some people find it helps to burn what they wrote. The writing names it. The fire releases it.</p>'
+    + '</div>'
+
+    // ───── Step 4 — Receive (library-sourced contemplation seed) ─────
+    + (seed ? '<div class="map-section" style="margin-bottom:24px;">'
+      + '<span class="map-section-label">Step Four &mdash; Receive</span>'
+      + '<p style="font-family:var(--font-body);font-size:0.92rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:14px;font-style:italic;">After Release softens what was gripped, Receive is where the higher self&rsquo;s knowing becomes audible. Read this slowly. Let it land rather than thinking about it.</p>'
+      + '<p style="font-family:var(--font-soul);font-size:1.16rem;color:rgba(255,255,255,0.92);line-height:1.78;font-style:italic;">&ldquo;' + escHtml(seed) + '&rdquo;</p>'
+      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.55);margin-top:14px;line-height:1.72;">Sit with this question. Open your heart. Trust that the insight you need will come &mdash; not from thinking harder, but from listening more quietly.</p>'
+      + '</div>' : '')
+
+    // ───── Step 5 — Respond (library-sourced heart hack) ─────
+    + '<div class="map-section" style="margin-bottom:24px;">'
+    + '<span class="map-section-label">Step Five &mdash; Respond</span>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.78);line-height:1.82;margin-bottom:18px;">Once the energy shifts, your natural wisdom comes through. You already know how to respond well &mdash; you do it every day. The distortion was the only thing in the way.</p>'
+    + (hack ? '<div style="background:rgba(255,255,255,0.09);border-radius:8px;padding:18px 22px;border-left:3px solid var(--gold);">'
+      + '<p style="font-family:var(--font-nav);font-size:0.64rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Heart Hack &mdash; if you want to go further</p>'
+      + '<p style="font-family:var(--font-body);font-size:0.92rem;color:rgba(255,255,255,0.65);line-height:1.72;margin-bottom:10px;">If you want to cause an immediate energy shift in this exact area, step outside your comfort zone and try this:</p>'
+      + '<p style="font-family:var(--font-body);font-size:1rem;color:#fff;line-height:1.82;margin-bottom:10px;font-weight:500;">' + escHtml(hack) + '</p>'
+      + '<p style="font-family:var(--font-body);font-size:0.85rem;color:rgba(255,255,255,0.4);font-style:italic;">Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.</p>'
+      + '</div>' : '')
+    + '</div>'
+
+    + '</div>'
+
+    // ───── Closing — FAQ-pattern recognition + blessing ─────
+    + '<div class="resonance-card" style="text-align:center;padding:32px 28px;margin-bottom:24px;">'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:18px;">You have just walked the Five Steps to Freedom. This is the practice &mdash; not perfectly, but actually. <em>Love Heroically</em> takes you deeper into what you just experienced, with the tools to find your way back here every time you lose your center.</p>'
+    + (data.closing_recognition ? '<p style="font-family:var(--font-soul);font-size:1.08rem;color:rgba(255,255,255,0.92);line-height:1.82;font-style:italic;margin-bottom:18px;">' + escHtml(data.closing_recognition) + '</p>' : '')
+    + '<p class="wise-one-text" style="margin:0;">Whatever brought you here today was not a mistake. The pain is real. The ' + escHtml(closingWord) + ' underneath it is more real. You are held by something that has never once lost track of you. ✨</p>'
+    + '</div>'
+
+    // ───── Gift block ─────
+    + '<div class="gift-card">'
+    + '<h3 class="gift-h">Take it home with you</h3>'
+    + '<p class="gift-p">Two PDFs. Yours to keep, share, or print. No email, no signup, no strings.</p>'
+    + '<div class="gift-buttons">'
+    + '<button onclick="generateMapPDF()" class="btn-gift" id="map-pdf-btn">'
+    + '<span class="btn-gift-line1">A Map for This Moment</span>'
+    + '<span class="btn-gift-line2">Your personalized reading \u00b7 PDF</span>'
+    + '</button>'
+    + '<a href="downloads/emotions-inventory-and-release-toolkit.pdf" download class="btn-gift">'
+    + '<span class="btn-gift-line1">The Release Toolkit</span>'
+    + '<span class="btn-gift-line2">13 emotions \u00b7 10 practices \u00b7 PDF</span>'
+    + '</a>'
+    + '</div>'
+    + '<p class="gift-fine">Both free. The Map Minder is always free.</p>'
+    + '</div>';
+
+  const responseArea = document.getElementById('response-area');
+  responseArea.innerHTML = mapHtml;
+  responseArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 
@@ -1148,198 +1479,6 @@ async function callAPI(messages) {
 }
 
 // ══════════════════════════════════════════════════════════════
-// RENDER RESONANCE CHECK
-// ══════════════════════════════════════════════════════════════
-function renderReleaseReceive(data) {
-  window._resonanceOptions = data.step3_release ? data.step3_release.options : [];
-  window._step3Data = data.step3_release || {};
-  window._fullMapData = data;
-  window._originalApiResponse = data;
-
-  const s3 = data.step3_release || {};
-  const options = s3.options || [];
-
-  const buttonsHtml = options.map(function(opt, i) {
-    return '<button class="resonance-btn" data-index="' + i + '" onclick="handleResonanceClick(this)">' + escHtml(opt) + '</button>';
-  }).join('');
-
-  const html = '<div class="resonance-card" id="resonance-card">'
-    + '<span class="map-section-label">Step Three &mdash; Find Your Vibe</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:16px;">' + escHtml(s3.bridge || '') + '</p>'
-    + '<p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;color:rgba(255,255,255,0.92);letter-spacing:0.04em;margin-bottom:20px;">' + escHtml(s3.reframe || '') + '</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:16px;">Consider the other people in your situation. They have their own scripts running &mdash; scripts that make complete sense from inside their own story, just as yours does from inside yours. The friction is the meeting place where three scripts &mdash; yours, theirs, and the divine plan &mdash; come into contact at once.</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);margin-bottom:16px;line-height:1.72;">Before you choose &mdash; this probably isn&rsquo;t the first time you&rsquo;ve felt this way. Think of other times, other relationships, other situations where something similar was running. These options may all feel close at first. Sit with them. One will find you.</p>'
-    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:0.04em;margin-bottom:16px;">Which feels like your emotional experience &mdash; not in your mind &mdash; in your heart and body?</p>'
-    + '<div class="resonance-options">' + buttonsHtml + '</div>'
-    + '</div>';
-
-  const responseArea = document.getElementById('response-area');
-  responseArea.innerHTML = html;
-  responseArea.classList.add('visible');
-  document.getElementById('start-over').style.display = 'block';
-  responseArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-
-
-// ══════════════════════════════════════════════════════════════
-// RENDER FULL MAP
-// ══════════════════════════════════════════════════════════════
-function renderFullMap(data, selectedOption) {
-  const resonanceCard = document.getElementById('resonance-card');
-  if (resonanceCard) resonanceCard.remove();
-
-  const s4 = data.step4_receive || {};
-  const s5 = data.step5_respond || {};
-
-  // Look up aspect data from library
-  const aspectData = getAspectData(s4.aspect_pole_flavor || '');
-  const aspectColor = aspectData ? aspectData.color : 'var(--periwinkle)';
-  const aspectWiseOne = aspectData ? aspectData.wise_one : '';
-
-  const mapHtml = '<div class="map-card">'
-
-    // Noble Framing
-    + '<div class="map-section">'
-    + '<span class="map-section-label">Your Story</span>'
-    + '<div class="map-section-content">' + formatContent(s4.noble_framing || '') + '</div>'
-    + '</div>'
-
-    // Aspect card -- normalizing framing with Sword, Shield, Wise One
-    + '<div class="map-section" style="background:rgba(255,255,255,0.07);border-radius:10px;padding:22px 24px;border-left:4px solid ' + aspectColor + ';margin-bottom:4px;">'
-    + '<span class="map-section-label">The Aspect</span>'
-    + '<p style="font-family:var(--font-body);font-size:0.9rem;color:rgba(255,255,255,0.72);line-height:1.72;margin-bottom:16px;">This isn\'t a flaw in your life. It\'s one of eight soul themes every human navigates. Here\'s how the <strong>' + escHtml(aspectWiseOne || '') + '</strong> theme shows up:</p>'
-    + '<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px;">'
-    + (aspectData ? '<div style="display:flex;gap:14px;align-items:flex-start;">'
-      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B3A3A;min-width:58px;padding-top:3px;">Sword</span>'
-      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.85);line-height:1.72;">' + escHtml(aspectData.sword) + '</p>'
-      + '</div>'
-      + '<div style="display:flex;gap:14px;align-items:flex-start;">'
-      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#2C6B5A;min-width:58px;padding-top:3px;">Shield</span>'
-      + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.85);line-height:1.72;">' + escHtml(aspectData.shield) + '</p>'
-      + '</div>'
-      + '<div style="display:flex;gap:14px;align-items:flex-start;border-top:1px solid ' + aspectColor + '66;padding-top:12px;">'
-      + '<span style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);min-width:58px;padding-top:3px;">Higher Self</span>'
-      + '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.88);line-height:1.72;font-style:italic;">' + escHtml(aspectData.wise_one) + ' &mdash; this is where you are headed.</p>'
-      + '</div>' : '')
-    + '</div>'
-    + '<div style="font-family:var(--font-display);font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.08em;margin-top:8px;">' + escHtml(s4.aspect_pole_flavor || '') + '</div>'
-    + '</div>'
-
-    // Karmariculum + The Truth
-    + (s4.karmariculum ? '<div class="map-section">'
-      + '<span class="map-section-label">The Curriculum</span>'
-      + '<div class="map-section-content">' + formatContent(s4.karmariculum) + '</div>'
-      + '</div>' : '')
-    + (s4.the_truth ? '<div class="map-section">'
-      + '<span class="map-section-label">The Truth</span>'
-      + '<p style="font-family:var(--font-soul);font-size:1.12rem;color:rgba(255,255,255,0.92);line-height:1.82;font-style:italic;">' + escHtml(s4.the_truth) + '</p>'
-      + '</div>' : '')
-
-    // Does this feel right?
-    + '<div class="map-section" style="text-align:center;border:none;padding:24px 0 8px;">'
-    + '<p style="font-family:var(--font-display);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.06em;margin-bottom:16px;">Does this feel right?</p>'
-    + '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">'
-    + '<button onclick="continueToFullMap()" style="font-family:var(--font-nav);font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:12px 24px;background:var(--gold);color:var(--midnight);border:none;border-radius:4px;cursor:pointer;">Yes &mdash; Show Me My Map ✦</button>'
-    + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:12px 24px;background:none;border:1.5px solid var(--periwinkle);color:var(--periwinkle);border-radius:4px;cursor:pointer;">Try a Different Vibe</button>'
-    + '</div>'
-    + '</div>'
-
-    + '</div>';
-
-  // Store for continueToFullMap
-  window._pendingMapData = data;
-
-  const responseArea = document.getElementById('response-area');
-  responseArea.innerHTML = mapHtml;
-  responseArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function continueToFullMap() {
-  const data = window._pendingMapData;
-  if (!data) return;
-  const s5 = data.step5_respond || {};
-  const aspectData = getAspectData((data.step4_receive || {}).aspect_pole_flavor || '');
-  const seed = aspectData ? aspectData.seed : '';
-  const hack = aspectData ? aspectData.hack : '';
-  const emotionData = getEmotionData(data.dominant_emotion || '');
-
-  const fullHtml = '<div class="map-card">'
-
-    // Step 3 — Release
-    + '<div class="map-section" style="background:rgba(255,255,255,0.03);border-radius:10px;padding:20px 24px;border-left:3px solid var(--periwinkle);">'
-    + '<span class="map-section-label">Step Three &mdash; Release</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.82;margin-bottom:14px;">Sit with this for a moment before you read on. You don&rsquo;t need to understand it. You just need to feel it.</p>'
-    + (emotionData ? '<div class="emotion-card">'
-      + '<span class="emotion-label">What&rsquo;s present right now</span>'
-      + '<p class="emotion-ego">' + escHtml(emotionData.ego) + '</p>'
-      + '<p class="emotion-wise">' + emotionData.wise_one + '</p>'
-      + '<p class="emotion-question">' + emotionData.question + '</p>'
-      + '</div>' : '')
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.82;">If you want to go deeper: take a few minutes to write. Not the story &mdash; the feeling itself. Sit with that question. Write without editing until something shifts. Then stop.</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.88rem;color:rgba(255,255,255,0.4);line-height:1.72;margin-top:10px;font-style:italic;">Some people find it helps to burn what they wrote. The writing names it. The fire releases it.</p>'
-    + '</div>'
-
-    // Step 4 — Receive (contemplation seed)
-    + (seed ? '<div class="map-section">'
-    + '<span class="map-section-label">Step Four &mdash; Receive</span>'
-    + '<p style="font-family:var(--font-body);font-size:0.92rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:14px;font-style:italic;">After Release softens what was gripped, Receive is where the Wise One&rsquo;s knowing becomes audible. Read this slowly. Let it land rather than thinking about it.</p>'
-    + '<p style="font-family:var(--font-soul);font-size:1.18rem;color:rgba(255,255,255,0.9);line-height:1.75;font-style:italic;">&ldquo;' + escHtml(seed) + '&rdquo;</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.55);margin-top:12px;line-height:1.72;">Sit with this question. Open your heart. Trust that the insight you need will come &mdash; not from thinking harder, but from listening more quietly.</p>'
-    + '</div>' : '')
-
-    // Step 5 — Respond
-    + '<div class="map-section">'
-    + '<span class="map-section-label">Step Five &mdash; Respond</span>'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.78);line-height:1.82;margin-bottom:16px;">Once the energy shifts, your natural wisdom comes through. You already know how to respond well &mdash; you do it every day. The distortion was the only thing in the way.</p>'
-    + (hack ? '<div style="background:rgba(255,255,255,0.09);border-radius:8px;padding:18px 20px;border-left:3px solid var(--gold);">'
-      + '<p style="font-family:var(--font-nav);font-size:0.64rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Heart Hack &mdash; if you want to go further</p>'
-      + '<p style="font-family:var(--font-body);font-size:0.92rem;color:rgba(255,255,255,0.65);line-height:1.72;margin-bottom:10px;">If you want to cause an immediate energy shift in this exact area, step outside your comfort zone and try this:</p>'
-      + '<p style="font-family:var(--font-body);font-size:1rem;color:#fff;line-height:1.82;margin-bottom:8px;font-weight:500;">' + escHtml(hack) + '</p>'
-      + '<p style="font-family:var(--font-body);font-size:0.85rem;color:rgba(255,255,255,0.4);font-style:italic;">Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.</p>'
-      + '</div>' : '')
-    + '</div>'
-
-    + '</div>'
-
-    // Blessing
-    + '<div class="resonance-card" style="text-align:center;padding:32px 28px;margin-bottom:24px;">'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:18px;">You have just walked the Five Steps to Freedom. This is the practice &mdash; not perfectly, but actually. <em>Love Heroically</em> takes you deeper into what you just experienced, with the tools to find your way back here every time you lose your center.</p>'
-    + '<p class="wise-one-text" style="margin:0;">Whatever brought you here today was not a mistake. The pain is real. The love underneath it is more real. You are held by something that has never once lost track of you. ✨</p>'
-    + '</div>'
-
-    // Try different vibe
-    + '<div style="text-align:center;padding:8px 0 24px;">'
-    + '<p style="font-family:var(--font-body);font-size:0.92rem;color:var(--text-mid);margin-bottom:12px;">Something feel off? Go back and try a different vibe.</p>'
-    + '<button onclick="tryDifferentResonance()" style="font-family:var(--font-nav);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:none;border:1.5px solid rgba(28,29,64,0.3);color:var(--text-mid);padding:10px 20px;border-radius:4px;cursor:pointer;">\u2190 Try a Different Vibe</button>'
-    + '</div>'
-
-    // Gift block — two PDF downloads, no email, no obligation
-    + '<div class="gift-card">'
-    + '<h3 class="gift-h">Take it home with you</h3>'
-    + '<p class="gift-p">Two PDFs. Yours to keep, share, or print. No email, no signup, no strings.</p>'
-    + '<div class="gift-buttons">'
-    + '<button onclick="generateMapPDF()" class="btn-gift" id="map-pdf-btn">'
-    + '<span class="btn-gift-line1">A Map for This Moment</span>'
-    + '<span class="btn-gift-line2">Your personalized reading \u00b7 PDF</span>'
-    + '</button>'
-    + '<a href="downloads/emotions-inventory-and-release-toolkit.pdf" download class="btn-gift">'
-    + '<span class="btn-gift-line1">The Release Toolkit</span>'
-    + '<span class="btn-gift-line2">13 emotions \u00b7 10 practices \u00b7 PDF</span>'
-    + '</a>'
-    + '</div>'
-    + '<p class="gift-fine">Both free. The Map Minder is always free.</p>'
-    + '</div>';
-
-  const responseArea = document.getElementById('response-area');
-  responseArea.innerHTML = fullHtml;
-  responseArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-
-
-
-// ══════════════════════════════════════════════════════════════
 // PDF GENERATION — A Map for This Moment
 // Plain-paper, ink-friendly, single-column, thin black rules between sections.
 // ══════════════════════════════════════════════════════════════
@@ -1358,33 +1497,34 @@ function generateMapPDF() {
   }
 
   try {
-    // Get jsPDF — UMD bundle exposes it as window.jspdf.jsPDF
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ unit: 'pt', format: 'letter' });
 
-    // Page setup
-    const PAGE_W = 612;          // letter width in pt
-    const PAGE_H = 792;          // letter height in pt
+    const PAGE_W = 612;
+    const PAGE_H = 792;
     const MARGIN_X = 64;
     const MARGIN_TOP = 64;
     const MARGIN_BOTTOM = 72;
     const TEXT_W = PAGE_W - 2 * MARGIN_X;
     let y = MARGIN_TOP;
 
-    // Pull data fields
-    const s4 = data.step4_receive || {};
-    const s5 = data.step5_respond || {};
-    const aspectFlavor = s4.aspect_pole_flavor || '';
-    const aspectData = (typeof getAspectData === 'function') ? getAspectData(aspectFlavor) : null;
-    const emotionData = (typeof getEmotionData === 'function') ? getEmotionData(data.dominant_emotion || '') : null;
+    // ─── Library lookups (v3: aspect_identified instead of aspect_pole_flavor) ─
+    const aspectKey = (data.aspect_identified || '').toUpperCase();
+    const aspectData = (typeof getAspectData === 'function') ? getAspectData(aspectKey) : null;
+    const aspectName = aspectData ? aspectData.key : aspectKey;
+    const aspectDisplayName = aspectName ? (aspectName.charAt(0) + aspectName.slice(1).toLowerCase()) : '';
+    const aspectPlain = data.aspect_plain || (aspectData ? aspectData.plain_term : 'love');
+    const closingWord = aspectData ? aspectData.closing_word : 'love';
+    const seed = aspectData ? aspectData.seed : '';
+    const hack = aspectData ? aspectData.hack : '';
 
-    // Get user's input
+    // User input
     const sitInput = document.getElementById('situation-input');
     const shouldInput = document.getElementById('should-input');
     const userInput = sitInput ? sitInput.value.trim() : '';
     const userShould = shouldInput ? shouldInput.value.trim() : '';
 
-    // ─── Helpers ───────────────────────────────────────────────
+    // ─── Helpers (unchanged from v2) ───────────────────────────
     function ensureSpace(needed) {
       if (y + needed > PAGE_H - MARGIN_BOTTOM) {
         addFooter();
@@ -1394,7 +1534,6 @@ function generateMapPDF() {
     }
 
     function addFooter() {
-      const pageNum = doc.internal.getCurrentPageInfo().pageNumber;
       doc.setFont('times', 'italic');
       doc.setFontSize(9);
       doc.setTextColor(120, 120, 120);
@@ -1456,7 +1595,6 @@ function generateMapPDF() {
     }
 
     function stripHtml(text) {
-      // Remove HTML tags, decode common entities
       return String(text)
         .replace(/<[^>]+>/g, '')
         .replace(/&mdash;/g, '\u2014')
@@ -1498,18 +1636,26 @@ function generateMapPDF() {
       }
     }
 
-    // ─── STEP ONE - RECOGNIZE ──────────────────────────────────
+    // ─── STEP ONE — RECOGNIZE ──────────────────────────────────
     sectionLabel('Step One  \u00b7  Recognize');
+
+    // Validating opening (NEW in v3)
+    if (data.validating_opening) {
+      bodyText(data.validating_opening);
+      spacer(4);
+    }
+
+    // Static script-conflict teaching
     bodyText('You have a script for how things should go. So does everyone else. And underneath both, there is a third \u2014 the one the universe is actually running.');
     bodyText('That is where the friction comes from \u2014 three scripts running at once, with only one of them holding the whole picture.');
 
-    // step1_bridge (if user diagnosed as stuck before Recognize landed)
+    // step1_bridge if applicable
     if (data.step1_bridge && data.diagnostic_typology === 'step1') {
       spacer(6);
       bodyText(data.step1_bridge, { italic: true });
     }
 
-    // other_scripts — what the other person or Script of Creation might be running
+    // other_scripts
     if (Array.isArray(data.other_scripts) && data.other_scripts.length > 0) {
       spacer(6);
       smallLabel('What other scripts might be running');
@@ -1522,13 +1668,26 @@ function generateMapPDF() {
       });
     }
 
-    // ─── STEP TWO - RELAX ──────────────────────────────────────
+    // ─── STEP TWO — RELAX (v3 choice-point structure) ──────────
     sectionLabel('Step Two  \u00b7  Relax');
-    bodyText('Your first instinct is to fix this right now. That impulse is your ego reading from his script. It got you here. It will not get you out.');
-    bodyText('But you just saw the conflict. That means there is a crack. Something wiser can come through \u2014 if you are willing to pause long enough to let it.');
-    bodyText('The universe already has a plan for this. Before you go fix it, consider:');
+
+    // Beat 1
+    bodyText('You are at the choice-point. This is where you have the most power to influence what happens next \u2014 not by working harder at the strategy your ego has been running, but by choosing which voice gets to lead.');
+
+    // Beat 2
+    bodyText('Notice how little has yielded to your effort. Your ego has been working faithfully, deploying every move it knows, and the world has been declining to comply. That is not because you have done anything wrong. It is because the world does not bow to ego pressure \u2014 not yours, not anyone\u2019s. Your ego is a brave operator working with limited equipment, and the equipment was never going to deliver what you actually wanted.');
+
+    // Beat 3
+    bodyText('Your higher self comes with a different kind of presence \u2014 one that moves through situations rather than against them, that opens doors rather than forcing them, that the universe actually responds to. She has been here the whole time, waiting for you to choose her over the strategy.');
+
+    // step2_bridge if applicable
+    if (data.step2_bridge && data.diagnostic_typology === 'step2') {
+      spacer(6);
+      bodyText(data.step2_bridge, { italic: true });
+    }
+
     spacer(8);
-    // Centered callout: Don't make the monkeys extinct
+    // Centered callout: Don't make the monkeys extinct (NO dream in PDF)
     doc.setFont('times', 'italic');
     doc.setFontSize(12.5);
     doc.text('Don\u2019t make the monkeys extinct.', PAGE_W / 2, y, { align: 'center' });
@@ -1536,89 +1695,88 @@ function generateMapPDF() {
     spacer(4);
     bodyText('You chose to see this differently. That choice is the practice.', { italic: true });
 
-    // ─── YOUR STORY ────────────────────────────────────────────
-    if (s4.noble_framing) {
-      sectionLabel('Your Story');
-      bodyText(s4.noble_framing);
-    }
+    // ─── THE PATTERN UNDERNEATH — [Aspect] (NEW in v3) ─────────
+    if (data.seed_paragraph_triangle || data.seed_paragraph_conditioning || data.seed_paragraph_friction) {
+      sectionLabel('The Pattern Underneath  \u00b7  ' + aspectDisplayName);
 
-    // ─── THE ASPECT ────────────────────────────────────────────
-    if (aspectData) {
-      sectionLabel('The Aspect');
-      bodyText('This is one of eight soul themes every human navigates. Here is how the ' + aspectData.wise_one + ' theme is showing up:');
+      // Opening sentence
+      bodyText('The aspect showing up in this moment is ' + aspectDisplayName + '. There is a version of ' + aspectPlain + ' your ego knows how to offer, and a version your higher self has been holding all along, and the difference between them determines everything.', { italic: true });
       spacer(4);
 
-      smallLabel('The Sword');
-      bodyText(aspectData.sword);
+      // Paragraph 1: The Triangle
+      if (data.seed_paragraph_triangle) {
+        bodyText(data.seed_paragraph_triangle);
+      }
 
-      smallLabel('The Shield');
-      bodyText(aspectData.shield);
+      // Paragraph 2: Conditioning honored, ask named
+      if (data.seed_paragraph_conditioning) {
+        bodyText(data.seed_paragraph_conditioning);
+      }
 
-      smallLabel('The Higher Self');
-      bodyText(aspectData.wise_one + ' \u2014 this is where you are headed.', { italic: true });
+      // Paragraph 3: Friction pointed at
+      if (data.seed_paragraph_friction) {
+        bodyText(data.seed_paragraph_friction);
+      }
     }
 
-    // ─── THE CURRICULUM ────────────────────────────────────────
-    if (s4.karmariculum) {
-      sectionLabel('The Curriculum');
-      bodyText(s4.karmariculum);
-    }
-
-    // ─── THE TRUTH ─────────────────────────────────────────────
-    if (s4.the_truth) {
-      sectionLabel('The Truth');
-      bodyText(s4.the_truth, { italic: true, size: 12 });
-    }
-
-    // ─── STEP THREE - RELEASE ──────────────────────────────────
+    // ─── STEP THREE — RELEASE (both-hands frame, NEW in v3) ────
     sectionLabel('Step Three  \u00b7  Release');
     bodyText('Sit with this for a moment before you read on. You do not need to understand it. You just need to feel it.');
 
-    if (emotionData) {
-      spacer(6);
-      smallLabel("What is present right now");
+    spacer(4);
+    smallLabel('What is present right now');
+    bodyText('Hold both of these in your awareness. Feel each one fully, without rushing to choose between them.', { italic: true, size: 10.5 });
 
-      smallLabel("Sir Ego's voice");
-      bodyText(emotionData.ego, { italic: true });
+    if (data.release_ego_aspect) {
+      spacer(4);
+      smallLabel('Your Ego\u2019s ' + aspectDisplayName);
+      bodyText(data.release_ego_aspect, { italic: true });
+    }
 
-      smallLabel("The Wise One's voice");
-      bodyText(emotionData.wise_one);
+    if (data.release_higher_aspect) {
+      spacer(2);
+      smallLabel('Your Higher Self\u2019s ' + aspectDisplayName);
+      bodyText(data.release_higher_aspect, { italic: true });
+    }
 
-      smallLabel("Sit with this question");
-      bodyText(emotionData.question, { italic: true });
+    if (data.release_question) {
+      spacer(4);
+      smallLabel('Sit with this question');
+      bodyText(data.release_question, { italic: true, size: 12 });
     }
 
     spacer(4);
     bodyText('If you want to go deeper: take a few minutes to write. Not the story \u2014 the feeling itself. Sit with that question. Write without editing until something shifts. Then stop.');
     bodyText('Some people find it helps to burn what they wrote. The writing names it. The fire releases it.', { italic: true, size: 10 });
 
-    // ─── STEP FOUR - RECEIVE ───────────────────────────────────
-    if (aspectData && aspectData.seed) {
+    // ─── STEP FOUR — RECEIVE (library-sourced contemplation seed) ──
+    if (seed) {
       sectionLabel('Step Four  \u00b7  Receive');
-      bodyText('After Release softens what was gripped, Receive is where the Wise One\u2019s knowing becomes audible. Read this slowly. Let it land rather than thinking about it.', { italic: true, size: 10.5 });
+      bodyText('After Release softens what was gripped, Receive is where the higher self\u2019s knowing becomes audible. Read this slowly. Let it land rather than thinking about it.', { italic: true, size: 10.5 });
       spacer(4);
-      bodyText('\u201C' + aspectData.seed + '\u201D', { italic: true, size: 12 });
+      bodyText('\u201C' + seed + '\u201D', { italic: true, size: 12 });
       spacer(4);
       bodyText('Sit with this question. Open your heart. Trust that the insight you need will come \u2014 not from thinking harder, but from listening more quietly.');
     }
 
-    // ─── STEP FIVE - RESPOND ───────────────────────────────────
+    // ─── STEP FIVE — RESPOND (library-sourced heart hack) ──────
     sectionLabel('Step Five  \u00b7  Respond');
     bodyText('Once the energy shifts, your natural wisdom comes through. You already know how to respond well \u2014 you do it every day. The distortion was the only thing in the way.');
 
-    if (aspectData && aspectData.hack) {
+    if (hack) {
       spacer(6);
       smallLabel('Heart Hack \u2014 if you want to go further');
       bodyText('If you want to cause an immediate energy shift in this exact area, step outside your comfort zone and try this:');
       spacer(2);
-      bodyText(aspectData.hack);
+      bodyText(hack);
       bodyText('Not tonight necessarily. But soon. These are harder than they sound and more freeing than you can imagine.', { italic: true, size: 10 });
     }
 
-    // ─── CLOSING BLESSING ──────────────────────────────────────
+    // ─── CLOSING — FAQ-pattern recognition + static blessing ──
     spacer(20);
     rule({ thick: true });
     spacer(20);
+
     doc.setFont('times', 'normal');
     doc.setFontSize(11);
     doc.setTextColor(0, 0, 0);
@@ -1627,11 +1785,25 @@ function generateMapPDF() {
     doc.text(closing1, PAGE_W / 2, y, { align: 'center' }); y += 18;
     doc.text(closing2, PAGE_W / 2, y, { align: 'center' }); y += 28;
 
+    // Closing recognition (FAQ-pattern) — NEW in v3
+    if (data.closing_recognition) {
+      doc.setFont('times', 'italic');
+      doc.setFontSize(11);
+      const recogLines = doc.splitTextToSize(stripHtml(data.closing_recognition), TEXT_W - 60);
+      recogLines.forEach(function(line) {
+        ensureSpace(16);
+        doc.text(line, PAGE_W / 2, y, { align: 'center' });
+        y += 16;
+      });
+      y += 14;
+    }
+
     doc.setFont('times', 'italic');
     doc.setFontSize(11);
-    const blessing = 'Whatever brought you here today was not a mistake. The pain is real. The love underneath it is more real. You are held by something that has never once lost track of you.';
+    const blessing = 'Whatever brought you here today was not a mistake. The pain is real. The ' + closingWord + ' underneath it is more real. You are held by something that has never once lost track of you.';
     const blessingLines = doc.splitTextToSize(blessing, TEXT_W - 60);
     blessingLines.forEach(function(line) {
+      ensureSpace(16);
       doc.text(line, PAGE_W / 2, y, { align: 'center' });
       y += 16;
     });
@@ -1639,7 +1811,7 @@ function generateMapPDF() {
     // ─── FOOTER ON LAST PAGE ───────────────────────────────────
     addFooter();
 
-    // Save with friendly filename
+    // Save
     doc.save('a-map-for-this-moment.pdf');
 
     // Reset button
@@ -1746,21 +1918,6 @@ function saveReading() {
   }
   // Kit integration placeholder
   alert('Thank you — your reading is on its way. ✦');
-}
-
-function tryDifferentResonance() {
-  // Always go back to the ORIGINAL step 3 vibes list
-  const data = window._originalApiResponse || window._fullMapData;
-  if (data) {
-    renderReleaseReceive(data);
-    setTimeout(function() {
-      document.querySelectorAll('.resonance-btn').forEach(b => {
-        b.disabled = false;
-        b.classList.remove('selected');
-      });
-      document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 150);
-  }
 }
 
 function resetTool() {
