@@ -13,7 +13,7 @@
     
     img { height: auto; max-width: 100%; }
     :root {
-      --cream: #F4F0EC; --midnight: #1C1D40; --deep-blue: #2C4A7C;
+      --cream: #F4F0EC; --midnight: #3C8ABC; --deep-sky: #1F4A6B; --deep-blue: #81A8CB;
       --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
       --periwinkle: #adafdf; --lavender: #d3b6e2;
       --sky-deep: #3C8ABC; --sky-mid: #81A8CB; --sky-light: #A9D0E7;
@@ -46,7 +46,7 @@
     .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
     .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
-    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--midnight); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--deep-sky); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
     .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
     .panel-role { font-family: var(--font-nav); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
     .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
@@ -54,7 +54,7 @@
     .panel-link { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
     .panel-link:hover { color: var(--gold-light); }
     .nav-has-dropdown { position: relative; }
-    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--deep-sky); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
     .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
     .nav-has-dropdown .nav-panel { display: none !important; }
     .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
@@ -70,7 +70,7 @@
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
-    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--midnight); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--deep-sky); z-index: 850; overflow-y: auto; padding: 32px 24px; }
     #mobile-menu.open { display: block; }
     .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
     .mob-link:hover, .mob-link.gold { color: var(--gold); }
@@ -78,7 +78,7 @@
 
     /* TIP */
     .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
-    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--midnight); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 280px; z-index: 200; pointer-events: none; font-weight: 400; letter-spacing: normal; text-transform: none; }
+    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--deep-sky); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 280px; z-index: 200; pointer-events: none; font-weight: 400; letter-spacing: normal; text-transform: none; }
     .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
 
     /* PAGE HEADER — Room 4 shifts warmer — lavender-rose territory per cascade */
@@ -162,7 +162,7 @@
     .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold); }
 
     /* FOOTER */
-    footer { background: var(--midnight); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+    footer { background: var(--deep-sky); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
     .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 20px; }
     .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: #fff; margin-bottom: 8px; }
     .foot-brand em { color: var(--gold); font-style: normal; }
@@ -207,7 +207,7 @@
     .forthcoming-note-text p:last-child { margin-bottom: 0; }
     .forthcoming-note-text em { color: rgba(28,29,64,0.92); font-style: italic; }
     .forthcoming-note-cta { display: inline-block; margin-top: 14px; font-family: var(--font-nav, "Raleway", sans-serif); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dark, #B8860B); border-bottom: 1px solid rgba(184,134,11,0.5); padding-bottom: 1px; text-decoration: none; transition: color 0.2s ease, border-color 0.2s ease; }
-    .forthcoming-note-cta:hover { color: var(--midnight, #1C1D40); border-bottom-color: var(--midnight, #1C1D40); }
+    .forthcoming-note-cta:hover { color: var(--midnight, #3C8ABC); border-bottom-color: var(--midnight, #3C8ABC); }
     @media (max-width: 640px) {
       .forthcoming-note-inner { grid-template-columns: 1fr; padding-left: 20px; }
       .forthcoming-note-cover { width: 80px; margin-bottom: 4px; }
@@ -281,18 +281,18 @@
     </li>
     <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
       <div class="nav-dropdown">
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
         <a href="forgiveness.html" class="dropdown-link">Guilt, Blame &amp; Shame</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
         <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
         <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
-        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
-        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
-        <a href="health.html" class="dropdown-link">Health Crisis</a>
-        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
-        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
-        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
         <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
-        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
         <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
         <a href="world.html" class="dropdown-link">World Events</a>
       </div>
     </li>
@@ -317,18 +317,18 @@
   <a href="ageofego.html" class="mob-link" data-mob="ageofego-series">&nbsp;&nbsp;· What Happened to US?</a>
   <a href="explore-sir-ego.html" class="mob-link" data-mob="mastery">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
   <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
   <a href="forgiveness.html" class="mob-link" data-mob="forgiveness">&nbsp;&nbsp;· Guilt, Blame &amp; Shame</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
   <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
   <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
-  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
-  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
-  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
-  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
-  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
-  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
   <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
-  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
   <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
   <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
   <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
   <a href="about.html" class="mob-link" data-mob="about">About</a>
@@ -400,7 +400,7 @@
     <p class="body">At the level where the shame cannot reach, you are made of eight qualities. Light. Peace. Calm. Wisdom. Love. Power. Joy. Expression. These are not achievements. They are substance. The same substance the Creator is, because you are made in that image.</p>
     <p class="body">But Sir Ego does not have access to them directly. He has access only through the Wise One — and when he forgets the Wise One is available, he reaches for each aspect with the tools he has: his shield and his sword. The shield is the aspect practiced in deficiency — collapsed, hidden, withdrawn. The sword is the aspect practiced in excess — forced, loud, weaponized. Both are Sir Ego's sincere attempts to produce the aspect on his own. Both produce the counterfeit.</p>
     <div class="graphic-wrap">
-      <img src="images/eight-aspects-ego-duality-to-divine-center.jpg" alt="The Eight Aspects: From Ego's Duality to Divine Center. Eight aspects (Light, Calm, Peace, Power, Wisdom, Joy, Expression, Love) shown with Sir Ego's Shield (deficient expression), The Wise One (exalted form), and Sir Ego's Sword (excessive expression). An upward arrow points from duality toward the divine center." width="1650" height="1275" loading="lazy" decoding="async" />
+      <img src="images/eight-aspects-ego-duality-to-divine-center.png" alt="The Eight Aspects: From Ego's Duality to Divine Center. Eight aspects (Light, Calm, Peace, Power, Wisdom, Joy, Expression, Love) shown with Sir Ego's Shield (deficient expression), The Wise One (exalted form), and Sir Ego's Sword (excessive expression). An upward arrow points from duality toward the divine center." width="1650" height="1275" loading="lazy" decoding="async" />
       <div class="graphic-caption">The Eight Aspects — From Ego's Duality to Divine Center</div>
     </div>
     <p class="body">Read across any row and you'll find yourself in one of three places. The shield (hiding, fleeing, collapsing). The sword (judging, fighting, dominating). Or the center — the Wise One's radiance, presence, faith, creativity, insight, flow, authenticity, warmth.</p>
@@ -434,7 +434,7 @@
     <p class="body">This next map pulls the same territory into greater detail. Each aspect shown with its duality — Sir Ego's typical ego pattern — alongside the Wise One's exalted expression. And between them, the Crucible: the specific inner work that converts the raw material of a life into the refined aspect.</p>
     <p class="body">You'll notice the Five Steps woven right into the map. RECOGNIZE for Light. RECEIVE for Wisdom. RELEASE for Peace. RELAX for Calm. RESPOND for Power. The practice from Room Three isn't separate from this teaching. The practice is how the forge operates, one triggered moment at a time.</p>
     <div class="graphic-wrap">
-      <img src="images/eight-aspects-soul-forge-chart.jpg" alt="Eight Aspects of the Soul's Experimentation, Ascension, and Eternal Essence. Detailed color chart with Exalted Aspect (Expression, Light, Wisdom, Joy, Love, Power, Peace, Calm), Sir Ego's Duality, Presence (chakra symbols), Hero's Crucible, and The Wise One (the exalted expression)." width="1650" height="1275" loading="lazy" decoding="async" />
+      <img src="images/eight-aspects-soul-forge-chart.png" alt="Eight Aspects of the Soul's Experimentation, Ascension, and Eternal Essence. Detailed color chart with Exalted Aspect (Expression, Light, Wisdom, Joy, Love, Power, Peace, Calm), Sir Ego's Duality, Presence (chakra symbols), Hero's Crucible, and The Wise One (the exalted expression)." width="1650" height="1275" loading="lazy" decoding="async" />
       <div class="graphic-caption">The Eight Aspects &mdash; The Hero's Crucible</div>
     </div>
     <p class="body">Notice where your life has landed most often in Sir Ego's Duality column. That's the forge your soul chose. That's the aspect being refined in you right now.</p>
@@ -449,7 +449,7 @@
     <div class="section-rule"></div>
     <p class="body">This last map is the most personal of the three. It turns the teaching into first-person language — statements you'll likely recognize as ones you have either said out loud or carried silently. And next to each one, the remembrance. The sovereign truth. The Wise One's voice in your own first person.</p>
     <div class="graphic-wrap">
-      <img src="images/shadow-to-sovereignty-ego-arc.jpg" alt="From Shadow to Sovereignty — the ego arc from wounded reactivity to sovereign co-creation through the Five Steps." width="1275" height="1650" loading="lazy" decoding="async" />
+      <img src="images/shadow-to-sovereignty-ego-arc.png" alt="From Shadow to Sovereignty — the ego arc from wounded reactivity to sovereign co-creation through the Five Steps." width="1275" height="1650" loading="lazy" decoding="async" />
       <div class="graphic-caption">From Shadow to Sovereignty</div>
     </div>
     <p class="body">Read down the left column and notice where your voice catches. That's the aspect being forged. Read across to the right column — the sovereign version. Even if you can't yet feel the Wise One's truth, notice that she is already speaking it. Notice that it is available. The gap between the shadow statement and the sovereign statement is the practice. The Five Steps are how you walk across.</p>
@@ -472,7 +472,7 @@
       <p>This room is the overview. The book is the walk — one chapter per aspect, the full teaching on how each one is forged, the specific patterns Sir Ego runs when he's trying to produce it on his own, and the Wise One's way of letting the aspect emerge as what you already are.</p>
       <p>While the book is finishing, a free summary is available for the reader who wants to carry the whole arc now, even in draft form.</p>
       <div class="bbs-buttons">
-        <a href="downloads/beyond-blame-and-shame-summary.docx" class="btn-gold" download>Download Summary ↓</a>
+        <a href="downloads/beyond-blame-and-shame-summary.pdf" class="btn-gold" download>Download Summary ↓</a>
         <span class="bbs-availability">Free · In Progress</span>
       </div>
     </div>
