@@ -337,11 +337,13 @@
 
 <!-- NAV -->
 <nav id="main-nav">
-  <div class="nav-brand">Kindred<em>Lights</em></div>
+  <a href="index.html" class="nav-brand"><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
   <ul class="nav-links">
-    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-    <li class="nav-item"><a href="mapminder.html" class="nav-link active" style="color:var(--gold-dark)">Map Minder</a></li>
-    <li class="nav-item nav-has-dropdown"><a href="#" class="nav-link">The Series ▾</a>
+    <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link active" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item" data-nav="explore"><a href="explore.html" class="nav-link">Explore</a><div class="nav-panel"><span class="panel-role">The Rooms</span><div class="panel-title">The Exploratorium</div><p class="panel-desc">Five rooms to wander. Find what catches you.</p><a href="explore.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to US?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="series"><a href="#" class="nav-link">The Series ▾</a>
       <div class="nav-dropdown" style="min-width:280px;">
         <a href="lh.html" class="dropdown-link">Love Heroically</a>
         <a href="explore-truth.html" class="dropdown-link">Beyond Blame &amp; Shame</a>
@@ -350,35 +352,60 @@
         <a href="explore-sir-ego.html" class="dropdown-link">The Mastery of Sir Ego</a>
       </div>
     </li>
-    <li class="nav-item nav-has-dropdown">
-      <a href="ageofego.html" class="nav-link">The Books ▾</a>
+    <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
       <div class="nav-dropdown">
-        <a href="ageofego.html" class="dropdown-link">What Happened to US?</a>
-        <a href="lh.html" class="dropdown-link">Love Heroically</a>
-        <a href="books-coming.html" class="dropdown-link">Coming Soon</a>
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="forgiveness.html" class="dropdown-link">Guilt, Blame &amp; Shame</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
+        <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
       </div>
     </li>
-    <li class="nav-item"><a href="luminology-glossary.html" class="nav-link">Luminology</a></li>
-    <li class="nav-item"><a href="barbies.html" class="nav-link">Barbies</a></li>
-    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+    <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
   </ul>
 </nav>
 
 <div class="mobile-nav">
-  <div class="mobile-brand">Kindred <em>Lights</em></div>
+  <a href="index.html" class="mobile-brand"><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </div>
 <div id="mobile-menu">
-  <a href="index.html" class="mob-link">Home</a>
-  <a href="mapminder.html" class="mob-link gold">✦ Map Minder</a>
+  <a href="index.html" class="mob-link" data-mob="home">Home</a>
+  <a href="https://kindredlights.org/mapminder" class="mob-link gold active" data-mob="mapminder">✦ Help, Now! — Free</a>
+  <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
   <a href="#" class="mob-link" data-mob="series" onclick="return false;">The Series</a>
   <a href="lh.html" class="mob-link" data-mob="lh">&nbsp;&nbsp;· Love Heroically</a>
   <a href="explore-truth.html" class="mob-link" data-mob="bbs">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
   <a href="luminology-glossary.html" class="mob-link" data-mob="luminology">&nbsp;&nbsp;· Luminology</a>
   <a href="ageofego.html" class="mob-link" data-mob="ageofego-series">&nbsp;&nbsp;· What Happened to US?</a>
   <a href="explore-sir-ego.html" class="mob-link" data-mob="mastery">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
-  <a href="barbies.html" class="mob-link">Barbies</a>
-  <a href="about.html" class="mob-link">About</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="forgiveness.html" class="mob-link" data-mob="forgiveness">&nbsp;&nbsp;· Guilt, Blame &amp; Shame</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
+  <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
+  <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
+  <a href="about.html" class="mob-link" data-mob="about">About</a>
 </div>
 
 <!-- HERO -->
