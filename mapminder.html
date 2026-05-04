@@ -37,6 +37,9 @@
     .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
     .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--deep-sky); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .nav-has-dropdown .nav-panel { display: none !important; }
     .nav-has-dropdown { position: relative; }
     .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--deep-sky); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
     .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
