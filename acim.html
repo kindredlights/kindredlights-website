@@ -98,7 +98,7 @@
 
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-      --midnight: #1C1D40; --gold-light: #E8D48A; --gold-dark: #C9A84C;
+      --midnight: #3C8ABC; --deep-sky: #1F4A6B; --gold-light: #E8D48A; --gold-dark: #C9A84C;
 
       --periwinkle: #adafdf; --text-dark: #2b2b2b; --text-mid: #4a4a4a;
 
@@ -119,7 +119,7 @@
     /* Legacy nav CSS injected below — see end of style block */
 /* Vertical hero */
 
-    .v-hero { padding-top: calc(var(--nav-h) + 56px); padding-bottom: 56px; padding-left: 32px; padding-right: 80px; background: linear-gradient(160deg, #1C1D40 0%, #234058 50%, #c9b896 100%); position: relative; overflow: hidden; }
+    .v-hero { padding-top: calc(var(--nav-h) + 56px); padding-bottom: 56px; padding-left: 32px; padding-right: 80px; background: linear-gradient(160deg, #3C8ABC 0%, #234058 50%, #c9b896 100%); position: relative; overflow: hidden; }
 
     .v-hero-bg { position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(ellipse at 70% 50%, rgba(232,212,138,0.18) 0%, transparent 60%); pointer-events: none; }
 
@@ -155,13 +155,13 @@
 
     .tip { position: relative; cursor: help; border-bottom: 1px dotted var(--gold-dark); }
 
-    .tip-box { display: none; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; background: var(--midnight); color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 0.86rem; line-height: 1.5; width: 240px; z-index: 10; font-style: normal; }
+    .tip-box { display: none; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; background: var(--deep-sky); color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 0.86rem; line-height: 1.5; width: 240px; z-index: 10; font-style: normal; }
 
     .tip:hover .tip-box, .tip:focus .tip-box { display: block; }
 
     /* BFF section */
 
-    .bff-section { padding: 72px 32px; background: linear-gradient(180deg, #1C1D40 0%, #234058 100%); color: #fff; }
+    .bff-section { padding: 72px 32px; background: linear-gradient(180deg, #3C8ABC 0%, #234058 100%); color: #fff; }
 
     .bff-inner { max-width: var(--max); margin: 0 auto; }
 
@@ -247,7 +247,7 @@
 
     .blessing-inner { max-width: var(--max); margin: 0 auto; text-align: center; }
 
-    .blessing-text { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.55rem); line-height: 1.6; color: var(--midnight); font-style: italic; }
+    .blessing-text { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.55rem); line-height: 1.6; color: var(--text-dark); font-style: italic; }
 
     .blessing-text p { margin-bottom: 22px; }
 
@@ -313,7 +313,7 @@
 
     /* Footer */
 
-    footer { background: var(--midnight); color: rgba(255,255,255,0.75); padding: 56px 32px 32px; }
+    footer { background: var(--deep-sky); color: rgba(255,255,255,0.75); padding: 56px 32px 32px; }
 
     .foot-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
 
@@ -353,7 +353,7 @@
     .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
     .nav-link br { display: block; }
     /* Hover panel — the orientation card under each nav item. */
-    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--midnight); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--deep-sky); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
     .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
     .panel-role { font-family: var(--font-nav); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
     .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
@@ -365,7 +365,7 @@
     .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
     .nav-link:hover::after { transform: scaleX(1); }
     .nav-has-dropdown { position: relative; }
-    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--deep-sky); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
     .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
     /* Dropdown items suppress the generic nav-panel to prevent overlap. */
     .nav-has-dropdown .nav-panel { display: none !important; }
@@ -382,7 +382,7 @@
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
-    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--midnight); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--deep-sky); z-index: 850; overflow-y: auto; padding: 32px 24px; }
     #mobile-menu.open { display: block; }
     .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
     .mob-link:hover, .mob-link.gold { color: var(--gold); }
@@ -560,18 +560,18 @@
     </li>
     <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link active">What's Your<br>Problem? ▾</a>
       <div class="nav-dropdown">
+        <a href="acim.html" class="dropdown-link active">A Course in Miracles</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
         <a href="forgiveness.html" class="dropdown-link">Guilt, Blame &amp; Shame</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
         <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
         <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
-        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
-        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
-        <a href="health.html" class="dropdown-link">Health Crisis</a>
-        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
-        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
-        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
         <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
-        <a href="acim.html" class="dropdown-link active">A Course in Miracles</a>
+        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
         <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
         <a href="world.html" class="dropdown-link">World Events</a>
       </div>
     </li>
@@ -594,18 +594,18 @@
   <a href="ageofego.html" class="mob-link" data-mob="ageofego-series">&nbsp;&nbsp;· What Happened to US?</a>
   <a href="explore-sir-ego.html" class="mob-link" data-mob="mastery">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
   <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
+  <a href="acim.html" class="mob-link active" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
   <a href="forgiveness.html" class="mob-link" data-mob="forgiveness">&nbsp;&nbsp;· Guilt, Blame &amp; Shame</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
   <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
   <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
-  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
-  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
-  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
-  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
-  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
-  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
   <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
-  <a href="acim.html" class="mob-link active" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
   <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
   <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
   <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
   <a href="about.html" class="mob-link" data-mob="about">About</a>
@@ -1253,16 +1253,18 @@
 
       <p class="foot-h">What's Your Problem?</p>
       <ul class="foot-links">
+        <li><a href="acim.html">A Course in Miracles</a></li>
+        <li><a href="addiction.html">Addiction &amp; Sobriety</a></li>
+        <li><a href="anxiety.html">Anxiety</a></li>
+        <li><a href="grief.html">Grief &amp; Loss</a></li>
+        <li><a href="forgiveness.html">Guilt, Blame &amp; Shame</a></li>
+        <li><a href="health.html">Health Crisis</a></li>
         <li><a href="narc.html">Narcissistic Abuse</a></li>
         <li><a href="parenting.html">Parenting Triggers</a></li>
-        <li><a href="addiction.html">Addiction &amp; Sobriety</a></li>
-        <li><a href="grief.html">Grief &amp; Loss</a></li>
-        <li><a href="health.html">Health Crisis</a></li>
-        <li><a href="work.html">Work &amp; Workplace</a></li>
-        <li><a href="anxiety.html">Anxiety</a></li>
         <li><a href="awakening.html">Spiritual Awakening</a></li>
-        <li><a href="acim.html">A Course in Miracles</a></li>
+        <li><a href="empath.html">The Empath Alchemist</a></li>
         <li><a href="untethered.html">The Untethered Soul</a></li>
+        <li><a href="work.html">Work &amp; Workplace</a></li>
         <li><a href="world.html">World Events</a></li>
       </ul>
 

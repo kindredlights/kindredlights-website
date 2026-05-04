@@ -53,7 +53,7 @@
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-nav: 'Cormorant Garamond', Georgia, serif;
-      --midnight: #1C1D40; --gold-light: #E8D48A; --gold-dark: #C9A84C;
+      --midnight: #3C8ABC; --deep-sky: #1F4A6B; --gold-light: #E8D48A; --gold-dark: #C9A84C;
       --gold: #D4B85F; --cream: #FBF7F1; --text-dark: #2b2b2b; --text-mid: #4a4a4a;
       --love: #d4a5b8; --power: #e0c47a; --calm: #7a8db8;
     }
@@ -114,7 +114,7 @@
     }
 
     /* === Vertical hero === */
-    .v-hero { padding-top: calc(var(--nav-h) + 56px); padding-bottom: 56px; padding-left: 32px; padding-right: 80px; background: linear-gradient(160deg, #1C1D40 0%, #4a3d5e 50%, #d4a5b8 100%); position: relative; overflow: hidden; }
+    .v-hero { padding-top: calc(var(--nav-h) + 56px); padding-bottom: 56px; padding-left: 32px; padding-right: 80px; background: linear-gradient(160deg, #3C8ABC 0%, #4a3d5e 50%, #d4a5b8 100%); position: relative; overflow: hidden; }
     .v-hero-bg { position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(ellipse at 70% 50%, rgba(212,165,184,0.22) 0%, transparent 60%); pointer-events: none; }
     .v-hero-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 2; }
     .v-eyebrow { display: inline-block; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; font-weight: 500; }
@@ -134,7 +134,7 @@
 
     /* Tooltip */
     .tip { position: relative; cursor: help; border-bottom: 1px dotted var(--gold-dark); }
-    .tip-box { display: none; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; background: var(--midnight); color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 0.86rem; line-height: 1.5; width: 240px; z-index: 10; font-style: normal; }
+    .tip-box { display: none; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; background: var(--deep-sky); color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 0.86rem; line-height: 1.5; width: 240px; z-index: 10; font-style: normal; }
     .tip:hover .tip-box, .tip:focus .tip-box { display: block; }
 
     /* Octave teaching block — used in Collision Point */
@@ -145,7 +145,7 @@
     .octave-block strong { color: var(--midnight); }
 
     /* BFF section */
-    .bff-section { padding: 72px 32px; background: linear-gradient(180deg, #1C1D40 0%, #4a3d5e 100%); color: #fff; }
+    .bff-section { padding: 72px 32px; background: linear-gradient(180deg, #3C8ABC 0%, #4a3d5e 100%); color: #fff; }
     .bff-inner { max-width: var(--max); margin: 0 auto; }
     .bff-label { display: block; font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 16px; font-weight: 600; }
     .bff-phase { display: block; font-family: var(--font-display); font-size: 1.4rem; color: var(--gold-light); margin-top: 36px; margin-bottom: 16px; font-style: italic; }
@@ -193,7 +193,7 @@
     /* Blessing */
     .blessing-section { padding: 88px 32px; background: linear-gradient(180deg, #FBF7F1 0%, #F0EAE0 100%); }
     .blessing-inner { max-width: var(--max); margin: 0 auto; text-align: center; }
-    .blessing-text { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.55rem); line-height: 1.6; color: var(--midnight); font-style: italic; }
+    .blessing-text { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.55rem); line-height: 1.6; color: var(--text-dark); font-style: italic; }
     .blessing-text p { margin-bottom: 22px; }
     .blessing-text p:last-child { margin-bottom: 0; }
 
@@ -231,7 +231,7 @@
     .disclaimer-inner { max-width: var(--max); margin: 0 auto; font-family: var(--font-body); font-size: 0.86rem; line-height: 1.7; color: var(--text-mid); font-style: italic; text-align: center; }
 
     /* Footer */
-    footer { background: var(--midnight); color: rgba(255,255,255,0.75); padding: 56px 32px 32px; }
+    footer { background: var(--deep-sky); color: rgba(255,255,255,0.75); padding: 56px 32px 32px; }
     .foot-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
     @media (max-width: 800px) { .foot-inner { grid-template-columns: 1fr; gap: 32px; } }
     .foot-brand { font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin-bottom: 12px; }

@@ -13,7 +13,7 @@
     
     img { height: auto; max-width: 100%; }
     :root {
-      --cream: #F4F0EC; --midnight: #1C1D40; --deep-blue: #2C4A7C;
+      --cream: #F4F0EC; --midnight: #3C8ABC; --deep-sky: #1F4A6B; --deep-blue: #81A8CB;
       --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
       --periwinkle: #adafdf; --lavender: #d3b6e2;
       --sky-deep: #3C8ABC; --sky-mid: #81A8CB; --sky-light: #A9D0E7;
@@ -51,7 +51,7 @@
     .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
     .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
-    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--midnight); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--deep-sky); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
     .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
     .panel-role { font-family: var(--font-nav); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
     .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
@@ -59,7 +59,7 @@
     .panel-link { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
     .panel-link:hover { color: var(--gold-light); }
     .nav-has-dropdown { position: relative; }
-    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--deep-sky); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
     .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
     .nav-has-dropdown .nav-panel { display: none !important; }
     .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
@@ -75,7 +75,7 @@
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
-    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--midnight); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--deep-sky); z-index: 850; overflow-y: auto; padding: 32px 24px; }
     #mobile-menu.open { display: block; }
     .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
     .mob-link:hover, .mob-link.gold { color: var(--gold); }
@@ -83,7 +83,7 @@
 
     /* TIP */
     .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
-    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--midnight); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 280px; z-index: 200; pointer-events: none; font-weight: 400; letter-spacing: normal; text-transform: none; }
+    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--deep-sky); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 280px; z-index: 200; pointer-events: none; font-weight: 400; letter-spacing: normal; text-transform: none; }
     .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
 
     /* PAGE HEADER — Room 3 sits in the middle of the palette cascade, periwinkle territory */
@@ -217,7 +217,7 @@
     .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold); }
 
     /* FOOTER */
-    footer { background: var(--midnight); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+    footer { background: var(--deep-sky); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
     .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 20px; }
     .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: #fff; margin-bottom: 8px; }
     .foot-brand em { color: var(--gold); font-style: normal; }
@@ -297,18 +297,18 @@
     </li>
     <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
       <div class="nav-dropdown">
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
         <a href="forgiveness.html" class="dropdown-link">Guilt, Blame &amp; Shame</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
         <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
         <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
-        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
-        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
-        <a href="health.html" class="dropdown-link">Health Crisis</a>
-        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
-        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
-        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
         <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
-        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
         <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
         <a href="world.html" class="dropdown-link">World Events</a>
       </div>
     </li>
@@ -333,18 +333,18 @@
   <a href="ageofego.html" class="mob-link" data-mob="ageofego-series">&nbsp;&nbsp;· What Happened to US?</a>
   <a href="explore-sir-ego.html" class="mob-link" data-mob="mastery">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
   <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
   <a href="forgiveness.html" class="mob-link" data-mob="forgiveness">&nbsp;&nbsp;· Guilt, Blame &amp; Shame</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
   <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
   <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
-  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
-  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
-  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
-  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
-  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
-  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
   <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
-  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
   <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
   <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
   <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
   <a href="about.html" class="mob-link" data-mob="about">About</a>
@@ -507,7 +507,7 @@
     <div class="section-rule"></div>
     <p class="body">A one-page reference with the full cues for each step — the thoughts to watch for, the heart-state to cultivate, the quality of the arrival. Print it. Keep it handy. Use it in the moment.</p>
     <div class="graphic-wrap">
-      <img src="images/five-steps-to-freedom-ez-reference-page-1.png" alt="The Five Steps to Freedom EZ Reference — page 1. Quick reference card with the five steps and their inner process." width="2200" height="1700" loading="lazy" decoding="async" />
+      <img src="images/five-steps-to-freedom-ez-reference.png" alt="The Five Steps to Freedom EZ Reference — page 1. Quick reference card with the five steps and their inner process." width="2200" height="1700" loading="lazy" decoding="async" />
       <div class="graphic-caption">The Five Steps EZ Reference</div>
       <div class="graphic-download"><a href="downloads/five-steps-ez-reference.pdf" download>Download EZ Reference PDF ↓</a></div>
     </div>

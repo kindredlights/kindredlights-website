@@ -85,14 +85,14 @@
     
     img { height: auto; max-width: 100%; }
     .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
-    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--midnight); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 240px; z-index: 200; pointer-events: none; }
+    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--deep-sky); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 240px; z-index: 200; pointer-events: none; }
     .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
 
     :root {
       --cream: #F4F0EC;
       --cream-dark: #EAE4DA;
-      --midnight: #1C1D40;
-      --deep-blue: #2C4A7C;
+      --midnight: #3C8ABC; --deep-sky: #1F4A6B;
+      --deep-blue: #81A8CB;
       --gold: #C9A84C;
       --gold-light: #E8D48A;
       --gold-dark: #8B6914;
@@ -125,7 +125,7 @@
     .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
     .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
-    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--midnight); border-top: 2px solid var(--gold); min-width: 220px; padding: 8px 0; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 50; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--deep-sky); border-top: 2px solid var(--gold); min-width: 220px; padding: 8px 0; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 50; }
     .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; }
     .dropdown-link { display: block; padding: 10px 22px; font-family: var(--font-nav); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--cream); transition: background 0.2s, color 0.2s; }
     .dropdown-link:hover { background: rgba(201,168,76,0.15); color: var(--gold-light); }
@@ -215,7 +215,7 @@
     .cta-block h3 em { font-family: var(--font-soul); font-style: italic; color: var(--gold-light); font-weight: 400; }
     .cta-block p { font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; color: rgba(244,240,236,0.92); margin-bottom: 26px; max-width: 520px; margin-left: auto; margin-right: auto; }
 
-    footer { background: var(--midnight); color: var(--cream); padding: 56px 32px 30px; }
+    footer { background: var(--deep-sky); color: var(--cream); padding: 56px 32px 30px; }
     .foot-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
     @media (max-width: 820px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 500px) { .foot-grid { grid-template-columns: 1fr; } }
@@ -258,16 +258,18 @@
     </li>
     <li class="nav-item nav-has-dropdown"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
       <div class="nav-dropdown">
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="forgiveness.html" class="dropdown-link">Guilt, Blame &amp; Shame</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
         <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
         <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
-        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
-        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
-        <a href="health.html" class="dropdown-link">Health Crisis</a>
-        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
-        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
         <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
-        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
         <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
         <a href="world.html" class="dropdown-link">World Events</a>
       </div>
     </li>
@@ -292,16 +294,18 @@
   <a href="ageofego.html" class="mob-link" data-mob="ageofego-series">&nbsp;&nbsp;· What Happened to US?</a>
   <a href="explore-sir-ego.html" class="mob-link" data-mob="mastery">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
   <a href="ageofego.html" class="mob-link">Five Steps for the World</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="forgiveness.html" class="mob-link" data-mob="forgiveness">&nbsp;&nbsp;· Guilt, Blame &amp; Shame</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
   <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
   <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
-  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
-  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
-  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
-  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
-  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
   <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
-  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
   <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
   <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
   <a href="barbies.html" class="mob-link">Barbies</a>
   <a href="about.html" class="mob-link">About</a>
@@ -374,7 +378,7 @@
     <p>Now look at this:</p>
 
     <figure style="margin: 36px 0; text-align: center;">
-      <img src="images/ideologies-collective-age-of-ego.png" alt="The Collective Ideology Grid — eight billion scripts, each certain its quadrant is reality. The collective-scale version of the Age of Ego pattern." loading="lazy" decoding="async" style="max-width: 820px; border: 1px solid rgba(28,29,64,0.1); border-radius: 4px;" onerror="this.style.display='none'"/>
+      <img src="images/ideology-grid-collective-age-of-ego.png" alt="The Collective Ideology Grid — eight billion scripts, each certain its quadrant is reality. The collective-scale version of the Age of Ego pattern." loading="lazy" decoding="async" style="max-width: 820px; border: 1px solid rgba(28,29,64,0.1); border-radius: 4px;" onerror="this.style.display='none'"/>
       <figcaption style="font-family: var(--font-soul); font-style: italic; font-size: 1rem; margin-top: 14px; color: var(--text-mid); max-width: 640px; margin-left: auto; margin-right: auto;">Each of us is standing somewhere on this map. Each of us is absolutely certain our quadrant is reality. This is what's actually happening &mdash; collectively, right now, in every room.</figcaption>
     </figure>
 
@@ -430,7 +434,13 @@
     <p class="section-sub">Not a personal self-help routine. The precise collective sequence that lets humanity walk up from the floor. Each step is what we are being asked to do together &mdash; and what becomes possible when we do.</p>
 
     <figure style="margin: 32px 0 44px; text-align: center;">
-      <img src="images/five-steps-for-the-world-age-of-ego.jpg" alt="The Five Steps for the World — the collective Age of Ego to Age of Love version. Recognize the old script is ending. Relax into the heart. Release centuries of stored karma. Receive collective wisdom. Respond from love." width="1299" height="1047" loading="lazy" decoding="async" style="max-width: 760px; border-radius: 4px;" onerror="this.style.display='none'" />
+      <img src="images/five-steps-age-of-ego-flowchart.png" alt="The Five Steps for the World — the collective Age of Ego to Age of Love version. Recognize the old script is ending. Relax into the heart. Release centuries of stored karma. Receive collective wisdom. Respond from love." width="1299" height="1047" loading="lazy" decoding="async" style="max-width: 760px; border-radius: 4px;" onerror="this.style.display='none'" />
+    </figure>
+
+    <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.15rem; text-align: center; color: var(--text-mid); margin: 0 0 24px; max-width: 640px; margin-left: auto; margin-right: auto;">The same mechanism, at the scale of one triggered moment in your own day.</p>
+
+    <figure style="margin: 0 0 56px; text-align: center;">
+      <img src="images/five-steps-two-paths-the-heros-path-of-love.png" alt="Five Steps. Two Paths. The Hero's Path of Love. The Wise One path: Identify Emotion, Feel It, Open Heart, Insight Arises, Right Action — leading to Ease and Flow. The Sir Ego path: Identify Problem, Fix It, Closed Heart, Stuck in Story, Rinse and Repeat — leading to Same Old Story. Heart consciousness changes everything." width="1299" height="1047" loading="lazy" decoding="async" style="max-width: 720px; border-radius: 4px;" onerror="this.style.display='none'" />
     </figure>
 
     <div class="steps-grid">
@@ -482,6 +492,12 @@
         <div class="step-hit">A lighthouse does not go out to the boats and drag them to shore.<br>Walk yourself to the center of the tent. The whole tent rises.</div>
       </div>
 
+    </div>
+
+    <!-- Personal-scale handle — the visitor takes this home -->
+    <div style="margin-top: 56px; padding: 40px 32px; background: rgba(244,240,236,0.5); border-radius: 8px; text-align: center;">
+      <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; color: var(--midnight); line-height: 1.6; margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto;">All of the above happens through one triggered moment at a time, in one open heart at a time. Here is the practice you take home.</p>
+      <img src="images/five-steps-to-freedom.png" alt="The Five Steps to Freedom — the Hero's Path of Love. Recognize: Here we go again, mind busy, heart closed. Relax: the ego braces, the Wise One breathes. Release: feel it, don't fix it, wait in the discomfort. Receive: in the silence after the surrender, the Wise One speaks. Respond: right words, right action, right attitude." width="1300" height="1100" loading="lazy" decoding="async" style="max-width: 580px; width: 100%; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 12px 44px rgba(0,0,0,0.1);" />
     </div>
   </div>
 </section>
@@ -649,16 +665,18 @@
     <div>
       <p class="foot-h">What's Your Problem?</p>
       <ul class="foot-links">
+        <li><a href="acim.html">A Course in Miracles</a></li>
+        <li><a href="addiction.html">Addiction &amp; Sobriety</a></li>
+        <li><a href="anxiety.html">Anxiety</a></li>
+        <li><a href="grief.html">Grief &amp; Loss</a></li>
+        <li><a href="forgiveness.html">Guilt, Blame &amp; Shame</a></li>
+        <li><a href="health.html">Health Crisis</a></li>
         <li><a href="narc.html">Narcissistic Abuse</a></li>
         <li><a href="parenting.html">Parenting Triggers</a></li>
-        <li><a href="addiction.html">Addiction &amp; Sobriety</a></li>
-        <li><a href="grief.html">Grief &amp; Loss</a></li>
-        <li><a href="health.html">Health Crisis</a></li>
-        <li><a href="work.html">Work &amp; Workplace</a></li>
-        <li><a href="anxiety.html">Anxiety</a></li>
         <li><a href="awakening.html">Spiritual Awakening</a></li>
-        <li><a href="acim.html">A Course in Miracles</a></li>
+        <li><a href="empath.html">The Empath Alchemist</a></li>
         <li><a href="untethered.html">The Untethered Soul</a></li>
+        <li><a href="work.html">Work &amp; Workplace</a></li>
         <li><a href="world.html">World Events</a></li>
       </ul>
     </div>
