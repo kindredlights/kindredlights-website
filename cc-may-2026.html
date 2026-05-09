@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!-- KL · Conscious Connections speaker application page · May 2026 -->
+<!-- noindex page · not linked from sitemap or nav · access by URL only -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Speaker Application — Kindred Lights</title>
+  <meta name="description" content="Speaker application materials for Conscious Connections, San Diego, May 16 2026." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #F4F0EC; --midnight: #3C8ABC; --deep-sky: #1F4A6B; --deep-blue: #81A8CB;
+      --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
+      --periwinkle: #adafdf; --lavender-pale: #E1E8F5;
+      --text-dark: #2b2b2b; --text-mid: #4a4a4a;
+      --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
+      --max: 880px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body); font-size: 16px; color: var(--text-dark);
+      background: var(--cream); overflow-x: hidden; line-height: 1.7;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: var(--gold-dark); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--midnight); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, #1c2a4a 0%, #2a3d6e 60%, #1c2a4a 100%);
+      position: relative; overflow: hidden;
+      padding: 96px 32px 72px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url("images/sun-angel-hero-kindred-lights.png");
+      background-size: cover; background-position: 75% top;
+      opacity: 0.32; pointer-events: none;
+    }
+    .hero-inner {
+      max-width: var(--max); margin: 0 auto; position: relative; z-index: 1;
+    }
+    .hero-mark {
+      font-family: var(--font-display); font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.26em; color: var(--gold);
+      text-transform: uppercase; margin-bottom: 22px; text-align: center;
+    }
+    .hero-mark em { font-style: normal; color: var(--gold-light); }
+    .hero-eyebrow {
+      font-family: var(--font-nav); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold);
+      text-align: center; margin-bottom: 18px;
+    }
+    .hero-title {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: #fff; letter-spacing: 0.04em; line-height: 1.18;
+      text-align: center; margin-bottom: 14px;
+    }
+    .hero-sub {
+      font-family: var(--font-soul); font-style: italic;
+      font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+      color: rgba(255,255,255,0.82); text-align: center; margin-bottom: 28px;
+    }
+    .hero-flourish {
+      text-align: center; color: var(--gold); font-size: 1.1rem;
+      margin: 18px 0 0;
+    }
+    .hero-meta {
+      font-family: var(--font-nav); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); text-align: center; margin-top: 30px;
+    }
+
+    /* MAIN */
+    main { max-width: var(--max); margin: 0 auto; padding: 64px 32px 96px; }
+
+    /* SECTIONS */
+    .section { margin-bottom: 72px; }
+    .section:last-child { margin-bottom: 0; }
+    .section-label {
+      font-family: var(--font-nav); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--gold-dark); margin-bottom: 14px; display: block;
+    }
+    .section-title {
+      font-family: var(--font-display); font-size: 1.6rem; font-weight: 400;
+      color: var(--midnight); letter-spacing: 0.04em; line-height: 1.25;
+      margin-bottom: 24px;
+    }
+    .section-flourish {
+      text-align: center; color: var(--gold); font-size: 1rem;
+      margin: 32px 0;
+    }
+
+    /* PROSE */
+    .prose p {
+      font-family: var(--font-body); font-size: 1.05rem; color: var(--text-dark);
+      line-height: 1.8; margin-bottom: 18px;
+    }
+    .prose p.lead {
+      font-family: var(--font-soul); font-style: italic;
+      font-size: 1.18rem; color: var(--midnight); line-height: 1.7;
+    }
+    .prose em.tag {
+      font-family: var(--font-nav); font-style: normal; font-weight: 700;
+      font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-dark); display: block; margin-top: 24px;
+    }
+
+    /* DOWNLOAD CARDS */
+    .downloads {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    }
+    @media (max-width: 600px) { .downloads { grid-template-columns: 1fr; } }
+    .download-card {
+      background: #fff; border: 1px solid rgba(60,138,188,0.18);
+      border-radius: 8px; padding: 26px 24px;
+      box-shadow: 0 4px 22px rgba(28,29,64,0.05);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .download-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(28,29,64,0.1);
+      border-color: var(--gold);
+    }
+    .dl-icon {
+      font-family: var(--font-display); font-size: 0.95rem;
+      color: var(--gold); margin-bottom: 8px; letter-spacing: 0.18em;
+    }
+    .dl-title {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 600;
+      color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 4px;
+    }
+    .dl-meta {
+      font-family: var(--font-nav); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-mid); margin-bottom: 16px;
+    }
+    .dl-link {
+      font-family: var(--font-nav); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold-dark); padding: 10px 18px;
+      border: 1.5px solid var(--gold); border-radius: 4px;
+      transition: all 0.2s; align-self: stretch; text-align: center;
+    }
+    .dl-link:hover {
+      background: var(--gold); color: #fff;
+    }
+
+    /* VIDEO */
+    .video-wrap {
+      position: relative; width: 100%; aspect-ratio: 16/9;
+      background: var(--deep-sky); border-radius: 8px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(28,29,64,0.12);
+    }
+    .video-wrap iframe, .video-wrap video {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+    }
+    .video-caption {
+      font-family: var(--font-nav); font-size: 0.8rem;
+      color: var(--text-mid); margin-top: 14px; text-align: center;
+      letter-spacing: 0.06em;
+    }
+
+    /* OUTLINE */
+    .outline-list {
+      list-style: none; padding: 0;
+    }
+    .outline-item {
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(60,138,188,0.12);
+      display: grid; grid-template-columns: 56px 1fr 80px; gap: 18px;
+      align-items: baseline;
+    }
+    .outline-item:last-child { border-bottom: none; }
+    .outline-num {
+      font-family: var(--font-display); font-size: 0.9rem; font-weight: 600;
+      color: var(--gold); letter-spacing: 0.06em;
+    }
+    .outline-text strong {
+      font-family: var(--font-display); font-weight: 600;
+      color: var(--midnight); display: block; margin-bottom: 4px;
+      font-size: 1rem; letter-spacing: 0.02em;
+    }
+    .outline-text span {
+      font-family: var(--font-body); font-size: 0.95rem;
+      color: var(--text-mid); line-height: 1.65;
+    }
+    .outline-time {
+      font-family: var(--font-nav); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; color: var(--text-mid);
+      text-align: right; white-space: nowrap;
+    }
+    @media (max-width: 600px) {
+      .outline-item { grid-template-columns: 36px 1fr; }
+      .outline-time { grid-column: 1 / -1; padding-left: 36px; padding-top: 4px; }
+    }
+
+    /* CONTACT */
+    .contact-card {
+      background: var(--lavender-pale);
+      border-radius: 8px; padding: 32px;
+      text-align: center;
+    }
+    .contact-card p {
+      font-family: var(--font-body); font-size: 1rem;
+      color: var(--text-dark); line-height: 1.7;
+    }
+    .contact-card a {
+      font-family: var(--font-nav); font-weight: 600;
+      letter-spacing: 0.06em; color: var(--midnight);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 48px 32px;
+      border-top: 1px solid rgba(60,138,188,0.12);
+      margin-top: 48px;
+    }
+    .footer-flourish {
+      color: var(--gold); font-size: 1.2rem; margin-bottom: 14px;
+    }
+    .footer-text {
+      font-family: var(--font-display); font-size: 0.78rem;
+      letter-spacing: 0.22em; color: var(--midnight);
+      text-transform: uppercase;
+    }
+    .footer-note {
+      font-family: var(--font-soul); font-style: italic;
+      font-size: 0.95rem; color: var(--text-mid);
+      margin-top: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════════════ HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-mark">Kindred <em>Lights</em></div>
+      <span class="hero-eyebrow">Speaker Application</span>
+      <h1 class="hero-title">Our Personal Path is<br />Our Planetary Contribution</h1>
+      <p class="hero-sub">The Hero's Path of Love</p>
+      <p class="hero-flourish">✦</p>
+      <p class="hero-meta">Conscious Connections · San Diego · May 16, 2026</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ MAIN -->
+  <main>
+
+    <!-- ABSTRACT -->
+    <section class="section">
+      <span class="section-label">Abstract</span>
+      <h2 class="section-title">A Practice for the Threshold</h2>
+      <div class="prose">
+        <p class="lead">Plasma fields, Schumann shifts, collapsing institutions — something is ending and something is arriving. The cosmology is real. Most of us still don't know what to do with our nervous systems on Tuesday morning.</p>
+        <p>The Age of Ego runs on a script. The Age of Love runs on a practice — five steps that meet you where you actually live: in the kitchen, in the marriage, in the triggered moment that came out of nowhere.</p>
+        <p>This is not a talk about the shift. It is a fifteen-minute walk through the practice that brings the shift twelve inches down — from cosmology in the head to alignment in the body.</p>
+        <p><em>Bring something hard from your life. Leave with the framework that meets it.</em></p>
+        <em class="tag">Our Personal Path is Our Planetary Contribution.</em>
+      </div>
+    </section>
+
+    <p class="section-flourish">✦</p>
+
+    <!-- DECK DOWNLOADS -->
+    <section class="section">
+      <span class="section-label">Slide Deck</span>
+      <h2 class="section-title">Talk Slides</h2>
+      <div class="downloads">
+        <div class="download-card">
+          <span class="dl-icon">PDF</span>
+          <span class="dl-title">Slide Deck</span>
+          <span class="dl-meta">17 slides · 16:9 · for review</span>
+          <a class="dl-link" href="downloads/kl-cc-may-2026-slides.pdf" download>Download PDF</a>
+        </div>
+        <div class="download-card">
+          <span class="dl-icon">PPTX</span>
+          <span class="dl-title">PowerPoint Source</span>
+          <span class="dl-meta">17 slides · 16:9 · editable</span>
+          <a class="dl-link" href="downloads/kl-cc-may-2026-slides.pptx" download>Download PPTX</a>
+        </div>
+      </div>
+    </section>
+
+    <p class="section-flourish">✦</p>
+
+    <!-- VIDEO -->
+    <section class="section">
+      <span class="section-label">Speaker Video</span>
+      <h2 class="section-title">A Brief Introduction</h2>
+      <div class="video-wrap">
+        <!-- Replace src with the actual video URL.
+             Options:
+             1) Self-hosted: <video controls src="downloads/kl-speaker-intro.mp4"></video>
+             2) Vimeo:       <iframe src="https://player.vimeo.com/video/XXXXXXXX" allow="autoplay; fullscreen" allowfullscreen></iframe>
+             3) YouTube:     <iframe src="https://www.youtube.com/embed/XXXXXXX" allow="autoplay; encrypted-media" allowfullscreen></iframe>  -->
+        <iframe
+          src="about:blank"
+          title="Kindred Lights — speaker introduction"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p class="video-caption">Replace embed source above with the chosen video URL.</p>
+    </section>
+
+    <p class="section-flourish">✦</p>
+
+    <!-- OUTLINE -->
+    <section class="section">
+      <span class="section-label">Outline</span>
+      <h2 class="section-title">The Fifteen Minutes</h2>
+      <ol class="outline-list">
+        <li class="outline-item">
+          <span class="outline-num">01</span>
+          <div class="outline-text">
+            <strong>The Age of Ego, ending.</strong>
+            <span>Falling pieces. Naming the moment the audience is already feeling.</span>
+          </div>
+          <span class="outline-time">~30s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">02</span>
+          <div class="outline-text">
+            <strong>The Script of Creation.</strong>
+            <span>Every science as instrument. The Script of Creation as conductor. The Score being played: the end of the Age of Ego, the rise of the Age of Love.</span>
+          </div>
+          <span class="outline-time">~90s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">03</span>
+          <div class="outline-text">
+            <strong>Karmariculum.</strong>
+            <span>Each soul's role within the larger Script. Talents, passions, experiences, astrology — all aligning with the cosmos.</span>
+          </div>
+          <span class="outline-time">~60s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">04</span>
+          <div class="outline-text">
+            <strong>8 Billion Ego Scripts.</strong>
+            <span>The diagnosis at both scales. The personal grid and the collective grid — same axes, same wound, two scales.</span>
+          </div>
+          <span class="outline-time">~90s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">05</span>
+          <div class="outline-text">
+            <strong>Script Conflict.</strong>
+            <span>The grid as tent fabric. Every hand pulling in a different direction. Grid locked.</span>
+          </div>
+          <span class="outline-time">~75s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">06</span>
+          <div class="outline-text">
+            <strong>Applied Spirituality.</strong>
+            <span>The credential. From losing the ego's power struggle to reclaiming the power of Love. A Thanksgiving table rebuilt from the wreckage.</span>
+          </div>
+          <span class="outline-time">~75s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">07</span>
+          <div class="outline-text">
+            <strong>Triggered. NOW is the only moment there is.</strong>
+            <span>The doctrinal anchor that makes the practice immediate, in the room.</span>
+          </div>
+          <span class="outline-time">~45s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">08</span>
+          <div class="outline-text">
+            <strong>The Ego &amp; the Higher Self.</strong>
+            <span>The partnership beneath awareness. What ruptures when a trigger fires.</span>
+          </div>
+          <span class="outline-time">~60s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">09</span>
+          <div class="outline-text">
+            <strong>The Five Steps · Two Paths.</strong>
+            <span>The visible architecture of the choice. Same trigger, two operating systems.</span>
+          </div>
+          <span class="outline-time">~75s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">10</span>
+          <div class="outline-text">
+            <strong>Let's do an experiment.</strong>
+            <span>Threshold. Invitation into the practice itself.</span>
+          </div>
+          <span class="outline-time">~15s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">11</span>
+          <div class="outline-text">
+            <strong>The body knows.</strong>
+            <span>Closed-heart faces. Open-heart bodies. The audience feels the difference in their own nervous systems in real time. Mind your energy.</span>
+          </div>
+          <span class="outline-time">~120s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">12</span>
+          <div class="outline-text">
+            <strong>Living the Karmariculum.</strong>
+            <span>What becomes possible. Peace in any storm. Sacred relationships. Your gifts in service to all. As each of us walks ourselves to the center, the whole tent rises.</span>
+          </div>
+          <span class="outline-time">~75s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">13</span>
+          <div class="outline-text">
+            <strong>The Age of Love, arising.</strong>
+            <span>Hands holding in circle. Visible recognition: this is what is already arriving, here, now, in this room.</span>
+          </div>
+          <span class="outline-time">~30s</span>
+        </li>
+        <li class="outline-item">
+          <span class="outline-num">14</span>
+          <div class="outline-text">
+            <strong>Map Minder &amp; Close.</strong>
+            <span>A free five-minute tool to walk the practice on your own. The personal path, continuing.</span>
+          </div>
+          <span class="outline-time">~60s</span>
+        </li>
+      </ol>
+    </section>
+
+    <p class="section-flourish">✦</p>
+
+    <!-- BIO -->
+    <section class="section">
+      <span class="section-label">Bio</span>
+      <h2 class="section-title">Kindred Lights</h2>
+      <div class="prose">
+        <p>Kindred Lights is the author of <em>What Happened to US? From the Age of Ego to the Age of Love</em> and <em>Love Heroically: The Five Steps to Freedom</em>, the first two books of The Hero's Path of Love series.</p>
+        <p>The work emerged from twenty years of applying the deepest spiritual teachings to a real life under real conditions — through addiction, the wreckage of an ego's power struggle, and the slow reclaiming of the power of Love that produced a Thanksgiving table no one believed possible.</p>
+        <p class="lead">People who start there do not end up here. That gap has a name. The Five Steps are its name.</p>
+      </div>
+    </section>
+
+    <p class="section-flourish">✦</p>
+
+    <!-- CONTACT -->
+    <section class="section">
+      <div class="contact-card">
+        <p>For questions or scheduling, please reach Kindred Lights through Dana Kippel, or at <a href="mailto:hello@kindredlights.org">hello@kindredlights.org</a>.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════ FOOTER -->
+  <footer>
+    <div class="footer-flourish">✦</div>
+    <div class="footer-text">Kindred Lights</div>
+    <div class="footer-note">Our Personal Path is Our Planetary Contribution.</div>
+  </footer>
+
+</body>
+</html>
