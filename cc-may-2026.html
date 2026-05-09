@@ -120,6 +120,10 @@
     .downloads {
       display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
     }
+    .downloads.downloads-single {
+      grid-template-columns: 1fr;
+      max-width: 420px; margin: 0 auto;
+    }
     @media (max-width: 600px) { .downloads { grid-template-columns: 1fr; } }
     .download-card {
       background: #fff; border: 1px solid rgba(60,138,188,0.18);
@@ -280,18 +284,12 @@
     <section class="section">
       <span class="section-label">Slide Deck</span>
       <h2 class="section-title">Talk Slides</h2>
-      <div class="downloads">
+      <div class="downloads downloads-single">
         <div class="download-card">
           <span class="dl-icon">PDF</span>
           <span class="dl-title">Slide Deck</span>
-          <span class="dl-meta">17 slides · 16:9 · for review</span>
+          <span class="dl-meta">17 slides · 16:9</span>
           <a class="dl-link" href="downloads/kl-cc-may-2026-slides.pdf" download>Download PDF</a>
-        </div>
-        <div class="download-card">
-          <span class="dl-icon">PPTX</span>
-          <span class="dl-title">PowerPoint Source</span>
-          <span class="dl-meta">17 slides · 16:9 · editable</span>
-          <a class="dl-link" href="downloads/kl-cc-may-2026-slides.pptx" download>Download PPTX</a>
         </div>
       </div>
     </section>
@@ -457,7 +455,7 @@
     <!-- CONTACT -->
     <section class="section">
       <div class="contact-card">
-        <p>For questions or scheduling, please reach Kindred Lights through Dana Kippel, or at <a href="mailto:hello@kindredlights.org">hello@kindredlights.org</a>.</p>
+        <p>For questions, please reach Kindred Lights at <a href="mailto:kindred@kindredlights.org">kindred@kindredlights.org</a>.</p>
       </div>
     </section>
 
