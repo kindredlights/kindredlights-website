@@ -139,8 +139,6 @@
     /* HERO */
     .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 40px; padding-left: 40px; padding-right: 80px; background: #A3D1E8; min-height: auto; display: flex; align-items: center; position: relative; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: center top; opacity: 1; z-index: 0; pointer-events: none; }
-    /* Soft white scrim over the photo on the LEFT (meter side) so text & meter read cleanly; the right side stays open to show the sun. */
-    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0) 100%); z-index: 0; pointer-events: none; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: center; }
     .hero-meter img { width: 100%; max-width: 300px; filter: drop-shadow(0 12px 40px rgba(31,74,107,0.25)); }
