@@ -1371,10 +1371,12 @@ function renderFullMap(data) {
         var emo = getEmotionData(data.dominant_emotion || '');
         if (!emo) return '';
         var emoLabel = (data.dominant_emotion || '').charAt(0).toUpperCase() + (data.dominant_emotion || '').slice(1).toLowerCase();
+        // emo.ego and emo.wise_one are trusted library content with intentional
+        // HTML entities (&mdash; etc.) — insert raw, do NOT escHtml them.
         return '<div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:16px 20px;margin-bottom:18px;border-left:2px solid rgba(186,176,226,0.6);">'
           + '<p style="font-family:var(--font-nav);font-size:0.66rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(186,176,226,0.9);margin-bottom:10px;">What you may be feeling &mdash; ' + escHtml(emoLabel) + '</p>'
-          + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.74;margin-bottom:10px;">' + escHtml(emo.ego) + '</p>'
-          + '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.9);line-height:1.74;font-style:italic;margin-bottom:0;">' + escHtml(emo.wise_one) + '</p>'
+          + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.74;margin-bottom:10px;">' + emo.ego + '</p>'
+          + '<p style="font-family:var(--font-soul);font-size:1rem;color:rgba(255,255,255,0.9);line-height:1.74;font-style:italic;margin-bottom:0;">' + emo.wise_one + '</p>'
           + '</div>';
       })()
 
@@ -1606,11 +1608,15 @@ function generateMapPDF() {
     }
     y = logoY + logoH_pt + 18;
 
-    // Gold flourish (✦)
+    // Gold flourish — a small ornament beneath the logo.
+    // Note: jsPDF's standard Times/Helvetica/Courier use WinAnsi encoding,
+    // which doesn't include Unicode stars/diamonds like \u2726 (✦) or \u2666 (♦).
+    // Using three centered asterisks as a typographically clean substitute
+    // that renders reliably in every PDF viewer.
     doc.setFont('times', 'normal');
-    doc.setFontSize(13);
+    doc.setFontSize(14);
     doc.setTextColor(201, 168, 76);  // sacred gold #C9A84C
-    doc.text('\u2726', PAGE_W / 2, y, { align: 'center' });
+    doc.text('* * *', PAGE_W / 2, y, { align: 'center', charSpace: 4 });
     doc.setTextColor(0, 0, 0);
     y += 18;
 
