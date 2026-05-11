@@ -160,13 +160,22 @@
 
     @media (max-width: 920px) { #main-nav { display: none; } .mobile-nav { display: flex; } }
 
-    .hero { padding: calc(var(--nav-h) + 90px) 24px 110px; background: var(--sky-bold); text-align: center; }
-    .hero-inner { max-width: 820px; margin: 0 auto; }
-    .hero-eyebrow { font-family: var(--font-nav); font-size: 0.76rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 28px; }
-    .hero-h1 { font-family: var(--font-display); font-size: clamp(2.1rem, 5vw, 3.3rem); font-weight: 600; color: #FFFFFF; line-height: 1.18; margin-bottom: 22px; }
+    .hero { padding: calc(var(--nav-h) + 60px) 24px 90px; background: var(--sky-bold); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 280px 1fr; gap: 56px; align-items: center; }
+    .hero-cover { display: flex; justify-content: center; }
+    .hero-cover img { width: 100%; max-width: 280px; height: auto; border-radius: 2px; box-shadow: 0 16px 48px rgba(15,34,53,0.35); }
+    .hero-text { text-align: left; }
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+      .hero-cover img { max-width: 220px; }
+      .hero-text { text-align: center; }
+      .hero-cta-row { justify-content: center; }
+    }
+    .hero-eyebrow { font-family: var(--font-nav); font-size: 0.76rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 22px; }
+    .hero-h1 { font-family: var(--font-display); font-size: clamp(1.9rem, 4.2vw, 2.8rem); font-weight: 600; color: #FFFFFF; line-height: 1.18; margin-bottom: 18px; }
     .hero-h1 em { font-family: var(--font-soul); font-style: italic; color: var(--gold-light); font-weight: 400; }
-    .hero-h2 { font-family: var(--font-soul); font-size: clamp(1.25rem, 2.4vw, 1.55rem); font-style: italic; color: var(--text-on-sky); line-height: 1.5; margin-bottom: 40px; max-width: 680px; margin-left: auto; margin-right: auto; }
-    .hero-cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .hero-h2 { font-family: var(--font-soul); font-size: clamp(1.15rem, 2vw, 1.4rem); font-style: italic; color: var(--text-on-sky); line-height: 1.5; margin-bottom: 32px; }
+    .hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
     .btn-primary { display: inline-block; background: var(--gold); color: var(--sky-shadow); font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 15px 30px; border-radius: 2px; transition: background 0.2s; }
     .btn-primary:hover { background: var(--gold-light); color: var(--sky-shadow); }
     .btn-secondary { display: inline-block; background: rgba(255,255,255,0.12); color: #FFFFFF; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 28px; border: 1px solid rgba(255,255,255,0.5); border-radius: 2px; backdrop-filter: blur(6px); transition: background 0.2s, border-color 0.2s; }
@@ -207,7 +216,7 @@
     .dark-bg .bff p { color: var(--text-deep); }
 
     /* steps grid — cloud cards */
-    .steps-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 36px; }
+    .steps-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 36px auto 0; max-width: 760px; }
     .step-card { background: var(--cloud); border-left: 4px solid var(--gold); padding: 28px 32px; border-radius: 8px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
     .step-card .step-num { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.26em; color: var(--gold-dark); font-weight: 600; }
     .step-card h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--sky-shadow); margin: 6px 0; font-weight: 600; letter-spacing: 0.04em; }
@@ -332,12 +341,16 @@
 <!-- HERO — Wise One voice meets Sir Ego's questions -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow reveal">What Happened to US? &nbsp;·&nbsp; Kindred Lights</div>
-    <h1 class="hero-h1 reveal">Am I the only one seeing this?<br><em>How did we end up here?</em></h1>
-    <p class="hero-h2 reveal">You're a good person. You want to raise your family in love and safety. And you keep asking &mdash; quietly, at 11pm &mdash; why it feels like the people running the show don't care whether any of that happens.</p>
-    <div class="hero-cta-row reveal">
-      <a href="#the-pattern" class="btn-primary">Start Here</a>
-      <a href="https://kindredlights.org/mapminder" class="btn-secondary">Help, Now — Free</a>
+    <div class="hero-cover reveal">
+      <img src="images/what-happened-to-us-age-of-ego-book-cover.jpg" alt="What Happened to US? From the Age of Ego to the Age of Love — book cover by Kindred Lights" width="1333" height="2000" loading="eager" decoding="async" />
+    </div>
+    <div class="hero-text">
+      <div class="hero-eyebrow reveal">What Happened to US? &nbsp;·&nbsp; Kindred Lights</div>
+      <h1 class="hero-h1 reveal">Am I the only one seeing this?<br><em>How did we end up here?</em></h1>
+      <p class="hero-h2 reveal">You're a good person. You want to raise your family in love and safety. And you keep asking &mdash; quietly, at 11pm &mdash; why it feels like the people running the show don't care whether any of that happens.</p>
+      <div class="hero-cta-row reveal">
+        <a href="https://kindredlights.org/mapminder" class="btn-primary">Help, Now — Free</a>
+      </div>
     </div>
   </div>
 </section>
@@ -397,7 +410,7 @@
 
     <figure style="margin: 36px 0; text-align: center;">
       <img src="images/ideology-grid-collective-age-of-ego.png" alt="The Collective Ideology Grid — eight billion scripts, each certain its quadrant is reality. The collective-scale version of the Age of Ego pattern." loading="lazy" decoding="async" style="max-width: 820px; border: 1px solid rgba(28,29,64,0.1); border-radius: 4px;" onerror="this.style.display='none'"/>
-      <figcaption style="font-family: var(--font-soul); font-style: italic; font-size: 1rem; margin-top: 14px; color: var(--text-on-sky); max-width: 640px; margin-left: auto; margin-right: auto;">Each of us is standing somewhere on this map. Each of us is absolutely certain our quadrant is reality. This is what's actually happening &mdash; collectively, right now, in every room.</figcaption>
+      <figcaption style="font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; margin-top: 18px; color: var(--text-on-sky); max-width: 720px; margin-left: auto; margin-right: auto; line-height: 1.55;">Each of us is standing somewhere on this map. Each of us is absolutely certain our quadrant is reality. This is what's actually happening &mdash; collectively, right now, in every room.</figcaption>
     </figure>
 
     <p>You can't unsee this once you see it. Eight billion people are standing in different quadrants, each one certain their script is reality itself. Not an interpretation &mdash; reality. Willing to die on that hill. Willing to look at anyone in a different quadrant and be genuinely convinced <em>they</em> are the problem, because from inside your own quadrant, it's obvious.</p>
