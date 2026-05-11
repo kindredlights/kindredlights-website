@@ -115,8 +115,8 @@
     .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
     .btn-outline { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 14px 28px; border: 1.5px solid rgba(28,29,64,0.3); color: var(--midnight); border-radius: 2px; display: inline-block; background: rgba(247,243,238,0.55); transition: border-color 0.2s, color 0.2s; }
     .btn-outline:hover { border-color: var(--gold-dark); color: var(--gold-dark); }
-    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 14px 28px; border: 1.5px solid rgba(247,243,238,0.35); color: rgba(247,243,238,0.8); border-radius: 2px; display: inline-block; transition: border-color 0.2s, color 0.2s; }
-    .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 14px 28px; border: 1.5px solid rgba(31,74,107,0.4); color: #1F4A6B; border-radius: 2px; display: inline-block; background: rgba(255,255,255,0.4); transition: border-color 0.2s, color 0.2s, background 0.2s; }
+    .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold-dark); background: rgba(255,255,255,0.6); }
     .btn-midnight { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 16px 36px; background: var(--midnight); color: var(--cream); border-radius: 2px; display: inline-block; box-shadow: 0 4px 18px rgba(28,29,64,0.25); transition: background 0.2s, transform 0.15s; }
     .btn-midnight:hover { background: var(--deep-blue); transform: translateY(-2px); }
     .btn-primary { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 15px 32px; background: var(--deep-blue); color: var(--cream); border-radius: 2px; display: inline-block; transition: background 0.2s, transform 0.15s; }
@@ -137,18 +137,20 @@
     .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
 
     /* HERO */
-    .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 40px; padding-left: 40px; padding-right: 80px; background: linear-gradient(160deg, #1c2a4a 0%, #2a3d6e 60%, #1c2a4a 100%); min-height: auto; display: flex; align-items: center; position: relative; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: 75% top; opacity: 0.45; z-index: 0; pointer-events: none; }
+    .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 40px; padding-left: 40px; padding-right: 80px; background: #A3D1E8; min-height: auto; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: center top; opacity: 1; z-index: 0; pointer-events: none; }
+    /* Soft white scrim over the photo on the LEFT (meter side) so text & meter read cleanly; the right side stays open to show the sun. */
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0) 100%); z-index: 0; pointer-events: none; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: center; }
-    .hero-meter img { width: 100%; max-width: 300px; filter: drop-shadow(0 12px 40px rgba(28,29,64,0.15)); }
+    .hero-meter img { width: 100%; max-width: 300px; filter: drop-shadow(0 12px 40px rgba(31,74,107,0.25)); }
     .meter-subtext { margin-top: 20px; max-width: 300px; }
-    .meter-subtext p { font-family: var(--font-body); font-size: 1rem; color: rgba(247,243,238,0.7); line-height: 1.72; margin-bottom: 10px; }
-    .meter-question { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 6px; }
-    .hero-tagline { font-family: var(--font-soul); font-size: clamp(1.6rem,3.2vw,2.6rem); font-style: italic; line-height: 1.4; color: var(--cream); margin-bottom: 28px; font-weight: 300; }
-    .hero-tagline em { color: var(--gold-light); }
+    .meter-subtext p { font-family: var(--font-body); font-size: 1rem; color: rgba(31,74,107,0.78); line-height: 1.72; margin-bottom: 10px; }
+    .meter-question { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; color: #1F4A6B; letter-spacing: 0.04em; margin-bottom: 6px; }
+    .hero-tagline { font-family: var(--font-soul); font-size: clamp(1.6rem,3.2vw,2.6rem); font-style: italic; line-height: 1.4; color: #1F4A6B; margin-bottom: 28px; font-weight: 400; text-shadow: 0 1px 2px rgba(255,255,255,0.4); }
+    .hero-tagline em { color: var(--gold-dark); }
     .hero-rule { width: 48px; height: 1px; background: var(--gold); margin-bottom: 16px; }
-    .hero-body { font-family: var(--font-body); font-size: 1.12rem; color: rgba(247,243,238,0.8); line-height: 1.82; margin-bottom: 36px; }
+    .hero-body { font-family: var(--font-body); font-size: 1.12rem; color: rgba(31,74,107,0.88); line-height: 1.82; margin-bottom: 36px; }
     .hero-body p { margin-bottom: 14px; }
     .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
