@@ -48,7 +48,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); font-size: 16px; color: #2b2b2b; background: #A3D1E8; overflow-x: hidden; line-height: 1.6; }
+    body { font-family: var(--font-body); font-size: 16px; color: #2b2b2b; background: #4F9AD4; overflow-x: hidden; line-height: 1.6; }
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -115,8 +115,8 @@
     .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
     .btn-outline { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 14px 28px; border: 1.5px solid rgba(28,29,64,0.3); color: var(--midnight); border-radius: 2px; display: inline-block; background: rgba(247,243,238,0.55); transition: border-color 0.2s, color 0.2s; }
     .btn-outline:hover { border-color: var(--gold-dark); color: var(--gold-dark); }
-    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 14px 28px; border: 1.5px solid rgba(31,74,107,0.4); color: #1F4A6B; border-radius: 2px; display: inline-block; background: rgba(255,255,255,0.4); transition: border-color 0.2s, color 0.2s, background 0.2s; }
-    .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold-dark); background: rgba(255,255,255,0.6); }
+    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 14px 28px; border: 1.5px solid rgba(247,243,238,0.6); color: #F7F3EE; border-radius: 2px; display: inline-block; background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); transition: border-color 0.2s, color 0.2s, background 0.2s; }
+    .btn-outline-cream:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.18); }
     .btn-midnight { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 16px 36px; background: var(--midnight); color: var(--cream); border-radius: 2px; display: inline-block; box-shadow: 0 4px 18px rgba(28,29,64,0.25); transition: background 0.2s, transform 0.15s; }
     .btn-midnight:hover { background: var(--deep-blue); transform: translateY(-2px); }
     .btn-primary { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 15px 32px; background: var(--deep-blue); color: var(--cream); border-radius: 2px; display: inline-block; transition: background 0.2s, transform 0.15s; }
@@ -137,18 +137,18 @@
     .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
 
     /* HERO */
-    .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 40px; padding-left: 40px; padding-right: 80px; background: #A3D1E8; min-height: auto; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 40px; padding-left: 40px; padding-right: 80px; background: #4F9AD4; min-height: auto; display: flex; align-items: center; position: relative; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: center top; opacity: 1; z-index: 0; pointer-events: none; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: center; }
     .hero-meter img { width: 100%; max-width: 300px; filter: drop-shadow(0 12px 40px rgba(31,74,107,0.25)); }
     .meter-subtext { margin-top: 20px; max-width: 300px; }
-    .meter-subtext p { font-family: var(--font-body); font-size: 1rem; color: #0F2235; line-height: 1.72; margin-bottom: 10px; }
-    .meter-question { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; color: #0F2235; letter-spacing: 0.04em; margin-bottom: 6px; }
-    .hero-tagline { font-family: var(--font-soul); font-size: clamp(1.6rem,3.2vw,2.6rem); font-style: italic; line-height: 1.4; color: #0F2235; margin-bottom: 28px; font-weight: 500; }
-    .hero-tagline em { color: var(--gold-dark); }
+    .meter-subtext p { font-family: var(--font-body); font-size: 1rem; color: #F7F3EE; line-height: 1.72; margin-bottom: 10px; }
+    .meter-question { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; color: var(--gold-light); letter-spacing: 0.06em; margin-bottom: 6px; text-transform: uppercase; }
+    .hero-tagline { font-family: var(--font-soul); font-size: clamp(1.6rem,3.2vw,2.6rem); font-style: italic; line-height: 1.4; color: #FFFFFF; margin-bottom: 28px; font-weight: 500; text-shadow: 0 2px 12px rgba(15,34,53,0.35); }
+    .hero-tagline em { color: var(--gold-light); }
     .hero-rule { width: 48px; height: 1px; background: var(--gold); margin-bottom: 16px; }
-    .hero-body { font-family: var(--font-body); font-size: 1.12rem; color: #0F2235; line-height: 1.82; margin-bottom: 36px; }
+    .hero-body { font-family: var(--font-body); font-size: 1.12rem; color: #F7F3EE; line-height: 1.82; margin-bottom: 36px; text-shadow: 0 1px 4px rgba(15,34,53,0.25); }
     .hero-body p { margin-bottom: 14px; }
     .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
@@ -156,11 +156,11 @@
     /* BENEFITS — bold sky background; cards are the reading surface */
     .benefits { background: #4F9AD4; padding: 80px 32px; }
     .benefits-inner { max-width: var(--max); margin: 0 auto; }
-    .benefits-head { text-align: center; max-width: 720px; margin: 0 auto 48px; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); padding: 36px 40px; border-radius: 12px; box-shadow: 0 6px 24px rgba(15,34,53,0.12); }
-    .benefits-intro { font-family: var(--font-body); font-size: 1.06rem; color: #2B2B2B; line-height: 1.82; margin-top: 18px; }
+    .benefits-head { text-align: center; max-width: 720px; margin: 0 auto 48px; background: #3C8ABC; padding: 36px 40px; border-radius: 12px; box-shadow: 0 6px 24px rgba(15,34,53,0.18); }
+    .benefits-intro { font-family: var(--font-body); font-size: 1.06rem; color: rgba(247,243,238,0.95); line-height: 1.82; margin-top: 18px; }
     .b-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 8px; }
-    .b-card { background: rgba(255,255,255,0.88); backdrop-filter: blur(10px); border-radius: 10px; padding: 36px 28px 32px; border-top: 3px solid rgba(15,34,53,0.18); box-shadow: 0 6px 22px rgba(15,34,53,0.12); transition: background 0.2s, border-color 0.2s, transform 0.15s; display: flex; flex-direction: column; }
-    .b-card:hover { background: rgba(255,255,255,0.96); border-color: var(--gold); transform: translateY(-2px); }
+    .b-card { background: #E8E0F0; border-radius: 10px; padding: 36px 28px 32px; border-top: 3px solid var(--gold); box-shadow: 0 6px 22px rgba(15,34,53,0.12); transition: background 0.2s, border-color 0.2s, transform 0.15s; display: flex; flex-direction: column; }
+    .b-card:hover { background: #EFE8F4; border-color: var(--gold-light); transform: translateY(-2px); }
     .b-card .b-body { flex: 1; }
     .b-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; color: #0F2235; letter-spacing: 0.04em; margin-bottom: 12px; }
     .b-body { font-family: var(--font-body); font-size: 1rem; color: #2B2B2B; line-height: 1.72; }
@@ -170,7 +170,7 @@
 
     /* MAP MINDER BAND */
     /* MAP MINDER BAND — palette slot 3: soft sky (light section, midnight text for CTA readability) */
-    .mm-band { background: #A3D1E8; padding: 64px 32px; text-align: center; position: relative; overflow: hidden; }
+    .mm-band { background: #4F9AD4; padding: 64px 32px; text-align: center; position: relative; overflow: hidden; }
     .mm-band::before { content: "✦  ✦  ✦"; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gold-dark); opacity: 0.6; }
     .mm-band::after { content: ""; position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); width: 80px; height: 1px; background: var(--gold); opacity: 0.5; }
     .mm-band h2 { font-family: var(--font-display); font-size: clamp(1.8rem,3.2vw,2.6rem); font-weight: 600; color: #0F2235; letter-spacing: 0.03em; line-height: 1.15; margin-bottom: 16px; }
@@ -179,7 +179,7 @@
 
     /* FIVE STEPS */
     /* FIVE STEPS — palette slot 2: medium blue (tiles provide internal contrast) */
-    .fivesteps { background: #A3D1E8; padding: 80px 32px; }
+    .fivesteps { background: #4F9AD4; padding: 80px 32px; }
     .fs-inner { max-width: var(--max); margin: 0 auto; }
     .fs-head { text-align: center; max-width: 620px; margin: 0 auto 40px; }
     .fs-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; }
@@ -194,7 +194,7 @@
 
     /* LUMINOLOGY */
     /* LUMINOLOGY — palette slot 7: lavender. Cards float in translucent white. */
-    .luminology { background: #A3D1E8; padding: 80px 32px; }
+    .luminology { background: #4F9AD4; padding: 80px 32px; }
     .lum-inner { max-width: var(--max); margin: 0 auto; }
     .lum-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
     .lum-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
@@ -207,7 +207,7 @@
     .lum-pull blockquote { font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; color: var(--midnight); line-height: 1.72; border-left: 3px solid rgba(28,29,64,0.35); padding-left: 22px; text-align: left; margin-bottom: 28px; }
 
     /* BOOKS */
-    .books { background: #A3D1E8; padding: 80px 32px; }
+    .books { background: #4F9AD4; padding: 80px 32px; }
     .books-inner { max-width: var(--max); margin: 0 auto; }
     .books-head { text-align: center; margin-bottom: 56px; }
     .books-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -232,7 +232,7 @@
     .kit-fine { font-family: var(--font-nav); font-size: 0.58rem; color: rgba(247,243,238,0.2); margin-top: 12px; letter-spacing: 0.06em; }
 
     /* AWARDS */
-    .awards { background: #A3D1E8; padding: 64px 32px; }
+    .awards { background: #4F9AD4; padding: 64px 32px; }
     .awards-inner { max-width: var(--max); margin: 0 auto; }
     .awards-eyebrow { font-family: var(--font-nav); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8B7EC8; text-align: center; display: block; margin-bottom: 40px; }
     .awards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-bottom: 32px; }
@@ -459,8 +459,8 @@
 <section class="benefits">
   <div class="benefits-inner">
     <div class="benefits-head reveal">
-      <span class="eyebrow" style="color:rgba(28,29,64,0.82);font-size:0.72rem">What's Actually Happening</span>
-      <h2 class="sh" style="color:#0F2235">When the heart closes,<br>the wisdom goes quiet.</h2>
+      <span class="eyebrow" style="color:var(--gold-light);font-size:0.72rem">What's Actually Happening</span>
+      <h2 class="sh" style="color:#FFFFFF">When the heart closes,<br>the wisdom goes quiet.</h2>
       <p class="benefits-intro">The wisdom went quiet. The alarm got louder.<br><br>In the moments that work — most of them — your heart is open and the wisdom flows through without effort. You say the right thing. You know what's needed. You are, without trying, exactly who you want to be.<br><br>In the moments that don't work, the heart closes to protect you from the charge building inside. And when it closes, the wisest part of you goes quiet. Still there. Just — underneath the alarm, waiting.<br><br>The Five Steps are how you turn down the alarm. In real time. In the moment. Before the familiar response runs. And when the alarm quiets, here is what becomes possible.</p>
     </div>
     <div class="b-grid">
@@ -526,64 +526,63 @@
 </section>
 
 <!-- SECTION 5 — MEET KINDRED -->
-<section class="video-section" style="background:#A3D1E8; padding:72px 32px;">
+<section class="video-section" style="background:#4F9AD4; padding:72px 32px;">
   <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:center;">
     <div class="reveal" style="text-align:center;">
       <img src="images/kindred-lights-author-photo.jpg" alt="Kindred Lights — author photo." width="630" height="600" loading="lazy" decoding="async" style="width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:0 8px 32px rgba(0,0,0,0.25);margin:0 auto;display:block;border:3px solid rgba(255,255,255,0.3);" />
-      <p style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.16em;color:rgba(28,29,64,0.65);margin-top:14px;text-transform:uppercase">Kindred Lights</p>
-      <p style="font-family:var(--font-body);font-size:0.82rem;color:rgba(28,29,64,0.45);margin-top:4px;letter-spacing:0.04em">Mapmaker</p>
+      <p style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.16em;color:rgba(247,243,238,0.95);margin-top:14px;text-transform:uppercase">Kindred Lights</p>
+      <p style="font-family:var(--font-body);font-size:0.82rem;color:rgba(247,243,238,0.7);margin-top:4px;letter-spacing:0.04em">Mapmaker</p>
     </div>
-    <div class="reveal d2">
-      <span class="eyebrow" style="color:rgba(28,29,64,0.55)">The Credential Is a Life</span>
-      <h2 class="sh on-dark" style="margin-bottom:20px">The proof is a life.</h2>
-      <p style="font-family:var(--font-soul);font-size:1.2rem;font-style:italic;color:rgba(28,29,64,0.92);line-height:1.6;margin-bottom:20px">Addiction. A teenager in crisis. Years inside a relationship that dismantled reality.</p>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:16px">These practices were built in that fire — in custody courtrooms, in supervised visitation rooms, in ten thousand ordinary moments where everything in me wanted to burn it all down and something quieter said: <em style="color:rgba(255,255,255,0.95)">open your heart. I'll show you what to do.</em></p>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:16px">The jail floor. The custody courtroom. The supervised visits. All of it curriculum, precisely delivered.</p>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(28,29,64,0.82);line-height:1.78;margin-bottom:24px">Twenty years of sobriety. Three children thriving. A Thanksgiving table rebuilt from wreckage — including a seat for the man who had once been the adversary. That is what the <span class="tip" tabindex="0">Five Steps<span class="tip-box">Recognize. Relax. Release. Receive. Respond.</span></span> made possible. The actual table.</p>
+    <div class="reveal d2" style="background:#3C8ABC;padding:36px 40px;border-radius:12px;box-shadow:0 6px 24px rgba(15,34,53,0.18);">
+      <span class="eyebrow" style="color:var(--gold-light)">The Credential Is a Life</span>
+      <h2 class="sh" style="margin-bottom:20px;color:#FFFFFF">The proof is a life.</h2>
+      <p style="font-family:var(--font-soul);font-size:1.2rem;font-style:italic;color:rgba(247,243,238,0.95);line-height:1.6;margin-bottom:20px">Addiction. A teenager in crisis. Years inside a relationship that dismantled reality.</p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(247,243,238,0.92);line-height:1.78;margin-bottom:16px">These practices were built in that fire — in custody courtrooms, in supervised visitation rooms, in ten thousand ordinary moments where everything in me wanted to burn it all down and something quieter said: <em style="color:var(--gold-light)">open your heart. I'll show you what to do.</em></p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(247,243,238,0.92);line-height:1.78;margin-bottom:16px">The jail floor. The custody courtroom. The supervised visits. All of it curriculum, precisely delivered.</p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(247,243,238,0.92);line-height:1.78;margin-bottom:24px">Twenty years of sobriety. Three children thriving. A Thanksgiving table rebuilt from wreckage — including a seat for the man who had once been the adversary. That is what the <span class="tip" tabindex="0">Five Steps<span class="tip-box">Recognize. Relax. Release. Receive. Respond.</span></span> made possible. The actual table.</p>
       <a href="about.html" class="btn-outline-cream">Read the Full Story →</a>
     </div>
   </div>
 </section>
 
 <!-- SECTION 5B — WHY THIS IS DIFFERENT -->
-<section style="background:#A3D1E8;padding:80px 32px;">
+<section style="background:#4F9AD4;padding:80px 32px;">
   <div style="max-width:760px;margin:0 auto;">
-    <div class="reveal">
-      <span class="eyebrow" style="color:rgba(28,29,64,0.55)">Why This Works When Other Things Haven't</span>
-      <h2 class="sh" style="color:var(--midnight);margin-bottom:24px">You've probably tried things.</h2>
-      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(28,29,64,0.85);line-height:1.82;margin-bottom:16px">Good things. Things that made sense, that gave you language for what was happening, that helped — for a while. And then the moment arrived, the real one, and the tools weren't there.</p>
-      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(28,29,64,0.85);line-height:1.82;margin-bottom:32px">This is different in a specific way.</p>
-      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(28,29,64,0.85);line-height:1.82;margin-bottom:32px">Most approaches work on the ego from the outside — better thoughts, better language, better frameworks. And Sir Ego takes all of that in, gets very sophisticated about it, and then does exactly what he always did when the alarm fires. Because the alarm doesn't care about frameworks. It fires first and asks questions never.</p>
-      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(28,29,64,0.85);line-height:1.82;margin-bottom:40px">The Five Steps work from the inside, in the moment, on the nervous system. They don't ask Sir Ego to be better. They ask him to step aside — just for a moment — so the part of you that already knows what to do can come through.</p>
+    <div class="reveal" style="background:#3C8ABC;padding:36px 40px;border-radius:12px;box-shadow:0 6px 24px rgba(15,34,53,0.18);margin-bottom:32px;">
+      <span class="eyebrow" style="color:var(--gold-light)">Why This Works When Other Things Haven't</span>
+      <h2 class="sh" style="color:#FFFFFF;margin-bottom:24px">You've probably tried things.</h2>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(247,243,238,0.92);line-height:1.82;margin-bottom:16px">Good things. Things that made sense, that gave you language for what was happening, that helped — for a while. And then the moment arrived, the real one, and the tools weren't there.</p>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(247,243,238,0.92);line-height:1.82;margin-bottom:32px">This is different in a specific way.</p>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(247,243,238,0.92);line-height:1.82;margin-bottom:32px">Most approaches work on the ego from the outside — better thoughts, better language, better frameworks. And Sir Ego takes all of that in, gets very sophisticated about it, and then does exactly what he always did when the alarm fires. Because the alarm doesn't care about frameworks. It fires first and asks questions never.</p>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(247,243,238,0.92);line-height:1.82;margin-bottom:0">The Five Steps work from the inside, in the moment, on the nervous system. They don't ask Sir Ego to be better. They ask him to step aside — just for a moment — so the part of you that already knows what to do can come through.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:32px;">
-      <div class="reveal d1" style="border-left:3px solid var(--gold);padding-left:24px;">
-        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--midnight);margin-bottom:8px;letter-spacing:0.02em">The trigger is the door, not the problem.</p>
-        <p style="font-family:var(--font-body);font-size:1rem;color:rgba(28,29,64,0.78);line-height:1.75">Follow it all the way down to the buried belief underneath. When that belief dissolves, the trigger loses its charge. Permanently. The trigger was never the enemy. It was the map.</p>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div class="reveal d1" style="background:#E8E0F0;border-radius:10px;padding:22px 28px;border-left:3px solid var(--gold);box-shadow:0 4px 16px rgba(15,34,53,0.10);">
+        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:#0F2235;margin-bottom:8px;letter-spacing:0.02em">The trigger is the door, not the problem.</p>
+        <p style="font-family:var(--font-body);font-size:1rem;color:#2B2B2B;line-height:1.75">Follow it all the way down to the buried belief underneath. When that belief dissolves, the trigger loses its charge. Permanently. The trigger was never the enemy. It was the map.</p>
       </div>
-      <div class="reveal d2" style="border-left:3px solid var(--gold);padding-left:24px;">
-        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--midnight);margin-bottom:8px;letter-spacing:0.02em">It works right now.</p>
-        <p style="font-family:var(--font-body);font-size:1rem;color:rgba(28,29,64,0.78);line-height:1.75">In the activated moment, with the freight train already moving. That's exactly when and where the Five Steps were built — on a jail floor, in a custody courtroom, in the ten seconds before the email gets sent.</p>
+      <div class="reveal d2" style="background:#E8E0F0;border-radius:10px;padding:22px 28px;border-left:3px solid var(--gold);box-shadow:0 4px 16px rgba(15,34,53,0.10);">
+        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:#0F2235;margin-bottom:8px;letter-spacing:0.02em">It works right now.</p>
+        <p style="font-family:var(--font-body);font-size:1rem;color:#2B2B2B;line-height:1.75">In the activated moment, with the freight train already moving. That's exactly when and where the Five Steps were built — on a jail floor, in a custody courtroom, in the ten seconds before the email gets sent.</p>
       </div>
-      <div class="reveal d3" style="border-left:3px solid var(--gold);padding-left:24px;">
-        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--midnight);margin-bottom:8px;letter-spacing:0.02em">Your radiant essence shines when the clouds of ego blockages and triggers are permanently released.</p>
-        <p style="font-family:var(--font-body);font-size:1rem;color:rgba(28,29,64,0.78);line-height:1.75">This is true transcendence — something you uncover, not something you achieve or perform or manufacture. The light was always there. The practice clears the way.</p>
+      <div class="reveal d3" style="background:#E8E0F0;border-radius:10px;padding:22px 28px;border-left:3px solid var(--gold);box-shadow:0 4px 16px rgba(15,34,53,0.10);">
+        <p style="font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:#0F2235;margin-bottom:8px;letter-spacing:0.02em">Your radiant essence shines when the clouds of ego blockages and triggers are permanently released.</p>
+        <p style="font-family:var(--font-body);font-size:1rem;color:#2B2B2B;line-height:1.75">This is true transcendence — something you uncover, not something you achieve or perform or manufacture. The light was always there. The practice clears the way.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SECTION 6 — PARADISE DREAM -->
-<section style="background:#A3D1E8;padding:88px 32px;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:url('images/sun-angel-hero-kindred-lights.png');background-size:cover;background-position:center 60%;opacity:0.12;pointer-events:none;"></div>
+<section style="background:#4F9AD4;padding:88px 32px;position:relative;overflow:hidden;">
   <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:72px;align-items:center;position:relative;z-index:1;">
     <div class="reveal" style="text-align:center;">
       <img src="images/monkeys-dream-film-reel.png" alt="The Monkeys Dream — film reel narrative of the dream that changed everything." width="556" height="1945" loading="lazy" decoding="async" style="width:100%;max-width:280px;margin:0 auto;display:block;" />
     </div>
-    <div class="reveal d2">
-      <span class="eyebrow" style="color:rgba(28,29,64,0.6)">A Dream That Changed Everything</span>
-      <h2 class="sh on-dark" style="margin-bottom:32px;color:var(--midnight)">I made the monkeys extinct.</h2>
-      <div style="font-family:var(--font-soul);font-size:1.12rem;color:rgba(28,29,64,0.85);line-height:1.9;">
+    <div class="reveal d2" style="background:#3C8ABC;padding:36px 40px;border-radius:12px;box-shadow:0 6px 24px rgba(15,34,53,0.18);">
+      <span class="eyebrow" style="color:var(--gold-light)">A Dream That Changed Everything</span>
+      <h2 class="sh" style="margin-bottom:32px;color:#FFFFFF">I made the monkeys extinct.</h2>
+      <div style="font-family:var(--font-soul);font-size:1.12rem;color:rgba(247,243,238,0.92);line-height:1.9;">
         <p style="margin-bottom:12px">I was walking through paradise with the Creator.</p>
         <p style="margin-bottom:12px">Everything shimmered with life — ferns, orchids, birdsong, golden light. And a presence beside me that needed no name.</p>
         <p style="margin-bottom:12px">Then — screeching monkeys. Loud, chaotic, grating.</p>
@@ -591,17 +590,17 @@
         <p style="margin-bottom:12px">And it did.</p>
         <p style="margin-bottom:12px">I smiled. What power.</p>
         <p style="margin-bottom:12px">But then I saw what followed. No monkeys meant no monkey babies. No monkey babies meant no monkeys at all.</p>
-        <p style="margin-bottom:24px;color:var(--midnight);font-style:italic;font-weight:600">I had made the monkeys extinct.</p>
+        <p style="margin-bottom:24px;color:var(--gold-light);font-style:italic;font-weight:600">I had made the monkeys extinct.</p>
         <p style="margin-bottom:12px">We walked on. A lion crouched over a gazelle — blood, death, the raw truth of nature.</p>
         <p style="margin-bottom:12px">I wished it would stop.</p>
         <p style="margin-bottom:12px">And it did.</p>
         <p style="margin-bottom:12px">No kills. No lions. No lions — no balance. The gazelles ate everything green. And then they vanished too.</p>
-        <p style="margin-bottom:24px;color:var(--midnight);font-style:italic;font-weight:600">And paradise was barren.</p>
+        <p style="margin-bottom:24px;color:var(--gold-light);font-style:italic;font-weight:600">And paradise was barren.</p>
         <p style="margin-bottom:12px">All because I wanted quiet. Comfort. Control.</p>
         <p style="margin-bottom:12px">When I woke up, I understood.</p>
         <p style="margin-bottom:12px">The dream wasn't about monkeys and lions. It was about the way my ego was trying to fix, control, and avoid anything uncomfortable — and had repercussions I could not see or imagine.</p>
         <p style="margin-bottom:12px">The divine plan — with screeching monkeys and carnivorous lions — was already perfect.</p>
-        <p style="font-family:var(--font-display);font-size:1.1rem;color:var(--midnight);letter-spacing:0.04em;margin-top:8px">So is yours.</p>
+        <p style="font-family:var(--font-display);font-size:1.1rem;color:#FFFFFF;letter-spacing:0.04em;margin-top:8px">So is yours.</p>
       </div>
     </div>
   </div>
