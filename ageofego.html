@@ -89,16 +89,29 @@
     .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
 
     :root {
-      --cream: #F4F0EC;
-      --cream-dark: #EAE4DA;
-      --midnight: #3C8ABC; --deep-sky: #1F4A6B;
-      --deep-blue: #81A8CB;
+      /* THE SKY SYSTEM */
+      --sky-bold:      #4F9AD4;
+      --sky-shadow:    #1F4A6B;
+      --sky-dusk:      #345878;
+      --cloud:         #F4F8FB;
+      --gold:          #C9A84C;
+      --gold-light:    #E8D48A;
+      --gold-dark:     #8B6914;
+      --text-body:     #2B2B2B;
+      --text-deep:     #0F2A4A;
+      --text-on-sky:   rgba(247,243,238,0.92);
+      /* LEGACY ALIASES — kept so old refs don't break */
+      --cream:         var(--cloud);
+      --cream-dark:    var(--cloud);
+      --midnight:      var(--sky-shadow);
+      --deep-sky:      var(--sky-dusk);
+      --deep-blue:     #81A8CB;
       --gold: #C9A84C;
       --gold-light: #E8D48A;
       --gold-dark: #8B6914;
       --ego-red: #8B3A3A;
       --text-dark: #2b2b2b;
-      --text-mid: #4a4a4a;
+      --text-mid:  #4a4a4a;
       --font-display: "Cinzel", serif;
       --font-soul: "Cormorant Garamond", serif;
       --font-body: "Lato", sans-serif;
@@ -108,20 +121,20 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); font-size: 17px; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.72; }
+    body { font-family: var(--font-body); font-size: 17px; color: var(--text-body); background: var(--sky-bold); overflow-x: hidden; line-height: 1.72; }
     img { display: block; max-width: 100%; height: auto; }
     a { text-decoration: none; color: var(--deep-blue); }
     a:hover { color: var(--gold-dark); }
 
-    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,240,236,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(28,29,64,0.08); display: flex; align-items: center; padding: 0 32px; z-index: 100; transition: box-shadow 0.2s; }
-    #main-nav.scrolled { box-shadow: 0 2px 20px rgba(28,29,64,0.08); }
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,248,251,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); display: flex; align-items: center; padding: 0 32px; z-index: 100; transition: box-shadow 0.2s; }
+    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(15,34,53,0.12); }
     .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 32px; }
     .nav-brand-logo { width: 38px; height: 38px; }
-    .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
+    .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.22em; color: var(--sky-shadow); text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
     .nav-brand-text em { color: var(--gold-dark); font-style: normal; display: block; }
     .nav-links { display: flex; align-items: center; flex: 1; list-style: none; }
     .nav-item { position: relative; }
-    .nav-link { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: 1.18; height: var(--nav-h); display: flex; align-items: center; justify-content: center; text-align: center; white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sky-shadow); padding: 0 18px; line-height: 1.18; height: var(--nav-h); display: flex; align-items: center; justify-content: center; text-align: center; white-space: nowrap; transition: color 0.2s; position: relative; }
     .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
     .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
@@ -130,7 +143,7 @@
     .dropdown-link { display: block; padding: 10px 22px; font-family: var(--font-nav); font-size: 0.8rem; letter-spacing: 0.08em; color: var(--cream); transition: background 0.2s, color 0.2s; }
     .dropdown-link:hover { background: rgba(201,168,76,0.15); color: var(--gold-light); }
 
-    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,240,236,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(28,29,64,0.08); align-items: center; justify-content: space-between; padding: 0 20px; z-index: 100; }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,248,251,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); align-items: center; justify-content: space-between; padding: 0 20px; z-index: 100; }
     .mobile-brand { display: flex; align-items: center; gap: 10px; }
     .mob-brand-logo { width: 34px; height: 34px; }
     .mob-brand-text { font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--midnight); }
@@ -140,82 +153,87 @@
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    #mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: var(--cream); padding: 20px 0; z-index: 99; overflow-y: auto; }
+    #mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: var(--cloud); padding: 20px 0; z-index: 99; overflow-y: auto; }
     #mobile-menu.open { display: block; }
     .mob-link { display: block; padding: 14px 24px; font-family: var(--font-nav); font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dark); border-bottom: 1px solid rgba(28,29,64,0.06); }
     .mob-link.gold { color: var(--gold-dark); font-weight: 600; }
 
     @media (max-width: 920px) { #main-nav { display: none; } .mobile-nav { display: flex; } }
 
-    .hero { padding: calc(var(--nav-h) + 90px) 24px 110px; background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%); text-align: center; }
+    .hero { padding: calc(var(--nav-h) + 90px) 24px 110px; background: var(--sky-bold); text-align: center; }
     .hero-inner { max-width: 820px; margin: 0 auto; }
-    .hero-eyebrow { font-family: var(--font-nav); font-size: 0.76rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 28px; }
-    .hero-h1 { font-family: var(--font-display); font-size: clamp(2.1rem, 5vw, 3.3rem); font-weight: 600; color: var(--midnight); line-height: 1.18; margin-bottom: 22px; }
-    .hero-h1 em { font-family: var(--font-soul); font-style: italic; color: var(--gold-dark); font-weight: 400; }
-    .hero-h2 { font-family: var(--font-soul); font-size: clamp(1.25rem, 2.4vw, 1.55rem); font-style: italic; color: var(--text-mid); line-height: 1.5; margin-bottom: 40px; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .hero-eyebrow { font-family: var(--font-nav); font-size: 0.76rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 28px; }
+    .hero-h1 { font-family: var(--font-display); font-size: clamp(2.1rem, 5vw, 3.3rem); font-weight: 600; color: #FFFFFF; line-height: 1.18; margin-bottom: 22px; }
+    .hero-h1 em { font-family: var(--font-soul); font-style: italic; color: var(--gold-light); font-weight: 400; }
+    .hero-h2 { font-family: var(--font-soul); font-size: clamp(1.25rem, 2.4vw, 1.55rem); font-style: italic; color: var(--text-on-sky); line-height: 1.5; margin-bottom: 40px; max-width: 680px; margin-left: auto; margin-right: auto; }
     .hero-cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
-    .btn-primary { display: inline-block; background: var(--gold); color: var(--midnight); font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 15px 30px; border-radius: 2px; transition: background 0.2s; }
-    .btn-primary:hover { background: var(--gold-dark); color: var(--cream); }
-    .btn-secondary { display: inline-block; background: transparent; color: var(--midnight); font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 28px; border: 1px solid var(--midnight); border-radius: 2px; transition: background 0.2s, color 0.2s; }
-    .btn-secondary:hover { background: var(--midnight); color: var(--cream); }
+    .btn-primary { display: inline-block; background: var(--gold); color: var(--sky-shadow); font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 15px 30px; border-radius: 2px; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--gold-light); color: var(--sky-shadow); }
+    .btn-secondary { display: inline-block; background: rgba(255,255,255,0.12); color: #FFFFFF; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 28px; border: 1px solid rgba(255,255,255,0.5); border-radius: 2px; backdrop-filter: blur(6px); transition: background 0.2s, border-color 0.2s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.22); border-color: var(--gold-light); }
 
     section { padding: 90px 24px; }
     .container { max-width: var(--max); margin: 0 auto; }
     .container-narrow { max-width: 720px; margin: 0 auto; }
-    .section-label { font-family: var(--font-nav); font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; display: block; }
-    h2.section-title { font-family: var(--font-display); font-size: clamp(1.75rem, 3.5vw, 2.3rem); font-weight: 600; color: var(--midnight); line-height: 1.2; margin-bottom: 20px; }
-    h2.section-title em { font-family: var(--font-soul); font-style: italic; color: var(--gold-dark); font-weight: 400; }
-    .section-sub { font-family: var(--font-soul); font-style: italic; font-size: 1.28rem; color: var(--text-mid); margin-bottom: 32px; line-height: 1.5; }
-    p { margin-bottom: 1.1em; line-height: 1.75; }
+    .section-label { font-family: var(--font-nav); font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; display: block; }
+    h2.section-title { font-family: var(--font-display); font-size: clamp(1.75rem, 3.5vw, 2.3rem); font-weight: 600; color: #FFFFFF; line-height: 1.2; margin-bottom: 20px; }
+    h2.section-title em { font-family: var(--font-soul); font-style: italic; color: var(--gold-light); font-weight: 400; }
+    .section-sub { font-family: var(--font-soul); font-style: italic; font-size: 1.28rem; color: var(--text-on-sky); margin-bottom: 32px; line-height: 1.5; }
+    p { margin-bottom: 1.1em; line-height: 1.75; color: var(--text-on-sky); }
 
-    .alt-bg { background: var(--cream-dark); }
-    .dark-bg { background: var(--midnight); color: var(--cream); }
-    .dark-bg h2.section-title { color: var(--cream); }
+    /* alt-bg and dark-bg both flatten to bold sky — continuous canvas */
+    .alt-bg { background: var(--sky-bold); }
+    .dark-bg { background: var(--sky-bold); color: var(--text-on-sky); }
+    .dark-bg h2.section-title { color: #FFFFFF; }
     .dark-bg h2.section-title em { color: var(--gold-light); }
-    .dark-bg .section-sub { color: rgba(244,240,236,0.82); }
+    .dark-bg .section-sub { color: var(--text-on-sky); }
     .dark-bg .section-label { color: var(--gold-light); }
-    .dark-bg p { color: rgba(244,240,236,0.92); }
+    .dark-bg p { color: var(--text-on-sky); }
 
-    .hit { margin: 44px 0; padding: 28px 0 28px 32px; border-left: 4px solid var(--gold); font-family: var(--font-soul); font-style: italic; font-size: 1.65rem; line-height: 1.38; color: var(--midnight); }
-    .dark-bg .hit { border-left-color: var(--gold-light); color: var(--cream); }
+    .hit { margin: 44px 0; padding: 28px 0 28px 32px; border-left: 4px solid var(--gold); font-family: var(--font-soul); font-style: italic; font-size: 1.65rem; line-height: 1.38; color: #FFFFFF; }
+    .dark-bg .hit { border-left-color: var(--gold-light); color: #FFFFFF; }
     @media (max-width: 600px) { .hit { font-size: 1.35rem; padding: 20px 0 20px 20px; } }
 
-    .ego-voice { font-family: var(--font-soul); font-style: italic; font-size: 1.22rem; line-height: 1.55; color: var(--text-mid); padding: 20px 0 20px 24px; border-left: 2px solid rgba(139,58,58,0.35); margin: 24px 0; }
-    .ego-voice p { margin-bottom: 0.55em; }
+    .ego-voice { font-family: var(--font-soul); font-style: italic; font-size: 1.22rem; line-height: 1.55; color: var(--text-on-sky); padding: 20px 0 20px 24px; border-left: 2px solid rgba(255,255,255,0.4); margin: 24px 0; }
+    .ego-voice p { margin-bottom: 0.55em; color: var(--text-on-sky); }
     .ego-voice p:last-child { margin-bottom: 0; }
 
-    .bff { background: rgba(244,240,236,0.6); border-left: 3px solid var(--gold); padding: 30px 34px; margin: 32px 0; border-radius: 2px; }
-    .alt-bg .bff { background: rgba(255,255,255,0.55); }
-    .bff p { font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; color: var(--text-dark); line-height: 1.72; margin-bottom: 1em; }
+    /* .bff blocks — cloud cards (bounded specific content) */
+    .bff { background: var(--cloud); border-left: 3px solid var(--gold); padding: 30px 34px; margin: 32px 0; border-radius: 8px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
+    .alt-bg .bff { background: var(--cloud); }
+    .bff p { font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; color: var(--text-deep); line-height: 1.72; margin-bottom: 1em; }
     .bff p:last-child { margin-bottom: 0; }
-    .dark-bg .bff { background: rgba(255,255,255,0.05); border-left-color: var(--gold-light); }
-    .dark-bg .bff p { color: rgba(244,240,236,0.95); }
+    .dark-bg .bff { background: var(--cloud); border-left-color: var(--gold); }
+    .dark-bg .bff p { color: var(--text-deep); }
 
+    /* steps grid — cloud cards */
     .steps-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 36px; }
-    .step-card { background: var(--cream); border: 1px solid rgba(28,29,64,0.08); border-left: 4px solid var(--gold); padding: 28px 32px; border-radius: 2px; }
+    .step-card { background: var(--cloud); border-left: 4px solid var(--gold); padding: 28px 32px; border-radius: 8px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
     .step-card .step-num { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.26em; color: var(--gold-dark); font-weight: 600; }
-    .step-card h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--midnight); margin: 6px 0; font-weight: 600; letter-spacing: 0.04em; }
+    .step-card h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--sky-shadow); margin: 6px 0; font-weight: 600; letter-spacing: 0.04em; }
     .step-card .step-benefit { font-family: var(--font-soul); font-style: italic; font-size: 1.25rem; color: var(--gold-dark); margin-bottom: 16px; line-height: 1.35; }
-    .step-card p { margin-bottom: 0.9em; font-size: 1.02rem; color: var(--text-mid); line-height: 1.68; }
+    .step-card p { margin-bottom: 0.9em; font-size: 1.02rem; color: var(--text-deep); line-height: 1.68; }
     .step-card p:last-child { margin-bottom: 0; }
-    .step-card .step-hit { font-family: var(--font-soul); font-style: italic; font-size: 1.15rem; color: var(--midnight); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(201,168,76,0.3); line-height: 1.45; }
+    .step-card .step-hit { font-family: var(--font-soul); font-style: italic; font-size: 1.15rem; color: var(--sky-shadow); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(201,168,76,0.3); line-height: 1.45; }
 
     .obj-list { list-style: none; margin: 24px 0; }
-    .obj-list li { font-family: var(--font-soul); font-style: italic; font-size: 1.15rem; color: var(--text-mid); padding: 10px 0 10px 28px; position: relative; line-height: 1.55; }
+    .obj-list li { font-family: var(--font-soul); font-style: italic; font-size: 1.15rem; color: var(--text-on-sky); padding: 10px 0 10px 28px; position: relative; line-height: 1.55; }
     .obj-list li::before { content: "·"; position: absolute; left: 8px; color: var(--gold); font-size: 1.6rem; line-height: 1; top: 10px; }
 
     .book-hero { display: grid; grid-template-columns: 260px 1fr; gap: 44px; align-items: center; margin-top: 32px; }
     @media (max-width: 700px) { .book-hero { grid-template-columns: 1fr; text-align: center; } .book-hero img { max-width: 220px; margin: 0 auto; } }
-    .book-hero img { box-shadow: 0 10px 34px rgba(28,29,64,0.2); border-radius: 2px; }
-    .book-hero h3 { font-family: var(--font-display); font-size: 1.6rem; color: var(--midnight); margin-bottom: 6px; line-height: 1.2; }
-    .book-hero .book-sub { font-family: var(--font-soul); font-style: italic; color: var(--gold-dark); font-size: 1.1rem; margin-bottom: 20px; line-height: 1.4; }
+    .book-hero img { box-shadow: 0 10px 34px rgba(15,34,53,0.25); border-radius: 2px; }
+    .book-hero h3 { font-family: var(--font-display); font-size: 1.6rem; color: #FFFFFF; margin-bottom: 6px; line-height: 1.2; }
+    .book-hero .book-sub { font-family: var(--font-soul); font-style: italic; color: var(--gold-light); font-size: 1.1rem; margin-bottom: 20px; line-height: 1.4; }
+    .book-hero p { color: var(--text-on-sky); }
 
-    .cta-block { background: linear-gradient(135deg, var(--midnight) 0%, #2a2c5e 100%); color: var(--cream); padding: 64px 36px; text-align: center; border-radius: 4px; }
-    .cta-block h3 { font-family: var(--font-display); font-size: 1.9rem; color: var(--cream); margin-bottom: 14px; line-height: 1.25; }
-    .cta-block h3 em { font-family: var(--font-soul); font-style: italic; color: var(--gold-light); font-weight: 400; }
-    .cta-block p { font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; color: rgba(244,240,236,0.92); margin-bottom: 26px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    /* CTA block — cloud card */
+    .cta-block { background: var(--cloud); color: var(--text-deep); padding: 64px 36px; text-align: center; border-radius: 12px; box-shadow: 0 6px 24px rgba(15,34,53,0.18); }
+    .cta-block h3 { font-family: var(--font-display); font-size: 1.9rem; color: var(--sky-shadow); margin-bottom: 14px; line-height: 1.25; }
+    .cta-block h3 em { font-family: var(--font-soul); font-style: italic; color: var(--gold-dark); font-weight: 400; }
+    .cta-block p { font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; color: var(--text-deep); margin-bottom: 26px; max-width: 520px; margin-left: auto; margin-right: auto; }
 
-    footer { background: var(--deep-sky); color: var(--cream); padding: 56px 32px 30px; }
+    footer { background: var(--sky-dusk); color: var(--text-on-sky); padding: 56px 32px 30px; }
     .foot-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
     @media (max-width: 820px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 500px) { .foot-grid { grid-template-columns: 1fr; } }
@@ -379,7 +397,7 @@
 
     <figure style="margin: 36px 0; text-align: center;">
       <img src="images/ideology-grid-collective-age-of-ego.png" alt="The Collective Ideology Grid — eight billion scripts, each certain its quadrant is reality. The collective-scale version of the Age of Ego pattern." loading="lazy" decoding="async" style="max-width: 820px; border: 1px solid rgba(28,29,64,0.1); border-radius: 4px;" onerror="this.style.display='none'"/>
-      <figcaption style="font-family: var(--font-soul); font-style: italic; font-size: 1rem; margin-top: 14px; color: var(--text-mid); max-width: 640px; margin-left: auto; margin-right: auto;">Each of us is standing somewhere on this map. Each of us is absolutely certain our quadrant is reality. This is what's actually happening &mdash; collectively, right now, in every room.</figcaption>
+      <figcaption style="font-family: var(--font-soul); font-style: italic; font-size: 1rem; margin-top: 14px; color: var(--text-on-sky); max-width: 640px; margin-left: auto; margin-right: auto;">Each of us is standing somewhere on this map. Each of us is absolutely certain our quadrant is reality. This is what's actually happening &mdash; collectively, right now, in every room.</figcaption>
     </figure>
 
     <p>You can't unsee this once you see it. Eight billion people are standing in different quadrants, each one certain their script is reality itself. Not an interpretation &mdash; reality. Willing to die on that hill. Willing to look at anyone in a different quadrant and be genuinely convinced <em>they</em> are the problem, because from inside your own quadrant, it's obvious.</p>
@@ -402,9 +420,9 @@
 
     <p>On the floor, there is a choice. Get aligned with the force that runs the universe &mdash; or stay down. That is the only choice. Everything else is <span class="tip" tabindex="0">Sir Ego<span class="tip-box">Your ego. The hero with the wrong map.</span></span> trying to rearrange the chess pieces. The floor is where you finally stop playing chess.</p>
 
-    <div class="hit" style="border-left-color: var(--gold-light); color: var(--cream);">The Script of Creation wins. No ego's script has ever beaten it.<br>The only question is whether we get up from the floor gracefully, or stay down a while longer first.</div>
+    <div class="hit">The Script of Creation wins. No ego's script has ever beaten it.<br>The only question is whether we get up from the floor gracefully, or stay down a while longer first.</div>
 
-    <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; margin-top: 40px; color: rgba(244,240,236,0.95);">Here is how the after-the-floor part went, at the scale of a marriage.</p>
+    <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; margin-top: 40px; color: var(--text-on-sky);">Here is how the after-the-floor part went, at the scale of a marriage.</p>
 
     <div class="bff">
       <p>I learned to release the triggers he could provoke. Then, even when provoked, I stopped reacting. Then something alchemized in the energetic bond between us. The forgiveness weekend came. He gave me custody.</p>
@@ -490,7 +508,7 @@
 
     <!-- Personal-scale handle — the visitor takes this home -->
     <div style="margin-top: 56px; padding: 40px 32px; background: rgba(244,240,236,0.5); border-radius: 8px; text-align: center;">
-      <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; color: var(--midnight); line-height: 1.6; margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto;">All of the above happens through one triggered moment at a time, in one open heart at a time. Here is the practice you take home.</p>
+      <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; color: #FFFFFF; line-height: 1.6; margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto;">All of the above happens through one triggered moment at a time, in one open heart at a time. Here is the practice you take home.</p>
       <img src="images/five-steps-to-freedom.png" alt="The Five Steps to Freedom — the Hero's Path of Love. Recognize: Here we go again, mind busy, heart closed. Relax: the ego braces, the Wise One breathes. Release: feel it, don't fix it, wait in the discomfort. Receive: in the silence after the surrender, the Wise One speaks. Respond: right words, right action, right attitude." width="1300" height="1100" loading="lazy" decoding="async" style="max-width: 580px; width: 100%; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 12px 44px rgba(0,0,0,0.1);" />
     </div>
   </div>
@@ -557,7 +575,7 @@
 
         <p>Written for the good person who is tired, who can see clearly for the first time, and who wants the map more than she wants another opinion.</p>
 
-        <p style="margin-top: 22px; padding: 18px 22px; background: var(--cream); border: 1px solid rgba(28,29,64,0.08); border-radius: 4px; margin-bottom: 0;"><strong style="font-family: var(--font-nav); font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 6px;">Coming Soon</strong><em>What Happened to US?</em> will be available on Amazon and through independent distribution as soon as final production is complete. The free memoir &mdash; the life behind the framework &mdash; is available now.</p>
+        <p style="margin-top: 22px; padding: 18px 22px; background: var(--cloud); border-radius: 8px; margin-bottom: 0; color: var(--text-deep); box-shadow: 0 4px 16px rgba(15,34,53,0.10);"><strong style="font-family: var(--font-nav); font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 6px;">Coming Soon</strong><em>What Happened to US?</em> will be available on Amazon and through independent distribution as soon as final production is complete. The free memoir &mdash; the life behind the framework &mdash; is available now.</p>
 
         <p style="margin-top: 18px; margin-bottom: 0;">
           <a href="downloads/mastery-of-sir-ego.pdf" class="btn-secondary">Download the Memoir &mdash; Free</a>
@@ -572,15 +590,15 @@
   <div class="container-narrow reveal" style="max-width: 720px; margin: 0 auto;">
     <span class="section-label" style="text-align: center; display: block;">A Sample</span>
     <h2 class="section-title" style="text-align: center;">From the Book</h2>
-    <p style="font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); text-align: center; max-width: 580px; margin: -8px auto 36px; line-height: 1.7;">On why everything feels like it&rsquo;s coming apart at the seams &mdash; and what is actually happening underneath.</p>
+    <p style="font-family: var(--font-body); font-size: 0.96rem; color: var(--text-on-sky); text-align: center; max-width: 580px; margin: -8px auto 36px; line-height: 1.7;">On why everything feels like it&rsquo;s coming apart at the seams &mdash; and what is actually happening underneath.</p>
     <div style="border-left: 2px solid rgba(184,134,11,0.35); padding-left: 28px; max-width: 640px; margin: 0 auto;">
-      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-mid); margin-bottom: 18px; font-style: italic;">It&rsquo;s not because one political party is right and the other is wrong. It&rsquo;s not because there&rsquo;s a single villain or a single hero. It&rsquo;s because eight billion egos &mdash; every one of them running a script nobody else agreed to, every one of them operating from a worldview of scarcity and danger &mdash; are all trying to make reality cooperate with their plan. Simultaneously.</p>
-      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-mid); margin-bottom: 18px; font-style: italic;">And when the scripts collide &mdash; which they inevitably do, constantly, at every scale from the breakfast table to the United Nations &mdash; the ego doesn&rsquo;t say, &ldquo;Oh, interesting, our scripts don&rsquo;t match. Let&rsquo;s figure this out.&rdquo; The ego says, &ldquo;You&rsquo;re wrong. You&rsquo;re the problem. If you would just follow MY script, everything would be fine.&rdquo;</p>
-      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-mid); margin-bottom: 18px; font-style: italic;">That&rsquo;s a marital argument. That&rsquo;s a Twitter war. That&rsquo;s a congressional hearing. That&rsquo;s an international conflict. Same dynamic, different stage.</p>
-      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-mid); margin-bottom: 18px; font-style: italic;">And here&rsquo;s the part that neither side of the political aisle wants to hear: left and right are not opposites. They are different ego scripts for the same underlying need &mdash; the need to feel safe in a world the ego finds terrifying.</p>
-      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-mid); margin-bottom: 0; font-style: italic;">Different prescriptions. Same diagnosis: the world is scary, and I need to figure out the rules.</p>
+      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-on-sky); margin-bottom: 18px; font-style: italic;">It&rsquo;s not because one political party is right and the other is wrong. It&rsquo;s not because there&rsquo;s a single villain or a single hero. It&rsquo;s because eight billion egos &mdash; every one of them running a script nobody else agreed to, every one of them operating from a worldview of scarcity and danger &mdash; are all trying to make reality cooperate with their plan. Simultaneously.</p>
+      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-on-sky); margin-bottom: 18px; font-style: italic;">And when the scripts collide &mdash; which they inevitably do, constantly, at every scale from the breakfast table to the United Nations &mdash; the ego doesn&rsquo;t say, &ldquo;Oh, interesting, our scripts don&rsquo;t match. Let&rsquo;s figure this out.&rdquo; The ego says, &ldquo;You&rsquo;re wrong. You&rsquo;re the problem. If you would just follow MY script, everything would be fine.&rdquo;</p>
+      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-on-sky); margin-bottom: 18px; font-style: italic;">That&rsquo;s a marital argument. That&rsquo;s a Twitter war. That&rsquo;s a congressional hearing. That&rsquo;s an international conflict. Same dynamic, different stage.</p>
+      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-on-sky); margin-bottom: 18px; font-style: italic;">And here&rsquo;s the part that neither side of the political aisle wants to hear: left and right are not opposites. They are different ego scripts for the same underlying need &mdash; the need to feel safe in a world the ego finds terrifying.</p>
+      <p style="font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-on-sky); margin-bottom: 0; font-style: italic;">Different prescriptions. Same diagnosis: the world is scary, and I need to figure out the rules.</p>
     </div>
-    <p style="font-family: var(--font-nav); font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mid); text-align: center; margin-top: 32px;">From <em style="font-family: var(--font-soul); font-style: italic; text-transform: none; letter-spacing: 0;">What Happened to US?</em> &mdash; Chapter 2, <em style="font-family: var(--font-soul); font-style: italic; text-transform: none; letter-spacing: 0;">Eight Billion Scripts</em></p>
+    <p style="font-family: var(--font-nav); font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); text-align: center; margin-top: 32px;">From <em style="font-family: var(--font-soul); font-style: italic; text-transform: none; letter-spacing: 0;">What Happened to US?</em> &mdash; Chapter 2, <em style="font-family: var(--font-soul); font-style: italic; text-transform: none; letter-spacing: 0;">Eight Billion Scripts</em></p>
   </div>
 </section>
 
@@ -594,7 +612,7 @@
       You suffered that much because you were capable of it.
     </div>
 
-    <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; color: var(--text-mid); max-width: 640px; margin: 0 auto; line-height: 1.65; text-align: left;">The thing that has hurt you most is rarely random. It is almost always the place where your own wound and the world's wound turn out to be the same wound &mdash; which means your release work on it is not private therapy. It is collective alchemy. Some readers will recognize this kind of work by one of its older names. <em>Lightworker</em> is one. There are many. The name matters less than what you do with this life. And whether or not that word fits, the work remains the same: come home to what you are, and let it be transmitted.</p>
+    <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; color: var(--text-on-sky); max-width: 640px; margin: 0 auto; line-height: 1.65; text-align: left;">The thing that has hurt you most is rarely random. It is almost always the place where your own wound and the world's wound turn out to be the same wound &mdash; which means your release work on it is not private therapy. It is collective alchemy. Some readers will recognize this kind of work by one of its older names. <em>Lightworker</em> is one. There are many. The name matters less than what you do with this life. And whether or not that word fits, the work remains the same: come home to what you are, and let it be transmitted.</p>
 
     <div style="margin: 48px auto 0; max-width: 120px; height: 1px; background: var(--gold); opacity: 0.5;"></div>
   </div>
@@ -606,7 +624,7 @@
     <div class="cta-block">
       <h3>Meet the Map Minder.<br><em>Free. Right now. Real.</em></h3>
       <p>Walk through the Five Steps on an actual moment in your own life. Five minutes. No email required. No follow-up. Just the practice, when you need it.</p>
-      <a href="https://kindredlights.org/mapminder" class="btn-primary" style="background: var(--gold); color: var(--midnight);">Try the Map Minder</a>
+      <a href="https://kindredlights.org/mapminder" class="btn-primary" style="background: var(--gold); color: var(--sky-shadow);">Try the Map Minder</a>
     </div>
   </div>
 </section>
@@ -614,11 +632,11 @@
 <!-- SECTION 11 — Closing blessing -->
 <section>
   <div class="container-narrow reveal" style="text-align: center;">
-    <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.32rem; line-height: 1.7; color: var(--midnight); max-width: 620px; margin: 0 auto;">
+    <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.32rem; line-height: 1.7; color: #FFFFFF; max-width: 620px; margin: 0 auto;">
       We give thanks for the fires that are purifying us &mdash;<br>
       whatever they have been, whatever they still are.
     </p>
-    <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; line-height: 1.7; color: var(--text-mid); max-width: 620px; margin: 32px auto 0;">
+    <p style="font-family: var(--font-soul); font-style: italic; font-size: 1.2rem; line-height: 1.7; color: var(--text-on-sky); max-width: 620px; margin: 32px auto 0;">
       The spectacular ego death is already underway.<br>
       The rebirth is already being revealed &mdash; in every cleared channel,<br>in every ordinary good person who is quietly becoming what comes next.
     </p>
