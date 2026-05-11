@@ -5,16 +5,28 @@
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luminology Glossary — Kindred Lights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     
     img { height: auto; max-width: 100%; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font-display: "Cinzel", serif;
+      --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif;
+      --font-nav: "Raleway", sans-serif;
+      --nav-h: 64px;
+    }
 
     body {
       font-family: 'Georgia', serif;
       background: #0a0a1a;
       color: #e8e4d8;
       line-height: 1.8;
+      padding-top: var(--nav-h);
     }
 
     header {
@@ -176,6 +188,55 @@
     @media (max-width: 640px) { .forthcoming-note-inner { grid-template-columns: 1fr; padding-left: 20px; } .forthcoming-note-cover { width: 90px; } }
 
 
+    /* ═══ CANONICAL NAV — Sky System ═══ */
+    /* NAV */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,248,251,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
+    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(15,34,53,0.12); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 40px; flex-shrink: 0; text-decoration: none; }
+    .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; filter: drop-shadow(0 2px 6px rgba(188,137,220,0.35)); }
+    .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: #1F4A6B; text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
+    .nav-brand-text em { color: #8B6914; font-style: normal; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 0; flex: 1; list-style: none; margin: 0; padding: 0; }
+    .nav-item { position: relative; }
+    .nav-link { display: flex; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #1F4A6B; padding: 0 18px; line-height: 1.18; white-space: nowrap; transition: color 0.2s; position: relative; text-decoration: none; }
+    .nav-link br { display: block; }
+    .nav-link:hover, .nav-link.active { color: #8B6914; }
+    .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: #C9A84C; transform: scaleX(0); transition: transform 0.25s; }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: #345878; border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid #C9A84C; padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .panel-role { font-family: var(--font-nav); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A84C; display: block; margin-bottom: 6px; }
+    .panel-title { font-family: var(--font-display); font-size: 0.88rem; font-weight: 400; color: #F4F8FB; margin-bottom: 8px; letter-spacing: 0.04em; }
+    .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
+    .panel-link { font-family: var(--font-nav); font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: #C9A84C; transition: color 0.2s; }
+    .panel-link:hover { color: #E8D48A; }
+    /* DROPDOWN */
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: #345878; border-top: 2px solid #C9A84C; border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .nav-has-dropdown .nav-panel { display: none !important; }
+    .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; text-decoration: none; }
+    .dropdown-link:last-child { border-bottom: none; }
+    .dropdown-link:hover { color: #C9A84C; background: rgba(255,255,255,0.04); }
+    /* MOBILE NAV */
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(244,248,251,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .mob-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
+    .mob-brand-text { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.2em; color: #1F4A6B; line-height: 1.3; }
+    .mob-brand-text em { color: #8B6914; font-style: normal; }
+    .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: #1F4A6B; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: #345878; z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu.open { display: block; }
+    .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #F4F8FB; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; text-decoration: none; }
+    .mob-link:hover, .mob-link.gold { color: #C9A84C; }
+    .mob-link br { display: none; }
+    @media (max-width: 920px) { #main-nav { display: none; } .mobile-nav { display: flex; } body { padding-top: 58px; } }
+    /* ═══ END CANONICAL NAV ═══ */
+
   </style>
 
 
@@ -225,7 +286,90 @@
 </head>
 <body>
 
-<a href="explore.html" style="position:fixed;top:20px;left:24px;z-index:100;color:#9b9cbd;font-family:Raleway,sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:8px 14px;background:rgba(16,16,42,0.7);border:1px solid #2a2050;border-radius:3px;transition:color 0.2s, border-color 0.2s;" onmouseover="this.style.color='#c9a84c';this.style.borderColor='#c9a84c'" onmouseout="this.style.color='#9b9cbd';this.style.borderColor='#2a2050'">← Back to the Exploratorium</a>
+<!-- ════ DESKTOP NAV ════ -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand"><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <ul class="nav-links">
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:#8B6914">Help, Now!</a></li>
+    <li class="nav-item nav-has-dropdown"><a href="explore.html" class="nav-link">Explore ▾</a>
+      <div class="nav-dropdown" style="min-width:260px;">
+        <a href="explore.html" class="dropdown-link">The Exploratorium (Lobby)</a>
+        <a href="explore-sir-ego.html" class="dropdown-link">Sir Ego &amp; the Wise One</a>
+        <a href="explore-emotions.html" class="dropdown-link">Unlocking the Power of Emotions</a>
+        <a href="explore-fivesteps.html" class="dropdown-link">The Five Steps to Freedom</a>
+        <a href="explore-truth.html" class="dropdown-link">The Truth of Who You Are</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a></li>
+    <li class="nav-item nav-has-dropdown"><a href="#" class="nav-link">The Series ▾</a>
+      <div class="nav-dropdown" style="min-width:280px;">
+        <a href="lh.html" class="dropdown-link">Love Heroically</a>
+        <a href="explore-truth.html" class="dropdown-link">Beyond Blame &amp; Shame</a>
+        <a href="luminology-glossary.html" class="dropdown-link active">Luminology</a>
+        <a href="ageofego.html" class="dropdown-link">What Happened to US?</a>
+        <a href="explore-sir-ego.html" class="dropdown-link">The Mastery of Sir Ego</a>
+      </div>
+    </li>
+    <li class="nav-item nav-has-dropdown"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
+      <div class="nav-dropdown">
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="forgiveness.html" class="dropdown-link">Guilt, Blame &amp; Shame</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
+        <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="barbies.html" class="nav-link">Barbies</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+  </ul>
+</nav>
+
+<!-- ════ MOBILE NAV ════ -->
+<div class="mobile-nav">
+  <a href="index.html" class="mobile-brand"><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mobile-menu">
+  <a href="index.html" class="mob-link">Home</a>
+  <a href="https://kindredlights.org/mapminder" class="mob-link gold">✦ Help, Now! — Free</a>
+  <a href="explore.html" class="mob-link">Explore</a>
+  <a href="explore-sir-ego.html" class="mob-link">&nbsp;&nbsp;· Sir Ego &amp; the Wise One</a>
+  <a href="explore-emotions.html" class="mob-link">&nbsp;&nbsp;· Power of Emotions</a>
+  <a href="explore-fivesteps.html" class="mob-link">&nbsp;&nbsp;· The Five Steps</a>
+  <a href="explore-truth.html" class="mob-link">&nbsp;&nbsp;· The Truth of Who You Are</a>
+  <a href="ageofego.html" class="mob-link">Five Steps for the World</a>
+  <a href="#" class="mob-link" onclick="return false;">The Series</a>
+  <a href="lh.html" class="mob-link">&nbsp;&nbsp;· Love Heroically</a>
+  <a href="explore-truth.html" class="mob-link">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
+  <a href="luminology-glossary.html" class="mob-link gold">&nbsp;&nbsp;· Luminology</a>
+  <a href="ageofego.html" class="mob-link">&nbsp;&nbsp;· What Happened to US?</a>
+  <a href="explore-sir-ego.html" class="mob-link">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
+  <a href="#" class="mob-link" onclick="return false;">What's Your Problem?</a>
+  <a href="acim.html" class="mob-link">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="addiction.html" class="mob-link">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="anxiety.html" class="mob-link">&nbsp;&nbsp;· Anxiety</a>
+  <a href="grief.html" class="mob-link">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="forgiveness.html" class="mob-link">&nbsp;&nbsp;· Guilt, Blame &amp; Shame</a>
+  <a href="health.html" class="mob-link">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="narc.html" class="mob-link">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="awakening.html" class="mob-link">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="empath.html" class="mob-link">&nbsp;&nbsp;· The Empath Alchemist</a>
+  <a href="untethered.html" class="mob-link">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="work.html" class="mob-link">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="world.html" class="mob-link">&nbsp;&nbsp;· World Events</a>
+  <a href="barbies.html" class="mob-link">Barbies</a>
+  <a href="about.html" class="mob-link">About</a>
+</div>
 
 <header>
   <h1>L U M I N O L O G Y</h1>
@@ -431,6 +575,25 @@
 <footer>
   <p>Kindred Lights &nbsp;·&nbsp; <a href="https://kindredlights.org">KindredLights.org</a> &nbsp;·&nbsp; © 2026 Kindred Lights</p>
 </footer>
+
+<script>
+  (function() {
+    var nav = document.getElementById('main-nav');
+    if (nav) window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+    var ham = document.getElementById('hamburger');
+    var menu = document.getElementById('mobile-menu');
+    if (ham && menu) {
+      ham.addEventListener('click', function() {
+        var open = ham.classList.toggle('open');
+        menu.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      menu.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { ham.classList.remove('open'); menu.classList.remove('open'); document.body.style.overflow = ''; });
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>
