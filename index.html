@@ -48,7 +48,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); font-size: 16px; color: #2b2b2b; background: #C8DDE8; overflow-x: hidden; line-height: 1.6; }
+    body { font-family: var(--font-body); font-size: 16px; color: #2b2b2b; background: #B8D8EA; overflow-x: hidden; line-height: 1.6; }
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -143,18 +143,18 @@
     .hero-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: center; }
     .hero-meter img { width: 100%; max-width: 300px; filter: drop-shadow(0 12px 40px rgba(31,74,107,0.25)); }
     .meter-subtext { margin-top: 20px; max-width: 300px; }
-    .meter-subtext p { font-family: var(--font-body); font-size: 1rem; color: #142A40; line-height: 1.72; margin-bottom: 10px; }
-    .meter-question { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; color: #142A40; letter-spacing: 0.04em; margin-bottom: 6px; }
-    .hero-tagline { font-family: var(--font-soul); font-size: clamp(1.6rem,3.2vw,2.6rem); font-style: italic; line-height: 1.4; color: #142A40; margin-bottom: 28px; font-weight: 500; }
+    .meter-subtext p { font-family: var(--font-body); font-size: 1rem; color: #0F2235; line-height: 1.72; margin-bottom: 10px; }
+    .meter-question { font-family: var(--font-display); font-size: 0.82rem; font-weight: 600; color: #0F2235; letter-spacing: 0.04em; margin-bottom: 6px; }
+    .hero-tagline { font-family: var(--font-soul); font-size: clamp(1.6rem,3.2vw,2.6rem); font-style: italic; line-height: 1.4; color: #0F2235; margin-bottom: 28px; font-weight: 500; }
     .hero-tagline em { color: var(--gold-dark); }
     .hero-rule { width: 48px; height: 1px; background: var(--gold); margin-bottom: 16px; }
-    .hero-body { font-family: var(--font-body); font-size: 1.12rem; color: #142A40; line-height: 1.82; margin-bottom: 36px; }
+    .hero-body { font-family: var(--font-body); font-size: 1.12rem; color: #0F2235; line-height: 1.82; margin-bottom: 36px; }
     .hero-body p { margin-bottom: 14px; }
     .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
     /* BENEFITS */
     /* BENEFITS — continues the sky; cards float on sky-pale */
-    .benefits { background: #D6E5F0; padding: 80px 32px; }
+    .benefits { background: #B8D8EA; padding: 80px 32px; }
     .benefits-inner { max-width: var(--max); margin: 0 auto; }
     .benefits-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
     .benefits-intro { font-family: var(--font-body); font-size: 1.06rem; color: #2B2B2B; line-height: 1.82; margin-top: 18px; }
@@ -162,7 +162,7 @@
     .b-card { background: rgba(255,255,255,0.78); backdrop-filter: blur(8px); border-radius: 10px; padding: 36px 28px 32px; border-top: 3px solid rgba(31,74,107,0.18); box-shadow: 0 4px 18px rgba(31,74,107,0.08); transition: background 0.2s, border-color 0.2s, transform 0.15s; display: flex; flex-direction: column; }
     .b-card:hover { background: rgba(255,255,255,0.92); border-color: var(--gold); transform: translateY(-2px); }
     .b-card .b-body { flex: 1; }
-    .b-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; color: #142A40; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .b-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; color: #0F2235; letter-spacing: 0.04em; margin-bottom: 12px; }
     .b-body { font-family: var(--font-body); font-size: 1rem; color: #2B2B2B; line-height: 1.72; }
     .b-whisper { font-family: var(--font-nav); font-size: 0.58rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dark); text-align: right; margin-top: 18px; font-style: italic; opacity: 0.9; }
     .benefits-compare { margin-top: 56px; text-align: center; }
@@ -170,23 +170,23 @@
 
     /* MAP MINDER BAND */
     /* MAP MINDER BAND — palette slot 3: soft sky (light section, midnight text for CTA readability) */
-    .mm-band { background: #D6E5F0; padding: 64px 32px; text-align: center; position: relative; overflow: hidden; }
+    .mm-band { background: #B8D8EA; padding: 64px 32px; text-align: center; position: relative; overflow: hidden; }
     .mm-band::before { content: "✦  ✦  ✦"; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gold-dark); opacity: 0.6; }
     .mm-band::after { content: ""; position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); width: 80px; height: 1px; background: var(--gold); opacity: 0.5; }
-    .mm-band h2 { font-family: var(--font-display); font-size: clamp(1.8rem,3.2vw,2.6rem); font-weight: 600; color: #142A40; letter-spacing: 0.03em; line-height: 1.15; margin-bottom: 16px; }
+    .mm-band h2 { font-family: var(--font-display); font-size: clamp(1.8rem,3.2vw,2.6rem); font-weight: 600; color: #0F2235; letter-spacing: 0.03em; line-height: 1.15; margin-bottom: 16px; }
     .mm-band p { font-family: var(--font-body); font-size: 1.1rem; color: #2B2B2B; max-width: 460px; margin: 0 auto 28px; line-height: 1.68; }
     .mm-sub { font-family: var(--font-nav); font-size: 0.58rem; letter-spacing: 0.14em; color: rgba(28,29,64,0.55); margin-top: 14px; display: block; }
 
     /* FIVE STEPS */
     /* FIVE STEPS — palette slot 2: medium blue (tiles provide internal contrast) */
-    .fivesteps { background: #C8DDE8; padding: 80px 32px; }
+    .fivesteps { background: #B8D8EA; padding: 80px 32px; }
     .fs-inner { max-width: var(--max); margin: 0 auto; }
     .fs-head { text-align: center; max-width: 620px; margin: 0 auto 40px; }
     .fs-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; }
     .fs-tile { padding: 36px 16px 32px; background: rgba(255,255,255,0.78); backdrop-filter: blur(8px); text-align: center; border-top: 2px solid transparent; transition: background 0.2s, border-color 0.2s, transform 0.15s; border-radius: 4px; }
     .fs-tile:hover { background: rgba(255,255,255,0.92); border-color: var(--gold); transform: translateY(-2px); }
     .fs-n { font-family: var(--font-nav); font-size: 0.51rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 9px; }
-    .fs-name { font-family: var(--font-display); font-size: 0.96rem; font-weight: 600; color: #142A40; letter-spacing: 0.06em; margin-bottom: 9px; }
+    .fs-name { font-family: var(--font-display); font-size: 0.96rem; font-weight: 600; color: #0F2235; letter-spacing: 0.06em; margin-bottom: 9px; }
     .fs-truth { font-family: var(--font-body); font-size: 0.92rem; color: #2B2B2B; line-height: 1.6; }
     .fs-tile:nth-child(1) .fs-name { color: #8B5FA8; } .fs-tile:nth-child(2) .fs-name { color: #A8585A; }
     .fs-tile:nth-child(3) .fs-name { color: #B85F38; } .fs-tile:nth-child(4) .fs-name { color: #5660A8; }
@@ -194,7 +194,7 @@
 
     /* LUMINOLOGY */
     /* LUMINOLOGY — palette slot 7: lavender. Cards float in translucent white. */
-    .luminology { background: #D6E5F0; padding: 80px 32px; }
+    .luminology { background: #B8D8EA; padding: 80px 32px; }
     .lum-inner { max-width: var(--max); margin: 0 auto; }
     .lum-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
     .lum-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
@@ -207,7 +207,7 @@
     .lum-pull blockquote { font-family: var(--font-soul); font-style: italic; font-size: 1.18rem; color: var(--midnight); line-height: 1.72; border-left: 3px solid rgba(28,29,64,0.35); padding-left: 22px; text-align: left; margin-bottom: 28px; }
 
     /* BOOKS */
-    .books { background: #C8DDE8; padding: 80px 32px; }
+    .books { background: #B8D8EA; padding: 80px 32px; }
     .books-inner { max-width: var(--max); margin: 0 auto; }
     .books-head { text-align: center; margin-bottom: 56px; }
     .books-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -232,7 +232,7 @@
     .kit-fine { font-family: var(--font-nav); font-size: 0.58rem; color: rgba(247,243,238,0.2); margin-top: 12px; letter-spacing: 0.06em; }
 
     /* AWARDS */
-    .awards { background: #D6E5F0; padding: 64px 32px; }
+    .awards { background: #B8D8EA; padding: 64px 32px; }
     .awards-inner { max-width: var(--max); margin: 0 auto; }
     .awards-eyebrow { font-family: var(--font-nav); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8B7EC8; text-align: center; display: block; margin-bottom: 40px; }
     .awards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-bottom: 32px; }
@@ -460,37 +460,37 @@
   <div class="benefits-inner">
     <div class="benefits-head reveal">
       <span class="eyebrow" style="color:rgba(28,29,64,0.82);font-size:0.72rem">What's Actually Happening</span>
-      <h2 class="sh" style="color:#142A40">When the heart closes,<br>the wisdom goes quiet.</h2>
+      <h2 class="sh" style="color:#0F2235">When the heart closes,<br>the wisdom goes quiet.</h2>
       <p class="benefits-intro">The wisdom went quiet. The alarm got louder.<br><br>In the moments that work — most of them — your heart is open and the wisdom flows through without effort. You say the right thing. You know what's needed. You are, without trying, exactly who you want to be.<br><br>In the moments that don't work, the heart closes to protect you from the charge building inside. And when it closes, the wisest part of you goes quiet. Still there. Just — underneath the alarm, waiting.<br><br>The Five Steps are how you turn down the alarm. In real time. In the moment. Before the familiar response runs. And when the alarm quiets, here is what becomes possible.</p>
     </div>
     <div class="b-grid">
       <div class="b-card reveal d1" style="border-top-color:rgba(211,182,226,0.6)">
-        <div class="b-title" style="color:#142A40">The Loop Loses Its Grip</div>
+        <div class="b-title" style="color:#0F2235">The Loop Loses Its Grip</div>
         <p class="b-body">When the alarm fires, the heart and mind lock onto a specific solution and outcome. The reason the problem doesn't resolve is that this outcome doesn't match the unfolding reality. The mismatch is the problem — and you have an inner guide who already knows the way through.</p>
         <p class="b-whisper">Recognize</p>
       </div>
       <div class="b-card reveal d2" style="border-top-color:rgba(163,219,232,0.6)">
-        <div class="b-title" style="color:#142A40">The Choice Point Appears</div>
+        <div class="b-title" style="color:#0F2235">The Choice Point Appears</div>
         <p class="b-body">Right there, in the trigger, before the automatic response fires — there is a choice point. The <span class="tip" tabindex="0">Wise One<span class="tip-box">Your higher self. Already home.</span></span> lives there. She has always been there.</p>
         <p class="b-whisper">Relax</p>
       </div>
       <div class="b-card reveal d3" style="border-top-color:rgba(189,231,183,0.6)">
-        <div class="b-title" style="color:#142A40">The Heart Actually Opens</div>
+        <div class="b-title" style="color:#0F2235">The Heart Actually Opens</div>
         <p class="b-body">These practices open your heart in the moment it wants to close — and this changes everything. The open heart allows the mental and emotional charge from the past to dissolve, and new insights, options, and responses to arise.</p>
         <p class="b-whisper">Release</p>
       </div>
       <div class="b-card reveal d1" style="border-top-color:rgba(173,175,223,0.6)">
-        <div class="b-title" style="color:#142A40">The Lie Dissolves</div>
+        <div class="b-title" style="color:#0F2235">The Lie Dissolves</div>
         <p class="b-body">Every persistent trigger is held in place by a false belief about your true nature. As the heart opens and the charge moves through, the light of the <span class="tip" tabindex="0">Wise One<span class="tip-box">Your higher self. Already home.</span></span> illuminates what was hiding underneath — and it dissolves.</p>
         <p class="b-whisper">Receive</p>
       </div>
       <div class="b-card reveal d2" style="border-top-color:rgba(255,190,160,0.6)">
-        <div class="b-title" style="color:#142A40">The Outer World Shifts</div>
+        <div class="b-title" style="color:#0F2235">The Outer World Shifts</div>
         <p class="b-body">Returned to your open-hearted self, you are present in the moment, attuned to others, confident in your words and actions. You don't have to manufacture this. It arises naturally — because the only thing that was ever blocking it was the closed heart.</p>
         <p class="b-whisper">Respond</p>
       </div>
       <div class="b-card reveal d3" style="border-top-color:rgba(244,163,162,0.6)">
-        <div class="b-title" style="color:#142A40">You Find Your Version of Heroic</div>
+        <div class="b-title" style="color:#0F2235">You Find Your Version of Heroic</div>
         <p class="b-body">The clouds were never the sky. When the mental and emotional weather clears, what remains is the light you came here with. Your most noble self — simply present. Remembered.</p>
         <p class="b-whisper">Realize</p>
       </div>
@@ -526,7 +526,7 @@
 </section>
 
 <!-- SECTION 5 — MEET KINDRED -->
-<section class="video-section" style="background:#C8DDE8; padding:72px 32px;">
+<section class="video-section" style="background:#B8D8EA; padding:72px 32px;">
   <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:center;">
     <div class="reveal" style="text-align:center;">
       <img src="images/kindred-lights-author-photo.jpg" alt="Kindred Lights — author photo." width="630" height="600" loading="lazy" decoding="async" style="width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:0 8px 32px rgba(0,0,0,0.25);margin:0 auto;display:block;border:3px solid rgba(255,255,255,0.3);" />
@@ -546,7 +546,7 @@
 </section>
 
 <!-- SECTION 5B — WHY THIS IS DIFFERENT -->
-<section style="background:#D6E5F0;padding:80px 32px;">
+<section style="background:#B8D8EA;padding:80px 32px;">
   <div style="max-width:760px;margin:0 auto;">
     <div class="reveal">
       <span class="eyebrow" style="color:rgba(28,29,64,0.55)">Why This Works When Other Things Haven't</span>
@@ -574,7 +574,7 @@
 </section>
 
 <!-- SECTION 6 — PARADISE DREAM -->
-<section style="background:#C8DDE8;padding:88px 32px;position:relative;overflow:hidden;">
+<section style="background:#B8D8EA;padding:88px 32px;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background-image:url('images/sun-angel-hero-kindred-lights.png');background-size:cover;background-position:center 60%;opacity:0.12;pointer-events:none;"></div>
   <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:72px;align-items:center;position:relative;z-index:1;">
     <div class="reveal" style="text-align:center;">
