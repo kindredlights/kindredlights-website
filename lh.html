@@ -18,43 +18,25 @@
     .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
 
     :root {
-      /* THE SKY SYSTEM */
-      --sky-bold:      #4F9AD4;
-      --sky-shadow:    #1F4A6B;
-      --sky-dusk:      #345878;
-      --cloud:         #F4F8FB;
-      --gold:          #C9A84C;
-      --gold-light:    #E8D48A;
-      --gold-dark:     #8B6914;
-      --text-body:     #2B2B2B;
-      --text-deep:     #0F2A4A;
-      --text-on-sky:   rgba(247,243,238,0.92);
-      /* LEGACY ALIASES — keep old refs working */
-      --cream:         var(--cloud);
-      --cream-dark:    var(--cloud);
-      --midnight:      var(--sky-shadow);
-      --deep-sky:      var(--sky-dusk);
-      --deep-blue:     #81A8CB;
-      --periwinkle:    #adafdf;
-      --wise-green:    #2C6B5A;
-      --ego-red:       #8B3A3A;
-      --text-dark:     #2b2b2b;
-      --text-mid:      #4a4a4a;
+      --cream: #F4F0EC; --cream-dark: #EAE4DA; --midnight: #3C8ABC; --deep-sky: #1F4A6B;
+      --deep-blue: #81A8CB; --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
+      --periwinkle: #adafdf; --wise-green: #2C6B5A; --ego-red: #8B3A3A;
+      --text-dark: #2b2b2b; --text-mid: #4a4a4a;
       --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
       --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
       --nav-h: 64px; --max: 1100px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--sky-bold); overflow-x: hidden; line-height: 1.6; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.6; }
     img { display: block; max-width: 100%; } a { text-decoration: none; color: inherit; }
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
     .reveal.d1 { transition-delay: 0.1s; } .reveal.d2 { transition-delay: 0.2s; } .reveal.d3 { transition-delay: 0.3s; }
 
     /* NAV */
-    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,248,251,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
-    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(15,34,53,0.12); }
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,240,236,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
+    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(28,29,64,0.10); }
     .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 40px; flex-shrink: 0; text-decoration: none; }
     .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; filter: drop-shadow(0 2px 6px rgba(188,137,220,0.35)); }
     .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
@@ -72,7 +54,7 @@
     .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
     .panel-link { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
     .panel-link:hover { color: var(--gold-light); }
-    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky-shadow); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
     .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
     .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
@@ -89,7 +71,7 @@
     .mm-tab { position: fixed; right: 0; top: 50%; writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg); background: var(--gold); color: var(--midnight); font-family: var(--font-nav); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 10px; z-index: 800; white-space: nowrap; border-radius: 4px 0 0 4px; box-shadow: -3px 0 18px rgba(201,168,76,0.25); transition: background 0.2s; }
     .mm-tab:hover { background: var(--gold-light); }
     /* Mobile nav */
-    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(244,248,251,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(244,240,236,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
     .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .mob-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
     .mob-brand-text { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
@@ -116,40 +98,35 @@
     .btn-download { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 26px; border: 1.5px solid var(--periwinkle); color: var(--periwinkle); border-radius: 4px; display: inline-block; transition: background 0.2s, color 0.2s; }
     .btn-download:hover { background: var(--periwinkle); color: #fff; }
     /* Shared */
-    .eyebrow { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 12px; }
-    .section-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 24px; }
+    .eyebrow { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: #8B7EC8; display: block; margin-bottom: 12px; }
+    .section-rule { width: 48px; height: 2px; background: var(--periwinkle); margin-bottom: 24px; }
     /* Page header */
-    .page-header { padding-top: calc(var(--nav-h) + 40px); padding-bottom: 40px; padding-left: 32px; padding-right: 32px; background: var(--sky-bold); position: relative; overflow: hidden; text-align: center; }
-    .page-header-bg { display: none; }
+    .page-header { padding-top: calc(var(--nav-h) + 56px); padding-bottom: 56px; padding-left: 32px; padding-right: 32px; background: linear-gradient(150deg, #2a4494 0%, #3d6abf 50%, #1e2d6e 100%); position: relative; overflow: hidden; text-align: center; }
+    .page-header-bg { position: absolute; inset: 0; background-image: url("images/sun-angel-hero-kindred-lights.png"); background-size: cover; background-position: center top; opacity: 0.3; pointer-events: none; }
     .page-header-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
-    .page-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 700; color: #FFFFFF; letter-spacing: 0.04em; margin-bottom: 12px; line-height: 1.2; }
-    .page-header .subtitle { font-family: var(--font-soul); font-size: 1.2rem; color: var(--gold-light); margin-bottom: 8px; font-style: italic; }
-    .page-header p { font-family: var(--font-body); font-size: 1rem; color: var(--text-on-sky); line-height: 1.7; margin-top: 12px; }
-    /* Book layout — voice on sky, sub-items as cards */
-    .book-layout { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 72px; align-items: start; padding: 64px 32px; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 700; color: #fff; letter-spacing: 0.04em; margin-bottom: 12px; line-height: 1.2; }
+    .page-header .subtitle { font-family: var(--font-soul); font-size: 1.2rem; color: rgba(255,255,255,0.75); margin-bottom: 8px; }
+    .page-header p { font-family: var(--font-body); font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-top: 12px; }
+    /* Book layout */
+    .book-layout { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 72px; align-items: start; padding: 80px 32px; }
     .book-cover-col { position: sticky; top: calc(var(--nav-h) + 24px); }
     .cover-wrap { position: relative; }
-    .book-cover-img { width: 100%; border-radius: 4px; box-shadow: 0 22px 60px rgba(15,34,53,0.40), 0 0 0 1px rgba(255,255,255,0.08); }
+    .book-cover-img { width: 100%; border-radius: 4px; box-shadow: 0 16px 56px rgba(28,29,64,0.22); }
     .pbr-badge { position: absolute; bottom: -16px; right: -16px; width: 90px; }
-    .pub-date { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-light); display: block; margin: 28px 0 12px; }
-    .book-hook { font-family: var(--font-soul); font-size: 1.22rem; color: #FFFFFF; line-height: 1.72; margin-bottom: 28px; border-left: 3px solid var(--gold-light); padding-left: 20px; font-style: italic; }
-    .book-body { font-family: var(--font-body); font-size: 1rem; color: var(--text-on-sky); line-height: 1.78; margin-bottom: 20px; }
-    .book-body em { color: var(--gold-light); font-style: italic; }
-    .book-body strong { color: #FFFFFF; font-weight: 600; }
-    .section-h3 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.08em; color: var(--gold-light); margin: 28px 0 14px; text-transform: uppercase; }
+    .pub-date { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.24em; text-transform: uppercase; color: #8B7EC8; display: block; margin: 28px 0 12px; }
+    .book-hook { font-family: var(--font-soul); font-size: 1.22rem; color: var(--midnight); line-height: 1.72; margin-bottom: 28px; border-left: 3px solid var(--periwinkle); padding-left: 20px; }
+    .book-body { font-family: var(--font-body); font-size: 1rem; color: var(--text-mid); line-height: 1.78; margin-bottom: 20px; }
+    .section-h3 { font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.08em; color: var(--midnight); margin: 28px 0 14px; }
     .three-things { counter-reset: item; list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
-    .three-things li { font-family: var(--font-body); font-size: 1rem; color: var(--text-on-sky); line-height: 1.7; padding-left: 36px; position: relative; }
-    .three-things li::before { content: counter(item); counter-increment: item; position: absolute; left: 0; top: 2px; width: 24px; height: 24px; background: var(--gold); color: var(--sky-shadow); font-family: var(--font-nav); font-size: 0.75rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    /* Who-it's-for items — small cloud cards */
+    .three-things li { font-family: var(--font-body); font-size: 1rem; color: var(--text-dark); line-height: 1.7; padding-left: 32px; position: relative; }
+    .three-things li::before { content: counter(item); counter-increment: item; position: absolute; left: 0; top: 2px; width: 22px; height: 22px; background: var(--periwinkle); color: #fff; font-family: var(--font-nav); font-size: 0.75rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
-    .who-item { background: var(--cloud); border-radius: 6px; padding: 14px 16px; border-left: 3px solid var(--gold); font-family: var(--font-body); font-size: 0.95rem; color: var(--text-deep); line-height: 1.55; box-shadow: 0 4px 14px rgba(15,34,53,0.12); }
-    /* Reviews — cloud cards */
-    .review-block { background: var(--cloud); border-radius: 6px; padding: 18px 22px; margin: 12px 0; box-shadow: 0 4px 14px rgba(15,34,53,0.12); }
-    .review-quote { font-family: var(--font-soul); font-size: 1.06rem; color: var(--sky-shadow); line-height: 1.65; margin-bottom: 6px; font-style: italic; }
-    .review-source { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); }
-    /* Colin endorsement — featured cloud card */
-    .colin-block { background: var(--cloud); border-radius: 6px; padding: 22px 24px; margin: 20px 0 28px; border-left: 4px solid var(--gold); box-shadow: 0 6px 22px rgba(15,34,53,0.15); }
-    .colin-text { font-family: var(--font-soul); font-size: 1.02rem; color: var(--text-deep); line-height: 1.72; margin-bottom: 8px; font-style: italic; }
+    .who-item { background: #fff; border-radius: 6px; padding: 14px 16px; border-left: 3px solid var(--periwinkle); font-family: var(--font-body); font-size: 0.95rem; color: var(--text-dark); line-height: 1.55; box-shadow: 0 2px 8px rgba(100,80,180,0.06); }
+    .review-block { background: #fff; border-radius: 6px; padding: 18px 22px; margin: 12px 0; box-shadow: 0 2px 8px rgba(100,80,180,0.06); }
+    .review-quote { font-family: var(--font-soul); font-size: 1.06rem; color: var(--midnight); line-height: 1.65; margin-bottom: 6px; }
+    .review-source { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: #8B7EC8; }
+    .colin-block { background: #fff; border-radius: 6px; padding: 22px 24px; margin: 20px 0 28px; border-left: 3px solid var(--gold); box-shadow: 0 2px 8px rgba(100,80,180,0.06); }
+    .colin-text { font-family: var(--font-body); font-size: 0.98rem; color: var(--text-mid); line-height: 1.72; margin-bottom: 8px; }
     .colin-attr { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); }
     /* Differentiator band */
     .diff-band { background: #f0edf8; padding: 72px 32px; }
@@ -158,29 +135,28 @@
     .diff-card { background: #fff; border-radius: 8px; padding: 28px 24px; border-top: 3px solid var(--periwinkle); box-shadow: 0 2px 10px rgba(100,80,180,0.07); }
     .diff-title { font-family: var(--font-display); font-size: 0.88rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.06em; margin-bottom: 10px; }
     .diff-body { font-family: var(--font-body); font-size: 0.95rem; color: var(--text-mid); line-height: 1.68; }
-    /* Kit capture — dark featured card on sky */
-    .kit-section { background: var(--sky-bold); padding: 40px 32px; }
-    .kit-inner { max-width: 640px; margin: 0 auto; background: var(--sky-shadow); border-radius: 10px; padding: 56px 48px; text-align: center; box-shadow: 0 10px 32px rgba(15,34,53,0.25); position: relative; overflow: hidden; }
-    .kit-inner::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
-    .kit-h { font-family: var(--font-display); font-size: clamp(1.4rem,2.5vw,1.9rem); font-weight: 400; color: #FFFFFF; letter-spacing: 0.04em; margin-bottom: 10px; }
-    .kit-sub { font-family: var(--font-body); font-size: 1rem; color: rgba(247,243,238,0.7); line-height: 1.7; margin-bottom: 28px; }
+    /* Kit capture */
+    .kit-section { background: var(--midnight); padding: 72px 32px; }
+    .kit-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .kit-h { font-family: var(--font-display); font-size: clamp(1.4rem,2.5vw,1.9rem); font-weight: 400; color: #fff; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .kit-sub { font-family: var(--font-body); font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 28px; }
     .kit-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .kit-input { flex: 1; min-width: 220px; max-width: 300px; padding: 14px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.07); color: #FFFFFF; border-radius: 4px; outline: none; transition: border-color 0.2s; }
+    .kit-input { flex: 1; min-width: 220px; max-width: 300px; padding: 14px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: #fff; border-radius: 4px; outline: none; transition: border-color 0.2s; }
     .kit-input:focus { border-color: var(--gold); }
-    .kit-input::placeholder { color: rgba(255,255,255,0.4); }
-    .kit-fine { font-family: var(--font-nav); font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 12px; letter-spacing: 0.06em; }
+    .kit-input::placeholder { color: rgba(255,255,255,0.3); }
+    .kit-fine { font-family: var(--font-nav); font-size: 0.75rem; color: rgba(255,255,255,0.22); margin-top: 12px; letter-spacing: 0.06em; }
     /* Connect form — Kit iframe submission */
     .connect-form-wrapper { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; align-items: stretch; }
-    .connect-form-wrapper input[type="email"] { flex: 1; min-width: 220px; max-width: 300px; padding: 14px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.07); color: #FFFFFF; border-radius: 4px; outline: none; transition: border-color 0.2s; }
+    .connect-form-wrapper input[type="email"] { flex: 1; min-width: 220px; max-width: 300px; padding: 14px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: #fff; border-radius: 4px; outline: none; transition: border-color 0.2s; }
     .connect-form-wrapper input[type="email"]:focus { border-color: var(--gold); }
-    .connect-form-wrapper input[type="email"]::placeholder { color: rgba(255,255,255,0.4); }
-    .connect-form-wrapper button { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 24px; background: var(--gold); color: var(--sky-shadow); border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
+    .connect-form-wrapper input[type="email"]::placeholder { color: rgba(255,255,255,0.3); }
+    .connect-form-wrapper button { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 24px; background: var(--gold); color: var(--midnight); border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
     .connect-form-wrapper button:hover { background: var(--gold-light); }
-    #connect-success { display:none; color: #FFFFFF; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.4); padding: 14px 18px; border-radius: 4px; margin-top: 14px; font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6; max-width: 480px; margin-left: auto; margin-right: auto; }
+    #connect-success { display:none; color: #fff; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.4); padding: 14px 18px; border-radius: 4px; margin-top: 14px; font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6; max-width: 480px; margin-left: auto; margin-right: auto; }
     #connect-success strong { display: block; color: #c9a84c; font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.06em; margin-bottom: 6px; }
 
     /* Footer */
-    footer { background: var(--sky-dusk); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+    footer { background: var(--deep-sky); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
     .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 20px; }
     .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: #fff; margin-bottom: 8px; }
     .foot-brand em { color: var(--gold); font-style: normal; }
@@ -194,105 +170,52 @@
     .foot-sigil { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.18em; color: rgba(201,168,76,0.28); }
     /* Responsive */
     @media (max-width: 900px) { .book-layout { grid-template-columns: 200px 1fr; gap: 48px; } .diff-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 768px) {
-      #main-nav { display: none; } .mobile-nav { display: flex; }
-      .book-layout { grid-template-columns: 1fr; padding: 48px 24px; }
-      .book-cover-col { position: static; display: flex; gap: 20px; align-items: flex-start; }
-      .cover-wrap { width: 140px; flex-shrink: 0; }
-      .who-grid { grid-template-columns: 1fr; }
-      .diff-grid { grid-template-columns: 1fr; }
-      .foot-grid { grid-template-columns: 1fr 1fr; }
-      .mm-tab { display: none; }
-      .lh-graphic-band { padding: 32px 24px; }
-      .lh-graphic-band.tight { padding: 12px 24px 32px; }
-      .lh-graphic-card { padding: 16px; }
-      .trigger-meter-band { padding: 32px 24px; }
-      .kit-section { padding: 32px 24px; }
-      .kit-inner { padding: 40px 28px; }
-      .author-bio { padding: 32px 24px; }
-      .author-bio-inner { padding: 36px 28px; }
-      .sample-passage { padding: 32px 24px; }
-      .sample-passage-inner { padding: 36px 28px; }
-      .available-at { padding: 32px 24px 48px; }
-    }
+    @media (max-width: 768px) { #main-nav { display: none; } .mobile-nav { display: flex; } .book-layout { grid-template-columns: 1fr; padding: 48px 24px; } .book-cover-col { position: static; display: flex; gap: 20px; align-items: flex-start; } .cover-wrap { width: 140px; flex-shrink: 0; } .who-grid { grid-template-columns: 1fr; } .diff-grid { grid-template-columns: 1fr; } .foot-grid { grid-template-columns: 1fr 1fr; } .mm-tab { display: none; } }
     @media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; gap: 24px; } .book-cover-col { flex-direction: column; } .cover-wrap { width: 100%; max-width: 180px; margin: 0 auto; } }
 
-    /* Page TOC — minimal italic section index, cloud card on sky */
-    .page-toc { padding: 28px 32px; background: var(--sky-bold); }
-    .page-toc-inner { max-width: 720px; margin: 0 auto; background: var(--cloud); border-radius: 8px; padding: 20px 28px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); text-align: center; }
-    .page-toc-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; line-height: 1.9; color: var(--text-deep); margin: 0; }
-    .page-toc-prefix { color: var(--gold-dark); margin-right: 6px; font-size: 0.95rem; }
-    .page-toc a { color: var(--sky-shadow); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; padding: 0 2px; }
-    .page-toc a:hover { color: var(--gold-dark); border-bottom-color: rgba(184,134,11,0.4); }
-    .page-toc-sep { color: rgba(15,34,53,0.28); margin: 0 4px; }
+    /* Page TOC — minimal italic section index */
+    .page-toc { padding: 32px 24px 16px; max-width: 720px; margin: 0 auto; text-align: center; background: var(--cream); }
+    .page-toc-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; line-height: 1.9; color: rgba(28,29,64,0.62); margin: 0; }
+    .page-toc-prefix { color: rgba(28,29,64,0.45); margin-right: 6px; font-size: 0.95rem; }
+    .page-toc a { color: rgba(28,29,64,0.78); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; padding: 0 2px; }
+    .page-toc a:hover { color: var(--gold-dark, #B8860B); border-bottom-color: rgba(184,134,11,0.4); }
+    .page-toc-sep { color: rgba(28,29,64,0.28); margin: 0 4px; }
     @media (max-width: 640px) {
-      .page-toc { padding: 20px 18px; }
-      .page-toc-inner { padding: 18px 20px; }
+      .page-toc { padding: 24px 18px 12px; }
       .page-toc-line { font-size: 0.98rem; line-height: 2; }
       .page-toc-prefix { display: block; margin-bottom: 4px; }
     }
 
-    /* Author bio — cloud card on sky */
-    .author-bio { padding: 40px 32px; background: var(--sky-bold); }
-    .author-bio-inner { max-width: 720px; margin: 0 auto; background: var(--cloud); border-radius: 10px; padding: 48px 44px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
-    .author-bio .eyebrow { display: block; margin-bottom: 16px; color: var(--gold-dark); }
-    .author-bio h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 600; color: var(--sky-shadow); letter-spacing: 0.04em; margin-bottom: 24px; }
-    .author-bio p { font-family: var(--font-body); font-size: 1.02rem; line-height: 1.82; color: var(--text-deep); margin-bottom: 16px; }
+    /* Author bio block — quiet card on cream */
+    .author-bio { padding: 64px 32px; background: var(--cream); }
+    .author-bio-inner { max-width: 720px; margin: 0 auto; }
+    .author-bio .eyebrow { display: block; margin-bottom: 16px; }
+    .author-bio h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 24px; }
+    .author-bio p { font-family: var(--font-body); font-size: 1.02rem; line-height: 1.82; color: var(--text-mid); margin-bottom: 16px; }
     .author-bio p:last-child { margin-bottom: 0; }
-    .author-bio p em { color: var(--sky-shadow); font-style: italic; }
 
-    /* Sample passage — cloud card on sky with gold accent */
-    .sample-passage { padding: 40px 32px; background: var(--sky-bold); }
-    .sample-passage-inner { max-width: 680px; margin: 0 auto; background: var(--cloud); border-radius: 10px; padding: 48px 44px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); border-top: 3px solid var(--gold); }
-    .sample-passage .eyebrow { display: block; margin-bottom: 16px; text-align: center; color: var(--gold-dark); }
-    .sample-passage h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 600; color: var(--sky-shadow); letter-spacing: 0.04em; margin-bottom: 32px; text-align: center; }
-    .sample-passage-body { border-left: 3px solid var(--gold); padding-left: 28px; }
-    .sample-passage-body p { font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-deep); margin-bottom: 18px; font-style: italic; }
+    /* Sample passage — pull-quote treatment with cream and quiet gold accent */
+    .sample-passage { padding: 64px 32px; background: linear-gradient(180deg, var(--cream) 0%, #f8f4ec 100%); }
+    .sample-passage-inner { max-width: 680px; margin: 0 auto; }
+    .sample-passage .eyebrow { display: block; margin-bottom: 16px; text-align: center; }
+    .sample-passage h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 32px; text-align: center; }
+    .sample-passage-body { border-left: 2px solid rgba(184,134,11,0.35); padding-left: 28px; }
+    .sample-passage-body p { font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-mid); margin-bottom: 18px; font-style: italic; }
     .sample-passage-body p:last-child { margin-bottom: 0; }
-    .sample-passage-body p em { color: var(--sky-shadow); font-style: italic; font-weight: 500; }
-    .sample-source { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.12em; color: var(--gold-dark); margin-top: 24px; text-align: center; }
+    .sample-source { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.12em; color: rgba(28,29,64,0.5); margin-top: 24px; text-align: center; }
 
-    /* Available at — voice on sky with retailer buttons */
-    .available-at { padding: 40px 32px 56px; background: var(--sky-bold); text-align: center; }
+    /* Available at — buy buttons row, calibrated for warm presence rather than urgency */
+    .available-at { padding: 56px 32px; background: var(--cream); text-align: center; }
     .available-at-inner { max-width: 680px; margin: 0 auto; }
-    .available-at .eyebrow { display: block; margin-bottom: 12px; color: var(--gold-light); }
-    .available-at h2 { font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.5rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; margin-bottom: 20px; }
-    .available-at-msg { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-on-sky); line-height: 1.72; margin-bottom: 24px; }
+    .available-at .eyebrow { display: block; margin-bottom: 12px; }
+    .available-at h2 { font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.5rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 20px; }
+    .available-at-msg { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); line-height: 1.72; margin-bottom: 24px; }
     .available-at-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-    .available-at-link { display: inline-block; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); transition: all 0.2s ease; text-decoration: none; }
-    .available-at-link.live { color: #FFFFFF; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.18); cursor: pointer; }
-    .available-at-link.live:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.28); }
+    .available-at-link { display: inline-block; padding: 10px 20px; border: 1px solid rgba(28,29,64,0.16); border-radius: 6px; font-family: var(--font-body); font-size: 0.92rem; color: rgba(28,29,64,0.55); background: rgba(255,255,255,0.6); transition: all 0.2s ease; text-decoration: none; }
+    .available-at-link.live { color: var(--midnight); border-color: rgba(28,29,64,0.3); background: #fff; cursor: pointer; }
+    .available-at-link.live:hover { border-color: var(--gold-dark, #B8860B); color: var(--gold-dark, #B8860B); }
     .available-at-link.placeholder { cursor: default; font-style: italic; }
     @media (max-width: 480px) { .available-at-row { flex-direction: column; align-items: stretch; } }
-
-    /* Book-layout wrapper — sky */
-    .book-layout-wrap { background: var(--sky-bold); }
-
-    /* Featured graphic band — voice on sky with cloud card around the image */
-    .lh-graphic-band { background: var(--sky-bold); padding: 40px 32px; text-align: center; }
-    .lh-graphic-band.tight { padding: 16px 32px 40px; }
-    .lh-graphic-band-inner { max-width: 920px; margin: 0 auto; }
-    .lh-graphic-band-inner .eyebrow { text-align: center; display: block; color: var(--gold-light); }
-    .lh-graphic-band-inner h2 { font-family: var(--font-display); font-size: clamp(1.5rem,2.4vw,2rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.03em; margin: 14px 0 18px; line-height: 1.25; }
-    .lh-graphic-band-inner p.lh-graphic-lede { font-family: var(--font-body); font-size: 1.05rem; color: var(--text-on-sky); line-height: 1.72; margin-bottom: 32px; max-width: 640px; margin-left: auto; margin-right: auto; }
-    .lh-graphic-band-inner p.lh-graphic-lede em { color: var(--gold-light); }
-    .lh-graphic-card { background: var(--cloud); border-radius: 10px; padding: 24px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); display: inline-block; max-width: 100%; }
-    .lh-graphic-card img { max-width: 100%; height: auto; display: block; border-radius: 4px; }
-    .lh-graphic-caption { font-family: var(--font-display); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; color: var(--gold-light); margin-top: 20px; }
-    .lh-graphic-download { margin-top: 24px; }
-    .lh-graphic-download a { display: inline-block; font-family: var(--font-nav); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFFFFF; text-decoration: none; padding: 14px 28px; border: 1px solid rgba(255,255,255,0.5); background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); border-radius: 2px; transition: background 0.2s, color 0.2s, border-color 0.2s; }
-    .lh-graphic-download a:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.22); }
-
-    /* Trigger meter — dark featured card on sky */
-    .trigger-meter-band { background: var(--sky-bold); padding: 40px 32px; }
-    .trigger-meter-inner { max-width: var(--max); margin: 0 auto; background: var(--sky-shadow); border-radius: 10px; padding: 48px 48px; display: grid; grid-template-columns: 180px 1fr; gap: 48px; align-items: center; box-shadow: 0 10px 32px rgba(15,34,53,0.25); }
-    .trigger-meter-inner img { width: 100%; max-width: 160px; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3)); }
-    .trigger-meter-inner h3 { font-family: var(--font-display); font-size: clamp(1.2rem,2vw,1.6rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; margin-bottom: 12px; }
-    .trigger-meter-inner p { font-family: var(--font-body); font-size: 1rem; color: var(--text-on-sky); line-height: 1.72; margin-bottom: 20px; }
-    @media (max-width: 640px) {
-      .trigger-meter-inner { grid-template-columns: 1fr; padding: 32px 28px; text-align: center; gap: 28px; }
-      .trigger-meter-inner img { max-width: 140px; margin: 0 auto; }
-    }
 
   </style>
 
@@ -433,7 +356,7 @@
 <div class="page-header">
   <div class="page-header-bg"></div>
   <div class="page-header-inner reveal">
-    <span class="eyebrow" style="color:var(--gold-light)">The Practice</span>
+    <span class="eyebrow" style="color:rgba(255,255,255,0.6)">The Practice</span>
     <h1>Love Heroically</h1>
     <div class="subtitle">Five Steps to Freedom</div>
     <p>By Kindred Lights</p>
@@ -442,7 +365,6 @@
 
   <!-- ON THIS PAGE — section index -->
   <nav class="page-toc" aria-label="On this page">
-    <div class="page-toc-inner">
     <p class="page-toc-line">
       <span class="page-toc-prefix">Jump to:</span>
       <a href="#about-the-book">About the Book</a>
@@ -455,11 +377,10 @@
       <span class="page-toc-sep">&middot;</span>
       <a href="#notify">Stay Connected</a>
     </p>
-    </div>
   </nav>
 
 <!-- BOOK CONTENT -->
-<div class="book-layout-wrap">
+<div style="background:var(--cream);">
 <div class="book-layout">
   <!-- Cover -->
   <div class="book-cover-col reveal">
@@ -468,13 +389,13 @@
       <img src="images/pacific-book-review-notable-book-award.png" alt="Pacific Book Review — Notable Book Award" width="1280" height="1024" loading="lazy" decoding="async" class="pbr-badge" />
     </div>
     
-    <a href="https://kindredlights.org/mapminder" class="btn-outline-cream" style="display:block;text-align:center;margin-top:20px">Try the Map Minder Free</a>
+    <a href="https://kindredlights.org/mapminder" class="btn-outline" style="display:block;text-align:center">Try the Map Minder Free</a>
   </div>
 
   <!-- Copy -->
   <div class="reveal d2" id="about-the-book">
     <span class="eyebrow">About the Book</span>
-    <p style="font-family:var(--font-soul);font-size:1rem;color:var(--text-on-sky);font-style:italic;margin-bottom:20px">Five Steps to Freedom &mdash; the practice manual</p>
+    <p style="font-family:var(--font-soul);font-size:1rem;color:var(--text-mid);margin-bottom:20px">Five Steps to Freedom &mdash; the practice manual</p>
     <div class="section-rule"></div>
 
     <p class="book-hook">You have a persistent problem. And you've tried everything. The therapy helped. The books named it. The workshops gave you tools that work beautifully — until the moment arrives and they simply aren't available. Here it is again. Same situation, different day. What if the moment just before the freight train leaves the station is actually a choice point? A small one — almost invisible. But enough.</p>
@@ -522,7 +443,7 @@
     <p>The Five Steps and the framework you&rsquo;ll find in this book were not built in a retreat center or a graduate program. They were assembled in custody courtrooms, on a jail floor, beside my teenager in crisis, and in ten thousand ordinary moments where my lower self wanted to burn the world down &mdash; and my higher self said: <em>open your heart. I&rsquo;ll show you what to do.</em></p>
     <p>What I found became the Five Steps. What I kept finding as I walked them became the framework. It isn&rsquo;t academic. It isn&rsquo;t borrowed. It&rsquo;s the map I drew as I walked. I&rsquo;m handing it to you now.</p>
     <p>I write under the name Kindred Lights because we are all kindred lights &mdash; not separate lights competing for oxygen, but the same light in different lanterns, all on the same path home.</p>
-    <p style="font-family:var(--font-body);font-size:0.92rem;color:var(--text-deep);font-style:italic;margin-top:24px;"><a href="about.html" style="color:var(--gold-dark);text-decoration:none;border-bottom:1px solid rgba(184,134,11,0.4);">Read the longer story &rarr;</a></p>
+    <p style="font-family:var(--font-body);font-size:0.92rem;color:var(--text-mid);font-style:italic;margin-top:24px;"><a href="about.html" style="color:var(--gold-dark,#B8860B);text-decoration:none;border-bottom:1px solid rgba(184,134,11,0.4);">Read the longer story &rarr;</a></p>
   </div>
 </section>
 
@@ -531,7 +452,7 @@
   <div class="sample-passage-inner reveal">
     <span class="eyebrow">A Sample</span>
     <h2>From the Book</h2>
-    <p style="font-family: var(--font-body); font-size: 0.96rem; color: var(--text-deep); text-align: center; max-width: 560px; margin: -16px auto 36px; line-height: 1.7;">From the opening chapter. The loop named precisely. Then the door.</p>
+    <p style="font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); text-align: center; max-width: 560px; margin: -16px auto 36px; line-height: 1.7;">From the opening chapter. The loop named precisely. Then the door.</p>
     <div class="sample-passage-body">
       <p>I think about it constantly.</p>
       <p>I can&rsquo;t <em>not</em> think about it. It&rsquo;s there when I wake up, it&rsquo;s there in the shower, it&rsquo;s there in the car, it&rsquo;s there in the part of every conversation that is nominally about something else. My mind is working on this. I can feel it working. Going back over the sequence of events, finding the moments where something could have gone differently, rehearsing what I should have said, drafting what I&rsquo;m going to say, running the scenario where the other person finally understands and responds the way they should.</p>
@@ -559,57 +480,51 @@
 </section>
 
 <!-- TRIGGER METER STRIP -->
-<div class="trigger-meter-band">
-  <div class="trigger-meter-inner">
-    <img src="images/trigger-meter-five-steps-to-freedom.png" alt="The Trigger-meter — where are you on Sir Ego's heat index? The diagnostic for the Five Steps to Freedom." width="1080" height="2200" loading="lazy" decoding="async" class="reveal" />
+<div style="background:#2d2b5e;padding:56px 32px;">
+  <div style="max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:180px 1fr;gap:48px;align-items:center;">
+    <img src="images/trigger-meter-five-steps-to-freedom.png" alt="The Trigger-meter — where are you on Sir Ego's heat index? The diagnostic for the Five Steps to Freedom." width="1080" height="2200" loading="lazy" decoding="async" class="reveal" style="width:100%;max-width:160px;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.3));" />
     <div class="reveal d2">
-      <h3>Where are you on the meter?</h3>
-      <p>Think of something that triggers you. Where do you land? That spot on the meter is your entry point. The Five Steps meet you right there &mdash; in the moment, not after.</p>
-      <a href="https://kindredlights.org/mapminder" class="btn-gold">Try the Map Minder &mdash; Free &rarr;</a>
+      <h3 style="font-family:var(--font-display);font-size:clamp(1.2rem,2vw,1.6rem);font-weight:600;color:#fff;letter-spacing:0.04em;margin-bottom:12px">Where are you on the meter?</h3>
+      <p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.75);line-height:1.72;margin-bottom:20px">Think of something that triggers you. Where do you land? That spot on the meter is your entry point. The Five Steps meet you right there — in the moment, not after.</p>
+      <a href="https://kindredlights.org/mapminder" class="btn-gold">Try the Map Minder — Free →</a>
     </div>
   </div>
 </div>
 
 <!-- FIVE STEPS REFERENCE CARD — operational summary -->
-<div class="lh-graphic-band">
-  <div class="lh-graphic-band-inner reveal">
-    <span class="eyebrow">The Practice</span>
-    <h2>The five movements, on one card.</h2>
-    <p class="lh-graphic-lede">Recognize the trigger. Relax the alarm. Release what is held. Receive what arises. Respond from the steadier place. <em>Love Heroically</em> is the manual for walking these one triggered moment at a time.</p>
-    <div class="lh-graphic-card">
-      <img src="images/five-steps-to-freedom.png" alt="The Five Steps to Freedom — the Hero's Path of Love. Recognize: Here we go again, mind busy, heart closed. Relax: the ego braces, the Wise One breathes. Release: feel it, don't fix it, wait in the discomfort. Receive: in the silence after the surrender, the Wise One speaks. Respond: right words, right action, right attitude." width="1300" height="1100" loading="lazy" decoding="async" style="max-width:560px;" />
-    </div>
+<div style="background:var(--cream);padding:64px 32px 24px;text-align:center;">
+  <div style="max-width:700px;margin:0 auto;" class="reveal">
+    <span class="eyebrow" style="text-align:center;display:block">The Practice</span>
+    <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,2.4vw,2rem);font-weight:600;color:var(--midnight);letter-spacing:0.03em;margin:14px 0 22px;line-height:1.25;">The five movements, on one card.</h2>
+    <p style="font-family:var(--font-body);font-size:1.05rem;color:var(--text-mid);line-height:1.72;margin-bottom:32px;">Recognize the trigger. Relax the alarm. Release what is held. Receive what arises. Respond from the steadier place. <em>Love Heroically</em> is the manual for walking these one triggered moment at a time.</p>
+    <img src="images/five-steps-to-freedom.png" alt="The Five Steps to Freedom — the Hero's Path of Love. Recognize: Here we go again, mind busy, heart closed. Relax: the ego braces, the Wise One breathes. Release: feel it, don't fix it, wait in the discomfort. Receive: in the silence after the surrender, the Wise One speaks. Respond: right words, right action, right attitude." width="1300" height="1100" loading="lazy" decoding="async" style="width:100%;max-width:560px;margin:0 auto;display:block;border-radius:8px;box-shadow:0 12px 44px rgba(100,80,180,0.12);" />
   </div>
 </div>
 
 <!-- FLOWCHART — Five Steps · Two Paths (LH version with The Wise One / Sir Ego labeling) -->
-<div class="lh-graphic-band tight">
-  <div class="lh-graphic-band-inner reveal">
-    <span class="eyebrow">Five Steps. Two Paths.</span>
-    <div class="lh-graphic-card">
-      <img src="images/five-steps-love-heroically-flowchart.png" alt="The Five Steps to Freedom flowchart from Love Heroically — the practice in full detail." width="1800" height="1800" loading="lazy" decoding="async" />
-    </div>
-    <p class="lh-graphic-caption">Heart Consciousness Changes Everything</p>
+<div style="background:var(--cream);padding:24px 32px 72px;text-align:center;">
+  <div style="max-width:700px;margin:0 auto;" class="reveal">
+    <span class="eyebrow" style="text-align:center;display:block">Five Steps. Two Paths.</span>
+    <img src="images/five-steps-love-heroically-flowchart.png" alt="The Five Steps to Freedom flowchart from Love Heroically — the practice in full detail." width="1800" height="1800" loading="lazy" decoding="async" style="width:100%;border-radius:8px;box-shadow:0 12px 44px rgba(100,80,180,0.12);margin-top:16px;" />
+    <p style="font-family:var(--font-display);font-size:0.9rem;font-weight:600;letter-spacing:0.08em;color:#8B7EC8;margin-top:20px">Heart Consciousness Changes Everything</p>
   </div>
 </div>
 
 <!-- EZ REFERENCE — full quick-reference card with thoughts and heart cues per step, plus greyscale PDF download -->
-<div class="lh-graphic-band tight">
-  <div class="lh-graphic-band-inner reveal">
-    <span class="eyebrow">Take It With You</span>
-    <h2>The Five Steps EZ Reference.</h2>
-    <p class="lh-graphic-lede">Each step with the thoughts that signal it, the heart cue that turns it, and the inner movement that follows. Print it. Tape it inside a cabinet. Keep it near the moments that need it.</p>
-    <div class="lh-graphic-card">
-      <img src="images/five-steps-to-freedom-ez-reference.png" alt="The Five Steps to Freedom EZ Reference — quick reference card. Recognize the trigger and the body's signals. Relax: the moment of choice, actively open the heart. Release: feel it, don't fix it, it's only energy. Receive: clear insights, inner peace, gratitude. Respond: right words, right action at the right moment." width="2598" height="1654" loading="lazy" decoding="async" />
-    </div>
-    <p class="lh-graphic-download"><a href="downloads/five-steps-to-freedom-ez-reference-greyscale.pdf" download>Download Printable PDF &darr;</a></p>
+<div style="background:var(--cream);padding:24px 32px 80px;text-align:center;">
+  <div style="max-width:920px;margin:0 auto;" class="reveal">
+    <span class="eyebrow" style="text-align:center;display:block">Take It With You</span>
+    <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,2.4vw,2rem);font-weight:600;color:var(--midnight);letter-spacing:0.03em;margin:14px 0 22px;line-height:1.25;">The Five Steps EZ Reference.</h2>
+    <p style="font-family:var(--font-body);font-size:1.05rem;color:var(--text-mid);line-height:1.72;margin-bottom:32px;max-width:640px;margin-left:auto;margin-right:auto;">Each step with the thoughts that signal it, the heart cue that turns it, and the inner movement that follows. Print it. Tape it inside a cabinet. Keep it near the moments that need it.</p>
+    <img src="images/five-steps-to-freedom-ez-reference.png" alt="The Five Steps to Freedom EZ Reference — quick reference card. Recognize the trigger and the body's signals. Relax: the moment of choice, actively open the heart. Release: feel it, don't fix it, it's only energy. Receive: clear insights, inner peace, gratitude. Respond: right words, right action at the right moment." width="2598" height="1654" loading="lazy" decoding="async" style="width:100%;border-radius:8px;box-shadow:0 12px 44px rgba(100,80,180,0.12);margin-bottom:28px;" />
+    <p style="margin:0;"><a href="downloads/five-steps-to-freedom-ez-reference-greyscale.pdf" download style="display:inline-block;font-family:var(--font-display);font-size:0.85rem;font-weight:600;letter-spacing:0.12em;color:var(--midnight);text-decoration:none;padding:14px 28px;border:1px solid var(--midnight);border-radius:2px;transition:background 0.2s, color 0.2s;">Download Printable PDF ↓</a></p>
   </div>
 </div>
 
 <!-- KIT CAPTURE -->
 <section class="kit-section" id="notify">
   <div class="kit-inner reveal">
-    <span class="eyebrow" style="color:var(--gold-light)">In Touch</span>
+    <span class="eyebrow" style="color:rgba(201,168,76,0.6)">In Touch</span>
     <h2 class="kit-h">Let&rsquo;s Connect</h2>
     <p class="kit-sub">If something here resonates, leave your email. I&rsquo;d love to hear from you.</p>
     <iframe name="connect-target" id="connect-target" style="display:none;width:0;height:0;border:0;" onload="onConnectSubmitLoad()"></iframe>
