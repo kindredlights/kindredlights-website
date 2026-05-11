@@ -17,7 +17,7 @@
       /* ── Brand Style Guide v2 — exact values ── */
       --cream:         #F4F0EC;   /* Moonbeam Cream — page bg */
       --cream-dark:    #EAE4DA;   /* slightly deeper cream for alt sections */
-      --midnight:      #3D72AA;   /* Midnight Indigo — nav, dark headers */
+      --midnight:      #F4F8FB;   /* Midnight Indigo — nav, dark headers */
       --deep-sky:      #1F4A6B;   /* Deep Sky — high-contrast surfaces (footer, dropdowns, BFF, Aspects) */
       --deep-blue:     #81A8CB;   /* Mid Blue — links, buttons */
       --gold:          #C9A84C;   /* Sacred Gold — CTAs, dividers, web only */
@@ -127,7 +127,7 @@
     .eyebrow.pale { color: #8B7EC8; }
     .eyebrow.on-gold { color: rgba(28,29,64,0.65); font-size: 0.72rem; }
     h2.sh { font-family: var(--font-display); font-size: clamp(1.6rem,2.7vw,2.2rem); font-weight: 700; letter-spacing: 0.04em; line-height: 1.18; margin-bottom: 15px; }
-    h2.sh.on-light { color: var(--midnight); } h2.sh.on-dark { color: var(--cream); } h2.sh.on-mid { color: #3D72AA; } h2.sh.on-gold { color: var(--midnight); }
+    h2.sh.on-light { color: var(--midnight); } h2.sh.on-dark { color: var(--cream); } h2.sh.on-mid { color: #F4F8FB; } h2.sh.on-gold { color: var(--midnight); }
     .lede { font-family: var(--font-body); font-size: 1.08rem; line-height: 1.76; }
     .lede.on-light { color: var(--text-mid); } .lede.on-dark { color: rgba(247,243,238,0.65); }
 
@@ -156,8 +156,8 @@
     /* BENEFITS — bold sky background; cards are the reading surface */
     .benefits { background: #4F9AD4; padding: 80px 32px; }
     .benefits-inner { max-width: var(--max); margin: 0 auto; }
-    .benefits-head { text-align: center; max-width: 720px; margin: 0 auto 48px; background: #3D72AA; padding: 36px 40px; border-radius: 12px; box-shadow: 0 6px 24px rgba(15,34,53,0.18); }
-    .benefits-intro { font-family: var(--font-body); font-size: 1.06rem; color: rgba(247,243,238,0.95); line-height: 1.82; margin-top: 18px; }
+    .benefits-head { text-align: center; max-width: 720px; margin: 0 auto 48px; background: #F4F8FB; padding: 36px 40px; border-radius: 12px; box-shadow: 0 6px 24px rgba(15,34,53,0.18); }
+    .benefits-intro { font-family: var(--font-body); font-size: 1.06rem; color: #0F2A4A; line-height: 1.82; margin-top: 18px; }
     .b-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 8px; }
     .b-card { background: #E2E8F2; border-radius: 10px; padding: 36px 28px 32px; border-top: 3px solid var(--gold); box-shadow: 0 6px 22px rgba(15,34,53,0.12); transition: background 0.2s, border-color 0.2s, transform 0.15s; display: flex; flex-direction: column; }
     .b-card:hover { background: #ECEEF5; border-color: var(--gold-light); transform: translateY(-2px); }
@@ -459,8 +459,8 @@
 <section class="benefits">
   <div class="benefits-inner">
     <div class="benefits-head reveal">
-      <span class="eyebrow" style="color:var(--gold-light);font-size:0.72rem">What's Actually Happening</span>
-      <h2 class="sh" style="color:#FFFFFF">When the heart closes,<br>the wisdom goes quiet.</h2>
+      <span class="eyebrow" style="color:var(--gold-dark);font-size:0.72rem">What's Actually Happening</span>
+      <h2 class="sh" style="color:#1F4A6B">When the heart closes,<br>the wisdom goes quiet.</h2>
       <p class="benefits-intro">The wisdom went quiet. The alarm got louder.<br><br>In the moments that work — most of them — your heart is open and the wisdom flows through without effort. You say the right thing. You know what's needed. You are, without trying, exactly who you want to be.<br><br>In the moments that don't work, the heart closes to protect you from the charge building inside. And when it closes, the wisest part of you goes quiet. Still there. Just — underneath the alarm, waiting.<br><br>The Five Steps are how you turn down the alarm. In real time. In the moment. Before the familiar response runs. And when the alarm quiets, here is what becomes possible.</p>
     </div>
     <div class="b-grid">
@@ -533,13 +533,13 @@
       <p style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.16em;color:rgba(247,243,238,0.95);margin-top:14px;text-transform:uppercase">Kindred Lights</p>
       <p style="font-family:var(--font-body);font-size:0.82rem;color:rgba(247,243,238,0.7);margin-top:4px;letter-spacing:0.04em">Mapmaker</p>
     </div>
-    <div class="reveal d2" style="background:#3D72AA;padding:36px 40px;border-radius:12px;box-shadow:0 6px 24px rgba(15,34,53,0.18);">
-      <span class="eyebrow" style="color:var(--gold-light)">The Credential Is a Life</span>
-      <h2 class="sh" style="margin-bottom:20px;color:#FFFFFF">The proof is a life.</h2>
-      <p style="font-family:var(--font-soul);font-size:1.2rem;font-style:italic;color:rgba(247,243,238,0.95);line-height:1.6;margin-bottom:20px">Addiction. A teenager in crisis. Years inside a relationship that dismantled reality.</p>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(247,243,238,0.92);line-height:1.78;margin-bottom:16px">These practices were built in that fire — in custody courtrooms, in supervised visitation rooms, in ten thousand ordinary moments where everything in me wanted to burn it all down and something quieter said: <em style="color:var(--gold-light);font-weight:600">open your heart. I'll show you what to do.</em></p>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(247,243,238,0.92);line-height:1.78;margin-bottom:16px">The jail floor. The custody courtroom. The supervised visits. All of it curriculum, precisely delivered.</p>
-      <p style="font-family:var(--font-body);font-size:1.05rem;color:rgba(247,243,238,0.92);line-height:1.78;margin-bottom:24px">Twenty years of sobriety. Three children thriving. A Thanksgiving table rebuilt from wreckage — including a seat for the man who had once been the adversary. That is what the <span class="tip" tabindex="0">Five Steps<span class="tip-box">Recognize. Relax. Release. Receive. Respond.</span></span> made possible. The actual table.</p>
+    <div class="reveal d2" style="background:#F4F8FB;padding:36px 40px;border-radius:12px;box-shadow:0 6px 24px rgba(15,34,53,0.18);">
+      <span class="eyebrow" style="color:var(--gold-dark)">The Credential Is a Life</span>
+      <h2 class="sh" style="margin-bottom:20px;color:#1F4A6B">The proof is a life.</h2>
+      <p style="font-family:var(--font-soul);font-size:1.2rem;font-style:italic;color:#0F2A4A;line-height:1.6;margin-bottom:20px">Addiction. A teenager in crisis. Years inside a relationship that dismantled reality.</p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:#0F2A4A;line-height:1.78;margin-bottom:16px">These practices were built in that fire — in custody courtrooms, in supervised visitation rooms, in ten thousand ordinary moments where everything in me wanted to burn it all down and something quieter said: <em style="color:var(--gold-dark);font-weight:600">open your heart. I'll show you what to do.</em></p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:#0F2A4A;line-height:1.78;margin-bottom:16px">The jail floor. The custody courtroom. The supervised visits. All of it curriculum, precisely delivered.</p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;color:#0F2A4A;line-height:1.78;margin-bottom:24px">Twenty years of sobriety. Three children thriving. A Thanksgiving table rebuilt from wreckage — including a seat for the man who had once been the adversary. That is what the <span class="tip" tabindex="0">Five Steps<span class="tip-box">Recognize. Relax. Release. Receive. Respond.</span></span> made possible. The actual table.</p>
       <a href="about.html" class="btn-outline-cream">Read the Full Story →</a>
     </div>
   </div>
@@ -548,13 +548,13 @@
 <!-- SECTION 5B — WHY THIS IS DIFFERENT -->
 <section style="background:#4F9AD4;padding:80px 32px;">
   <div style="max-width:760px;margin:0 auto;">
-    <div class="reveal" style="background:#3D72AA;padding:36px 40px;border-radius:12px;box-shadow:0 6px 24px rgba(15,34,53,0.18);margin-bottom:32px;">
-      <span class="eyebrow" style="color:var(--gold-light)">Why This Works When Other Things Haven't</span>
-      <h2 class="sh" style="color:#FFFFFF;margin-bottom:24px">You've probably tried things.</h2>
-      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(247,243,238,0.92);line-height:1.82;margin-bottom:16px">Good things. Things that made sense, that gave you language for what was happening, that helped — for a while. And then the moment arrived, the real one, and the tools weren't there.</p>
-      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(247,243,238,0.92);line-height:1.82;margin-bottom:32px">This is different in a specific way.</p>
-      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(247,243,238,0.92);line-height:1.82;margin-bottom:32px">Most approaches work on the ego from the outside — better thoughts, better language, better frameworks. And Sir Ego takes all of that in, gets very sophisticated about it, and then does exactly what he always did when the alarm fires. Because the alarm doesn't care about frameworks. It fires first and asks questions never.</p>
-      <p style="font-family:var(--font-body);font-size:1.08rem;color:rgba(247,243,238,0.92);line-height:1.82;margin-bottom:0">The Five Steps work from the inside, in the moment, on the nervous system. They don't ask Sir Ego to be better. They ask him to step aside — just for a moment — so the part of you that already knows what to do can come through.</p>
+    <div class="reveal" style="background:#F4F8FB;padding:36px 40px;border-radius:12px;box-shadow:0 6px 24px rgba(15,34,53,0.18);margin-bottom:32px;">
+      <span class="eyebrow" style="color:var(--gold-dark)">Why This Works When Other Things Haven't</span>
+      <h2 class="sh" style="color:#1F4A6B;margin-bottom:24px">You've probably tried things.</h2>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:#0F2A4A;line-height:1.82;margin-bottom:16px">Good things. Things that made sense, that gave you language for what was happening, that helped — for a while. And then the moment arrived, the real one, and the tools weren't there.</p>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:#0F2A4A;line-height:1.82;margin-bottom:32px">This is different in a specific way.</p>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:#0F2A4A;line-height:1.82;margin-bottom:32px">Most approaches work on the ego from the outside — better thoughts, better language, better frameworks. And Sir Ego takes all of that in, gets very sophisticated about it, and then does exactly what he always did when the alarm fires. Because the alarm doesn't care about frameworks. It fires first and asks questions never.</p>
+      <p style="font-family:var(--font-body);font-size:1.08rem;color:#0F2A4A;line-height:1.82;margin-bottom:0">The Five Steps work from the inside, in the moment, on the nervous system. They don't ask Sir Ego to be better. They ask him to step aside — just for a moment — so the part of you that already knows what to do can come through.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:18px;">
       <div class="reveal d1" style="background:#E2E8F2;border-radius:10px;padding:22px 28px;border-left:3px solid var(--gold);box-shadow:0 4px 16px rgba(15,34,53,0.10);">
@@ -579,10 +579,10 @@
     <div class="reveal" style="text-align:center;">
       <img src="images/monkeys-dream-film-reel.png" alt="The Monkeys Dream — film reel narrative of the dream that changed everything." width="556" height="1945" loading="lazy" decoding="async" style="width:100%;max-width:280px;margin:0 auto;display:block;" />
     </div>
-    <div class="reveal d2" style="background:#3D72AA;padding:36px 40px;border-radius:12px;box-shadow:0 6px 24px rgba(15,34,53,0.18);">
-      <span class="eyebrow" style="color:var(--gold-light)">A Dream That Changed Everything</span>
-      <h2 class="sh" style="margin-bottom:32px;color:#FFFFFF">I made the monkeys extinct.</h2>
-      <div style="font-family:var(--font-soul);font-size:1.12rem;color:rgba(247,243,238,0.92);line-height:1.9;">
+    <div class="reveal d2" style="background:#F4F8FB;padding:36px 40px;border-radius:12px;box-shadow:0 6px 24px rgba(15,34,53,0.18);">
+      <span class="eyebrow" style="color:var(--gold-dark)">A Dream That Changed Everything</span>
+      <h2 class="sh" style="margin-bottom:32px;color:#1F4A6B">I made the monkeys extinct.</h2>
+      <div style="font-family:var(--font-soul);font-size:1.12rem;color:#0F2A4A;line-height:1.9;">
         <p style="margin-bottom:12px">I was walking through paradise with the Creator.</p>
         <p style="margin-bottom:12px">Everything shimmered with life — ferns, orchids, birdsong, golden light. And a presence beside me that needed no name.</p>
         <p style="margin-bottom:12px">Then — screeching monkeys. Loud, chaotic, grating.</p>
@@ -590,17 +590,17 @@
         <p style="margin-bottom:12px">And it did.</p>
         <p style="margin-bottom:12px">I smiled. What power.</p>
         <p style="margin-bottom:12px">But then I saw what followed. No monkeys meant no monkey babies. No monkey babies meant no monkeys at all.</p>
-        <p style="margin-bottom:24px;color:var(--gold-light);font-style:italic;font-weight:600">I had made the monkeys extinct.</p>
+        <p style="margin-bottom:24px;color:var(--gold-dark);font-style:italic;font-weight:600">I had made the monkeys extinct.</p>
         <p style="margin-bottom:12px">We walked on. A lion crouched over a gazelle — blood, death, the raw truth of nature.</p>
         <p style="margin-bottom:12px">I wished it would stop.</p>
         <p style="margin-bottom:12px">And it did.</p>
         <p style="margin-bottom:12px">No kills. No lions. No lions — no balance. The gazelles ate everything green. And then they vanished too.</p>
-        <p style="margin-bottom:24px;color:var(--gold-light);font-style:italic;font-weight:600">And paradise was barren.</p>
+        <p style="margin-bottom:24px;color:var(--gold-dark);font-style:italic;font-weight:600">And paradise was barren.</p>
         <p style="margin-bottom:12px">All because I wanted quiet. Comfort. Control.</p>
         <p style="margin-bottom:12px">When I woke up, I understood.</p>
         <p style="margin-bottom:12px">The dream wasn't about monkeys and lions. It was about the way my ego was trying to fix, control, and avoid anything uncomfortable — and had repercussions I could not see or imagine.</p>
         <p style="margin-bottom:12px">The divine plan — with screeching monkeys and carnivorous lions — was already perfect.</p>
-        <p style="font-family:var(--font-display);font-size:1.1rem;color:#FFFFFF;letter-spacing:0.04em;margin-top:8px">So is yours.</p>
+        <p style="font-family:var(--font-display);font-size:1.1rem;color:#1F4A6B;letter-spacing:0.04em;margin-top:8px">So is yours.</p>
       </div>
     </div>
   </div>
