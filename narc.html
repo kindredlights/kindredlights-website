@@ -190,6 +190,121 @@
       .page-toc-prefix { display: block; margin-bottom: 4px; }
     }
 
+  
+    /* ═══ SKY SYSTEM CONVERSION ═══ */
+    :root {
+      --sky-bold:      #4F9AD4;
+      --sky-shadow:    #1F4A6B;
+      --sky-dusk:      #345878;
+      --cloud:         #F4F8FB;
+      --text-on-sky:   rgba(247,243,238,0.92);
+      --text-deep:     #0F2A4A;
+      /* Legacy aliases */
+      --cream:         #F4F8FB;
+      --midnight:      #1F4A6B;
+      --deep-sky:      #345878;
+    }
+    body { background: var(--sky-bold) !important; color: var(--text-on-sky); }
+    /* NAV — cool translucent cloud */
+    #main-nav { background: rgba(244,248,251,0.92) !important; border-bottom-color: rgba(201,168,76,0.25); }
+    .nav-link { color: #1F4A6B !important; }
+    .nav-link:hover, .nav-link.active { color: #8B6914 !important; }
+    .mobile-nav { background: rgba(244,248,251,0.92) !important; border-bottom-color: rgba(201,168,76,0.25); }
+    .mob-brand-text { color: #1F4A6B; }
+    .hamburger span { background: #1F4A6B; }
+    /* HERO — flat sky, drop sun-angel bg, gold-light eyebrow, cream-92% tagline */
+    .v-hero { background: var(--sky-bold) !important; padding-right: 32px !important; padding-top: calc(var(--nav-h) + 40px) !important; padding-bottom: 32px !important; }
+    .v-hero-bg { display: none !important; }
+    .v-eyebrow { color: #E8D48A !important; }
+    .v-h1 { color: #FFFFFF !important; }
+    .v-tagline { color: var(--text-on-sky) !important; }
+    .v-hero-rule { background: #C9A84C !important; }
+    /* CONTENT SECTION — continuous sky, white headings, cream-92% body */
+    .v-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .v-section-label { color: #E8D48A !important; }
+    .v-h2 { color: #FFFFFF !important; }
+    .v-body { color: var(--text-on-sky) !important; }
+    .v-body em { color: #E8D48A !important; }
+    .v-body strong { color: #FFFFFF !important; }
+    .v-body a { color: #E8D48A; border-bottom-color: rgba(232,212,138,0.5); }
+    .v-body a:hover { color: #FFFFFF; border-bottom-color: #FFFFFF; }
+    /* BFF SECTION — voice on sky (was dark deep-sky band) */
+    .bff-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .bff-label { color: #E8D48A !important; }
+    .bff-phase { color: #E8D48A !important; opacity: 0.9; }
+    .bff-body { color: var(--text-on-sky) !important; }
+    .bff-body em { color: #FFFFFF !important; }
+    /* ASPECTS SECTION — continuous sky, cards inside */
+    .aspects-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .aspects-teaching { background: rgba(255,255,255,0.10) !important; border-left-color: rgba(232,212,138,0.7) !important; color: var(--text-on-sky); }
+    .aspects-teaching em { color: #E8D48A !important; }
+    .aspects-teaching a { color: #E8D48A; }
+    .aspects-teaching a:hover { color: #FFFFFF; }
+    .aspect-card { color: var(--text-on-sky); /* leaves per-aspect border-color intact */ }
+    .aspect-name { color: #FFFFFF !important; }
+    .aspect-body { color: var(--text-on-sky) !important; }
+    .aspect-body em { color: #FFFFFF !important; }
+    .aspects-bridge { background: rgba(255,255,255,0.10) !important; border-color: rgba(255,255,255,0.25) !important; color: var(--text-on-sky); }
+    /* STEPS SECTION — continuous sky */
+    .steps-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .step-name { color: #E8D48A !important; }
+    .step-body { color: var(--text-on-sky) !important; }
+    .step-body em { color: #FFFFFF !important; }
+    /* RESOURCES SECTION — continuous sky */
+    .resources-section { background: var(--sky-bold) !important; padding: 40px 32px !important; }
+    .resources-inner p { color: var(--text-on-sky) !important; }
+    .resources-inner a { color: #E8D48A !important; border-bottom-color: rgba(232,212,138,0.5) !important; }
+    .resources-inner a:hover { color: #FFFFFF !important; }
+    /* BLESSING SECTION — voice on sky */
+    .blessing-section { background: var(--sky-bold) !important; padding: 56px 32px !important; }
+    .blessing-text { color: var(--text-on-sky) !important; }
+    .blessing-text em { color: #FFFFFF !important; }
+    .blessing-sigil { color: #E8D48A !important; }
+    /* MM CTA — voice on sky */
+    .mm-cta { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .mm-cta p { color: var(--text-on-sky) !important; }
+    .mm-cta em { color: #FFFFFF !important; }
+    /* FAQ SECTION — sky background, FAQ items as cloud cards */
+    .faq-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .faq-leadin { color: var(--text-on-sky) !important; }
+    .faq-item { background: var(--cloud) !important; border-color: transparent !important; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
+    .faq-item[open] { border-color: rgba(201,168,76,0.4) !important; box-shadow: 0 10px 32px rgba(15,34,53,0.18); }
+    .faq-q { color: var(--sky-shadow) !important; }
+    .faq-q:hover { color: #8B6914 !important; }
+    .faq-q::after { color: #8B6914 !important; }
+    .faq-p { color: var(--text-deep) !important; }
+    .faq-p em { color: var(--sky-shadow) !important; }
+    .faq-closing { color: var(--text-deep) !important; border-left-color: rgba(201,168,76,0.6) !important; }
+    /* BOOKS / RELATED SECTIONS — sky with cloud cards */
+    .books-section, .related-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .books-section .v-h2, .related-section .v-h2 { color: #FFFFFF !important; }
+    .book-card { background: var(--cloud) !important; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
+    /* DISCLAIMER — deep dusk to match footer */
+    .disclaimer { background: var(--sky-dusk) !important; }
+    .disclaimer p { color: rgba(247,243,238,0.5) !important; }
+    /* MAPMINDER CALLOUT SECTION — featured dark card on sky */
+    .mapminder-section { background: var(--sky-bold) !important; padding: 40px 32px !important; }
+    .mapminder-section .v-section-inner { background: var(--sky-shadow); border-radius: 10px; padding: 40px 36px; box-shadow: 0 10px 32px rgba(15,34,53,0.25); max-width: var(--max); }
+    .mapminder-section .v-section-label { color: #E8D48A !important; }
+    .mapminder-section .v-h2 { color: #FFFFFF !important; }
+    .mapminder-section .v-body { color: var(--text-on-sky) !important; }
+    .mapminder-section .v-body em { color: #E8D48A !important; }
+    /* DISCLAIMER SECTION VARIATION */
+    .disclaimer-section { background: var(--sky-dusk) !important; padding: 24px 32px !important; }
+    .disclaimer-section p { color: rgba(247,243,238,0.5) !important; }
+    /* FOOTER — deep dusk */
+    footer { background: var(--sky-dusk) !important; }
+    /* PAGE TOC (if present) — cloud card on sky */
+    .page-toc { background: var(--sky-bold) !important; padding: 28px 32px !important; max-width: none !important; margin: 0 !important; }
+    .page-toc-line { background: var(--cloud); max-width: 720px; margin: 0 auto !important; padding: 20px 28px; border-radius: 8px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); color: var(--text-deep) !important; }
+    .page-toc-prefix { color: #8B6914 !important; }
+    .page-toc a { color: var(--sky-shadow) !important; }
+    .page-toc a:hover { color: #8B6914 !important; }
+    /* TIP TOOLTIPS — sky-shadow box (already dark, just align) */
+    .tip-box { background: var(--sky-shadow) !important; color: #FFFFFF !important; }
+    .tip { border-bottom-color: #C9A84C; }
+    /* ═══ END SKY SYSTEM ═══ */
+
   </style>
 
 
