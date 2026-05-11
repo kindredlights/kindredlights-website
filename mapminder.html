@@ -1416,7 +1416,7 @@ function renderFullMap(data) {
     // ───── Gift block ─────
     + '<div class="gift-card">'
     + '<h3 class="gift-h">Take it home with you</h3>'
-    + '<p class="gift-p">Two PDFs. Yours to keep, share, or print. No email, no signup, no strings.</p>'
+    + '<p class="gift-p">Three PDFs. Yours to keep, share, or print. No email, no signup, no strings.</p>'
     + '<div class="gift-buttons">'
     + '<button onclick="generateMapPDF()" class="btn-gift" id="map-pdf-btn">'
     + '<span class="btn-gift-line1">A Map for This Moment</span>'
@@ -1426,8 +1426,12 @@ function renderFullMap(data) {
     + '<span class="btn-gift-line1">The Release Toolkit</span>'
     + '<span class="btn-gift-line2">13 emotions \u00b7 10 practices \u00b7 PDF</span>'
     + '</a>'
+    + '<a href="downloads/five-steps-to-freedom-ez-reference-greyscale.pdf" download class="btn-gift">'
+    + '<span class="btn-gift-line1">Five Steps EZ Reference</span>'
+    + '<span class="btn-gift-line2">The practice on one page \u00b7 PDF</span>'
+    + '</a>'
     + '</div>'
-    + '<p class="gift-fine">Both free. The Map Minder is always free.</p>'
+    + '<p class="gift-fine">All free. The Map Minder is always free.</p>'
     + '</div>';
 
   const responseArea = document.getElementById('response-area');
@@ -1837,6 +1841,25 @@ function generateMapPDF() {
       doc.text(line, PAGE_W / 2, y, { align: 'center' });
       y += 16;
     });
+
+    // ─── EZ Reference pointer (small, after blessing) ──────────
+    y += 22;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(120, 120, 120);
+    doc.text('Keep the practice nearby:', PAGE_W / 2, y, { align: 'center' });
+    y += 12;
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8.5);
+    doc.setTextColor(138, 122, 64);  // #8A7A40 muted gold
+    doc.text('kindredlights.org/downloads/five-steps-to-freedom-ez-reference-greyscale.pdf', PAGE_W / 2, y, { align: 'center' });
+    doc.setTextColor(0, 0, 0);
+    y += 12;
+    doc.setFont('times', 'italic');
+    doc.setFontSize(8.5);
+    doc.setTextColor(140, 140, 140);
+    doc.text('The Five Steps to Freedom on one page.', PAGE_W / 2, y, { align: 'center' });
+    doc.setTextColor(0, 0, 0);
 
     // ─── FOOTER ON LAST PAGE ───────────────────────────────────
     addFooter();
