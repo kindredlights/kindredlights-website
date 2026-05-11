@@ -371,14 +371,34 @@
     .faq-closing { color: var(--text-deep) !important; border-left-color: rgba(201,168,76,0.6) !important; }
     /* BOOKS / RELATED SECTIONS — sky with cloud cards */
     .books-section, .related-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
-    .books-section .v-h2, .related-section .v-h2 { color: #FFFFFF !important; }
+    /* Headings in these sections — both .v-h2 and bare h2 */
+    .books-section .v-h2, .related-section .v-h2,
+    .books-section h2, .related-section h2,
+    .books-head h2 { color: #FFFFFF !important; }
+    /* Body paragraphs — both .v-body and bare p */
+    .books-section p, .related-section p,
+    .books-head p, .related-inner p { color: var(--text-on-sky) !important; }
+    .books-section em, .related-section em { color: #E8D48A !important; }
+    .books-section a, .related-section a { color: #E8D48A !important; border-bottom-color: rgba(232,212,138,0.5) !important; }
+    .books-section a:hover, .related-section a:hover { color: #FFFFFF !important; border-bottom-color: #FFFFFF !important; }
+    .books-pull { color: #FFFFFF !important; }
+    /* Book cards — cloud cards on sky */
     .book-card { background: var(--cloud) !important; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
+    .book-card h3 { color: var(--sky-shadow) !important; }
+    .book-card .book-tag { color: #8B6914 !important; }
+    .book-card p { color: var(--text-deep) !important; }
+    .book-card .book-cta { color: var(--sky-shadow) !important; border-bottom-color: #8B6914 !important; }
+    .book-card .book-cta:hover { color: #8B6914 !important; }
+    /* Mapminder inner content (bare h3, p) — voice on sky directly */
+    .mapminder-section h3, .mapminder-inner h3 { color: #FFFFFF !important; }
+    .mapminder-section p, .mapminder-inner p { color: var(--text-on-sky) !important; }
+    .mapminder-cta { background: #C9A84C !important; color: var(--sky-shadow) !important; }
+    .mapminder-cta:hover { background: #E8D48A !important; }
     /* DISCLAIMER — deep dusk to match footer */
     .disclaimer { background: var(--sky-dusk) !important; }
     .disclaimer p { color: rgba(247,243,238,0.5) !important; }
-    /* MAPMINDER CALLOUT SECTION — featured dark card on sky */
-    .mapminder-section { background: var(--sky-bold) !important; padding: 40px 32px !important; }
-    .mapminder-section .v-section-inner { background: var(--sky-shadow); border-radius: 10px; padding: 40px 36px; box-shadow: 0 10px 32px rgba(15,34,53,0.25); max-width: var(--max); }
+    /* MAPMINDER CALLOUT SECTION — voice on sky */
+    .mapminder-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
     .mapminder-section .v-section-label { color: #E8D48A !important; }
     .mapminder-section .v-h2 { color: #FFFFFF !important; }
     .mapminder-section .v-body { color: var(--text-on-sky) !important; }

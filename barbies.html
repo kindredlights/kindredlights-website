@@ -122,6 +122,155 @@
       .foot-grid { grid-template-columns: 1fr; gap: 24px; }
     }
 
+  
+    /* ═══ SKY SYSTEM CONVERSION ═══ */
+    :root {
+      --sky-bold:      #4F9AD4;
+      --sky-shadow:    #1F4A6B;
+      --sky-dusk:      #345878;
+      --cloud:         #F4F8FB;
+      --text-on-sky:   rgba(247,243,238,0.92);
+      --text-deep:     #0F2A4A;
+      /* Legacy aliases */
+      --cream:         #F4F8FB;
+      --midnight:      #1F4A6B;
+      --deep-sky:      #345878;
+    }
+    body { background: var(--sky-bold) !important; color: var(--text-on-sky); }
+    /* NAV — cool translucent cloud */
+    #main-nav { background: rgba(244,248,251,0.92) !important; border-bottom-color: rgba(201,168,76,0.25); }
+    .nav-link { color: #1F4A6B !important; }
+    .nav-link:hover, .nav-link.active { color: #8B6914 !important; }
+    .mobile-nav { background: rgba(244,248,251,0.92) !important; border-bottom-color: rgba(201,168,76,0.25); }
+    .mob-brand-text { color: #1F4A6B; }
+    .hamburger span { background: #1F4A6B; }
+    /* PAGE HEADER — flat sky */
+    .page-header { background: var(--sky-bold) !important; padding-top: calc(var(--nav-h) + 40px) !important; padding-bottom: 32px !important; }
+    .page-header-bg { display: none !important; }
+    .page-header h1 { color: #FFFFFF !important; }
+    .page-header .subtitle { color: #E8D48A !important; }
+    .page-header p { color: var(--text-on-sky) !important; }
+    .page-header .eyebrow { color: #E8D48A !important; }
+    /* BIO SECTION (about.html) — flatten bands to continuous sky */
+    .bio-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .bio-section:nth-child(odd), .bio-section:nth-child(even) { background: var(--sky-bold) !important; }
+    .bio-section h2, .bio-section h3 { color: #FFFFFF !important; }
+    .bio-section p { color: var(--text-on-sky) !important; }
+    .bio-section em { color: #E8D48A !important; }
+    .bio-section strong { color: #FFFFFF !important; }
+    .bio-section a { color: #E8D48A !important; border-bottom-color: rgba(232,212,138,0.5) !important; }
+    .bio-section a:hover { color: #FFFFFF !important; border-bottom-color: #FFFFFF !important; }
+    .bio-section .eyebrow, .bio-section .section-label { color: #E8D48A !important; }
+    .bio-section .pull { color: #FFFFFF !important; border-left-color: #E8D48A !important; }
+    /* COLIN BAND — voice on sky (was dark indigo) */
+    .colin-band { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .colin-band h2, .colin-band h3 { color: #FFFFFF !important; }
+    .colin-band p { color: var(--text-on-sky) !important; }
+    .colin-band em { color: #E8D48A !important; }
+    .colin-band .eyebrow, .colin-band .section-label { color: #E8D48A !important; }
+    /* CTA BAND — voice on sky */
+    .cta-band { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .cta-band-bg { display: none !important; }
+    .cta-band h2 { color: #FFFFFF !important; }
+    .cta-band p { color: var(--text-on-sky) !important; }
+    .cta-band em { color: #E8D48A !important; }
+    .cta-band .eyebrow { color: #E8D48A !important; }
+    /* KIT SECTION (books-coming.html) — dark featured card on sky */
+    .kit-section { background: var(--sky-bold) !important; padding: 40px 32px !important; }
+    .kit-inner { background: var(--sky-shadow) !important; border-radius: 10px; padding: 48px 44px; max-width: 640px; margin: 0 auto !important; box-shadow: 0 10px 32px rgba(15,34,53,0.25); }
+    .kit-section h2, .kit-section h3, .kit-h { color: #FFFFFF !important; }
+    .kit-section p, .kit-sub { color: rgba(247,243,238,0.75) !important; }
+    .kit-input { background: rgba(255,255,255,0.07) !important; border-color: rgba(255,255,255,0.18) !important; color: #FFFFFF !important; }
+    .kit-input::placeholder { color: rgba(255,255,255,0.4) !important; }
+    .kit-fine { color: rgba(255,255,255,0.4) !important; }
+    /* FOOTER */
+    footer { background: var(--sky-dusk) !important; }
+    /* TIP TOOLTIPS — sky-shadow */
+    .tip-box { background: var(--sky-shadow) !important; color: #FFFFFF !important; }
+    .tip { border-bottom-color: #C9A84C; }
+    /* Generic eyebrow */
+    .eyebrow { color: #E8D48A !important; }
+    .section-label { color: #E8D48A !important; }
+    /* Inline-styled book preview wrapper divs (books-coming.html) → sky */
+    div[style*="background:var(--cream)"],
+    div[style*="background:#f0edf8"],
+    div[style*="background: var(--cream)"],
+    div[style*="background: #f0edf8"] { background: var(--sky-bold) !important; }
+    /* Book preview classes — voice on sky */
+    .book-hook { color: #FFFFFF !important; border-left-color: #E8D48A !important; }
+    .book-body { color: var(--text-on-sky) !important; }
+    .book-body em { color: #E8D48A !important; }
+    .book-body strong { color: #FFFFFF !important; }
+    .section-h3 { color: #E8D48A !important; }
+    /* Force all h2/h3/inline-styled tags on this page to white where they'd be against sky */
+    body h2[style*="midnight"],
+    body h3[style*="midnight"],
+    body p[style*="midnight"] { color: #FFFFFF !important; }
+    body p[style*="text-mid"] { color: var(--text-on-sky) !important; }
+    /* who-item small reference cards — cloud cards on sky */
+    .who-item { background: var(--cloud) !important; color: var(--text-deep) !important; border-left-color: #C9A84C !important; box-shadow: 0 4px 14px rgba(15,34,53,0.12); }
+    .who-item strong { color: var(--sky-shadow) !important; }
+    /* Inline pull-quote box (lavender bg) — cloud card */
+    div[style*="background:#f0edf8;border-radius"] { background: var(--cloud) !important; border-left-color: #C9A84C !important; }
+    div[style*="background:#f0edf8;border-radius"] p { color: var(--sky-shadow) !important; }
+    /* ═══ barbies.html overrides ═══ */
+    .hero { background: var(--sky-bold) !important; }
+    .hero-text h1 { color: #FFFFFF !important; }
+    .hero-text p { color: var(--text-on-sky) !important; }
+    .hero-text p em { color: #E8D48A !important; }
+    .hero-text .eyebrow { color: #E8D48A !important; }
+    .hero-text .rule { background: #C9A84C !important; }
+    .body-section { background: var(--sky-bold) !important; }
+    .body-inner h2 { color: #FFFFFF !important; }
+    .body-inner p { color: var(--text-on-sky) !important; }
+    .body-inner em { color: #E8D48A !important; }
+    .lineup-section { background: var(--sky-bold) !important; }
+    .lineup-inner h2, .lineup-inner h3 { color: #FFFFFF !important; }
+    .lineup-inner p { color: var(--text-on-sky) !important; }
+    .lineup-tag { background: var(--cloud) !important; color: var(--sky-shadow) !important; border-left-color: #C9A84C !important; }
+    .closing-section { background: var(--sky-bold) !important; color: var(--text-on-sky) !important; }
+    .closing-inner p { color: #FFFFFF !important; }
+    .closing-inner .small { color: var(--text-on-sky) !important; }
+    /* ═══ mapminder.html overrides ═══ */
+    .tool-section { background: var(--sky-bold) !important; padding: 48px 32px !important; }
+    .below-fold { background: var(--sky-bold) !important; padding: 56px 32px !important; }
+    /* Mapminder hero (already gradient blue — kept but light blue toward sky) */
+    /* Map-section dynamic readings — keep dark for focused reading on the response area */
+    .response-area { background: var(--sky-shadow); border-radius: 10px; padding: 32px 28px; }
+    /* Below-fold books band → sky with cloud book cards */
+    .below-fold h2, .below-fold h3 { color: #FFFFFF !important; }
+    .below-fold p { color: var(--text-on-sky) !important; }
+    /* ═══ luminology-glossary.html overrides ═══ */
+    body[style*=""] { background: var(--sky-bold) !important; }
+    /* Luminology page — body bg, header bg, etc. */
+    html body { background: var(--sky-bold) !important; color: var(--text-on-sky) !important; }
+    /* Specifically override luminology's dark body */
+    body { background: var(--sky-bold) !important; }
+    /* Override luminology header (cosmic gradient) → sky */
+    header[style], body > header { background: var(--sky-bold) !important; border-bottom: none !important; }
+    header h1 { color: #FFFFFF !important; text-shadow: none !important; }
+    header p.tagline { color: var(--text-on-sky) !important; }
+    header p.intro { color: var(--text-on-sky) !important; }
+    /* Luminology TOC (nav.toc) — cloud card on sky */
+    nav.toc { background: var(--sky-bold) !important; border-bottom: none !important; padding: 32px !important; }
+    nav.toc .toc-grid { background: var(--cloud); max-width: 920px; margin: 0 auto; padding: 24px 32px; border-radius: 10px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
+    nav.toc h2 { color: #FFFFFF !important; }
+    nav.toc a { color: var(--sky-shadow) !important; }
+    nav.toc a:hover { color: #8B6914 !important; }
+    /* Luminology entries — cards on sky */
+    .entry { background: var(--cloud) !important; max-width: 800px; margin: 24px auto !important; padding: 32px 36px !important; border-radius: 10px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); border-bottom: none !important; color: var(--text-deep) !important; }
+    .entry h2, .entry h3 { color: var(--sky-shadow) !important; }
+    .entry p { color: var(--text-deep) !important; }
+    .entry strong { color: var(--sky-shadow) !important; }
+    .entry em { color: var(--sky-shadow) !important; font-style: italic; }
+    .entry a { color: #8B6914 !important; }
+    .pullquote { background: rgba(31,74,107,0.08) !important; border-left: 3px solid #C9A84C !important; padding: 18px 24px !important; color: var(--sky-shadow) !important; font-style: italic; }
+    .forthcoming-note { background: var(--sky-bold) !important; border-top: none !important; border-bottom: none !important; padding: 32px !important; }
+    .forthcoming-note-inner { background: var(--cloud) !important; padding: 24px 28px !important; border-radius: 8px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); border-left: 3px solid #C9A84C !important; max-width: 720px; margin: 0 auto !important; }
+    .forthcoming-note-text p { color: var(--text-deep) !important; }
+    .forthcoming-note-text .eyebrow { color: #8B6914 !important; }
+    /* ═══ END SKY SYSTEM ═══ */
+
   </style>
 </head>
 <body>
