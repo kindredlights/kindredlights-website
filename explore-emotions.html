@@ -47,7 +47,7 @@
     .reveal.d1 { transition-delay: 0.1s; } .reveal.d2 { transition-delay: 0.2s; } .reveal.d3 { transition-delay: 0.3s; }
 
     /* NAV */
-    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: rgba(244,248,251,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: #E1E8F5; backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
     #main-nav.scrolled { box-shadow: 0 4px 28px rgba(15,34,53,0.12); }
     .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 40px; flex-shrink: 0; text-decoration: none; }
     .nav-brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; filter: drop-shadow(0 2px 6px rgba(188,137,220,0.35)); }
@@ -75,7 +75,7 @@
     .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
     .dropdown-link:last-child { border-bottom: none; }
     .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
-    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: rgba(244,248,251,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: #E1E8F5; backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
     .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .mob-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
     .mob-brand-text { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
@@ -250,7 +250,7 @@
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="index.html" class="nav-brand"><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <a href="index.html" class="nav-brand"><img src="images/kindred-lights-heart-sigil.png" alt="Kindred Lights" class="nav-brand-logo" /><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
   <ul class="nav-links">
     <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
     <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
@@ -297,7 +297,7 @@
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav">
-  <a href="index.html" class="mobile-brand"><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <a href="index.html" class="mobile-brand"><img src="images/kindred-lights-heart-sigil.png" alt="Kindred Lights" class="mob-brand-logo" /><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </div>
 <div id="mobile-menu">
