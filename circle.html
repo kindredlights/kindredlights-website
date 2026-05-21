@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Circle of Kindred Lights | Kindred Lights</title>
+  <meta name="description" content="A community of kindred lights sharing what they have noticed — the Five Steps in action, catching Sir Ego at his antics, and moments of being held. The circle is gathering." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    img { height: auto; max-width: 100%; }
+    :root {
+      --cream: #F4F0EC; --midnight: #3C8ABC; --deep-sky: #1F4A6B; --deep-blue: #81A8CB;
+      --sky-bold: #2A6FA8; --sky-dusk: #1A3A5C;
+      --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
+      --periwinkle: #adafdf; --text-dark: #2b2b2b; --text-mid: #4a4a4a;
+      --love: #bde7b7; --power: #fee19f; --calm: #f4a3a2;
+      --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
+      --nav-h: 64px; --max: 780px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.08s; } .reveal.d2 { transition-delay: 0.18s; } .reveal.d3 { transition-delay: 0.28s; }
+
+    /* NAV (inherits site pattern) */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: #E1E8F5; border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; display: flex; align-items: center; padding: 0 32px; }
+    .nav-brand { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; white-space: nowrap; margin-right: 40px; flex-shrink: 0; display: flex; align-items: center; gap: 10px; }
+    .nav-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
+    .nav-brand-text em { color: var(--gold-dark); font-style: normal; display: block; }
+    .nav-links { display: flex; align-items: center; flex: 1; list-style: none; }
+    .nav-item { position: relative; }
+    .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
+    .nav-link br { display: block; }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--deep-sky); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .panel-role { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+    .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
+    .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
+    .panel-link { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
+    .panel-link:hover { color: var(--gold-light); }
+    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-mid); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link:hover { color: var(--gold-dark); }
+    .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--deep-sky); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .nav-has-dropdown .nav-panel { display: none !important; }
+    .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
+    .dropdown-link:last-child { border-bottom: none; }
+    .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: #E1E8F5; border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .mob-brand-logo { width: 32px; height: 32px; object-fit: contain; display: block; }
+    .mob-brand-text { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
+    .mob-brand-text em { color: var(--gold-dark); font-style: normal; }
+    .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--midnight); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--deep-sky); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu.open { display: block; }
+    .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mob-link:hover, .mob-link.gold { color: var(--gold); }
+    .mob-link br { display: none; }
+    .mm-tab { position: fixed; right: 0; top: 50%; writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg); background: var(--gold); color: var(--midnight); font-family: var(--font-nav); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 10px; z-index: 800; white-space: nowrap; border-radius: 4px 0 0 4px; box-shadow: -3px 0 18px rgba(201,168,76,0.25); transition: background 0.2s; }
+    .mm-tab:hover { background: var(--gold-light); }
+
+    /* BUTTONS */
+    .btn-gold { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 15px 32px; background: var(--gold); color: var(--midnight); border-radius: 2px; display: inline-block; border: none; cursor: pointer; box-shadow: 0 4px 18px rgba(201,168,76,0.3); transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-gold:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+    /* HERO with the hands image */
+    .c-hero { position: relative; padding-top: var(--nav-h); background: var(--deep-sky); overflow: hidden; }
+    .c-hero-image { width: 100%; height: clamp(360px, 56vh, 620px); object-fit: cover; object-position: center; display: block; }
+    .c-hero-overlay { position: absolute; inset: var(--nav-h) 0 0 0; background: linear-gradient(180deg, rgba(31,74,107,0) 0%, rgba(31,74,107,0) 55%, rgba(31,74,107,0.85) 100%); pointer-events: none; }
+    .c-hero-text { position: absolute; left: 0; right: 0; bottom: 28px; text-align: center; padding: 0 24px; z-index: 2; }
+    .c-eyebrow { font-family: var(--font-nav); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 14px; }
+    .c-h1 { font-family: var(--font-display); font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 700; color: #FFFFFF; letter-spacing: 0.04em; line-height: 1.15; margin: 0; text-shadow: 0 2px 18px rgba(0,0,0,0.4); }
+
+    /* INTRO BLOCK — directly below hero */
+    .c-intro { padding: 56px 32px 24px; background: var(--cream); }
+    .c-intro-inner { max-width: var(--max); margin: 0 auto; text-align: center; }
+    .c-tagline { font-family: var(--font-soul); font-size: clamp(1.15rem, 2vw, 1.4rem); font-style: italic; color: var(--text-mid); line-height: 1.65; margin-bottom: 32px; }
+    .c-rule { width: 48px; height: 1px; background: var(--gold); margin: 0 auto 32px; }
+    .c-gathering { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; line-height: 1.3; margin-bottom: 24px; }
+    .c-body { font-family: var(--font-body); font-size: 1.06rem; color: var(--text-mid); line-height: 1.85; }
+    .c-body p { margin-bottom: 18px; }
+    .c-body p:last-child { margin-bottom: 0; }
+
+    /* THREE CATEGORY CARDS */
+    .c-cards-section { padding: 24px 32px 64px; background: var(--cream); }
+    .c-cards-inner { max-width: 1000px; margin: 0 auto; }
+    .c-cards-label { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); display: block; text-align: center; margin-bottom: 14px; }
+    .c-cards-h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; line-height: 1.3; text-align: center; margin-bottom: 40px; }
+    .c-card-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .c-card { background: #FFFFFF; border: 1px solid rgba(201,168,76,0.25); border-top: 3px solid var(--gold); border-radius: 4px; padding: 32px 26px; box-shadow: 0 2px 14px rgba(31,74,107,0.06); }
+    .c-card-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 6px; }
+    .c-card-tagline { font-family: var(--font-soul); font-size: 1.02rem; font-style: italic; color: var(--gold-dark); margin-bottom: 16px; }
+    .c-card-desc { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); line-height: 1.7; }
+
+    /* EMAIL CAPTURE — Netlify Forms */
+    .c-signup-section { padding: 64px 32px; background: var(--deep-sky); color: var(--cream); }
+    .c-signup-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .c-signup-label { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 14px; }
+    .c-signup-h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.03em; line-height: 1.3; margin-bottom: 18px; }
+    .c-signup-body { font-family: var(--font-soul); font-size: 1.12rem; font-style: italic; color: rgba(247,243,238,0.82); line-height: 1.7; margin-bottom: 32px; }
+    .c-form { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; align-items: stretch; }
+    .c-form-email { flex: 1; min-width: 240px; max-width: 360px; font-family: var(--font-body); font-size: 1rem; padding: 14px 18px; background: rgba(255,255,255,0.08); border: 1px solid rgba(201,168,76,0.4); border-radius: 2px; color: #FFFFFF; outline: none; transition: border-color 0.2s, background 0.2s; }
+    .c-form-email::placeholder { color: rgba(247,243,238,0.5); }
+    .c-form-email:focus { border-color: var(--gold); background: rgba(255,255,255,0.12); }
+    .c-form-honeypot { display: none !important; }
+    .c-form-success { display: none; margin-top: 20px; padding: 18px 24px; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.4); border-radius: 2px; font-family: var(--font-soul); font-size: 1.1rem; font-style: italic; color: var(--gold-light); }
+    .c-form-success.show { display: block; }
+    .c-form-error { display: none; margin-top: 16px; font-family: var(--font-body); font-size: 0.92rem; color: #ffb5b5; }
+    .c-form-error.show { display: block; }
+    .c-signup-note { margin-top: 22px; font-family: var(--font-body); font-size: 0.85rem; color: rgba(247,243,238,0.5); }
+
+    /* IN THE MEANTIME — cross-links to existing surfaces */
+    .c-meantime-section { padding: 64px 32px; background: var(--cream); }
+    .c-meantime-inner { max-width: var(--max); margin: 0 auto; text-align: center; }
+    .c-meantime-label { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 14px; }
+    .c-meantime-h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; line-height: 1.3; margin-bottom: 18px; }
+    .c-meantime-intro { font-family: var(--font-soul); font-size: 1.1rem; font-style: italic; color: var(--text-mid); line-height: 1.7; margin-bottom: 40px; }
+    .c-link-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .c-link-card { display: block; background: #FFFFFF; border: 1px solid rgba(201,168,76,0.25); border-left: 3px solid var(--gold); border-radius: 4px; padding: 28px 26px; text-align: left; transition: transform 0.2s, box-shadow 0.2s; }
+    .c-link-card:hover { transform: translateY(-3px); box-shadow: 0 6px 22px rgba(31,74,107,0.10); }
+    .c-link-eyebrow { font-family: var(--font-nav); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 10px; }
+    .c-link-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; margin-bottom: 8px; }
+    .c-link-desc { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); line-height: 1.65; }
+    .c-link-arrow { font-family: var(--font-nav); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-top: 14px; display: inline-block; }
+
+    /* CLOSING SIGIL */
+    .c-closing { padding: 56px 32px 80px; background: var(--cream); text-align: center; }
+    .c-closing-line { font-family: var(--font-soul); font-size: 1.25rem; font-style: italic; color: var(--midnight); line-height: 1.6; margin-bottom: 14px; }
+    .c-closing-sigil { font-family: var(--font-display); font-size: 0.82rem; letter-spacing: 0.22em; color: var(--gold-dark); }
+
+    /* FOOTER (inherits site pattern) */
+    footer { background: var(--sky-dusk); padding: 56px 32px 30px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 24px; }
+    .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: var(--cream); margin-bottom: 8px; }
+    .foot-brand em { color: var(--gold); font-style: normal; }
+    .foot-tag { font-family: var(--font-body); font-size: 0.95rem; color: rgba(247,243,238,0.42); line-height: 1.65; max-width: 210px; }
+    .foot-h { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.6); margin-bottom: 14px; display: block; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-family: var(--font-body); font-size: 0.9rem; color: rgba(247,243,238,0.36); transition: color 0.2s; }
+    .foot-links a:hover { color: var(--gold); }
+    .foot-bottom { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-family: var(--font-nav); font-size: 0.75rem; color: rgba(247,243,238,0.2); }
+    .foot-sigil { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.18em; color: rgba(201,168,76,0.28); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .c-card-grid { grid-template-columns: 1fr; }
+      .c-link-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      #main-nav { display: none; }
+      .mobile-nav { display: flex; }
+      .mm-tab { display: none; }
+      .foot-grid { grid-template-columns: 1fr; gap: 24px; }
+      .c-hero-image { height: 380px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV (desktop) -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand"><img src="images/kindred-lights-heart-sigil.png" alt="Kindred Lights" class="nav-brand-logo" /><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <ul class="nav-links">
+    <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Help, Now!</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="explore"><a href="explore.html" class="nav-link">Explore ▾</a>
+      <div class="nav-dropdown" style="min-width:260px;">
+        <a href="explore.html" class="dropdown-link">The Exploratorium (Lobby)</a>
+        <a href="explore-sir-ego.html" class="dropdown-link">Sir Ego &amp; the Wise One</a>
+        <a href="explore-emotions.html" class="dropdown-link">Unlocking the Power of Emotions</a>
+        <a href="explore-fivesteps.html" class="dropdown-link">The Five Steps to Freedom</a>
+        <a href="explore-truth.html" class="dropdown-link">The Truth of Who You Are</a>
+      </div>
+    </li>
+    <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to US?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="series"><a href="#" class="nav-link">The Series ▾</a>
+      <div class="nav-dropdown" style="min-width:280px;">
+        <a href="lh.html" class="dropdown-link">Love Heroically</a>
+        <a href="explore-truth.html" class="dropdown-link">Beyond Blame &amp; Shame</a>
+        <a href="luminology-glossary.html" class="dropdown-link">Luminology</a>
+        <a href="ageofego.html" class="dropdown-link">What Happened to US?</a>
+        <a href="explore-sir-ego.html" class="dropdown-link">The Mastery of Sir Ego</a>
+      </div>
+    </li>
+    <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
+      <div class="nav-dropdown">
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="forgiveness.html" class="dropdown-link">Guilt, Blame &amp; Shame</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
+        <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
+      </div>
+    </li>
+    <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
+  </ul>
+</nav>
+
+<!-- NAV (mobile) -->
+<div class="mobile-nav">
+  <a href="index.html" class="mobile-brand"><img src="images/kindred-lights-heart-sigil.png" alt="Kindred Lights" class="mob-brand-logo" /><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mobile-menu">
+  <a href="index.html" class="mob-link">Home</a>
+  <a href="https://kindredlights.org/mapminder" class="mob-link gold">✦ Help, Now! — Free</a>
+  <a href="explore.html" class="mob-link">Explore</a>
+  <a href="explore-sir-ego.html" class="mob-link">&nbsp;&nbsp;· Sir Ego &amp; the Wise One</a>
+  <a href="explore-emotions.html" class="mob-link">&nbsp;&nbsp;· Power of Emotions</a>
+  <a href="explore-fivesteps.html" class="mob-link">&nbsp;&nbsp;· The Five Steps</a>
+  <a href="explore-truth.html" class="mob-link">&nbsp;&nbsp;· The Truth of Who You Are</a>
+  <a href="#" class="mob-link" onclick="return false;">The Series</a>
+  <a href="lh.html" class="mob-link">&nbsp;&nbsp;· Love Heroically</a>
+  <a href="explore-truth.html" class="mob-link">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
+  <a href="luminology-glossary.html" class="mob-link">&nbsp;&nbsp;· Luminology</a>
+  <a href="ageofego.html" class="mob-link">&nbsp;&nbsp;· What Happened to US?</a>
+  <a href="explore-sir-ego.html" class="mob-link">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
+  <a href="ageofego.html" class="mob-link">Five Steps for the World</a>
+  <a href="acim.html" class="mob-link">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="addiction.html" class="mob-link">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="anxiety.html" class="mob-link">&nbsp;&nbsp;· Anxiety</a>
+  <a href="grief.html" class="mob-link">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="forgiveness.html" class="mob-link">&nbsp;&nbsp;· Guilt, Blame &amp; Shame</a>
+  <a href="health.html" class="mob-link">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="narc.html" class="mob-link">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="awakening.html" class="mob-link">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="empath.html" class="mob-link">&nbsp;&nbsp;· The Empath Alchemist</a>
+  <a href="untethered.html" class="mob-link">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="work.html" class="mob-link">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="world.html" class="mob-link">&nbsp;&nbsp;· World Events</a>
+  <a href="barbies.html" class="mob-link">Barbies</a>
+  <a href="about.html" class="mob-link">About</a>
+</div>
+
+<!-- Map Minder edge tab -->
+<a href="https://kindredlights.org/mapminder" class="mm-tab">✦ Map Minder · Free</a>
+
+<!-- Hidden form for Netlify Forms to detect at build time -->
+<form name="circle-notify" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email" />
+  <input type="text" name="bot-field" />
+</form>
+
+<!-- HERO -->
+<section class="c-hero">
+  <img src="images/a-circle-of-kindred-lights-hands.jpg"
+       alt="A circle of hands radiating from a center — the Circle of Kindred Lights, a community of kindred lights walking the Five Steps to Freedom together."
+       width="2400" height="1976"
+       loading="eager" decoding="async"
+       class="c-hero-image" />
+  <div class="c-hero-overlay"></div>
+  <div class="c-hero-text">
+    <span class="c-eyebrow">Kindred Lights · A Community of Kindred Lights</span>
+    <h1 class="c-h1">A Circle of Kindred Lights</h1>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="c-intro">
+  <div class="c-intro-inner">
+    <p class="c-tagline reveal">We are walking this together, hand in hand.</p>
+    <div class="c-rule reveal d1"></div>
+    <h2 class="c-gathering reveal d1">The circle is gathering.</h2>
+    <div class="c-body reveal d2">
+      <p>Kindred lights are being invited to share their first entries — moments of walking the Five Steps, catching Sir Ego at his antics, being held in ways that became visible only in retrospect.</p>
+      <p>This is not a forum. It is not a social network. It is a witness wall — a place where kindred lights share what they have noticed, so that those who come after can see they are not walking this alone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THREE CATEGORY CARDS -->
+<section class="c-cards-section">
+  <div class="c-cards-inner">
+    <span class="c-cards-label reveal">What You Will Find Here</span>
+    <h2 class="c-cards-h2 reveal">Three kinds of accounts, when the circle opens:</h2>
+    <div class="c-card-grid">
+      <div class="c-card reveal">
+        <div class="c-card-name">The Practice</div>
+        <div class="c-card-tagline">Five Steps in Action</div>
+        <p class="c-card-desc">A moment when a kindred light walked the practice — the trigger, the steps run, what shifted. The data points that show the practice actually working in real lives.</p>
+      </div>
+      <div class="c-card reveal d1">
+        <div class="c-card-name">Ego Humor</div>
+        <div class="c-card-tagline">Catching Sir Ego at His Antics</div>
+        <p class="c-card-desc">A moment when a kindred light noticed their own Sir Ego doing something that turned out to be funny in retrospect. Laughing with him, not at him. That's just the way Sir Egos are — we all have them.</p>
+      </div>
+      <div class="c-card reveal d2">
+        <div class="c-card-name">Held</div>
+        <div class="c-card-tagline">Mission Control Moments</div>
+        <p class="c-card-desc">A moment when a kindred light realized, looking back, that they had been held — that something larger had been arranging the timing all along. The held-ness that becomes visible only in retrospect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL SIGNUP -->
+<section class="c-signup-section">
+  <div class="c-signup-inner">
+    <span class="c-signup-label">Be Among the First</span>
+    <h2 class="c-signup-h2">When the circle opens, we will let you know.</h2>
+    <p class="c-signup-body">If you would like to be among the first to share an entry, or simply to be notified when the circle opens to the community, leave your email below.</p>
+
+    <form id="circle-form" name="circle-notify" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="c-form">
+      <input type="hidden" name="form-name" value="circle-notify" />
+      <p class="c-form-honeypot"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <input type="email" name="email" class="c-form-email" placeholder="your@email.com" required aria-label="Email address" />
+      <button type="submit" class="btn-gold" id="circle-submit">Notify me when the circle opens</button>
+    </form>
+    <div id="circle-form-success" class="c-form-success">Thank you. You will hear from us when the circle opens.</div>
+    <div id="circle-form-error" class="c-form-error">Something went sideways. Please try again, or write to kindred@kindredlights.org.</div>
+
+    <p class="c-signup-note">Your email stays here. One message when the circle opens. No funnel. No noise.</p>
+  </div>
+</section>
+
+<!-- IN THE MEANTIME -->
+<section class="c-meantime-section">
+  <div class="c-meantime-inner">
+    <span class="c-meantime-label reveal">In the Meantime</span>
+    <h2 class="c-meantime-h2 reveal">If you are walking the practice now</h2>
+    <p class="c-meantime-intro reveal d1">Two doors are open already. Both are free.</p>
+    <div class="c-link-row">
+      <a href="https://kindredlights.org/mapminder" class="c-link-card reveal">
+        <span class="c-link-eyebrow">Free Tool · Five Minutes</span>
+        <div class="c-link-title">The Map Minder</div>
+        <p class="c-link-desc">Walk the Five Steps with your own actual problem, in real time. The most hands-on next step after a trigger lands.</p>
+        <span class="c-link-arrow">Open the Map Minder →</span>
+      </a>
+      <a href="explore.html" class="c-link-card reveal d1">
+        <span class="c-link-eyebrow">For the Specifics</span>
+        <div class="c-link-title">What's Your Problem?</div>
+        <p class="c-link-desc">Each terrain — anxiety, addiction, grief, parenting, narcissistic abuse, illness, the news, awakening — mapped through the same architecture.</p>
+        <span class="c-link-arrow">Find your terrain →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="c-closing">
+  <p class="c-closing-line">We are walking this together, hand in hand.</p>
+  <div class="c-closing-sigil">Not perfectly. But heroically. ✦</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Kindred <em>Lights</em></div>
+      <div class="foot-tag">
+        <p>The Age of Ego is ending.</p>
+        <p>The Age of Love is arising.</p>
+        <p>One trigger at a time.</p>
+      </div>
+    </div>
+    <div>
+      <p class="foot-h">Practice</p>
+      <ul class="foot-links">
+        <li><a href="https://kindredlights.org/mapminder">Help, Now! &mdash; Free</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="luminology-glossary.html">Luminology Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">The Series</p>
+      <ul class="foot-links">
+        <li><a href="lh.html">Love Heroically</a></li>
+        <li><a href="ageofego.html">What Happened to US?</a></li>
+        <li><a href="downloads/beyond-blame-and-shame-summary.pdf">Beyond Blame &amp; Shame</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">What's Your Problem?</p>
+      <ul class="foot-links">
+        <li><a href="acim.html">A Course in Miracles</a></li>
+        <li><a href="addiction.html">Addiction &amp; Sobriety</a></li>
+        <li><a href="anxiety.html">Anxiety</a></li>
+        <li><a href="grief.html">Grief &amp; Loss</a></li>
+        <li><a href="forgiveness.html">Guilt, Blame &amp; Shame</a></li>
+        <li><a href="health.html">Health Crisis</a></li>
+        <li><a href="narc.html">Narcissistic Abuse</a></li>
+        <li><a href="parenting.html">Parenting Triggers</a></li>
+        <li><a href="awakening.html">Spiritual Awakening</a></li>
+        <li><a href="empath.html">The Empath Alchemist</a></li>
+        <li><a href="untethered.html">The Untethered Soul</a></li>
+        <li><a href="work.html">Work &amp; Workplace</a></li>
+        <li><a href="world.html">World Events</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="foot-copy">&copy; 2026 Kindred Lights &middot; <a href="mailto:kindred@kindredlights.org" style="color:inherit">kindred@kindredlights.org</a></p>
+    <div class="foot-sigil">Not perfectly. But heroically. &#10022;</div>
+  </div>
+</footer>
+
+<script>
+  // Nav scrolled state
+  const nav = document.getElementById("main-nav");
+  window.addEventListener("scroll", () => { nav && nav.classList.toggle("scrolled", window.scrollY > 20); }, { passive: true });
+
+  // Mobile menu
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener("click", () => {
+      const open = hamburger.classList.toggle("open");
+      mobileMenu.classList.toggle("open", open);
+      document.body.style.overflow = open ? "hidden" : "";
+    });
+    mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      hamburger.classList.remove("open");
+      mobileMenu.classList.remove("open");
+      document.body.style.overflow = "";
+    }));
+  }
+
+  // Reveal animation
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // Form submission via AJAX so the user stays on the page and sees the success message
+  // (Netlify Forms accepts standard form-encoded POST to the same URL)
+  const form = document.getElementById("circle-form");
+  const submitBtn = document.getElementById("circle-submit");
+  const successEl = document.getElementById("circle-form-success");
+  const errorEl = document.getElementById("circle-form-error");
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorEl.classList.remove("show");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      const data = new FormData(form);
+      try {
+        const res = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(data).toString()
+        });
+        if (res.ok) {
+          form.style.display = "none";
+          successEl.classList.add("show");
+        } else {
+          throw new Error("Submission failed");
+        }
+      } catch (err) {
+        errorEl.classList.add("show");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Notify me when the circle opens";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
