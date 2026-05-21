@@ -89,25 +89,26 @@
     .c-h1 { font-family: var(--font-display); font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 700; color: #FFFFFF; letter-spacing: 0.04em; line-height: 1.15; margin: 0; text-shadow: 0 2px 18px rgba(0,0,0,0.4); }
 
     /* INTRO BLOCK — directly below hero */
-    .c-intro { padding: 56px 32px 24px; background: var(--cream); }
+    .c-intro { padding: 56px 32px 24px; background: #4F9AD4; }
     .c-intro-inner { max-width: var(--max); margin: 0 auto; text-align: center; }
-    .c-tagline { font-family: var(--font-soul); font-size: clamp(1.15rem, 2vw, 1.4rem); font-style: italic; color: var(--text-mid); line-height: 1.65; margin-bottom: 32px; }
+    .c-tagline { font-family: var(--font-soul); font-size: clamp(1.15rem, 2vw, 1.4rem); font-style: italic; color: #F7F3EE; line-height: 1.65; margin-bottom: 32px; text-shadow: 0 1px 4px rgba(15,34,53,0.25); }
     .c-rule { width: 48px; height: 1px; background: var(--gold); margin: 0 auto 32px; }
-    .c-gathering { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; line-height: 1.3; margin-bottom: 24px; }
-    .c-body { font-family: var(--font-body); font-size: 1.06rem; color: var(--text-mid); line-height: 1.85; }
+    .c-gathering { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.03em; line-height: 1.3; margin-bottom: 24px; text-shadow: 0 2px 8px rgba(15,34,53,0.3); }
+    .c-body { font-family: var(--font-body); font-size: 1.06rem; color: rgba(247,243,238,0.92); line-height: 1.85; }
     .c-body p { margin-bottom: 18px; }
     .c-body p:last-child { margin-bottom: 0; }
 
     /* THREE CATEGORY CARDS */
-    .c-cards-section { padding: 24px 32px 64px; background: var(--cream); }
+    .c-cards-section { padding: 24px 32px 64px; background: #4F9AD4; }
     .c-cards-inner { max-width: 1000px; margin: 0 auto; }
-    .c-cards-label { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); display: block; text-align: center; margin-bottom: 14px; }
-    .c-cards-h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; line-height: 1.3; text-align: center; margin-bottom: 40px; }
+    .c-cards-label { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); display: block; text-align: center; margin-bottom: 14px; }
+    .c-cards-h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.03em; line-height: 1.3; text-align: center; margin-bottom: 40px; text-shadow: 0 2px 8px rgba(15,34,53,0.3); }
     .c-card-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
-    .c-card { background: #FFFFFF; border: 1px solid rgba(201,168,76,0.25); border-top: 3px solid var(--gold); border-radius: 4px; padding: 32px 26px; box-shadow: 0 2px 14px rgba(31,74,107,0.06); }
-    .c-card-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.04em; margin-bottom: 6px; }
+    .c-card { background: #F4F8FB; border-radius: 10px; padding: 36px 28px 32px; border-top: 3px solid var(--gold); box-shadow: 0 6px 22px rgba(15,34,53,0.12); transition: background 0.2s, border-color 0.2s, transform 0.15s; display: flex; flex-direction: column; }
+    .c-card:hover { background: #FFFFFF; border-color: var(--gold-light); transform: translateY(-2px); }
+    .c-card-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: #0F2235; letter-spacing: 0.04em; margin-bottom: 6px; }
     .c-card-tagline { font-family: var(--font-soul); font-size: 1.02rem; font-style: italic; color: var(--gold-dark); margin-bottom: 16px; }
-    .c-card-desc { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); line-height: 1.7; }
+    .c-card-desc { font-family: var(--font-body); font-size: 0.96rem; color: #2B2B2B; line-height: 1.7; }
 
     /* EMAIL CAPTURE — Netlify Forms */
     .c-signup-section { padding: 64px 32px; background: var(--deep-sky); color: var(--cream); }
@@ -127,23 +128,23 @@
     .c-signup-note { margin-top: 22px; font-family: var(--font-body); font-size: 0.85rem; color: rgba(247,243,238,0.5); }
 
     /* IN THE MEANTIME — cross-links to existing surfaces */
-    .c-meantime-section { padding: 64px 32px; background: var(--cream); }
+    .c-meantime-section { padding: 64px 32px; background: #4F9AD4; }
     .c-meantime-inner { max-width: var(--max); margin: 0 auto; text-align: center; }
-    .c-meantime-label { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 14px; }
-    .c-meantime-h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; line-height: 1.3; margin-bottom: 18px; }
-    .c-meantime-intro { font-family: var(--font-soul); font-size: 1.1rem; font-style: italic; color: var(--text-mid); line-height: 1.7; margin-bottom: 40px; }
+    .c-meantime-label { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 14px; }
+    .c-meantime-h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.03em; line-height: 1.3; margin-bottom: 18px; text-shadow: 0 2px 8px rgba(15,34,53,0.3); }
+    .c-meantime-intro { font-family: var(--font-soul); font-size: 1.1rem; font-style: italic; color: rgba(247,243,238,0.92); line-height: 1.7; margin-bottom: 40px; }
     .c-link-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .c-link-card { display: block; background: #FFFFFF; border: 1px solid rgba(201,168,76,0.25); border-left: 3px solid var(--gold); border-radius: 4px; padding: 28px 26px; text-align: left; transition: transform 0.2s, box-shadow 0.2s; }
-    .c-link-card:hover { transform: translateY(-3px); box-shadow: 0 6px 22px rgba(31,74,107,0.10); }
+    .c-link-card { display: block; background: #F4F8FB; border-radius: 10px; padding: 28px 26px; border-top: 3px solid var(--gold); box-shadow: 0 6px 22px rgba(15,34,53,0.12); text-align: left; transition: background 0.2s, border-color 0.2s, transform 0.15s; }
+    .c-link-card:hover { background: #FFFFFF; border-color: var(--gold-light); transform: translateY(-3px); }
     .c-link-eyebrow { font-family: var(--font-nav); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 10px; }
-    .c-link-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--midnight); letter-spacing: 0.03em; margin-bottom: 8px; }
-    .c-link-desc { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-mid); line-height: 1.65; }
+    .c-link-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: #0F2235; letter-spacing: 0.03em; margin-bottom: 8px; }
+    .c-link-desc { font-family: var(--font-body); font-size: 0.96rem; color: #2B2B2B; line-height: 1.65; }
     .c-link-arrow { font-family: var(--font-nav); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-top: 14px; display: inline-block; }
 
     /* CLOSING SIGIL */
-    .c-closing { padding: 56px 32px 80px; background: var(--cream); text-align: center; }
-    .c-closing-line { font-family: var(--font-soul); font-size: 1.25rem; font-style: italic; color: var(--midnight); line-height: 1.6; margin-bottom: 14px; }
-    .c-closing-sigil { font-family: var(--font-display); font-size: 0.82rem; letter-spacing: 0.22em; color: var(--gold-dark); }
+    .c-closing { padding: 56px 32px 80px; background: #4F9AD4; text-align: center; }
+    .c-closing-line { font-family: var(--font-soul); font-size: 1.25rem; font-style: italic; color: #FFFFFF; line-height: 1.6; margin-bottom: 14px; text-shadow: 0 2px 8px rgba(15,34,53,0.3); }
+    .c-closing-sigil { font-family: var(--font-display); font-size: 0.82rem; letter-spacing: 0.22em; color: var(--gold-light); }
 
     /* FOOTER (inherits site pattern) */
     footer { background: var(--sky-dusk); padding: 56px 32px 30px; border-top: 1px solid rgba(201,168,76,0.1); }
@@ -188,6 +189,7 @@
         <a href="explore-emotions.html" class="dropdown-link">Unlocking the Power of Emotions</a>
         <a href="explore-fivesteps.html" class="dropdown-link">The Five Steps to Freedom</a>
         <a href="explore-truth.html" class="dropdown-link">The Truth of Who You Are</a>
+        <a href="circle.html" class="dropdown-link">A Circle of Kindred Lights</a>
       </div>
     </li>
     <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to US?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
@@ -235,6 +237,7 @@
   <a href="explore-emotions.html" class="mob-link">&nbsp;&nbsp;· Power of Emotions</a>
   <a href="explore-fivesteps.html" class="mob-link">&nbsp;&nbsp;· The Five Steps</a>
   <a href="explore-truth.html" class="mob-link">&nbsp;&nbsp;· The Truth of Who You Are</a>
+  <a href="circle.html" class="mob-link">&nbsp;&nbsp;· A Circle of Kindred Lights</a>
   <a href="#" class="mob-link" onclick="return false;">The Series</a>
   <a href="lh.html" class="mob-link">&nbsp;&nbsp;· Love Heroically</a>
   <a href="explore-truth.html" class="mob-link">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
@@ -258,9 +261,6 @@
   <a href="barbies.html" class="mob-link">Barbies</a>
   <a href="about.html" class="mob-link">About</a>
 </div>
-
-<!-- Map Minder edge tab -->
-<a href="https://kindredlights.org/mapminder" class="mm-tab">✦ Map Minder · Free</a>
 
 <!-- Hidden form for Netlify Forms to detect at build time -->
 <form name="circle-notify" data-netlify="true" netlify-honeypot="bot-field" hidden>
