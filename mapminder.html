@@ -1010,6 +1010,53 @@ function getAspectData(aspectString) {
   return null;
 }
 
+// ══════════════════════════════════════════════════════════════
+// CRISIS CLASSIFIER — runs before the main reading
+// ══════════════════════════════════════════════════════════════
+// A short pre-screen that decides whether the visitor's input describes
+// a present-moment crisis that is beyond what a practice tool can help with.
+// If yes: route to the crisis response (resources, not a reading).
+// If no: continue to the normal Map Minder flow.
+//
+// Returns JSON: { "crisis": true|false }
+// Uses Haiku for speed and cost — binary classification is well within scope.
+
+const CLASSIFIER_PROMPT = `You are a safety classifier for a spiritual practice tool called the Map Minder. The tool helps people walk through ordinary emotional triggers using a Five Steps framework. It is NOT a crisis intervention tool, NOT therapy, and NOT first aid.
+
+You read what a person typed into the tool. Your only job is to decide whether their input describes a present-moment crisis that needs professional human support BEFORE a spiritual practice could be helpful.
+
+Classify as CRISIS (true) if the input describes any of:
+- Active suicidal thoughts or plans, or wanting to die
+- Active self-harm or plans to self-harm
+- Wanting to harm or kill someone else
+- Currently being physically abused, hit, or in danger from another person
+- Currently being sexually assaulted or recently sexually assaulted
+- A child currently being abused or in danger
+- Active psychosis (hearing voices commanding harm, severe delusions described as currently happening)
+- Acute substance overdose, severe withdrawal, or relapse with immediate safety concern
+- Severe eating disorder symptoms described as currently active (recent purging, severe restriction, etc.)
+- A mental health crisis described as "I'm losing it right now" / "I can't function" / acute breakdown
+
+Classify as NOT CRISIS (false) if the input describes:
+- Ordinary triggers, frustrations, conflicts (even painful ones)
+- Past trauma or past crisis being processed, not actively unfolding
+- Difficult relationships, including with narcissists or difficult family members
+- Grief, even acute grief, when not paired with suicidal language
+- Anxiety, depression, stress when described as ongoing rather than acute crisis
+- Recovery from addiction (sobriety questions, cravings without immediate relapse danger)
+- Spiritual struggles, dark nights, awakening difficulties
+- Anger, including intense anger, when not paired with intent to harm
+
+When in doubt between the two, classify as CRISIS. False positives are inexpensive (person gets a kind document with resources, can resubmit). False negatives are costly (person in crisis gets a poetic reading instead of a hotline number).
+
+Return ONLY a JSON object with this exact structure, no other text:
+
+{"crisis": true}
+or
+{"crisis": false}
+
+Do not include markdown fences, explanations, or any text outside the JSON.`;
+
 const SYSTEM_PROMPT = `You are the Map Minder — the diagnostic and bridging voice inside the Kindred Lights ecosystem. You are NOT the Wise One. The Wise One lives inside the visitor. Your job is to clear the channel between her and her own deeper knowing, not to speak with the Wise One's authority yourself.
 
 A visitor has shared something that is not moving in her life. She has watched the Two Caves and Paradise Dream stories, recognized the script-as-script teaching, and chosen willingness to see this differently. Her heart is cracked open just enough to receive what comes next.
@@ -1307,6 +1354,30 @@ window._mapApiData = null;
 async function fireMapAPI() {
   const messages = [{ role: 'user', content: userSituation }];
   try {
+    // ── PRE-SCREEN: classifier call ────────────────────────────
+    // Runs first, ~2 seconds, decides whether this is something
+    // the Map Minder should respond to with a reading at all.
+    // If crisis content: render the crisis response, don't fire
+    // the main reading API.
+    let isCrisis = false;
+    try {
+      const classifyResponse = await callAPI(messages, CLASSIFIER_PROMPT, 'classify');
+      const classifyData = JSON.parse(classifyResponse);
+      isCrisis = (classifyData && classifyData.crisis === true);
+    } catch (classifyErr) {
+      // If classifier fails for any reason, log it but continue
+      // to the normal reading. Failing closed on the safety check
+      // would block all readings if Haiku had a hiccup; failing
+      // open on a single classification is the better tradeoff.
+      console.warn('Classifier check failed; continuing with normal reading:', classifyErr.message);
+    }
+
+    if (isCrisis) {
+      renderCrisisResponse();
+      return;
+    }
+
+    // ── NORMAL READING: full Map Minder via Sonnet ─────────────
     const response = await callAPI(messages);
     const data = JSON.parse(response);
     window._mapApiData = data;
@@ -1318,6 +1389,73 @@ async function fireMapAPI() {
     document.getElementById('response-area').innerHTML = '';
     document.getElementById('input-area').style.display = 'block';
   }
+}
+
+// ══════════════════════════════════════════════════════════════
+// renderCrisisResponse — Different document for crisis content
+// ══════════════════════════════════════════════════════════════
+// Shown when the classifier identifies the input as describing a
+// present-moment crisis. Does NOT render a Five Steps reading.
+// Instead: a brief, warm acknowledgment that this is beyond what a
+// practice tool can hold, followed by resources for talking to a
+// real human who can help. Followed by a button to download the
+// crisis PDF instead of "A Map for This Moment."
+function renderCrisisResponse() {
+  document.getElementById('input-area').style.display = 'none';
+
+  const html = ''
+    + '<div class="resonance-card" style="padding:48px 36px;">'
+
+    // Eyebrow
+    + '<p style="font-family:var(--font-nav);font-size:0.75rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-light);text-align:center;margin-bottom:18px;">'
+    + 'A Different Kind of Pause'
+    + '</p>'
+
+    // Heading
+    + '<h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:#FFFFFF;letter-spacing:0.03em;line-height:1.35;text-align:center;margin-bottom:28px;">'
+    + 'The Map Minder isn\u2019t the right tool for this moment.'
+    + '</h2>'
+
+    // Opening paragraphs — gentle, direct, no framework vocabulary
+    + '<div style="font-family:var(--font-body);font-size:1.02rem;color:rgba(247,243,238,0.92);line-height:1.78;max-width:560px;margin:0 auto 28px;">'
+    + '<p style="margin-bottom:16px;">What you wrote suggests something heavier is present right now. The Map Minder is a practice tool for ordinary triggers \u2014 and what you are carrying may be more than that.</p>'
+    + '<p style="margin-bottom:16px;">The right kind of company for what you are carrying is a human being, not a practice tool. People who do this work for a living have walked beside thousands of others through exactly this. They are reachable now \u2014 at any hour, in any state.</p>'
+    + '<p style="margin-bottom:0;">You do not have to be ready to talk in any particular way. You do not have to have it figured out. You can call and just be on the line. You can text. The people on the other end are trained for exactly this kind of call.</p>'
+    + '</div>'
+
+    // Resource list — bolded, clear, easy to find
+    + '<div style="background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.4);border-radius:6px;padding:24px 26px;max-width:560px;margin:0 auto 28px;">'
+    + '<p style="font-family:var(--font-nav);font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px;text-align:center;">Please reach out</p>'
+    + '<ul style="list-style:none;padding:0;margin:0;font-family:var(--font-body);font-size:0.96rem;color:rgba(247,243,238,0.92);line-height:1.7;">'
+    + '<li style="margin-bottom:10px;"><strong style="color:#FFFFFF;">988</strong> \u2014 US Suicide and Crisis Lifeline. Call or text. 24/7. Free, confidential.</li>'
+    + '<li style="margin-bottom:10px;"><strong style="color:#FFFFFF;">Text HOME to 741741</strong> \u2014 Crisis Text Line. 24/7.</li>'
+    + '<li style="margin-bottom:10px;"><strong style="color:#FFFFFF;">911</strong> \u2014 if you or someone else is in immediate physical danger.</li>'
+    + '<li style="margin-bottom:10px;"><strong style="color:#FFFFFF;">1-800-799-7233</strong> \u2014 National Domestic Violence Hotline. Call or text START to 88788.</li>'
+    + '<li style="margin-bottom:10px;"><strong style="color:#FFFFFF;">1-800-422-4453</strong> \u2014 Childhelp National Child Abuse Hotline.</li>'
+    + '<li style="margin-bottom:10px;"><strong style="color:#FFFFFF;">1-800-662-4357</strong> \u2014 SAMHSA national helpline (substance use, mental health).</li>'
+    + '<li style="margin-bottom:0;">Outside the US: <strong style="color:#FFFFFF;">findahelpline.com</strong></li>'
+    + '</ul>'
+    + '</div>'
+
+    // Closing — gentle return path
+    + '<p style="font-family:var(--font-soul);font-size:1.05rem;font-style:italic;color:rgba(247,243,238,0.82);line-height:1.65;text-align:center;max-width:520px;margin:0 auto 28px;">'
+    + 'When you are steadier, the practice will still be here. The Map Minder will still be here too. You matter. What you are feeling matters. Please reach out.'
+    + '</p>'
+
+    // PDF button (so they can take the resources with them)
+    + '<div style="text-align:center;margin-top:8px;">'
+    + '<button onclick="generateCrisisPDF()" class="btn-gift" id="crisis-pdf-btn" style="display:inline-block;">'
+    + '<span class="btn-gift-line1">Download the Resources</span>'
+    + '<span class="btn-gift-line2">A Different Kind of Pause</span>'
+    + '</button>'
+    + '</div>'
+
+    + '</div>';
+
+  document.getElementById('response-area').innerHTML = html;
+  document.getElementById('response-area').classList.add('visible');
+  document.getElementById('start-over').style.display = 'block';
+  document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -1660,14 +1798,21 @@ function renderFullMap(data) {
 // ══════════════════════════════════════════════════════════════
 // API CALL
 // ══════════════════════════════════════════════════════════════
-async function callAPI(messages) {
+// mode: 'reading' (default, full Map Minder reading via Sonnet)
+//       'classify' (pre-screen for crisis content via Haiku, fast/cheap)
+async function callAPI(messages, systemPrompt, mode) {
+  // Backward compatibility: if called with one arg, use the main SYSTEM_PROMPT
+  if (typeof systemPrompt === 'undefined') systemPrompt = SYSTEM_PROMPT;
+  if (typeof mode === 'undefined') mode = 'reading';
+
   // Call through Netlify Function proxy (keeps API key secure)
   const response = await fetch('/.netlify/functions/mapminder', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      system: SYSTEM_PROMPT,
-      messages: messages
+      system: systemPrompt,
+      messages: messages,
+      mode: mode
     })
   });
 
@@ -2077,6 +2222,55 @@ function generateMapPDF() {
     doc.text('The Five Steps to Freedom on one page.', PAGE_W / 2, y, { align: 'center' });
     doc.setTextColor(0, 0, 0);
 
+    // ─── RESOURCES + DISCLAIMER (small, end of last page) ──────
+    // Always present in every reading. Low-emphasis but findable.
+    y += 28;
+    ensureSpace(160);
+    rule({ width: 80 });
+    y += 16;
+
+    // Resources header (small caps label, matches other section labels)
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(80, 80, 80);
+    const resourceLabel = 'IF YOU OR SOMEONE YOU LOVE NEEDS SUPPORT BEYOND A PRACTICE TOOL';
+    doc.text(resourceLabel.split('').join(' '), PAGE_W / 2, y, { align: 'center' });
+    doc.setTextColor(0, 0, 0);
+    y += 18;
+
+    // Resources list, small italic, centered
+    doc.setFont('times', 'italic');
+    doc.setFontSize(8.5);
+    doc.setTextColor(90, 90, 90);
+    const resources = [
+      'Mental health crisis: 988 call or text (US Suicide and Crisis Lifeline)  \u00b7  text HOME to 741741',
+      'Immediate physical danger: 911',
+      'Domestic violence: 1-800-799-7233  \u00b7  text START to 88788',
+      'Child abuse: 1-800-422-4453 (Childhelp)',
+      'Substance use, mental health: 1-800-662-4357 (SAMHSA national helpline)',
+      'Outside the US: findahelpline.com'
+    ];
+    resources.forEach(function(line) {
+      ensureSpace(13);
+      doc.text(line, PAGE_W / 2, y, { align: 'center' });
+      y += 13;
+    });
+    doc.setTextColor(0, 0, 0);
+
+    // Disclaimer paragraph (small italic, gentle)
+    y += 14;
+    doc.setFont('times', 'italic');
+    doc.setFontSize(8);
+    doc.setTextColor(130, 130, 130);
+    const disclaimer = 'A Map for This Moment is generated by the Map Minder, a free practice tool that reads your situation through the framework of the Five Steps to Freedom. It is one reflection on one moment \u2014 meant to walk alongside the wisdom of trusted people in your life and professional support where that is needed, not to replace either. The Five Steps are a spiritual practice, not therapy or medical care. If something is harder than a practice can hold, that is information \u2014 and a sign to reach out.';
+    const disclaimerLines = doc.splitTextToSize(disclaimer, TEXT_W - 40);
+    disclaimerLines.forEach(function(line) {
+      ensureSpace(12);
+      doc.text(line, PAGE_W / 2, y, { align: 'center' });
+      y += 12;
+    });
+    doc.setTextColor(0, 0, 0);
+
     // ─── FOOTER ON LAST PAGE ───────────────────────────────────
     addFooter();
 
@@ -2096,6 +2290,194 @@ function generateMapPDF() {
       btn.disabled = false;
       const line1 = btn.querySelector('.btn-gift-line1');
       if (line1) line1.textContent = 'A Map for This Moment';
+    }
+  }
+}
+
+
+// ══════════════════════════════════════════════════════════════
+// PDF GENERATION — A Different Kind of Pause (crisis response)
+// Separate document from "A Map for This Moment." No Five Steps,
+// no framework vocabulary, no reading. Just the gentle
+// acknowledgment + the full resource list, so the person can
+// take the resources with them after closing the browser.
+// ══════════════════════════════════════════════════════════════
+function generateCrisisPDF() {
+  const btn = document.getElementById('crisis-pdf-btn');
+  if (btn) {
+    btn.disabled = true;
+    const line1 = btn.querySelector('.btn-gift-line1');
+    if (line1) line1.textContent = 'Preparing\u2026';
+  }
+
+  try {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'pt', format: 'letter' });
+
+    const PAGE_W = 612;
+    const PAGE_H = 792;
+    const MARGIN_X = 64;
+    const MARGIN_TOP = 64;
+    const MARGIN_BOTTOM = 72;
+    const TEXT_W = PAGE_W - 2 * MARGIN_X;
+    let y = MARGIN_TOP;
+
+    function ensureSpace(needed) {
+      if (y + needed > PAGE_H - MARGIN_BOTTOM) {
+        addFooter();
+        doc.addPage();
+        y = MARGIN_TOP;
+      }
+    }
+    function addFooter() {
+      doc.setFont('times', 'italic');
+      doc.setFontSize(9);
+      doc.setTextColor(120, 120, 120);
+      doc.text('A Different Kind of Pause  \u00b7  kindredlights.org/mapminder', PAGE_W / 2, PAGE_H - 36, { align: 'center' });
+      doc.setTextColor(0, 0, 0);
+    }
+    function rule(width) {
+      const w = width || TEXT_W;
+      const lineX = (PAGE_W - w) / 2;
+      doc.setDrawColor(0, 0, 0);
+      doc.setLineWidth(0.4);
+      doc.line(lineX, y, lineX + w, y);
+    }
+
+    // ─── TITLE BLOCK ───────────────────────────────────────────
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(120, 120, 120);
+    const eyebrow = 'A DIFFERENT KIND OF PAUSE';
+    doc.text(eyebrow.split('').join(' '), PAGE_W / 2, y, { align: 'center' });
+    y += 26;
+
+    doc.setFont('times', 'normal');
+    doc.setFontSize(22);
+    doc.setTextColor(0, 0, 0);
+    doc.text('The Map Minder isn\u2019t the right tool', PAGE_W / 2, y, { align: 'center' });
+    y += 26;
+    doc.text('for this moment.', PAGE_W / 2, y, { align: 'center' });
+    y += 14;
+
+    doc.setFont('times', 'italic');
+    doc.setFontSize(11);
+    doc.setTextColor(120, 120, 120);
+    doc.text('from the Map Minder  \u00b7  kindredlights.org', PAGE_W / 2, y, { align: 'center' });
+    doc.setTextColor(0, 0, 0);
+    y += 22;
+
+    rule(180);
+    y += 28;
+
+    // ─── BODY PARAGRAPHS ───────────────────────────────────────
+    doc.setFont('times', 'normal');
+    doc.setFontSize(11.5);
+    doc.setTextColor(40, 40, 40);
+
+    const bodyParagraphs = [
+      'What you wrote suggests something heavier is present right now. The Map Minder is a practice tool for ordinary triggers \u2014 and what you are carrying may be more than that.',
+      'The right kind of company for what you are carrying is a human being, not a practice tool. People who do this work for a living have walked beside thousands of others through exactly this. They are reachable now \u2014 at any hour, in any state.',
+      'You do not have to be ready to talk in any particular way. You do not have to have it figured out. You do not have to know what to say. You can call and just be on the line. You can text. You can hang up if you need to. The people on the other end are trained for exactly this kind of call.'
+    ];
+
+    bodyParagraphs.forEach(function(para) {
+      const lines = doc.splitTextToSize(para, TEXT_W);
+      lines.forEach(function(line) {
+        ensureSpace(17);
+        doc.text(line, MARGIN_X, y);
+        y += 17;
+      });
+      y += 8;
+    });
+
+    y += 16;
+
+    // ─── RESOURCES SECTION ─────────────────────────────────────
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    doc.setTextColor(0, 0, 0);
+    const reachOutLabel = 'PLEASE REACH OUT';
+    doc.text(reachOutLabel.split('').join(' '), PAGE_W / 2, y, { align: 'center' });
+    y += 24;
+
+    // Resource entries — number bolded, description in regular weight
+    const resources = [
+      { num: '988', desc: 'US Suicide and Crisis Lifeline. Call or text. 24/7. Free, confidential.' },
+      { num: 'Text HOME to 741741', desc: 'Crisis Text Line. 24/7.' },
+      { num: '911', desc: 'If you or someone else is in immediate physical danger.' },
+      { num: '1-800-799-7233', desc: 'National Domestic Violence Hotline. Call or text START to 88788.' },
+      { num: '1-800-422-4453', desc: 'Childhelp National Child Abuse Hotline.' },
+      { num: '1-800-662-4357', desc: 'SAMHSA national helpline (substance use, mental health).' },
+      { num: 'findahelpline.com', desc: 'For support outside the US.' }
+    ];
+
+    resources.forEach(function(r) {
+      ensureSpace(38);
+      // Number / label — bold
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11.5);
+      doc.setTextColor(0, 0, 0);
+      doc.text(r.num, MARGIN_X, y);
+      y += 14;
+      // Description — regular
+      doc.setFont('times', 'normal');
+      doc.setFontSize(10.5);
+      doc.setTextColor(70, 70, 70);
+      const descLines = doc.splitTextToSize(r.desc, TEXT_W);
+      descLines.forEach(function(line) {
+        ensureSpace(15);
+        doc.text(line, MARGIN_X, y);
+        y += 14;
+      });
+      y += 8;
+    });
+
+    doc.setTextColor(0, 0, 0);
+    y += 14;
+
+    // ─── CLOSING ───────────────────────────────────────────────
+    ensureSpace(60);
+    rule(180);
+    y += 22;
+
+    doc.setFont('times', 'italic');
+    doc.setFontSize(11);
+    doc.setTextColor(60, 60, 60);
+    const closing = [
+      'When you are steadier, the practice will still be here. The Five Steps to Freedom is a free reference at kindredlights.org/explore. The Map Minder will still be here too.',
+      'You matter. What you are feeling matters. Please reach out.'
+    ];
+    closing.forEach(function(para) {
+      const lines = doc.splitTextToSize(para, TEXT_W - 40);
+      lines.forEach(function(line) {
+        ensureSpace(16);
+        doc.text(line, PAGE_W / 2, y, { align: 'center' });
+        y += 16;
+      });
+      y += 10;
+    });
+
+    doc.setTextColor(0, 0, 0);
+
+    addFooter();
+
+    // Save
+    doc.save('a-different-kind-of-pause.pdf');
+
+    // Reset button
+    if (btn) {
+      btn.disabled = false;
+      const line1 = btn.querySelector('.btn-gift-line1');
+      if (line1) line1.textContent = 'Download the Resources';
+    }
+  } catch (err) {
+    console.error('Crisis PDF generation error:', err);
+    alert('Something went wrong generating the PDF. Please use the resource numbers on screen.');
+    if (btn) {
+      btn.disabled = false;
+      const line1 = btn.querySelector('.btn-gift-line1');
+      if (line1) line1.textContent = 'Download the Resources';
     }
   }
 }
