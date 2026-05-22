@@ -1,6 +1,12 @@
 // Netlify Function — Map Minder API Proxy
 // Sits between the browser and Anthropic API
 // Keeps the API key secure on the server side
+//
+// Supports two modes via the `mode` parameter:
+//   - "reading"  → main Map Minder reading (Sonnet, ~20 sec, full response)
+//   - "classify" → pre-screen for crisis content (Haiku, ~2 sec, JSON only)
+//
+// Default mode is "reading" for backward compatibility.
 
 exports.handler = async function(event, context) {
   // Only allow POST
@@ -17,7 +23,7 @@ exports.handler = async function(event, context) {
 
   try {
     const body = JSON.parse(event.body);
-    const { messages, system } = body;
+    const { messages, system, mode } = body;
 
     if (!messages || !system) {
       return {
@@ -26,6 +32,16 @@ exports.handler = async function(event, context) {
         body: JSON.stringify({ error: 'Missing messages or system prompt' })
       };
     }
+
+    // Choose model and token budget based on mode
+    // "classify" uses Haiku 4.5 — fast and cheap, plenty for binary classification
+    // "reading" (default) uses Sonnet 4.6 — current model, replacing the
+    //   deprecated claude-sonnet-4-20250514 that retires June 15, 2026
+    const isClassify = (mode === 'classify');
+    const model = isClassify
+      ? 'claude-haiku-4-5-20251001'
+      : 'claude-sonnet-4-6';
+    const maxTokens = isClassify ? 200 : 2000;
 
     // Call Anthropic API with the key from environment
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -36,8 +52,8 @@ exports.handler = async function(event, context) {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 2000,
+        model: model,
+        max_tokens: maxTokens,
         system: system,
         messages: messages
       })
