@@ -35,12 +35,14 @@ exports.handler = async function(event, context) {
 
     // Choose model and token budget based on mode
     // "classify" uses Haiku 4.5 — fast and cheap, plenty for binary classification
-    // "reading" (default) uses Sonnet 4.6 — current model, replacing the
-    //   deprecated claude-sonnet-4-20250514 that retires June 15, 2026
+    // "reading" (default) uses Sonnet 4.5 — calibrated against this lineage,
+    //   replaces the deprecated claude-sonnet-4-20250514 retiring June 15, 2026.
+    //   Note: Sonnet 4.6 was tested but caused function timeouts due to slower
+    //   generation; 4.5 is the right balance of capability and speed for the spec.
     const isClassify = (mode === 'classify');
     const model = isClassify
       ? 'claude-haiku-4-5-20251001'
-      : 'claude-sonnet-4-6';
+      : 'claude-sonnet-4-5-20250929';
     const maxTokens = isClassify ? 200 : 2000;
 
     // Call Anthropic API with the key from environment
