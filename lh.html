@@ -85,9 +85,9 @@
     .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
     .dropdown-link:last-child { border-bottom: none; }
     .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
-    /* Map Minder tab */
-    .mm-tab { position: fixed; right: 0; top: 50%; writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg); background: var(--gold); color: var(--midnight); font-family: var(--font-nav); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 10px; z-index: 800; white-space: nowrap; border-radius: 4px 0 0 4px; box-shadow: -3px 0 18px rgba(201,168,76,0.25); transition: background 0.2s; }
-    .mm-tab:hover { background: var(--gold-light); }
+    /* Trigger Decoder tab */
+    .td-tab { position: fixed; right: 0; top: 50%; writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg); background: var(--gold); color: var(--midnight); font-family: var(--font-nav); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 10px; z-index: 800; white-space: nowrap; border-radius: 4px 0 0 4px; box-shadow: -3px 0 18px rgba(201,168,76,0.25); transition: background 0.2s; }
+    .td-tab:hover { background: var(--gold-light); }
     /* Mobile nav */
     .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: #E1E8F5; border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
     .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -202,7 +202,7 @@
       .who-grid { grid-template-columns: 1fr; }
       .diff-grid { grid-template-columns: 1fr; }
       .foot-grid { grid-template-columns: 1fr 1fr; }
-      .mm-tab { display: none; }
+      .td-tab { display: none; }
       .lh-graphic-band { padding: 32px 24px; }
       .lh-graphic-band.tight { padding: 12px 24px 32px; }
       .lh-graphic-card { padding: 16px; }
@@ -362,7 +362,7 @@
   <a href="index.html" class="nav-brand"><img src="images/kindred-lights-heart-sigil.png" alt="Kindred Lights" class="nav-brand-logo" /><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
   <ul class="nav-links">
     <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
-    <li class="nav-item" data-nav="mapminder"><a href="https://kindredlights.org/mapminder" class="nav-link" style="color:var(--gold-dark)">Map Minder</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Map Minder</div><p class="panel-desc">Try the free Map Minder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/mapminder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item" data-nav="decoder"><a href="https://kindredlights.org/decoder" class="nav-link" style="color:var(--gold-dark)">Trigger Decoder</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Trigger Decoder</div><p class="panel-desc">Try the free Trigger Decoder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/decoder" class="panel-link">Try It Free →</a></div></li>
     <li class="nav-item nav-has-dropdown" data-nav="explore"><a href="explore.html" class="nav-link active">Explore ▾</a>
       <div class="nav-dropdown" style="min-width:260px;">
         <a href="explore.html" class="dropdown-link">The Exploratorium (Lobby)</a>
@@ -370,10 +370,8 @@
         <a href="explore-emotions.html" class="dropdown-link">Unlocking the Power of Emotions</a>
         <a href="explore-fivesteps.html" class="dropdown-link">The Five Steps to Freedom</a>
         <a href="explore-truth.html" class="dropdown-link">The Truth of Who You Are</a>
-        <a href="circle.html" class="dropdown-link">A Circle of Kindred Lights</a>
       </div>
     </li>
-    <li class="nav-item" data-nav="ageofego"><a href="ageofego.html" class="nav-link">Five Steps<br>for the World</a><div class="nav-panel"><span class="panel-role">The Collective</span><div class="panel-title">What Happened to US?</div><p class="panel-desc">The Five Steps for global problem solving.</p><a href="ageofego.html" class="panel-link">Explore →</a></div></li>
     <li class="nav-item nav-has-dropdown" data-nav="series"><a href="#" class="nav-link">The Series ▾</a>
       <div class="nav-dropdown" style="min-width:280px;">
         <a href="lh.html" class="dropdown-link">Love Heroically</a>
@@ -401,6 +399,7 @@
       </div>
     </li>
     <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="circle"><a href="circle.html" class="nav-link">Circle</a><div class="nav-panel"><span class="panel-role">The Community</span><div class="panel-title">A Circle of Kindred Lights</div><p class="panel-desc">We are all Kindred Lights. Walking the Five Steps together, hand in hand.</p><a href="circle.html" class="panel-link">Step In →</a></div></li>
     <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
   </ul>
 </nav>
@@ -410,20 +409,18 @@
 </div>
 <div id="mobile-menu">
   <a href="index.html" class="mob-link" data-mob="home">Home</a>
-  <a href="https://kindredlights.org/mapminder" class="mob-link gold" data-mob="mapminder">✦ Map Minder — Free</a>
+  <a href="https://kindredlights.org/decoder" class="mob-link gold" data-mob="decoder">✦ Trigger Decoder — Free</a>
   <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
   <a href="explore-sir-ego.html" class="mob-link" data-mob="sir-ego-room">&nbsp;&nbsp;· Sir Ego &amp; the Wise One</a>
   <a href="explore-emotions.html" class="mob-link" data-mob="emotions-room">&nbsp;&nbsp;· Power of Emotions</a>
   <a href="explore-fivesteps.html" class="mob-link" data-mob="fivesteps-room">&nbsp;&nbsp;· The Five Steps</a>
   <a href="explore-truth.html" class="mob-link" data-mob="truth-room">&nbsp;&nbsp;· The Truth of Who You Are</a>
-  <a href="circle.html" class="mob-link" data-mob="circle-room">&nbsp;&nbsp;· A Circle of Kindred Lights</a>
   <a href="#" class="mob-link" data-mob="series" onclick="return false;">The Series</a>
   <a href="lh.html" class="mob-link" data-mob="lh">&nbsp;&nbsp;· Love Heroically</a>
   <a href="explore-truth.html" class="mob-link" data-mob="bbs">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
   <a href="luminology-glossary.html" class="mob-link" data-mob="luminology">&nbsp;&nbsp;· Luminology</a>
   <a href="ageofego.html" class="mob-link" data-mob="ageofego-series">&nbsp;&nbsp;· What Happened to US?</a>
   <a href="explore-sir-ego.html" class="mob-link" data-mob="mastery">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
-  <a href="ageofego.html" class="mob-link" data-mob="ageofego">Five Steps<br>for the World</a>
   <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
   <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
   <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
@@ -438,6 +435,7 @@
   <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
   <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
   <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
+  <a href="circle.html" class="mob-link" data-mob="circle">Circle</a>
   <a href="about.html" class="mob-link" data-mob="about">About</a>
 </div>
 <!-- PAGE HEADER -->
@@ -479,7 +477,7 @@
       <img src="images/pacific-book-review-notable-book-award.png" alt="Pacific Book Review — Notable Book Award" width="1280" height="1024" loading="lazy" decoding="async" class="pbr-badge" />
     </div>
     
-    <a href="https://kindredlights.org/mapminder" class="btn-outline-cream" style="display:block;text-align:center;margin-top:20px">Try the Map Minder Free</a>
+    <a href="https://kindredlights.org/decoder" class="btn-outline-cream" style="display:block;text-align:center;margin-top:20px">Try the Trigger Decoder Free</a>
   </div>
 
   <!-- Copy -->
@@ -576,7 +574,7 @@
     <div class="reveal d2">
       <h3>Where are you on the meter?</h3>
       <p>Think of something that triggers you. Where do you land? That spot on the meter is your entry point. The Five Steps meet you right there &mdash; in the moment, not after.</p>
-      <a href="https://kindredlights.org/mapminder" class="btn-gold">Try the Map Minder &mdash; Free &rarr;</a>
+      <a href="https://kindredlights.org/decoder" class="btn-gold">Try the Trigger Decoder &mdash; Free &rarr;</a>
     </div>
   </div>
 </div>
@@ -649,7 +647,7 @@
     <div>
       <p class="foot-h">Practice</p>
       <ul class="foot-links">
-        <li><a href="https://kindredlights.org/mapminder">Map Minder &mdash; Free</a></li>
+        <li><a href="https://kindredlights.org/decoder">Trigger Decoder &mdash; Free</a></li>
         <li><a href="explore.html">Explore</a></li>
         <li><a href="luminology-glossary.html">Luminology Glossary</a></li>
       </ul>

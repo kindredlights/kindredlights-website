@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Map Minder API Tester — Kindred Lights</title>
+<title>Trigger Decoder API Tester — Kindred Lights</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #1C1D40; color: #f4f0ec; padding: 32px; line-height: 1.6; min-height: 100vh; }
@@ -57,11 +57,11 @@
 </head>
 <body>
 <div class="wrap">
-<h1>Map Minder API Tester</h1>
-<p class="subtitle">Pulls the live SYSTEM_PROMPT from <code>/mapminder.html</code> and calls the same Netlify function the production site uses. Same prompt. Same model. Same proxy. No UI between you and the response.</p>
+<h1>Trigger Decoder API Tester</h1>
+<p class="subtitle">Pulls the live SYSTEM_PROMPT from <code>/decoder.html</code> and calls the same Netlify function the production site uses. Same prompt. Same model. Same proxy. No UI between you and the response.</p>
 <div class="source-row">
 <label>Source page</label>
-<input type="text" id="sourceUrl" value="/mapminder.html" />
+<input type="text" id="sourceUrl" value="/decoder.html" />
 <button class="btn-secondary" id="loadSource">Load Prompt</button>
 <span class="source-status unloaded" id="sourceStatus">Not loaded yet</span>
 </div>
@@ -144,7 +144,7 @@ document.getElementById('copy').addEventListener('click', () => {
 });
 
 async function loadSystemPrompt() {
-  const url = document.getElementById('sourceUrl').value.trim() || '/mapminder.html';
+  const url = document.getElementById('sourceUrl').value.trim() || '/decoder.html';
   const sourceStatus = document.getElementById('sourceStatus');
   sourceStatus.className = 'source-status unloaded';
   sourceStatus.textContent = 'Loading...';
@@ -179,7 +179,7 @@ document.getElementById('run').addEventListener('click', async () => {
   document.getElementById('results').style.display = 'none';
   const t0 = Date.now();
   try {
-    const response = await fetch('/.netlify/functions/mapminder', {
+    const response = await fetch('/.netlify/functions/decoder', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ system: LIVE_SYSTEM_PROMPT, messages: [{ role: 'user', content: userMsg }] })

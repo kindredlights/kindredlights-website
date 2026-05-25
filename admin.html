@@ -98,7 +98,7 @@
 <!-- CURRENT STATUS -->
 <h2><span class="eyebrow">Where You Are</span>Current Status — April 21, 2026</h2>
 
-<p class="section-intro">Site deployed to kindredlights.org with <code>noindex</code> protection on every page except Map Minder. Graphics are working placeholders. Final graphics pending from Louise.</p>
+<p class="section-intro">Site deployed to kindredlights.org with <code>noindex</code> protection on every page except Trigger Decoder. Graphics are working placeholders. Final graphics pending from Louise.</p>
 
 <h3>Done ✓</h3>
 <ul class="checklist">
@@ -106,8 +106,8 @@
   <li class="done">14 HTML pages with canonical alt text, pixel dimensions, JSON-LD structured data</li>
   <li class="done">60 tooltips for 9 core vocabulary terms (keyboard and touch accessible)</li>
   <li class="done">Full site deployed to kindredlights.org via GitHub + Netlify</li>
-  <li class="done">Map Minder reintegrated with site-wide navigation</li>
-  <li class="done"><code>noindex</code> tags on every page except <code>mapminder.html</code></li>
+  <li class="done">Trigger Decoder reintegrated with site-wide navigation</li>
+  <li class="done"><code>noindex</code> tags on every page except <code>decoder.html</code></li>
   <li class="done">Graphics Inventory xlsx with metadata pipeline</li>
   <li class="done">Python script (<code>embed_metadata.py</code>) tested on Windows PC</li>
   <li class="done">Revised Logo Brief sent to Louise</li>
@@ -227,7 +227,7 @@ python embed_metadata.py images\</code></pre>
 <ol class="step-list">
   <li>
     <strong>Remove the <code>noindex</code> tags from every page.</strong> In GitHub, open the web file editor, OR clone locally and find-replace:
-    <pre><code># Find this line in every .html file EXCEPT mapminder.html:
+    <pre><code># Find this line in every .html file EXCEPT decoder.html:
 &lt;meta name="robots" content="noindex, nofollow" /&gt;
 
 # Delete it.</code></pre>
@@ -267,7 +267,7 @@ Sitemap: https://kindredlights.org/sitemap.xml</code></pre>
   <li>Custom 404 page (<code>404.html</code> in repo root — Netlify serves it automatically)</li>
   <li>Convert book covers to .webp for faster load (~30% size reduction at same quality)</li>
   <li>Accessibility audit (WCAG AA color contrast, full screen-reader pass)</li>
-  <li>Map Minder full parity upgrade (tooltips, JSON-LD, canonical metadata to match rest of site)</li>
+  <li>Trigger Decoder full parity upgrade (tooltips, JSON-LD, canonical metadata to match rest of site)</li>
 </ul>
 
 <hr class="rule" />
@@ -313,12 +313,12 @@ Sitemap: https://kindredlights.org/sitemap.xml</code></pre>
 
 <hr class="rule" />
 
-<!-- MAP MINDER TESTING -->
-<h2><span class="eyebrow">After v3 Goes Live</span>Testing the Map Minder</h2>
+<!-- TRIGGER DECODER TESTING -->
+<h2><span class="eyebrow">After v3 Goes Live</span>Testing the Trigger Decoder</h2>
 <p class="section-intro">Two ways to test, depending on what you want to see:</p>
 
 <h3>1. Test the full experience (slow, but real)</h3>
-<p>Open <code>kindredlights.org/mapminder</code> in a browser, type a scenario, click through the whole flow. This is what visitors see — the loading orbs, the gradient room, the bridge cards, the map, the PDF. Use this when you want to feel the experience the way a visitor will. Use it sparingly; each run takes a few minutes.</p>
+<p>Open <code>kindredlights.org/decoder</code> in a browser, type a scenario, click through the whole flow. This is what visitors see — the loading orbs, the gradient room, the bridge cards, the map, the PDF. Use this when you want to feel the experience the way a visitor will. Use it sparingly; each run takes a few minutes.</p>
 
 <h3>2. Test the API directly (fast)</h3>
 <p>Open <code>kindredlights.org/api-test</code>. This is a private testing page that calls the same Netlify function the production site uses, but with no UI between you and the response. You see:</p>
@@ -358,13 +358,13 @@ Sitemap: https://kindredlights.org/sitemap.xml</code></pre>
 </ol>
 
 <h3>Testing a system prompt change before deploying it</h3>
-<p>The tester loads the live SYSTEM_PROMPT from <code>/mapminder.html</code> at the top of the page. So the workflow for testing a prompt change is:</p>
+<p>The tester loads the live SYSTEM_PROMPT from <code>/decoder.html</code> at the top of the page. So the workflow for testing a prompt change is:</p>
 <ol>
-  <li>Edit the system prompt in your local copy of <code>mapminder.html</code></li>
+  <li>Edit the system prompt in your local copy of <code>decoder.html</code></li>
   <li>Open the local file in your browser (or push to a Netlify branch deploy first if your edits depend on the function)</li>
   <li>Open <code>api-test.html</code> from the same source — it pulls the prompt from the same page it lives next to</li>
   <li>Run the five preset tests and look at the output</li>
-  <li>If outputs look right, push the live <code>mapminder.html</code> to <code>main</code></li>
+  <li>If outputs look right, push the live <code>decoder.html</code> to <code>main</code></li>
 </ol>
 <p>The tester will refuse to run if it can't load the prompt — there's a green "Loaded" pill at the top showing the character count of the prompt it's using. If it says "Failed", the source URL is wrong or the file doesn't have a <code>const SYSTEM_PROMPT = ...</code> declaration at all.</p>
 
