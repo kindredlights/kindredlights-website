@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Triggers — Why We Hijack Ourselves — Kindred Lights</title>
+  <meta name="description" content="Triggers are ghosts from the past that hijack the present. The mechanism that explains why you go off the rails — and how to reclaim your sanity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    
+    img { height: auto; max-width: 100%; }
+    :root {
+      /* THE SKY SYSTEM */
+      --sky-bold:      #4F9AD4;
+      --sky-shadow:    #1F4A6B;
+      --sky-dusk:      #345878;
+      --cloud:         #F4F8FB;
+      --gold:          #C9A84C;
+      --gold-light:    #E8D48A;
+      --gold-dark:     #8B6914;
+      --text-body:     #2B2B2B;
+      --text-deep:     #0F2A4A;
+      --text-on-sky:   rgba(247,243,238,0.92);
+      /* LEGACY ALIASES — keep old refs working */
+      --cream:         var(--cloud);
+      --cream-dark:    var(--cloud);
+      --midnight:      var(--sky-shadow);
+      --deep-sky:      var(--sky-dusk);
+      --deep-blue:     #81A8CB;
+      --periwinkle:    #adafdf;
+      --lavender:      #d3b6e2;
+      --text-dark:     #2b2b2b;
+      --text-mid:      #4a4a4a;
+      --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
+      --nav-h: 64px; --max: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--sky-bold); overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; } a { text-decoration: none; color: inherit; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.1s; } .reveal.d2 { transition-delay: 0.2s; } .reveal.d3 { transition-delay: 0.3s; }
+
+    /* NAV */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: #E1E8F5; border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
+    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(15,34,53,0.12); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 40px; flex-shrink: 0; text-decoration: none; }
+    .nav-brand-logo { width: 56px; height: 56px; object-fit: contain; display: block; }
+    .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
+    .nav-brand-text em { color: var(--gold-dark); font-style: normal; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 0; flex: 1; list-style: none; }
+    .nav-item { position: relative; }
+    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky-shadow); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
+    .nav-link br { display: block; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--deep-sky); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .panel-role { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+    .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
+    .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
+    .panel-link { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
+    .panel-link:hover { color: var(--gold-light); }
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--deep-sky); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .nav-has-dropdown .nav-panel { display: none !important; }
+    .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
+    .dropdown-link:last-child { border-bottom: none; }
+    .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: #E1E8F5; border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .mob-brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; }
+    .mob-brand-text { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
+    .mob-brand-text em { color: var(--gold-dark); font-style: normal; }
+    .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--midnight); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--deep-sky); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu.open { display: block; }
+    .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mob-link:hover, .mob-link.gold { color: var(--gold); }
+    .mob-link br { display: none; }
+
+    /* TIP (inline pop-up definitions) */
+    .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
+    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--deep-sky); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 280px; z-index: 200; pointer-events: none; font-weight: 400; letter-spacing: normal; text-transform: none; }
+    .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding-top: calc(var(--nav-h) + 48px);
+      padding-bottom: 40px;
+      padding-left: 32px; padding-right: 32px;
+      background: var(--sky-bold);
+      position: relative; overflow: hidden;
+    }
+    .page-header-bg { display: none; }
+    .page-header-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .eyebrow { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 16px; }
+    .header-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; line-height: 1.15; margin-bottom: 22px; }
+    .header-lede { font-family: var(--font-soul); font-size: clamp(1.15rem,1.8vw,1.38rem); color: var(--text-on-sky); line-height: 1.58; font-style: italic; font-weight: 400; max-width: 720px; margin: 0 auto; }
+
+    /* CONTENT SECTIONS — continuous sky, no banding */
+    section { padding: 56px 32px; background: var(--sky-bold); }
+    section:first-of-type { padding-top: 32px; }
+    .section-inner { max-width: 780px; margin: 0 auto; }
+    .section-label { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 8px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.4rem,2.6vw,2.1rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; line-height: 1.2; margin-bottom: 24px; }
+    .section-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 28px; }
+    p.body { font-family: var(--font-body); font-size: 1.06rem; color: var(--text-on-sky); line-height: 1.82; margin-bottom: 20px; }
+    p.body em { color: var(--gold-light); font-style: italic; }
+    p.body strong { color: #FFFFFF; font-weight: 600; }
+    .pull { font-family: var(--font-soul); font-size: 1.25rem; color: #FFFFFF; line-height: 1.68; border-left: 3px solid var(--gold-light); padding-left: 22px; margin: 32px 0; font-style: italic; }
+    .italic-whisper { font-family: var(--font-soul); font-size: 1.18rem; color: var(--text-on-sky); line-height: 1.58; font-style: italic; margin: 24px 0 20px; }
+
+    /* GRAPHIC BLOCKS — cloud cards */
+    .graphic-wrap { margin: 40px 0 28px; background: var(--cloud); border-radius: 8px; padding: 24px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
+    .graphic-wrap img { width: 100%; height: auto; border-radius: 4px; }
+    .graphic-caption { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-deep); text-align: center; margin-top: 16px; }
+
+    /* BFF — lived-experience callout in cream on sky */
+    .bff-section { background: var(--sky-bold); padding: 56px 32px; }
+    .bff-inner { max-width: 780px; margin: 0 auto; background: var(--cloud); border-left: 4px solid var(--gold); border-radius: 8px; padding: 40px 44px; box-shadow: 0 10px 32px rgba(15,34,53,0.18); }
+    .bff-inner .section-label { color: var(--gold-dark); }
+    .bff-inner h2 { font-family: var(--font-display); font-size: clamp(1.4rem,2.4vw,1.9rem); font-weight: 600; color: var(--sky-shadow); letter-spacing: 0.03em; line-height: 1.22; margin-bottom: 8px; }
+    .bff-inner .bff-sub { font-family: var(--font-soul); font-size: 1.18rem; font-style: italic; color: var(--gold-dark); margin-bottom: 22px; display: block; }
+    .bff-inner .bff-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 24px; }
+    .bff-inner p { font-family: var(--font-body); font-size: 1.04rem; color: var(--text-deep); line-height: 1.84; margin-bottom: 18px; }
+    .bff-inner p em { color: var(--gold-dark); font-style: italic; }
+    .bff-inner p.bff-close { font-family: var(--font-soul); font-size: 1.15rem; font-style: italic; color: var(--sky-shadow); margin-top: 24px; margin-bottom: 0; }
+    @media (max-width: 768px) {
+      .bff-section { padding: 48px 24px; }
+      .bff-inner { padding: 32px 28px; }
+    }
+
+    /* LINEAGE — small-print citation block */
+    .lineage-section { background: var(--sky-bold); padding: 32px 32px 12px; }
+    .lineage-inner { max-width: 780px; margin: 0 auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.18); }
+    .lineage-inner .section-label { color: var(--gold-light); margin-bottom: 14px; }
+    .lineage-inner p { font-family: var(--font-body); font-size: 0.96rem; color: rgba(247,243,238,0.78); line-height: 1.75; margin-bottom: 14px; font-style: italic; }
+    .lineage-inner p em { color: var(--gold-light); font-style: italic; }
+    .lineage-inner p strong { color: #FFFFFF; font-weight: 600; font-style: normal; }
+
+    /* WHERE TO GO NEXT — voice on sky */
+    .next-band { background: var(--sky-bold); padding: 64px 32px; position: relative; overflow: hidden; }
+    .next-band-bg { display: none; }
+    .next-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .next-inner .eyebrow { color: var(--gold-light); margin-bottom: 12px; }
+    .next-title { font-family: var(--font-display); font-size: clamp(1.4rem,2.8vw,2rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; line-height: 1.25; margin-bottom: 18px; }
+    .next-copy { font-family: var(--font-body); font-size: 1.04rem; color: var(--text-on-sky); line-height: 1.78; max-width: 640px; margin: 0 auto 32px; }
+    .next-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 32px; background: var(--gold); color: var(--sky-shadow); border-radius: 4px; display: inline-block; box-shadow: 0 4px 18px rgba(201,168,76,0.3); transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 26px; border: 1px solid rgba(255,255,255,0.5); color: #FFFFFF; background: rgba(255,255,255,0.12); border-radius: 4px; display: inline-block; transition: border-color 0.2s, color 0.2s, background 0.2s; }
+    .btn-outline-cream:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.22); }
+
+    /* DECODER INLINE CTA — small cloud card mid-page */
+    .decoder-inline { background: var(--cloud); border-left: 3px solid var(--gold); border-radius: 8px; padding: 22px 28px; margin: 32px 0; box-shadow: 0 4px 18px rgba(15,34,53,0.12); }
+    .decoder-inline .eyebrow { color: var(--gold-dark); margin-bottom: 8px; }
+    .decoder-inline h3 { font-family: var(--font-display); font-size: 1.18rem; font-weight: 600; color: var(--sky-shadow); margin-bottom: 6px; letter-spacing: 0.02em; }
+    .decoder-inline p { font-family: var(--font-body); font-size: 0.98rem; color: var(--text-deep); line-height: 1.7; margin-bottom: 12px; }
+    .decoder-inline a { font-family: var(--font-nav); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); border-bottom: 1px solid rgba(184,134,11,0.5); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+    .decoder-inline a:hover { color: var(--sky-shadow); border-bottom-color: var(--sky-shadow); }
+
+    /* FOOTER */
+    footer { background: var(--sky-dusk); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 20px; }
+    .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: #fff; margin-bottom: 8px; }
+    .foot-brand em { color: var(--gold); font-style: normal; }
+    .foot-tag p { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); line-height: 1.9; }
+    .foot-h { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.6); margin-bottom: 14px; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); transition: color 0.2s; }
+    .foot-links a:hover { color: var(--gold); }
+    .foot-bottom { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-family: var(--font-nav); font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+    .foot-sigil { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.18em; color: rgba(201,168,76,0.28); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      #main-nav { display: none; } .mobile-nav { display: flex; }
+      section { padding: 48px 24px; }
+      .page-header { padding-top: calc(58px + 32px); padding-bottom: 28px; padding-left: 24px; padding-right: 24px; }
+      .next-band { padding: 48px 24px; }
+      .graphic-wrap { padding: 14px; }
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .next-buttons { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .foot-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+  
+    /* NAV-FIX-2026-05-12c */
+    .nav-brand { display: flex !important; align-items: center !important; gap: 12px !important; text-decoration: none !important; border: none !important; }
+    .nav-brand:hover { border: none !important; text-decoration: none !important; }
+    .nav-brand-text em { color: #8B6914 !important; }
+    .mobile-brand { display: flex !important; align-items: center !important; gap: 10px !important; text-decoration: none !important; border: none !important; }
+    .mob-brand-text em { color: #8B6914 !important; }
+    /* END NAV-FIX */
+
+  </style>
+
+
+  <!-- JSON-LD: WebPage + Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "About Triggers — Why We Hijack Ourselves",
+    "url": "https://kindredlights.org/explore-triggers.html",
+    "description": "Triggers are ghosts from the past that hijack the present. The mechanism that explains why you go off the rails — and how to reclaim your sanity.",
+    "isPartOf": { "@type": "WebSite", "name": "Kindred Lights", "url": "https://kindredlights.org" },
+    "author": { "@type": "Person", "name": "Kindred Lights" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kindredlights.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Explore", "item": "https://kindredlights.org/explore.html" },
+        { "@type": "ListItem", "position": 3, "name": "About Triggers", "item": "https://kindredlights.org/explore-triggers.html" }
+      ]
+    }
+  }
+  </script>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand"><img src="images/kindred-lights-heart-sigil.png" alt="Kindred Lights" class="nav-brand-logo" /><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <ul class="nav-links">
+    <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="decoder"><a href="https://kindredlights.org/decoder" class="nav-link" style="color:var(--gold-dark)">Trigger Decoder</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Trigger Decoder</div><p class="panel-desc">Try the free Trigger Decoder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/decoder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="explore"><a href="explore.html" class="nav-link active">Explore ▾</a>
+      <div class="nav-dropdown" style="min-width:260px;">
+        <a href="explore.html" class="dropdown-link">The Exploratorium (Lobby)</a>
+        <a href="explore-triggers.html" class="dropdown-link">About Triggers</a>
+        <a href="explore-sir-ego.html" class="dropdown-link">Sir Ego &amp; the Wise One</a>
+        <a href="explore-emotions.html" class="dropdown-link">Unlocking the Power of Emotions</a>
+        <a href="explore-fivesteps.html" class="dropdown-link">The Five Steps to Freedom</a>
+        <a href="explore-truth.html" class="dropdown-link">The Truth of Who You Are</a>
+      </div>
+    </li>
+    <li class="nav-item nav-has-dropdown" data-nav="series"><a href="#" class="nav-link">The Series ▾</a>
+      <div class="nav-dropdown" style="min-width:280px;">
+        <a href="lh.html" class="dropdown-link">Love Heroically</a>
+        <a href="explore-truth.html" class="dropdown-link">Beyond Blame &amp; Shame</a>
+        <a href="luminology-glossary.html" class="dropdown-link">Luminology</a>
+        <a href="ageofego.html" class="dropdown-link">What Happened to US?</a>
+        <a href="explore-sir-ego.html" class="dropdown-link">The Mastery of Sir Ego</a>
+      </div>
+    </li>
+    <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
+      <div class="nav-dropdown">
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="forgiveness.html" class="dropdown-link">Guilt, Blame &amp; Shame</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
+        <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
+      </div>
+    </li>
+    <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="circle"><a href="circle.html" class="nav-link">Circle</a><div class="nav-panel"><span class="panel-role">The Community</span><div class="panel-title">A Circle of Kindred Lights</div><p class="panel-desc">We are all Kindred Lights. Walking the Five Steps together, hand in hand.</p><a href="circle.html" class="panel-link">Step In →</a></div></li>
+    <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
+  </ul>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <a href="index.html" class="mobile-brand"><img src="images/kindred-lights-heart-sigil.png" alt="Kindred Lights" class="mob-brand-logo" /><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mobile-menu">
+  <a href="index.html" class="mob-link" data-mob="home">Home</a>
+  <a href="https://kindredlights.org/decoder" class="mob-link gold" data-mob="decoder">✦ Trigger Decoder — Free</a>
+  <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
+  <a href="explore-triggers.html" class="mob-link" data-mob="triggers-room">&nbsp;&nbsp;· About Triggers</a>
+  <a href="explore-sir-ego.html" class="mob-link" data-mob="sir-ego-room">&nbsp;&nbsp;· Sir Ego &amp; the Wise One</a>
+  <a href="explore-emotions.html" class="mob-link" data-mob="emotions-room">&nbsp;&nbsp;· Power of Emotions</a>
+  <a href="explore-fivesteps.html" class="mob-link" data-mob="fivesteps-room">&nbsp;&nbsp;· The Five Steps</a>
+  <a href="explore-truth.html" class="mob-link" data-mob="truth-room">&nbsp;&nbsp;· The Truth of Who You Are</a>
+  <a href="#" class="mob-link" data-mob="series" onclick="return false;">The Series</a>
+  <a href="lh.html" class="mob-link" data-mob="lh">&nbsp;&nbsp;· Love Heroically</a>
+  <a href="explore-truth.html" class="mob-link" data-mob="bbs">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
+  <a href="luminology-glossary.html" class="mob-link" data-mob="luminology">&nbsp;&nbsp;· Luminology</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego-series">&nbsp;&nbsp;· What Happened to US?</a>
+  <a href="explore-sir-ego.html" class="mob-link" data-mob="mastery">&nbsp;&nbsp;· The Mastery of Sir Ego</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="forgiveness.html" class="mob-link" data-mob="forgiveness">&nbsp;&nbsp;· Guilt, Blame &amp; Shame</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
+  <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
+  <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
+  <a href="circle.html" class="mob-link" data-mob="circle">Circle</a>
+  <a href="about.html" class="mob-link" data-mob="about">About</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-inner">
+    <span class="eyebrow reveal">Explore · About Triggers</span>
+    <h1 class="header-title reveal d1">About Triggers</h1>
+    <p class="header-lede reveal d2">Triggers are ghosts from the past that hijack the present. Here is how we reclaim our sanity.</p>
+  </div>
+</div>
+
+<!-- OPENING -->
+<section>
+  <div class="section-inner reveal">
+    <p class="body">Every minute of every day, energy is passing through you.</p>
+    <p class="body">Light hitting the eye and becoming what you see. Sound waves reaching the ear and becoming a voice you recognize. Touch. Temperature. The hum of the refrigerator. Wifi, radio waves, electromagnetic frequencies, dog whistles, x-rays — most of it at frequencies your body has no receiver for. All of it moving through you, around you, past you, at every moment of your life.</p>
+    <p class="body">When you are at ease, this energy just flows. You receive what you can receive and the rest passes by. You are present. Things are okay.</p>
+    <p class="body">Until something happens that you cannot let pass.</p>
+  </div>
+</section>
+
+<!-- WHEN ENERGY STICKS -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">When Energy Sticks</span>
+    <h2 class="section-title">A Moment That Cannot Be Let Go Of</h2>
+    <div class="section-rule"></div>
+    <p class="body">Sometimes something happens that the body cannot stay open to. The heart clamps down. The breath shortens. The moment freezes.</p>
+    <p class="body">It can be terrifying — a betrayal, an accident, a loss, a violation, a cruelty. The body slams the door against the experience because the experience is more than the system can metabolize in the moment it is happening.</p>
+    <p class="body">But it can also be something so beautiful that we never want it to end. The look in your beloved's eyes the first time you both knew. The hour you held your newborn. The sunset on the cliff. The taste of the thing you had never tasted before. The body grabs at it. Holds on. Tries to make the moment stay.</p>
+    <p class="body">In the framework's language: something Sir Ego's Script <strong>must have</strong> or <strong>must not have</strong>. The mechanism is identical in both directions. The fear-clamp and the love-clamp are the same clamp. Both freeze the moment. Both stop the flow.</p>
+    <p class="italic-whisper">And the energy that was passing through gets stuck.</p>
+  </div>
+</section>
+
+<!-- WHAT A TORNADO ACTUALLY IS -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">What Gets Stored</span>
+    <h2 class="section-title">The Tornado in the Body</h2>
+    <div class="section-rule"></div>
+    <p class="body">Energy in nature never stops moving. It either flows or it spins. When the moment is clamped down on, the energy that was passing through has nowhere to go — so it begins to spin in place. A holding pattern in the body. A tornado.</p>
+    <p class="body">And the tornado holds everything. Every detail of the moment that closed it down. The words that were said. The faces in the room. The sights, the sounds, the smells. What you were wearing. The angle of the light. The taste of what was in your mouth. The temperature. The exact pitch of the voice that broke something open or shut something down. All of it stored in a single spinning vortex of energy that the body refused to let pass.</p>
+    <p class="body">This is what is happening underneath what most people call <em>memory</em>. Not the kind of memory you retrieve on purpose. The kind that retrieves you.</p>
+
+    <div class="graphic-wrap reveal">
+      <img src="images/about-triggers-ghosts-hijack-the-present.jpg" alt="About Triggers — the mechanism: stormy thoughts in the mind, a closed heart at the center, fight-or-flight in the body. The three things that happen when a tornado opens." width="1333" height="2000" loading="lazy" decoding="async" />
+      <p class="graphic-caption">The Three Things That Happen When a Tornado Opens</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHEN THE TORNADO OPENS -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">The Hijack</span>
+    <h2 class="section-title">When the Tornado Opens</h2>
+    <div class="section-rule"></div>
+    <p class="body">A tornado does not stay hidden forever. Eventually, something in the present moment resonates with what is stored — a voice that sounds like the voice that broke you, a smell that matches the smell of the room where it happened, a tone in your partner's text that the body recognizes from somewhere it does not consciously remember.</p>
+    <p class="body">And the vortex begins to open. The petals unfurl. The energy that has been spinning starts to rise.</p>
+    <p class="body">You are suddenly flooded. Not with the present moment — with the moment that was stored. The body is back there. The mind is back there. The heart is closed against something that is not actually happening in the room.</p>
+    <p class="body">This is what we mean by being <em>triggered</em>. A ghost from the past hijacking the present.</p>
+    <p class="body">And the body has three options for what to do with the rising energy.</p>
+
+    <p class="pull">Suppress it. Express it. Or let it rise and release.</p>
+  </div>
+</section>
+
+<!-- THE THREE DOORS -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Three Doors</span>
+    <h2 class="section-title">Suppress, Express, or Release</h2>
+    <div class="section-rule"></div>
+
+    <p class="body"><strong>Suppress.</strong> The mind goes immediately into <em>fix-it</em> thinking. How do I shut this down. What do I tell myself so I do not have to feel this. I will not let them see me cry. I will figure this out tomorrow. I will get back at them later. The energy gets shoved back into storage. The tornado does not dissipate — it grows. Every unreleased trigger adds to the next one. The fuse gets shorter. The tornado gets bigger.</p>
+
+    <p class="body"><strong>Express.</strong> The energy comes out — the yell, the slammed door, the email you cannot unsend, the drink, the substance, the spending, the affair, the cruel sentence you actually said out loud. Momentary relief. Lasting damage. The expression spreads the bad vibes into the people and things around you, forms a habit of expressing, and creates new tornados in everyone it touches — including the next one in you, because what you just did is something you knew better than.</p>
+
+    <p class="body"><strong>Release.</strong> The third option, the one nobody taught you. You let the energy rise. You feel what was being suppressed without acting on the fix-it thinking it generates. The heart stays open. The breath stays steady. The body lets the tornado release. The energy goes — completely, permanently. That specific stored thing never gets to hijack you again.</p>
+
+    <p class="italic-whisper">The first two are what almost everyone does. The third is what this whole site is teaching.</p>
+
+    <p class="body">Releasing is not pleasant. The energy was stored in the first place because the body could not bear to feel it in the moment it happened. The same intensity comes up when it releases — sometimes more. But it is the energy moving <em>out</em>, not the wound recurring. Different mechanism. Different result.</p>
+
+    <p class="body">If you have ever wondered why meditation and witnessing and journaling and therapy and willpower have not been enough — why you still get hijacked, why the same trigger keeps detonating — this is why. Those practices are wonderful and they are not the release step. <em>Feeling the energy rise without acting on it</em> is the release step. It is a distinct skill. It can be learned. It is the practice the Five Steps operationalize.</p>
+
+    <div class="decoder-inline reveal">
+      <span class="eyebrow">If You're In One Right Now</span>
+      <h3>The Trigger Decoder</h3>
+      <p>If you're inside a tornado right now and could use a guided five-minute walk through it — the free Trigger Decoder will take your actual situation and surface what's underneath. No email, no gate, no signup.</p>
+      <a href="https://kindredlights.org/decoder">Try the Trigger Decoder →</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE FLAVORS -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">The Flavors</span>
+    <h2 class="section-title">Triggers Come in Every Flavor</h2>
+    <div class="section-rule"></div>
+    <p class="body">Disrespect. Abandonment. Rejection. Betrayal. Disempowerment. Humiliation. Invisibility. Jealousy. Greed. Inadequacy. Shame. Each of us has our own stockpile, in our own combinations, calibrated by everything that has ever happened to us.</p>
+    <p class="body">And the love-clamps too. The relationship you keep trying to recreate. The version of yourself you keep trying to get back to. The high. The hit. The moment that ended too soon and that you have been quietly auditioning replacements for ever since.</p>
+    <p class="body">Each unreleased trigger gets bigger with every detonation. And — this is the part most people miss — each tornado <em>magnetizes situations to itself</em>. The unreleased energy is asking to be released. So life, helpfully or unhelpfully depending on how you read it, keeps presenting you with situations shaped exactly like the tornado you are carrying. The abandonment story keeps finding people who will abandon you. The not-enough story keeps finding rooms where you are made to feel not enough. This is not bad luck. This is the divine plan doing its job, trying to bring you back to the centered, cleared, Y-axis state of the Wise One.</p>
+    <p class="body">You are not being punished. You are being given another chance to release what wants to leave.</p>
+  </div>
+</section>
+
+<!-- WHY THIS MATTERS -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">Why This Matters</span>
+    <h2 class="section-title">This Is Where All the Trouble Comes From</h2>
+    <div class="section-rule"></div>
+    <p class="body">Every time you have done something you knew better than — every time you said the thing you wish you hadn't said, sent the email, took the drink, made the deal, hurt the person, abandoned the value, betrayed the relationship — somewhere in that moment a tornado opened and you acted from the stored energy instead of from the present moment.</p>
+    <p class="body">This is when the end justifies the means. This is when normally honest people lie. This is when normally kind people are cruel. This is when the addiction comes back, the affair starts, the rage explodes, the deal gets cut that should not have been cut, the parent says the thing to the child that the child will store for forty years.</p>
+    <p class="body">Sir Ego is not a bad person. He is a desperate one, holding tornados he does not know how to put down.</p>
+    <p class="body">Once you see the mechanism, the strange thing is not that humans do terrible things to each other. The strange thing is that we ever expected anything else. We are operating in a world full of tornados that nobody taught us how to feel through.</p>
+    <p class="pull">Every problem you have ever had — at the energetic level — traces here. Different vocabularies have named it: <em>samskara</em>, <em>vasana</em>, <em>vasanas</em>, the storehouse of impressions, the body keeps the score, the closed heart, the wound, the trigger, the loop. The mechanism is the same.</p>
+  </div>
+</section>
+
+<!-- BFF — LIVED EXPERIENCE -->
+<div class="bff-section">
+  <div class="bff-inner reveal">
+    <span class="section-label">Lived, Not Theorized</span>
+    <h2>I Learned This Because I Had To</h2>
+    <span class="bff-sub">A note from Kindred Lights</span>
+    <div class="bff-rule"></div>
+
+    <p>I learned this from the custody battle that almost cost me my children.</p>
+
+    <p>After my third DUI, I lost everything in three months — my children, my house, my car, my reputation, my freedom. I spent three months in jail, four months in rehab, and the next two years fighting to regain custody of my twin daughters through a family court process that I had walked into assuming the truth would matter.</p>
+
+    <p>The truth did not matter. What mattered was what people felt when they were in the room with me.</p>
+
+    <p>My ex-husband, who had spent fifteen years perfecting the art of making me look like the unstable one, was running a campaign of fabricated allegations through his attorney. Every accusation was a lie. Every hearing extended my supervised visits another five weeks. I was complying meticulously with every court order, working a demanding job in early sobriety, walking into every appointment beyond reproach — and watching the court rule against me again, and again, and again.</p>
+
+    <p>I was furious. Not loudly. I knew better than that. I was furious in a way that lived in my chest, in my voice, in my posture, in the way I held a pen during a deposition. CPTSD from fifteen years of being undermined by a person whose presence triggered every unreleased thing in my body. The trauma was constant, and so was the triggering. Every court date detonated a tornado of stored energy that I had to suppress in real time while the lawyer who was supposed to be protecting my children took my money and refused my calls.</p>
+
+    <p>I assumed I was hiding it. I was not. A counselor finally told me what every social worker, attorney, judge, and probation officer in the case had already felt: <em>you exude the energy of a victim. You are vibrating with rage and grievance. Everyone in the room feels it before you open your mouth. And every one of them is reading it as confirmation of what he has been saying about you.</em></p>
+
+    <p>The stored energy was costing me my children.</p>
+
+    <p>I could not out-argue it. I could not out-comply it. I could not out-document it. He could be guilty in fact, and I could still be losing the case in the room, because what the room felt was not the facts. What the room felt was the tornado.</p>
+
+    <p>That was the moment I went on the spiritual path in earnest. Not as an interest. Not as a hobby. As an operational necessity. I had to learn to feel the rising energy without suppressing it, without expressing it, without acting on the fix-it thinking it generated — in real time, in a courtroom, with my children's futures depending on whether I could do it.</p>
+
+    <p>I learned, mostly. Not perfectly. But enough.</p>
+
+    <p>It took two years to regain shared custody. Several more years to release enough stored energy that the relationship could change. Today he comes to Thanksgiving. He makes the gravy. He is family. Our daughters are thriving adults. None of that was possible while I was holding the tornados.</p>
+
+    <p class="bff-close">The mechanism on this page is not theoretical to me. I learned it because I had to. Every word has been stress-tested under conditions where doing it wrong had real consequences. Your stored energy is doing something in your life, somewhere, that is costing you something you may not yet fully see. That is what triggers do. That is why this page exists.</p>
+  </div>
+</div>
+
+<!-- THE BRIDGE TO THE FIVE STEPS -->
+<section>
+  <div class="section-inner reveal">
+    <span class="section-label">The Practice</span>
+    <h2 class="section-title">This Is What the Five Steps Operationalize</h2>
+    <div class="section-rule"></div>
+    <p class="body">The mechanism on this page is the <em>why</em>. The Five Steps to Freedom are the <em>how</em>.</p>
+    <p class="body"><strong>Recognize</strong> — you are triggered. A tornado just opened. The energy is rising.</p>
+    <p class="body"><strong>Relax</strong> — you do not act on the fix-it thinking. You do not suppress and you do not express. You stay.</p>
+    <p class="body"><strong>Release</strong> — you let the energy rise. You feel it without acting on it. The body does what bodies do when they are not being interfered with: the tornado releases, and the energy moves out.</p>
+    <p class="body"><strong>Receive</strong> — with the energy gone, the Wise One can be heard. The insight that was hidden underneath the trigger arrives. You see what you could not see.</p>
+    <p class="body"><strong>Respond</strong> — from the open heart, from the present moment, from what is actually needed here. Not from the ghost.</p>
+    <p class="body">Five steps. One practice. The structural answer to why we hijack ourselves — and the way back.</p>
+  </div>
+</section>
+
+<!-- LINEAGE -->
+<div class="lineage-section">
+  <div class="lineage-inner reveal">
+    <span class="section-label">The Lineage</span>
+    <p>The mechanics on this page are not new. The teaching of stored energy releasing through the open heart traces through Patanjali's <strong>Yoga Sutras</strong> (the second sutra defines yoga as the neutralization of these energy vortices, called <em>samskaras</em>), through <strong>Paramahansa Yogananda</strong>'s teachings on the storehouse of impressions, and into modern prose through <strong>Michael Singer</strong>'s <em>The Untethered Soul</em>, which articulates the mechanism beautifully for a contemporary reader. Trauma-informed practitioners have arrived at adjacent ground from a different direction; <strong>Bessel van der Kolk</strong>'s <em>The Body Keeps the Score</em> documents how unreleased experience is stored in the body itself. The closed-heart and physiological-coherence material is grounded in the peer-reviewed research of the <strong>HeartMath Institute</strong>, where Kindred Lights holds Resilient Heart certification.</p>
+    <p>The framework's contribution is the integration: naming Sir Ego as the agent of the clamp-down, naming the love-clamp and the fear-clamp as the same mechanism, and routing the release into a five-step practice that can be walked in the middle of a trigger by anyone who needs it.</p>
+  </div>
+</div>
+
+<!-- WHERE TO NEXT -->
+<div class="next-band">
+  <div class="next-band-bg"></div>
+  <div class="next-inner reveal">
+    <span class="eyebrow">Next Door</span>
+    <h2 class="next-title">Sir Ego &amp; the Wise One</h2>
+    <p class="next-copy">You have met the mechanism. Now meet the two voices inside you who have been working together — and colliding — all your life. The one who clamps down. The one who has been here the whole time, waiting to be heard.</p>
+    <div class="next-buttons">
+      <a href="explore-sir-ego.html" class="btn-gold">Continue to Sir Ego &amp; the Wise One →</a>
+      <a href="https://kindredlights.org/decoder" class="btn-outline-cream">Or Try the Trigger Decoder</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Kindred <em>Lights</em></div>
+      <div class="foot-tag">
+        <p>The Age of Ego is ending.</p>
+        <p>The Age of Love is arising.</p>
+        <p>One trigger at a time.</p>
+      </div>
+    </div>
+    <div>
+      <p class="foot-h">Practice</p>
+      <ul class="foot-links">
+        <li><a href="https://kindredlights.org/decoder">Trigger Decoder &mdash; Free</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="lh.html">Love Heroically</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Rooms</p>
+      <ul class="foot-links">
+        <li><a href="explore-triggers.html">About Triggers</a></li>
+        <li><a href="explore-sir-ego.html">Sir Ego &amp; the Wise One</a></li>
+        <li><a href="explore-emotions.html">Power of Emotions</a></li>
+        <li><a href="explore-fivesteps.html">The Five Steps</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">Connect</p>
+      <ul class="foot-links">
+        <li><a href="mailto:kindred@kindredlights.org">kindred@kindredlights.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 Kindred Lights. All rights reserved.</div>
+    <div class="foot-sigil">✦</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => { nav && nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => { const open = hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+  }
+  const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
