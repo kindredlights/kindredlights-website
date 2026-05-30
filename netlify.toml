@@ -6,3 +6,12 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+
+[functions]
+  # Extend timeout for the decoder function — Sonnet 4.6 reading takes longer
+  # than the default 10s. Netlify free tier allows up to 26s.
+  node_bundler = "esbuild"
+
+[functions."decoder"]
+  # Extended timeout for Sonnet 4.6 reading generation
+  timeout = 26
