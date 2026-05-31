@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- KL Trigger Decoder 2026-05-31a — Circle card with graphic background, Haiku 4.5 model, taglines, flowchart, BMC link -->
+<!-- KL Trigger Decoder 2026-05-31b — Circle CSS scope fix (was nested inside media query) -->
 <!-- KL Trigger Decoder v8 (April 27 — Phase 3 diagnostic typology routing, friendly cold-call voice) -->
 <!-- was v10 — film strips added 2026-04-12 <!--
 <!-- was v9 — deep blue gradient room, missing beat, monkey framing, Higher Self, burn ritual, Step Five reframe 2026-04-12 -->
@@ -249,7 +249,8 @@
     .btn-gift-line1 { font-size: 0.86rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
     .btn-gift-line2 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
     .gift-fine { font-family: var(--font-nav); font-size: 0.75rem; color: rgba(255,255,255,0.32); margin-top: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
-    @media (max-width: 640px) { .btn-gift { width: 100%; min-width: 0; }
+    @media (max-width: 640px) { .btn-gift { width: 100%; min-width: 0; } }
+
     /* Circle — Pay It Forward block (white card on graphic background) */
     .circle-wrap {
       margin-top: 32px;
@@ -299,7 +300,6 @@
       transform: translateY(-2px);
     }
     .circle-fine { font-family: var(--font-body); font-size: 0.82rem; font-style: italic; color: #5a5c80; margin: 16px 0 0; }
- }
     .save-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .save-input { flex: 1; min-width: 200px; max-width: 280px; padding: 13px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: #fff; border-radius: 4px; outline: none; transition: border-color 0.2s; }
     .save-input:focus { border-color: var(--gold); }
