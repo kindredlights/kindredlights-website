@@ -248,7 +248,41 @@
     .btn-gift-line1 { font-size: 0.86rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
     .btn-gift-line2 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
     .gift-fine { font-family: var(--font-nav); font-size: 0.75rem; color: rgba(255,255,255,0.32); margin-top: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
-    @media (max-width: 640px) { .btn-gift { width: 100%; min-width: 0; } }
+    @media (max-width: 640px) { .btn-gift { width: 100%; min-width: 0; }
+    /* Circle — Pay It Forward block */
+    .circle-card {
+      margin-top: 28px;
+      padding: 24px;
+      background: rgba(173, 175, 223, 0.08);
+      border: 1px solid rgba(173, 175, 223, 0.25);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .circle-h { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,0.92); margin: 0 0 12px; letter-spacing: 0.02em; }
+    .circle-p { font-family: var(--font-body); font-size: 0.95rem; line-height: 1.65; color: rgba(255,255,255,0.78); margin: 0 0 16px; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .circle-p em { font-style: italic; color: rgba(255,255,255,0.85); }
+    .btn-circle {
+      display: inline-block;
+      font-family: var(--font-nav);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-circle:hover {
+      background: var(--gold);
+      color: var(--midnight);
+      transform: translateY(-2px);
+    }
+    .circle-fine { font-family: var(--font-body); font-size: 0.82rem; font-style: italic; color: rgba(255,255,255,0.55); margin: 14px 0 0; }
+ }
     .save-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .save-input { flex: 1; min-width: 200px; max-width: 280px; padding: 13px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: #fff; border-radius: 4px; outline: none; transition: border-color 0.2s; }
     .save-input:focus { border-color: var(--gold); }
@@ -1815,6 +1849,12 @@ function renderFullMap(data) {
     + '</a>'
     + '</div>'
     + '<p class="gift-fine">All free. The Trigger Decoder is always free.</p>'
+    + '</div>'
+    + '<div class="circle-card">'
+    + '<h3 class="circle-h">The Circle keeps it free</h3>'
+    + '<p class="circle-p">You found the Trigger Decoder because someone in the Circle kept it open for you. If it helped, you can keep it open for whoever comes next. <em>That\u2019s how the Circle works.</em></p>'
+    + '<a href="https://buymeacoffee.com/kindredlights" target="_blank" rel="noopener" class="btn-circle">Pay it forward \u2192</a>'
+    + '<p class="circle-fine">Always optional. Always free. We are all kindred lights.</p>'
     + '</div>';
 
   const responseArea = document.getElementById('response-area');
@@ -2279,6 +2319,34 @@ function generateReadingPDF() {
     doc.setFontSize(8.5);
     doc.setTextColor(140, 140, 140);
     doc.text('The Five Steps to Freedom on one page.', PAGE_W / 2, y, { align: 'center' });
+    doc.setTextColor(0, 0, 0);
+
+    // ─── CIRCLE — PAY IT FORWARD ──────────────────────────────
+    y += 24;
+    ensureSpace(110);
+    rule({ width: 80 });
+    y += 14;
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    doc.setTextColor(140, 105, 35);  // muted gold
+    doc.text('THE CIRCLE KEEPS IT FREE', PAGE_W / 2, y, { align: 'center' });
+    y += 16;
+    doc.setFont('times', 'normal');
+    doc.setFontSize(10.5);
+    doc.setTextColor(60, 60, 60);
+    const circleText = 'You found the Trigger Decoder because someone in the Circle kept it open for you. If it helped, you can keep it open for whoever comes next. That\u2019s how the Circle works.';
+    const circleLines = doc.splitTextToSize(circleText, TEXT_W - 40);
+    circleLines.forEach(function(line) { doc.text(line, PAGE_W / 2, y, { align: 'center' }); y += 14; });
+    y += 6;
+    doc.setFont('times', 'italic');
+    doc.setFontSize(10);
+    doc.setTextColor(140, 105, 35);
+    doc.textWithLink('buymeacoffee.com/kindredlights', PAGE_W / 2, y, { align: 'center', url: 'https://buymeacoffee.com/kindredlights' });
+    y += 16;
+    doc.setFont('times', 'italic');
+    doc.setFontSize(9.5);
+    doc.setTextColor(120, 120, 120);
+    doc.text('Always optional. Always free. We are all kindred lights.', PAGE_W / 2, y, { align: 'center' });
     doc.setTextColor(0, 0, 0);
 
     // ─── RESOURCES + DISCLAIMER (small, end of last page) ──────
