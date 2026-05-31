@@ -15,3 +15,7 @@
 /guilt.html    /forgiveness.html    301
 /blame    /forgiveness.html    301
 /blame.html    /forgiveness.html    301
+
+# Trigger Decoder renamed from /decoder to /trigger-decoder for SEO alignment (May 31, 2026)
+/decoder    /trigger-decoder    301
+/decoder.html    /trigger-decoder.html    301

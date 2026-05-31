@@ -12,6 +12,6 @@
   # than the default 10s. Netlify free tier allows up to 26s.
   node_bundler = "esbuild"
 
-[functions."decoder"]
+[functions."trigger-decoder"]
   # Extended timeout for Sonnet 4.6 reading generation
   timeout = 26
