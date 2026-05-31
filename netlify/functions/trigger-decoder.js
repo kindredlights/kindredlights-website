@@ -34,13 +34,13 @@ exports.handler = async function(event, context) {
     }
 
     // Choose model and token budget based on mode
-    // "classify" uses Haiku 4.5 — fast and cheap, plenty for binary classification
-    // "reading" (default) uses Sonnet 4.6 — current production model.
-    //   Sonnet 4.5 was retired by Anthropic on May 18, 2026 and migrated to 4.6.
+    // Both modes use Haiku 4.5 — fast enough to fit comfortably under Netlify
+    // function timeouts even at peak Sunday API load. Framework prompt does
+    // the heavy lifting; Haiku is plenty capable for the diagnostic register.
+    // Sonnet 4.5 retired May 18, 2026. Sonnet 4.6 tested but caused intermittent
+    // 504 timeouts during peak periods.
     const isClassify = (mode === 'classify');
-    const model = isClassify
-      ? 'claude-haiku-4-5-20251001'
-      : 'claude-sonnet-4-6';
+    const model = 'claude-haiku-4-5-20251001';
     const maxTokens = isClassify ? 200 : 2000;
 
     // Call Anthropic API with the key from environment
