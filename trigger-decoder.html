@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- KL Trigger Decoder 2026-05-31b — Circle CSS scope fix (was nested inside media query) -->
+<!-- KL Trigger Decoder 2026-05-31c — Circle card shifted right, image features hands on left -->
 <!-- KL Trigger Decoder v8 (April 27 — Phase 3 diagnostic typology routing, friendly cold-call voice) -->
 <!-- was v10 — film strips added 2026-04-12 <!--
 <!-- was v9 — deep blue gradient room, missing beat, monkey framing, Higher Self, burn ritual, Step Five reframe 2026-04-12 -->
@@ -259,21 +259,25 @@
       overflow: hidden;
       background-image: url('images/a-circle-of-kindred-lights-hands.jpg');
       background-size: cover;
-      background-position: center;
-      padding: 48px 24px;
-      min-height: 340px;
+      background-position: 25% center;
+      padding: 48px 32px;
+      min-height: 380px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
     }
     .circle-card {
       background: rgba(247, 243, 238, 0.95);
       backdrop-filter: blur(2px);
       border-radius: 8px;
       padding: 28px 32px;
-      max-width: 520px;
+      max-width: 440px;
       text-align: center;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+    @media (max-width: 640px) {
+      .circle-wrap { justify-content: center; background-position: center; padding: 32px 16px; }
+      .circle-card { max-width: 100%; }
     }
     .circle-h { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--midnight); margin: 0 0 14px; letter-spacing: 0.02em; }
     .circle-p { font-family: var(--font-body); font-size: 0.96rem; line-height: 1.68; color: #2a2c4f; margin: 0 0 16px; }
