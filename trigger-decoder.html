@@ -249,18 +249,34 @@
     .btn-gift-line2 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
     .gift-fine { font-family: var(--font-nav); font-size: 0.75rem; color: rgba(255,255,255,0.32); margin-top: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
     @media (max-width: 640px) { .btn-gift { width: 100%; min-width: 0; }
-    /* Circle — Pay It Forward block */
-    .circle-card {
-      margin-top: 28px;
-      padding: 24px;
-      background: rgba(173, 175, 223, 0.08);
-      border: 1px solid rgba(173, 175, 223, 0.25);
-      border-radius: 10px;
-      text-align: center;
+    /* Circle — Pay It Forward block (white card on graphic background) */
+    .circle-wrap {
+      margin-top: 32px;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background-image: url('images/a-circle-of-kindred-lights-hands.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 48px 24px;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .circle-h { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,0.92); margin: 0 0 12px; letter-spacing: 0.02em; }
-    .circle-p { font-family: var(--font-body); font-size: 0.95rem; line-height: 1.65; color: rgba(255,255,255,0.78); margin: 0 0 16px; max-width: 540px; margin-left: auto; margin-right: auto; }
-    .circle-p em { font-style: italic; color: rgba(255,255,255,0.85); }
+    .circle-card {
+      background: rgba(247, 243, 238, 0.95);
+      backdrop-filter: blur(2px);
+      border-radius: 8px;
+      padding: 28px 32px;
+      max-width: 520px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+    .circle-h { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--midnight); margin: 0 0 14px; letter-spacing: 0.02em; }
+    .circle-p { font-family: var(--font-body); font-size: 0.96rem; line-height: 1.68; color: #2a2c4f; margin: 0 0 16px; }
+    .circle-p em { font-style: italic; color: #1c1d40; }
+    .circle-amount { font-family: var(--font-body); font-size: 0.92rem; color: #4a4c70; margin: 0 0 18px; font-style: italic; }
     .btn-circle {
       display: inline-block;
       font-family: var(--font-nav);
@@ -269,19 +285,19 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       padding: 13px 28px;
-      background: transparent;
-      color: var(--gold);
+      background: var(--gold);
+      color: var(--midnight);
       border: 1.5px solid var(--gold);
       border-radius: 4px;
       text-decoration: none;
       transition: background 0.2s, color 0.2s, transform 0.15s;
     }
     .btn-circle:hover {
-      background: var(--gold);
+      background: transparent;
       color: var(--midnight);
       transform: translateY(-2px);
     }
-    .circle-fine { font-family: var(--font-body); font-size: 0.82rem; font-style: italic; color: rgba(255,255,255,0.55); margin: 14px 0 0; }
+    .circle-fine { font-family: var(--font-body); font-size: 0.82rem; font-style: italic; color: #5a5c80; margin: 16px 0 0; }
  }
     .save-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .save-input { flex: 1; min-width: 200px; max-width: 280px; padding: 13px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: #fff; border-radius: 4px; outline: none; transition: border-color 0.2s; }
@@ -1850,11 +1866,14 @@ function renderFullMap(data) {
     + '</div>'
     + '<p class="gift-fine">All free. The Trigger Decoder is always free.</p>'
     + '</div>'
+    + '<div class="circle-wrap">'
     + '<div class="circle-card">'
     + '<h3 class="circle-h">The Circle keeps it free</h3>'
     + '<p class="circle-p">You found the Trigger Decoder because someone in the Circle kept it open for you. If it helped, you can keep it open for whoever comes next. <em>That\u2019s how the Circle works.</em></p>'
+    + '<p class="circle-amount">A dollar covers many readings. Give what feels right.</p>'
     + '<a href="https://buymeacoffee.com/kindredlights" target="_blank" rel="noopener" class="btn-circle">Pay it forward \u2192</a>'
     + '<p class="circle-fine">Always optional. Always free. We are all kindred lights.</p>'
+    + '</div>'
     + '</div>';
 
   const responseArea = document.getElementById('response-area');
