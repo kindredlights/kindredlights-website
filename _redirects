@@ -16,6 +16,10 @@
 /blame    /forgiveness.html    301
 /blame.html    /forgiveness.html    301
 
-# Trigger Decoder renamed from /decoder to /trigger-decoder for SEO alignment (May 31, 2026)
+# Trigger Decoder full-slug rename (May 31, 2026)
 /decoder    /trigger-decoder    301
 /decoder.html    /trigger-decoder.html    301
+
+# Love Heroically full-title slug for SEO (June 1, 2026)
+/lh    /love-heroically    301
+/lh.html    /love-heroically.html    301
