@@ -140,7 +140,8 @@
     .parts-band { background: var(--sky-shadow); padding: 64px 32px; }
     .parts-inner { max-width: var(--max); margin: 0 auto; }
     .parts-inner .eyebrow { text-align: center; display: block; color: var(--gold-light); margin-bottom: 8px; }
-    .parts-inner h2 { font-family: var(--font-display); font-size: clamp(1.4rem,2.4vw,1.9rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; text-align: center; margin-bottom: 48px; }
+    .parts-inner h2 { font-family: var(--font-display); font-size: clamp(1.4rem,2.4vw,1.9rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; text-align: center; margin-bottom: 32px; }
+    .parts-transformation { width: 100%; max-width: var(--max); margin: 0 auto 40px; display: block; opacity: 0.55; filter: invert(1) brightness(1.2); }
     .parts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
     .part-card { background: rgba(255,255,255,0.06); border-radius: 8px; padding: 32px 28px; border-top: 3px solid var(--gold); position: relative; }
     .part-roman { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
@@ -153,6 +154,7 @@
     /* Screenplay credential band */
     .credential-band { background: var(--sky-bold); padding: 36px 32px; }
     .credential-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .credential-laurel { width: 200px; height: auto; display: block; margin: 0 auto 16px; filter: invert(1) brightness(0.85) sepia(0.3) saturate(2) hue-rotate(10deg); opacity: 0.9; }
     .credential-text { font-family: var(--font-soul); font-size: 1.05rem; color: var(--gold-light); font-style: italic; line-height: 1.7; }
     .credential-sub { font-family: var(--font-nav); font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(247,243,238,0.45); margin-top: 8px; display: block; }
 
@@ -498,6 +500,10 @@
   <div class="parts-inner reveal">
     <span class="eyebrow">The Structure</span>
     <h2>Three Parts. One Complete Arc.</h2>
+    <img src="images/exalted-quest-butterfly-transformation-section-header.png"
+         alt="Single-line drawing of the butterfly life cycle — egg, caterpillar, chrysalis, butterfly — connected by one continuous thread. The visual arc of Exalted Quest: Earthbound, The Dark, Flight."
+         width="7703" height="1947" loading="lazy" decoding="async"
+         class="parts-transformation" />
     <div class="parts-grid">
       <div class="part-card reveal d1">
         <span class="part-roman">Part I</span>
@@ -548,6 +554,10 @@
 <!-- SCREENPLAY CREDENTIAL -->
 <div class="credential-band">
   <div class="credential-inner reveal">
+    <img src="images/ca-womens-film-festival-feature-script-finalist-2023.jpg"
+         alt="California Women's Film Festival — Feature Script Finalist 2023"
+         width="4794" height="2484" loading="lazy" decoding="async"
+         class="credential-laurel" />
     <p class="credential-text">Feature Screenplay Finalist &mdash; 2023 California Women&rsquo;s Film Festival</p>
     <span class="credential-sub">The story recognized across forms</span>
   </div>
