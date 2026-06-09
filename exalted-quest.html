@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exalted Quest: The Path of Love — Kindred Lights</title>
+  <meta name="description" content="The memoir that generated the framework. One woman's complete journey from a holding cell floor to a healed family — and the inner workings of how it happened." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+
+    img { height: auto; max-width: 100%; }
+    .tip { border-bottom: 1px dotted var(--gold); cursor: help; position: relative; }
+    .tip-box { display: none; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: var(--deep-sky); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.55; padding: 12px 16px; border-radius: 2px; border-top: 2px solid var(--gold); width: 240px; z-index: 200; pointer-events: none; }
+    .tip:hover .tip-box, .tip:focus .tip-box, .tip:focus-within .tip-box { display: block; }
+
+    :root {
+      --sky-bold:      #4F9AD4;
+      --sky-shadow:    #1F4A6B;
+      --sky-dusk:      #345878;
+      --cloud:         #F4F8FB;
+      --gold:          #C9A84C;
+      --gold-light:    #E8D48A;
+      --gold-dark:     #8B6914;
+      --text-body:     #2B2B2B;
+      --text-deep:     #0F2A4A;
+      --text-on-sky:   rgba(247,243,238,0.92);
+      --cream:         var(--cloud);
+      --cream-dark:    var(--cloud);
+      --midnight:      var(--sky-shadow);
+      --deep-sky:      var(--sky-dusk);
+      --deep-blue:     #81A8CB;
+      --periwinkle:    #adafdf;
+      --wise-green:    #2C6B5A;
+      --ego-red:       #8B3A3A;
+      --text-dark:     #2b2b2b;
+      --text-mid:      #4a4a4a;
+      --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
+      --nav-h: 64px; --max: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--sky-bold); overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; } a { text-decoration: none; color: inherit; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.1s; } .reveal.d2 { transition-delay: 0.2s; } .reveal.d3 { transition-delay: 0.3s; }
+
+    /* NAV */
+    #main-nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: #E1E8F5; border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; display: flex; align-items: center; padding: 0 32px; transition: box-shadow 0.3s; }
+    #main-nav.scrolled { box-shadow: 0 4px 28px rgba(15,34,53,0.12); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; margin-right: 40px; flex-shrink: 0; text-decoration: none; }
+    .nav-brand-logo { width: 56px; height: 56px; object-fit: contain; display: block; }
+    .nav-brand-text { font-family: var(--font-display); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; line-height: 1.4; text-align: left; white-space: nowrap; }
+    .nav-brand-text em { color: var(--gold-dark); font-style: normal; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 0; flex: 1; list-style: none; }
+    .nav-item { position: relative; }
+    .nav-link { line-height: 1.18 !important; padding-top: 0 !important; padding-bottom: 0 !important; display: flex !important; align-items: center; justify-content: center; text-align: center; height: var(--nav-h); }
+    .nav-link br { display: block; }
+    .nav-panel { position: absolute; top: var(--nav-h); left: 50%; transform: translateX(-50%) translateY(6px); background: var(--deep-sky); border: 1px solid rgba(201,168,76,0.15); border-top: 2px solid var(--gold); padding: 22px 24px 20px; width: 240px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-item:hover .nav-panel { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .panel-role { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+    .panel-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; letter-spacing: 0.03em; }
+    .panel-desc { font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.65); line-height: 1.55; margin-bottom: 12px; }
+    .panel-link { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); transition: color 0.2s; }
+    .panel-link:hover { color: var(--gold-light); }
+    .nav-link { display: block; font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky-shadow); padding: 0 18px; line-height: var(--nav-h); white-space: nowrap; transition: color 0.2s; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-dark); }
+    .nav-link::after { content: ""; position: absolute; bottom: 0; left: 18px; right: 18px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-has-dropdown { position: relative; }
+    .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--deep-sky); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
+    .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .nav-has-dropdown .nav-panel { display: none !important; }
+    .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
+    .dropdown-link:last-child { border-bottom: none; }
+    .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
+    .td-tab { position: fixed; right: 0; top: 50%; writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg); background: var(--gold); color: var(--midnight); font-family: var(--font-nav); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 18px 10px; z-index: 800; white-space: nowrap; border-radius: 4px 0 0 4px; box-shadow: -3px 0 18px rgba(201,168,76,0.25); transition: background 0.2s; }
+    .td-tab:hover { background: var(--gold-light); }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; height: 58px; background: #E1E8F5; border-bottom: 1px solid rgba(201,168,76,0.25); z-index: 900; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .mob-brand-logo { width: 40px; height: 40px; object-fit: contain; display: block; }
+    .mob-brand-text { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--midnight); line-height: 1.3; }
+    .mob-brand-text em { color: var(--gold-dark); font-style: normal; }
+    .hamburger { background: none; border: none; cursor: pointer; padding: 4px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--midnight); transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    #mobile-menu { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--deep-sky); z-index: 850; overflow-y: auto; padding: 32px 24px; }
+    #mobile-menu.open { display: block; }
+    .mob-link { display: block; font-family: var(--font-nav); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mob-link:hover, .mob-link.gold { color: var(--gold); }
+    .mob-link br { display: none; }
+
+    /* Buttons */
+    .btn-gold { font-family: var(--font-nav); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 32px; background: var(--gold); color: var(--midnight); border-radius: 4px; display: inline-block; box-shadow: 0 4px 18px rgba(201,168,76,0.3); transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline-cream { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 26px; border: 1.5px solid rgba(247,243,238,0.35); color: rgba(247,243,238,0.85); border-radius: 4px; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline-cream:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Shared */
+    .eyebrow { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 12px; }
+    .section-rule { width: 48px; height: 2px; background: var(--gold); margin-bottom: 24px; }
+
+    /* Page header */
+    .page-header { padding-top: calc(var(--nav-h) + 40px); padding-bottom: 40px; padding-left: 32px; padding-right: 32px; background: var(--sky-bold); position: relative; overflow: hidden; text-align: center; }
+    .page-header-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,3rem); font-weight: 700; color: #FFFFFF; letter-spacing: 0.04em; margin-bottom: 12px; line-height: 1.2; }
+    .page-header .subtitle { font-family: var(--font-soul); font-size: 1.2rem; color: var(--gold-light); margin-bottom: 8px; font-style: italic; }
+    .page-header p { font-family: var(--font-body); font-size: 1rem; color: var(--text-on-sky); line-height: 1.7; margin-top: 12px; }
+
+    /* Book layout */
+    .book-layout { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 72px; align-items: start; padding: 64px 32px; }
+    .book-cover-col { position: sticky; top: calc(var(--nav-h) + 24px); }
+    .cover-wrap { position: relative; }
+    .book-cover-img { width: 100%; border-radius: 4px; box-shadow: 0 22px 60px rgba(15,34,53,0.40), 0 0 0 1px rgba(255,255,255,0.08); }
+    .pbr-badge { position: absolute; bottom: -16px; right: -16px; width: 90px; }
+    .book-hook { font-family: var(--font-soul); font-size: 1.22rem; color: #FFFFFF; line-height: 1.72; margin-bottom: 28px; border-left: 3px solid var(--gold-light); padding-left: 20px; font-style: italic; }
+    .book-body { font-family: var(--font-body); font-size: 1rem; color: var(--text-on-sky); line-height: 1.78; margin-bottom: 20px; }
+    .book-body em { color: var(--gold-light); font-style: italic; }
+    .book-body strong { color: #FFFFFF; font-weight: 600; }
+    .section-h3 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.08em; color: var(--gold-light); margin: 28px 0 14px; text-transform: uppercase; }
+    .three-things { counter-reset: item; list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+    .three-things li { font-family: var(--font-body); font-size: 1rem; color: var(--text-on-sky); line-height: 1.7; padding-left: 36px; position: relative; }
+    .three-things li::before { content: counter(item); counter-increment: item; position: absolute; left: 0; top: 2px; width: 24px; height: 24px; background: var(--gold); color: var(--sky-shadow); font-family: var(--font-nav); font-size: 0.75rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+    .who-item { background: var(--cloud); border-radius: 6px; padding: 14px 16px; border-left: 3px solid var(--gold); font-family: var(--font-body); font-size: 0.95rem; color: var(--text-deep); line-height: 1.55; box-shadow: 0 4px 14px rgba(15,34,53,0.12); }
+    .review-block { background: var(--cloud); border-radius: 6px; padding: 18px 22px; margin: 12px 0; box-shadow: 0 4px 14px rgba(15,34,53,0.12); }
+    .review-quote { font-family: var(--font-soul); font-size: 1.06rem; color: var(--sky-shadow); line-height: 1.65; margin-bottom: 6px; font-style: italic; }
+    .review-source { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); }
+    .colin-block { background: var(--cloud); border-radius: 6px; padding: 22px 24px; margin: 20px 0 28px; border-left: 4px solid var(--gold); box-shadow: 0 6px 22px rgba(15,34,53,0.15); }
+    .colin-text { font-family: var(--font-soul); font-size: 1.02rem; color: var(--text-deep); line-height: 1.72; margin-bottom: 8px; font-style: italic; }
+    .colin-attr { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); }
+
+    /* Three-part structure band */
+    .parts-band { background: var(--sky-shadow); padding: 64px 32px; }
+    .parts-inner { max-width: var(--max); margin: 0 auto; }
+    .parts-inner .eyebrow { text-align: center; display: block; color: var(--gold-light); margin-bottom: 8px; }
+    .parts-inner h2 { font-family: var(--font-display); font-size: clamp(1.4rem,2.4vw,1.9rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; text-align: center; margin-bottom: 48px; }
+    .parts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .part-card { background: rgba(255,255,255,0.06); border-radius: 8px; padding: 32px 28px; border-top: 3px solid var(--gold); position: relative; }
+    .part-roman { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
+    .part-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: #FFFFFF; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .part-metaphor { font-family: var(--font-soul); font-size: 0.95rem; color: var(--gold-light); font-style: italic; display: block; margin-bottom: 14px; }
+    .part-desc { font-family: var(--font-body); font-size: 0.95rem; color: rgba(247,243,238,0.72); line-height: 1.68; }
+    .part-chapters { margin-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px; }
+    .part-chapters span { display: block; font-family: var(--font-body); font-size: 0.85rem; color: rgba(247,243,238,0.5); line-height: 1.8; }
+
+    /* Screenplay credential band */
+    .credential-band { background: var(--sky-bold); padding: 36px 32px; }
+    .credential-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .credential-text { font-family: var(--font-soul); font-size: 1.05rem; color: var(--gold-light); font-style: italic; line-height: 1.7; }
+    .credential-sub { font-family: var(--font-nav); font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(247,243,238,0.45); margin-top: 8px; display: block; }
+
+    /* Page TOC */
+    .page-toc { padding: 28px 32px; background: var(--sky-bold); }
+    .page-toc-inner { max-width: 720px; margin: 0 auto; background: var(--cloud); border-radius: 8px; padding: 20px 28px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); text-align: center; }
+    .page-toc-line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; line-height: 1.9; color: var(--text-deep); margin: 0; }
+    .page-toc-prefix { color: var(--gold-dark); margin-right: 6px; font-size: 0.95rem; }
+    .page-toc a { color: var(--sky-shadow); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; padding: 0 2px; }
+    .page-toc a:hover { color: var(--gold-dark); border-bottom-color: rgba(184,134,11,0.4); }
+    .page-toc-sep { color: rgba(15,34,53,0.28); margin: 0 4px; }
+
+    /* Author bio */
+    .author-bio { padding: 40px 32px; background: var(--sky-bold); }
+    .author-bio-inner { max-width: 720px; margin: 0 auto; background: var(--cloud); border-radius: 10px; padding: 48px 44px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); }
+    .author-bio .eyebrow { display: block; margin-bottom: 16px; color: var(--gold-dark); }
+    .author-bio h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 600; color: var(--sky-shadow); letter-spacing: 0.04em; margin-bottom: 24px; }
+    .author-bio p { font-family: var(--font-body); font-size: 1.02rem; line-height: 1.82; color: var(--text-deep); margin-bottom: 16px; }
+    .author-bio p:last-child { margin-bottom: 0; }
+    .author-bio p em { color: var(--sky-shadow); font-style: italic; }
+
+    /* Sample passage */
+    .sample-passage { padding: 40px 32px; background: var(--sky-bold); }
+    .sample-passage-inner { max-width: 680px; margin: 0 auto; background: var(--cloud); border-radius: 10px; padding: 48px 44px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); border-top: 3px solid var(--gold); }
+    .sample-passage .eyebrow { display: block; margin-bottom: 16px; text-align: center; color: var(--gold-dark); }
+    .sample-passage h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 600; color: var(--sky-shadow); letter-spacing: 0.04em; margin-bottom: 32px; text-align: center; }
+    .sample-passage-body { border-left: 3px solid var(--gold); padding-left: 28px; }
+    .sample-passage-body p { font-family: var(--font-soul); font-size: 1.08rem; line-height: 1.82; color: var(--text-deep); margin-bottom: 18px; font-style: italic; }
+    .sample-passage-body p:last-child { margin-bottom: 0; }
+    .sample-source { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.12em; color: var(--gold-dark); margin-top: 24px; text-align: center; }
+
+    /* Available at */
+    .available-at { padding: 40px 32px 56px; background: var(--sky-bold); text-align: center; }
+    .available-at-inner { max-width: 680px; margin: 0 auto; }
+    .available-at .eyebrow { display: block; margin-bottom: 12px; color: var(--gold-light); }
+    .available-at h2 { font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.5rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; margin-bottom: 20px; }
+    .available-at-msg { font-family: var(--font-body); font-size: 0.96rem; color: var(--text-on-sky); line-height: 1.72; margin-bottom: 24px; }
+    .available-at-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .available-at-link { display: inline-block; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); transition: all 0.2s ease; text-decoration: none; }
+    .available-at-link.live { color: #FFFFFF; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.18); cursor: pointer; }
+    .available-at-link.live:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.28); }
+    .available-at-link.placeholder { cursor: default; font-style: italic; }
+
+    /* Kit section */
+    .kit-section { background: var(--sky-bold); padding: 40px 32px; }
+    .kit-inner { max-width: 640px; margin: 0 auto; background: var(--sky-shadow); border-radius: 10px; padding: 56px 48px; text-align: center; box-shadow: 0 10px 32px rgba(15,34,53,0.25); position: relative; overflow: hidden; }
+    .kit-inner::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+    .kit-h { font-family: var(--font-display); font-size: clamp(1.4rem,2.5vw,1.9rem); font-weight: 400; color: #FFFFFF; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .kit-sub { font-family: var(--font-body); font-size: 1rem; color: rgba(247,243,238,0.7); line-height: 1.7; margin-bottom: 28px; }
+    .connect-form-wrapper { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; align-items: stretch; }
+    .connect-form-wrapper input[type="email"] { flex: 1; min-width: 220px; max-width: 300px; padding: 14px 16px; font-family: var(--font-body); font-size: 1rem; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.07); color: #FFFFFF; border-radius: 4px; outline: none; transition: border-color 0.2s; }
+    .connect-form-wrapper input[type="email"]:focus { border-color: var(--gold); }
+    .connect-form-wrapper input[type="email"]::placeholder { color: rgba(255,255,255,0.4); }
+    .connect-form-wrapper button { font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 24px; background: var(--gold); color: var(--sky-shadow); border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
+    .connect-form-wrapper button:hover { background: var(--gold-light); }
+    #connect-success { display:none; color: #FFFFFF; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.4); padding: 14px 18px; border-radius: 4px; margin-top: 14px; font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6; max-width: 480px; margin-left: auto; margin-right: auto; }
+    #connect-success strong { display: block; color: #c9a84c; font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .kit-fine { font-family: var(--font-nav); font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 12px; letter-spacing: 0.06em; }
+
+    /* Book-layout wrapper */
+    .book-layout-wrap { background: var(--sky-bold); }
+
+    /* Footer */
+    footer { background: var(--sky-dusk); padding: 48px 32px 28px; border-top: 1px solid rgba(201,168,76,0.1); }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 20px; }
+    .foot-brand { font-family: var(--font-display); font-size: 0.84rem; letter-spacing: 0.24em; color: #fff; margin-bottom: 8px; }
+    .foot-brand em { color: var(--gold); font-style: normal; }
+    .foot-tag p { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); line-height: 1.9; }
+    .foot-h { font-family: var(--font-nav); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.6); margin-bottom: 14px; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-family: var(--font-body); font-size: 0.92rem; color: rgba(255,255,255,0.36); transition: color 0.2s; }
+    .foot-links a:hover { color: var(--gold); }
+    .foot-bottom { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-family: var(--font-nav); font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+    .foot-sigil { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.18em; color: rgba(201,168,76,0.28); }
+
+    /* NAV-FIX */
+    .nav-brand { display: flex !important; align-items: center !important; gap: 12px !important; text-decoration: none !important; border: none !important; }
+    .nav-brand:hover { border: none !important; text-decoration: none !important; }
+    .nav-brand-text em { color: #8B6914 !important; }
+    .mobile-brand { display: flex !important; align-items: center !important; gap: 10px !important; text-decoration: none !important; border: none !important; }
+    .mob-brand-text em { color: #8B6914 !important; }
+
+    /* Responsive */
+    @media (max-width: 900px) { .book-layout { grid-template-columns: 200px 1fr; gap: 48px; } .parts-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) {
+      #main-nav { display: none; } .mobile-nav { display: flex; }
+      .book-layout { grid-template-columns: 1fr; padding: 48px 24px; }
+      .book-cover-col { position: static; display: flex; gap: 20px; align-items: flex-start; }
+      .cover-wrap { width: 140px; flex-shrink: 0; }
+      .who-grid { grid-template-columns: 1fr; }
+      .parts-grid { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+      .td-tab { display: none; }
+      .kit-section { padding: 32px 24px; }
+      .kit-inner { padding: 40px 28px; }
+      .author-bio { padding: 32px 24px; }
+      .author-bio-inner { padding: 36px 28px; }
+      .sample-passage { padding: 32px 24px; }
+      .sample-passage-inner { padding: 36px 28px; }
+      .available-at { padding: 32px 24px 48px; }
+      .parts-band { padding: 48px 24px; }
+      .page-toc { padding: 20px 18px; }
+      .page-toc-inner { padding: 18px 20px; }
+    }
+    @media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; gap: 24px; } .book-cover-col { flex-direction: column; } .cover-wrap { width: 100%; max-width: 180px; margin: 0 auto; } .available-at-row { flex-direction: column; align-items: stretch; } }
+
+  </style>
+
+  <!-- JSON-LD: WebPage + Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Exalted Quest: The Path of Love — A Memoir",
+    "url": "https://kindredlights.org/exalted-quest",
+    "isPartOf": { "@type": "WebSite", "name": "Kindred Lights", "url": "https://kindredlights.org" },
+    "primaryImageOfPage": "https://kindredlights.org/images/exalted-quest-the-path-of-love-memoir-cover.jpg",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Kindred Lights", "item": "https://kindredlights.org" },
+        { "@type": "ListItem", "position": 2, "name": "The Series", "item": "https://kindredlights.org/explore" },
+        { "@type": "ListItem", "position": 3, "name": "Exalted Quest", "item": "https://kindredlights.org/exalted-quest" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Book -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "Exalted Quest",
+    "alternateName": "Exalted Quest: The Path of Love",
+    "author": { "@type": "Person", "name": "Kindred Lights", "url": "https://kindredlights.org/about" },
+    "publisher": { "@type": "Organization", "name": "Kindred Lights", "url": "https://kindredlights.org" },
+    "isbn": "979-8-9953123-4-5",
+    "bookFormat": "Paperback",
+    "inLanguage": "en",
+    "url": "https://kindredlights.org/exalted-quest",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "https://kindredlights.org/images/exalted-quest-the-path-of-love-memoir-cover.jpg",
+      "creator": { "@type": "Person", "name": "Kindred Lights" },
+      "copyrightNotice": "© 2026 Kindred Lights. All rights reserved."
+    },
+    "description": "The memoir that generated the Hero's Path of Love framework. One woman's complete journey from a holding cell floor to a healed family — and the inner workings of every step.",
+    "keywords": "Exalted Quest, The Path of Love, Kindred Lights, memoir, narcissistic relationship recovery, addiction recovery, spiritual transformation, Sir Ego, the Wise One, karmariculum, forgiveness, Hero's Path of Love",
+    "award": "Feature Screenplay Finalist — 2023 California Women's Film Festival",
+    "workExample": [
+      { "@type": "Book", "bookFormat": "Paperback", "isbn": "979-8-9953123-4-5" },
+      { "@type": "Book", "bookFormat": "EBook", "isbn": "979-8-9953123-5-2" }
+    ]
+  }
+  </script>
+
+</head>
+<body>
+
+<a href="https://kindredlights.org/decoder" class="td-tab">Trigger Decoder — Free</a>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand"><img src="images/kindred-lights-heart-sigil.png" alt="Kindred Lights" class="nav-brand-logo" /><span class="nav-brand-text">Kindred<em>Lights</em></span></a>
+  <ul class="nav-links">
+    <li class="nav-item" data-nav="home"><a href="index.html" class="nav-link">Home</a><div class="nav-panel"><span class="panel-role">The Portal</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Your heart is the portal. Love is the path.</p><a href="index.html" class="panel-link">Enter →</a></div></li>
+    <li class="nav-item" data-nav="decoder"><a href="https://kindredlights.org/decoder" class="nav-link" style="color:var(--gold-dark)">Trigger Decoder</a><div class="nav-panel"><span class="panel-role">Feel Lost?</span><div class="panel-title">The Trigger Decoder</div><p class="panel-desc">Try the free Trigger Decoder when you feel lost. Five minutes.</p><a href="https://kindredlights.org/decoder" class="panel-link">Try It Free →</a></div></li>
+    <li class="nav-item nav-has-dropdown" data-nav="explore"><a href="explore.html" class="nav-link">Explore ▾</a>
+      <div class="nav-dropdown" style="min-width:260px;">
+        <a href="explore.html" class="dropdown-link">The Exploratorium (Lobby)</a>
+        <a href="ageofego.html" class="dropdown-link">What Happened to US?</a>
+        <a href="explore-triggers.html" class="dropdown-link">About Triggers</a>
+        <a href="explore-sir-ego.html" class="dropdown-link">Sir Ego &amp; the Wise One</a>
+        <a href="explore-emotions.html" class="dropdown-link">Unlocking the Power of Emotions</a>
+        <a href="love-heroically.html" class="dropdown-link">Love Heroically</a>
+        <a href="explore-truth.html" class="dropdown-link">Beyond Blame &amp; Shame</a>
+        <a href="luminology-glossary.html" class="dropdown-link">Luminology</a>
+      </div>
+    </li>
+    <li class="nav-item nav-has-dropdown" data-nav="series"><a href="#" class="nav-link active">The Series ▾</a>
+      <div class="nav-dropdown" style="min-width:280px;">
+        <a href="exalted-quest.html" class="dropdown-link">Exalted Quest — The Memoir</a>
+        <a href="love-heroically.html" class="dropdown-link">Love Heroically</a>
+        <a href="explore-truth.html" class="dropdown-link">Beyond Blame &amp; Shame</a>
+        <a href="luminology-glossary.html" class="dropdown-link">Luminology</a>
+        <a href="ageofego.html" class="dropdown-link">What Happened to US?</a>
+      </div>
+    </li>
+    <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
+      <div class="nav-dropdown">
+        <a href="acim.html" class="dropdown-link">A Course in Miracles</a>
+        <a href="addiction.html" class="dropdown-link">Addiction &amp; Sobriety</a>
+        <a href="anxiety.html" class="dropdown-link">Anxiety</a>
+        <a href="grief.html" class="dropdown-link">Grief &amp; Loss</a>
+        <a href="forgiveness.html" class="dropdown-link">Guilt, Blame &amp; Shame</a>
+        <a href="health.html" class="dropdown-link">Health Crisis</a>
+        <a href="narc.html" class="dropdown-link">Narcissistic Abuse</a>
+        <a href="parenting.html" class="dropdown-link">Parenting Triggers</a>
+        <a href="awakening.html" class="dropdown-link">Spiritual Awakening</a>
+        <a href="empath.html" class="dropdown-link">The Empath Alchemist</a>
+        <a href="untethered.html" class="dropdown-link">The Untethered Soul</a>
+        <a href="work.html" class="dropdown-link">Work &amp; Workplace</a>
+        <a href="world.html" class="dropdown-link">World Events</a>
+      </div>
+    </li>
+    <li class="nav-item" data-nav="barbies"><a href="barbies.html" class="nav-link">Barbies</a><div class="nav-panel"><span class="panel-role">Sacred Irreverence</span><div class="panel-title">The Barbie Series</div><p class="panel-desc">Sacred, irreverent. The Five Steps get real.</p><a href="barbies.html" class="panel-link">Watch →</a></div></li>
+    <li class="nav-item" data-nav="circle"><a href="circle.html" class="nav-link">Circle</a><div class="nav-panel"><span class="panel-role">The Community</span><div class="panel-title">A Circle of Kindred Lights</div><p class="panel-desc">We are all Kindred Lights. Walking the Five Steps together, hand in hand.</p><a href="circle.html" class="panel-link">Step In →</a></div></li>
+    <li class="nav-item" data-nav="about"><a href="about.html" class="nav-link">About</a><div class="nav-panel"><span class="panel-role">A Life, Not a Degree</span><div class="panel-title">Kindred Lights</div><p class="panel-desc">Three DUIs to the Thanksgiving table. You can't get here from there.</p><a href="about.html" class="panel-link">Read More →</a></div></li>
+  </ul>
+</nav>
+
+<div class="mobile-nav">
+  <a href="index.html" class="mobile-brand"><img src="images/kindred-lights-heart-sigil.png" alt="Kindred Lights" class="mob-brand-logo" /><span class="mob-brand-text">Kindred <em>Lights</em></span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mobile-menu">
+  <a href="index.html" class="mob-link" data-mob="home">Home</a>
+  <a href="https://kindredlights.org/decoder" class="mob-link gold" data-mob="decoder">✦ Trigger Decoder — Free</a>
+  <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego-room">&nbsp;&nbsp;· What Happened to US?</a>
+  <a href="explore-triggers.html" class="mob-link" data-mob="triggers-room">&nbsp;&nbsp;· About Triggers</a>
+  <a href="explore-sir-ego.html" class="mob-link" data-mob="sir-ego-room">&nbsp;&nbsp;· Sir Ego &amp; the Wise One</a>
+  <a href="explore-emotions.html" class="mob-link" data-mob="emotions-room">&nbsp;&nbsp;· Power of Emotions</a>
+  <a href="love-heroically.html" class="mob-link" data-mob="lh-room">&nbsp;&nbsp;· Love Heroically</a>
+  <a href="explore-truth.html" class="mob-link" data-mob="bbs-room">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
+  <a href="luminology-glossary.html" class="mob-link" data-mob="luminology-room">&nbsp;&nbsp;· Luminology</a>
+  <a href="#" class="mob-link" data-mob="series" onclick="return false;">The Series</a>
+  <a href="exalted-quest.html" class="mob-link" data-mob="eq">&nbsp;&nbsp;· Exalted Quest — The Memoir</a>
+  <a href="love-heroically.html" class="mob-link" data-mob="lh">&nbsp;&nbsp;· Love Heroically</a>
+  <a href="explore-truth.html" class="mob-link" data-mob="bbs">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
+  <a href="luminology-glossary.html" class="mob-link" data-mob="luminology">&nbsp;&nbsp;· Luminology</a>
+  <a href="ageofego.html" class="mob-link" data-mob="ageofego-series">&nbsp;&nbsp;· What Happened to US?</a>
+  <a href="acim.html" class="mob-link" data-mob="acim">&nbsp;&nbsp;· A Course in Miracles</a>
+  <a href="addiction.html" class="mob-link" data-mob="addiction">&nbsp;&nbsp;· Addiction &amp; Sobriety</a>
+  <a href="anxiety.html" class="mob-link" data-mob="anxiety">&nbsp;&nbsp;· Anxiety</a>
+  <a href="grief.html" class="mob-link" data-mob="grief">&nbsp;&nbsp;· Grief &amp; Loss</a>
+  <a href="forgiveness.html" class="mob-link" data-mob="forgiveness">&nbsp;&nbsp;· Guilt, Blame &amp; Shame</a>
+  <a href="health.html" class="mob-link" data-mob="health">&nbsp;&nbsp;· Health Crisis</a>
+  <a href="narc.html" class="mob-link" data-mob="narc">&nbsp;&nbsp;· Narcissistic Abuse</a>
+  <a href="parenting.html" class="mob-link" data-mob="parenting">&nbsp;&nbsp;· Parenting Triggers</a>
+  <a href="awakening.html" class="mob-link" data-mob="awakening">&nbsp;&nbsp;· Spiritual Awakening</a>
+  <a href="empath.html" class="mob-link" data-mob="empath">&nbsp;&nbsp;· The Empath Alchemist</a>
+  <a href="untethered.html" class="mob-link" data-mob="untethered">&nbsp;&nbsp;· The Untethered Soul</a>
+  <a href="work.html" class="mob-link" data-mob="work">&nbsp;&nbsp;· Work &amp; Workplace</a>
+  <a href="world.html" class="mob-link" data-mob="world">&nbsp;&nbsp;· World Events</a>
+  <a href="barbies.html" class="mob-link" data-mob="barbies">Barbies</a>
+  <a href="circle.html" class="mob-link" data-mob="circle">Circle</a>
+  <a href="about.html" class="mob-link" data-mob="about">About</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner reveal">
+    <span class="eyebrow" style="color:var(--gold-light)">The Memoir</span>
+    <h1>Exalted Quest</h1>
+    <div class="subtitle">The Path of Love</div>
+    <p>By Kindred Lights</p>
+  </div>
+</div>
+
+<!-- ON THIS PAGE -->
+<nav class="page-toc" aria-label="On this page">
+  <div class="page-toc-inner">
+    <p class="page-toc-line">
+      <span class="page-toc-prefix">Jump to:</span>
+      <a href="#about-the-book">About the Book</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#the-journey">The Journey</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#who-its-for">Who It&rsquo;s For</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#about-the-author">About the Author</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#sample">A Sample</a>
+      <span class="page-toc-sep">&middot;</span>
+      <a href="#notify">Stay Connected</a>
+    </p>
+  </div>
+</nav>
+
+<!-- BOOK CONTENT -->
+<div class="book-layout-wrap">
+<div class="book-layout">
+
+  <!-- Cover -->
+  <div class="book-cover-col reveal">
+    <div class="cover-wrap">
+      <img src="images/exalted-quest-the-path-of-love-memoir-cover.jpg"
+           alt="Exalted Quest: The Path of Love — memoir cover by Kindred Lights. A luminous path over water leads toward a rising sun, with a tiny figure walking toward the light."
+           width="1333" height="2000" loading="eager" decoding="async" class="book-cover-img" />
+      <img src="images/pacific-book-review-notable-book-award.png"
+           alt="Pacific Book Review — Notable Book Award"
+           width="1280" height="1024" loading="lazy" decoding="async" class="pbr-badge" />
+    </div>
+    <a href="https://kindredlights.org/decoder" class="btn-outline-cream" style="display:block;text-align:center;margin-top:28px">Try the Trigger Decoder Free</a>
+  </div>
+
+  <!-- Copy -->
+  <div class="reveal d2" id="about-the-book">
+    <span class="eyebrow">About the Book</span>
+    <p style="font-family:var(--font-soul);font-size:1rem;color:var(--text-on-sky);font-style:italic;margin-bottom:20px">The memoir that generated the framework</p>
+    <div class="section-rule"></div>
+
+    <p class="book-hook">There is a Thanksgiving table at the end of this story. The whole family &mdash; healed, no performance required, something a stranger might simply call grace. Getting there required everything she had.</p>
+
+    <p class="book-body">This is the memoir of how one woman went from a holding cell floor to that table. Through a narcissistic marriage, three DUIs, a custody war, cancer, and a child in crisis &mdash; and came out the other side not merely surviving but transformed. <em>Not into someone new. Into more of what she had always been.</em></p>
+
+    <p class="book-body">The thing she had been searching for, it turned out, was never missing. <strong>There is something on the other side of the worst thing that ever happened to you worth having.</strong> There is. This is what it looks like.</p>
+
+    <div class="colin-block">
+      <p class="colin-text">&ldquo;At a Miracles Workshop in Truckee, CA, I was witness to one of the most profound transformations I have ever seen occur in a person. She completely turned her life around by applying the principles of Radical Forgiveness. You cannot read this book without being changed for the better by it.&rdquo;</p>
+      <p class="colin-attr">Colin Tipping &middot; Author of Radical Forgiveness</p>
+    </div>
+
+    <div class="review-block">
+      <p class="review-quote">&ldquo;If you will read only one self-help book &mdash; or one memoir &mdash; this year, make it Exalted Quest. The writing is intelligent, passionate, ultimately convincing. Here is the story of a woman who pulled herself up.&rdquo;</p>
+      <p class="review-source">Pacific Book Review &#9733; Notable Book</p>
+    </div>
+
+    <h2 class="section-h3" id="the-journey">What Makes This Memoir Different</h2>
+    <ol class="three-things">
+      <li>It shows you the <em>inner workings</em> of transformation, not just the before and after. The reader is inside every decision, every moment of choosing love over fear.</li>
+      <li>The framework emerged from the life &mdash; not the other way around. Every step of the <span class="tip" tabindex="0">Five Steps<span class="tip-box">Recognize. Relax. Release. Receive. Respond. The practice manual is Love Heroically.</span></span> was discovered in a moment of real necessity.</li>
+      <li>Nothing special about the author. <em>That is the point.</em> If it happened here &mdash; in custody courtrooms, on a jail floor, in an ordinary nonprofit &mdash; it can happen anywhere. Including wherever you are right now.</li>
+    </ol>
+
+    <h2 id="who-its-for" class="section-h3">Who It&rsquo;s For</h2>
+    <div class="who-grid">
+      <div class="who-item">The survivor of a narcissistic relationship who needs to know someone else made it to the other side.</div>
+      <div class="who-item">The spiritual seeker who understands the concepts but needs proof the method works in a real life.</div>
+      <div class="who-item">Anyone who has been brought to their knees by something they couldn&rsquo;t fix, couldn&rsquo;t leave, and couldn&rsquo;t explain.</div>
+      <div class="who-item">The reader of <em>What Happened to US?</em> or <em>Love Heroically</em> who wants to see the evidence behind the framework.</div>
+    </div>
+
+    <p class="book-body" style="font-family:var(--font-soul);font-style:italic;font-size:1.05rem;color:#FFFFFF;">The third book in the Hero&rsquo;s Path of Love series. The evidence behind the framework. The life the other books map. The carpet burns that qualify everything else.</p>
+  </div>
+</div>
+</div>
+
+<!-- THREE-PART STRUCTURE -->
+<section class="parts-band" id="the-journey">
+  <div class="parts-inner reveal">
+    <span class="eyebrow">The Structure</span>
+    <h2>Three Parts. One Complete Arc.</h2>
+    <div class="parts-grid">
+      <div class="part-card reveal d1">
+        <span class="part-roman">Part I</span>
+        <div class="part-name">Earthbound</div>
+        <span class="part-metaphor">The caterpillar</span>
+        <p class="part-desc">The life before the floor. A Napa Valley wedding in silk and glass slippers. Two marriages. Three DUIs. A custody war that cost everything. Sir Ego at full operating capacity, certain he knows best.</p>
+        <div class="part-chapters">
+          <span>Glass Slippers</span>
+          <span>Until We Meet Again, Fair Soul</span>
+          <span>The Promise</span>
+          <span>The Glitter Index</span>
+          <span>Attempted Escape</span>
+          <span>The Ecstasy and the Agony</span>
+          <span>The Black Hole</span>
+        </div>
+      </div>
+      <div class="part-card reveal d2">
+        <span class="part-roman">Part II</span>
+        <div class="part-name">The Dark</div>
+        <span class="part-metaphor">The chrysalis</span>
+        <p class="part-desc">The holding cell floor. Rehab. The karmariculum dream that named everything. Eight years of practicing the Five Steps in a demanding nonprofit &mdash; the ordinary conditions that turned out to be exactly the laboratory needed.</p>
+        <div class="part-chapters">
+          <span>Doing Time</span>
+          <span>The Healing Phase</span>
+          <span>The Unwinnable War</span>
+          <span>Ordinary</span>
+          <span>The Laboratory</span>
+          <span>Field Work</span>
+        </div>
+      </div>
+      <div class="part-card reveal d3">
+        <span class="part-roman">Part III</span>
+        <div class="part-name">Flight</div>
+        <span class="part-metaphor">The butterfly</span>
+        <p class="part-desc">The children who became healers. The parents finally understood. The cancer that required a different kind of courage. The laughter meditation. The Thanksgiving table. The Wise One in full residence &mdash; and Sir Ego, improbably, her most enthusiastic ally.</p>
+        <div class="part-chapters">
+          <span>Infinity</span>
+          <span>A Higher Octave</span>
+          <span>Little Booboo</span>
+          <span>The Mission</span>
+          <span>A Blessing for the Heroic Heart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENPLAY CREDENTIAL -->
+<div class="credential-band">
+  <div class="credential-inner reveal">
+    <p class="credential-text">Feature Screenplay Finalist &mdash; 2023 California Women&rsquo;s Film Festival</p>
+    <span class="credential-sub">The story recognized across forms</span>
+  </div>
+</div>
+
+<!-- AUTHOR BIO -->
+<section class="author-bio" id="about-the-author">
+  <div class="author-bio-inner reveal">
+    <span class="eyebrow">About the Author</span>
+    <h2>Kindred Lights</h2>
+    <p>I&rsquo;m not a guru. I&rsquo;m not a master. I&rsquo;m a mapmaker.</p>
+    <p>This memoir is the life the framework came from. The carpet burns that qualify everything else. Four decades of business experience &mdash; including twenty years in nonprofit leadership &mdash; provided the analytical disciplines that built the framework&rsquo;s structural rigor. Twenty years of inner work provided the experiential ground it actually maps.</p>
+    <p>I write under the name Kindred Lights because we are all kindred lights &mdash; not separate lights competing for oxygen, but the same light in different lanterns, all on the same path home.</p>
+    <p style="font-family:var(--font-body);font-size:0.92rem;color:var(--text-deep);font-style:italic;margin-top:24px;"><a href="about.html" style="color:var(--gold-dark);text-decoration:none;border-bottom:1px solid rgba(184,134,11,0.4);">Read the longer story &rarr;</a></p>
+  </div>
+</section>
+
+<!-- SAMPLE PASSAGE -->
+<section class="sample-passage" id="sample">
+  <div class="sample-passage-inner reveal">
+    <span class="eyebrow">A Sample</span>
+    <h2>From the Book</h2>
+    <p style="font-family: var(--font-body); font-size: 0.96rem; color: var(--text-deep); text-align: center; max-width: 560px; margin: -16px auto 36px; line-height: 1.7;">From the opening chapter. The Napa Valley vineyard. The silk gown. The first hint of what was underneath the lottery.</p>
+    <div class="sample-passage-body">
+      <p>Napa Valley in October is almost offensively beautiful. The vines had gone amber and crimson, and the light came in at an angle that made everything look designed for a painting. I walked down a garden aisle in a handmade silk gown and my nearly glass slippers from Harrods in London, the valley spread below us like a promise someone had arranged on purpose.</p>
+      <p>I believed every bit of it. I want to be honest about that. I was not young. I was not naive in the ordinary sense. I had read the books, done the therapy, logged the miles. I had also, some months earlier on a trip he had arranged to Bora Bora, already glimpsed the particular quality of his stillness when something displeased him &mdash; a coolness that moved through the room like a change in air pressure. I had filed it. I had explanations. He had chosen me, and that was the thing I kept returning to, the thing that made all the other things negotiable.</p>
+      <p>My script said: this is the one. Reality had filed a different brief.</p>
+    </div>
+    <p class="sample-source">From <em>Exalted Quest: The Path of Love</em> &mdash; Part I, <em>Glass Slippers</em></p>
+  </div>
+</section>
+
+<!-- AVAILABLE AT -->
+<section class="available-at">
+  <div class="available-at-inner reveal">
+    <span class="eyebrow">The Book</span>
+    <h2>Where to Find It</h2>
+    <p class="available-at-msg">Exalted Quest is preparing for release. We&rsquo;ll add direct links to your preferred retailers as the book becomes available at each. If you&rsquo;d like a note when it&rsquo;s ready, the list below is the easiest way to know.</p>
+    <div class="available-at-row">
+      <span class="available-at-link placeholder">Amazon &mdash; coming soon</span>
+      <span class="available-at-link placeholder">Bookshop.org &mdash; coming soon</span>
+      <span class="available-at-link placeholder">Apple Books &mdash; coming soon</span>
+      <span class="available-at-link placeholder">Barnes &amp; Noble &mdash; coming soon</span>
+    </div>
+  </div>
+</section>
+
+<!-- KIT CAPTURE -->
+<section class="kit-section" id="notify">
+  <div class="kit-inner reveal">
+    <span class="eyebrow" style="color:var(--gold-light)">In Touch</span>
+    <h2 class="kit-h">Let&rsquo;s Connect</h2>
+    <p class="kit-sub">If something here resonates, leave your email. I&rsquo;d love to hear from you &mdash; and I&rsquo;ll send a note when the book is available.</p>
+    <iframe name="connect-target" id="connect-target" style="display:none;width:0;height:0;border:0;" onload="onConnectSubmitLoad()"></iframe>
+    <form action="https://app.kit.com/forms/9376803/subscriptions" method="post" target="connect-target" id="connect-form" onsubmit="return onConnectSubmit()" class="connect-form-wrapper">
+      <input type="email" name="email_address" placeholder="your@email.com" required aria-label="Email address" />
+      <button type="submit">Send &rarr;</button>
+    </form>
+    <div id="connect-success">
+      <strong>THANKS FOR CONNECTING &#10022;</strong>
+      Check your inbox to confirm. Looking forward to hearing from you.
+    </div>
+    <p class="kit-fine" style="margin-top:18px;">The Wise One doesn&rsquo;t pursue. The kindred find each other.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Kindred <em>Lights</em></div>
+      <div class="foot-tag">
+        <p>The Age of Ego is ending.</p>
+        <p>The Age of Love is arising.</p>
+        <p>One trigger at a time.</p>
+      </div>
+    </div>
+    <div>
+      <p class="foot-h">Practice</p>
+      <ul class="foot-links">
+        <li><a href="https://kindredlights.org/decoder">Trigger Decoder &mdash; Free</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="luminology-glossary.html">Luminology Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">The Series</p>
+      <ul class="foot-links">
+        <li><a href="exalted-quest.html">Exalted Quest</a></li>
+        <li><a href="love-heroically.html">Love Heroically</a></li>
+        <li><a href="ageofego.html">What Happened to US?</a></li>
+        <li><a href="explore-truth.html">Beyond Blame &amp; Shame</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-h">What's Your Problem?</p>
+      <ul class="foot-links">
+        <li><a href="addiction.html">Addiction &amp; Sobriety</a></li>
+        <li><a href="narc.html">Narcissistic Abuse</a></li>
+        <li><a href="grief.html">Grief &amp; Loss</a></li>
+        <li><a href="forgiveness.html">Guilt, Blame &amp; Shame</a></li>
+        <li><a href="health.html">Health Crisis</a></li>
+        <li><a href="parenting.html">Parenting Triggers</a></li>
+        <li><a href="awakening.html">Spiritual Awakening</a></li>
+        <li><a href="anxiety.html">Anxiety</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="foot-copy">&copy; 2026 Kindred Lights &middot; <a href="mailto:kindred@kindredlights.org" style="color:inherit">kindred@kindredlights.org</a></p>
+    <div class="foot-sigil">Not perfectly. But heroically. &#10022;</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => { nav && nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => { const open = hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+  }
+  const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+<script>
+let connectSubmitInProgress = false;
+function onConnectSubmit() {
+  const input = document.querySelector('#connect-form input[name="email_address"]');
+  if (!input || !input.value || !input.value.includes('@')) return false;
+  const btn = document.querySelector('#connect-form button[type="submit"]');
+  if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
+  connectSubmitInProgress = true;
+  return true;
+}
+function onConnectSubmitLoad() {
+  if (!connectSubmitInProgress) return;
+  connectSubmitInProgress = false;
+  const form = document.getElementById('connect-form');
+  const success = document.getElementById('connect-success');
+  if (form) form.style.display = 'none';
+  if (success) success.style.display = 'block';
+}
+</script>
+</body>
+</html>
