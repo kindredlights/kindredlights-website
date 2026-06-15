@@ -78,6 +78,8 @@
     .nav-dropdown { position: absolute; top: var(--nav-h); left: 0; background: var(--deep-sky); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; z-index: 50; }
     .nav-has-dropdown:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
     .nav-has-dropdown .nav-panel { display: none !important; }
+    .dropdown-label { display: block; font-family: var(--font-nav); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); padding: 12px 20px 6px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 4px; }
+    .dropdown-label:first-child { border-top: none; margin-top: 0; }
     .dropdown-link { display: block; font-family: var(--font-nav); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.75); padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s, background 0.2s; }
     .dropdown-link:last-child { border-bottom: none; }
     .dropdown-link:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
@@ -320,13 +322,15 @@
         <a href="luminology-glossary.html" class="dropdown-link">Luminology</a>
       </div>
     </li>
-    <li class="nav-item nav-has-dropdown" data-nav="series"><a href="#" class="nav-link">The Series ▾</a>
+    <li class="nav-item nav-has-dropdown" data-nav="series"><a href="#" class="nav-link">Buy Books ▾</a>
       <div class="nav-dropdown" style="min-width:280px;">
+        <span class="dropdown-label">Available Now</span>
+        <a href="ageofego.html" class="dropdown-link">What Happened to US?</a>
         <a href="love-heroically.html" class="dropdown-link">Love Heroically</a>
+        <span class="dropdown-label">Coming Soon</span>
+        <a href="exalted-quest.html" class="dropdown-link">Exalted Quest — The Memoir</a>
         <a href="explore-truth.html" class="dropdown-link">Beyond Blame &amp; Shame</a>
         <a href="luminology-glossary.html" class="dropdown-link">Luminology</a>
-        <a href="ageofego.html" class="dropdown-link">What Happened to US?</a>
-        <a href="exalted-quest.html" class="dropdown-link">Exalted Quest &mdash; The Memoir</a>
       </div>
     </li>
     <li class="nav-item nav-has-dropdown" data-nav="verticals"><a href="#" class="nav-link">What's Your<br>Problem? ▾</a>
@@ -360,7 +364,7 @@
 <div id="mobile-menu">
   <a href="index.html" class="mob-link" data-mob="home">Home</a>
   <a href="https://kindredlights.org/decoder" class="mob-link gold" data-mob="decoder">✦ Trigger Decoder — Free</a>
-  <a href="explore.html" class="mob-link" data-mob="explore">Explore</a>
+  <a href="explore.html" class="mob-link" data-mob="explore">Free Help</a>
   <a href="ageofego.html" class="mob-link" data-mob="ageofego-room">&nbsp;&nbsp;· What Happened to US?</a>
   <a href="explore-triggers.html" class="mob-link" data-mob="triggers-room">&nbsp;&nbsp;· About Triggers</a>
   <a href="explore-sir-ego.html" class="mob-link" data-mob="sir-ego-room">&nbsp;&nbsp;· Sir Ego &amp; the Wise One</a>
@@ -368,7 +372,7 @@
   <a href="love-heroically.html" class="mob-link" data-mob="lh-room">&nbsp;&nbsp;· Love Heroically</a>
   <a href="explore-truth.html" class="mob-link" data-mob="bbs-room">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
   <a href="luminology-glossary.html" class="mob-link" data-mob="luminology-room">&nbsp;&nbsp;· Luminology</a>
-  <a href="#" class="mob-link" data-mob="series" onclick="return false;">The Series</a>
+  <a href="#" class="mob-link" data-mob="series" onclick="return false;">Buy Books</a>
   <a href="love-heroically.html" class="mob-link" data-mob="lh">&nbsp;&nbsp;· Love Heroically</a>
   <a href="explore-truth.html" class="mob-link" data-mob="bbs">&nbsp;&nbsp;· Beyond Blame &amp; Shame</a>
   <a href="luminology-glossary.html" class="mob-link" data-mob="luminology">&nbsp;&nbsp;· Luminology</a>
@@ -619,7 +623,7 @@
       <p class="foot-h">Practice</p>
       <ul class="foot-links">
         <li><a href="https://kindredlights.org/decoder">Trigger Decoder &mdash; Free</a></li>
-        <li><a href="explore.html">Explore</a></li>
+        <li><a href="explore.html">Free Help</a></li>
         <li><a href="love-heroically.html">Love Heroically</a></li>
       </ul>
     </div>
