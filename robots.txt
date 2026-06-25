@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /api-test.html
+
+Sitemap: https://kindredlights.org/sitemap.xml
