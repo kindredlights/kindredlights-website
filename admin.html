@@ -89,44 +89,55 @@
 
   <span class="eyebrow">Private · Admin Only</span>
   <h1>Kindred Lights Admin</h1>
-  <p class="lede">Pre-launch checklist, Louise file pipeline, and quick-reference commands. Bookmark this page. It lives on the site but is <code>noindex</code>ed — only findable by direct URL.</p>
+  <p class="lede">Outstanding items, the Louise pipeline, and quick-reference commands. Bookmark this page. It lives on the site but is <code>noindex</code>ed — only findable by direct URL.</p>
 
   <div class="warning">
     <strong>The URL is:</strong> <code>kindredlights.org/admin.html</code> — save this somewhere safe. This page is not linked from anywhere else on the site.
   </div>
 
-<!-- CURRENT STATUS -->
-<h2><span class="eyebrow">Where You Are</span>Current Status — April 21, 2026</h2>
+<!-- OUTSTANDING -->
+<h2><span class="eyebrow">What's Open</span>Outstanding Items — June 24, 2026</h2>
 
-<p class="section-intro">Site deployed to kindredlights.org with <code>noindex</code> protection on every page except Trigger Decoder. Graphics are working placeholders. Final graphics pending from Louise.</p>
+<p class="section-intro">Site is live at kindredlights.org with the new topic graphics in place. <code>noindex</code> has been removed from the 27 ready pages; <code>exalted-quest</code> and the teasers stay <code>noindex</code>ed until launch. This is the current open list.</p>
 
-<h3>Done ✓</h3>
+<h3>Website &amp; SEO</h3>
 <ul class="checklist">
-  <li class="done">25 canonical image files with metadata embedded (IPTC + XMP)</li>
-  <li class="done">14 HTML pages with canonical alt text, pixel dimensions, JSON-LD structured data</li>
-  <li class="done">60 tooltips for 9 core vocabulary terms (keyboard and touch accessible)</li>
-  <li class="done">Full site deployed to kindredlights.org via GitHub + Netlify</li>
-  <li class="done">Trigger Decoder reintegrated with site-wide navigation</li>
-  <li class="done"><code>noindex</code> tags on every page except <code>decoder.html</code></li>
-  <li class="done">Graphics Inventory xlsx with metadata pipeline</li>
-  <li class="done">Python script (<code>embed_metadata.py</code>) tested on Windows PC</li>
-  <li class="done">Revised Logo Brief sent to Louise</li>
+  <li>Deploy the 27 noindex-updated pages, then view-source one (e.g. <code>anxiety.html</code>) to confirm it reads <code>index</code></li>
+  <li>Set up Google Search Console — add <code>kindredlights.org</code> (URL-prefix property), verify with the HTML-file method</li>
+  <li><strong>After</strong> deploy + verify: submit <code>sitemap.xml</code> in Search Console (not before — noindexed URLs throw errors)</li>
+  <li>Create <code>og-default.jpg</code> (1200&times;630 branded share image) at <code>images/og-default.jpg</code> — without it, shared links show a blank preview card</li>
+  <li>Once that image is up, test share previews (paste a page URL into iMessage / LinkedIn) before announcing</li>
 </ul>
 
 <h3>Waiting on Louise</h3>
 <ul class="checklist">
-  <li>Final logo (heart mark + wordmark lockups, color + cream + midnight variants, SVG master)</li>
-  <li>Favicon set (16px, 32px, 180px apple-touch-icon)</li>
-  <li>Final WH2U cover</li>
-  <li>Final Memoir cover</li>
-  <li>Final LH cover (Louise version)</li>
-  <li>Final BBS cover</li>
-  <li>Final Luminology cover</li>
-  <li>Eight Aspects charts with Expression (not Voice/Sound)</li>
-  <li>Collective Ideology Grid</li>
-  <li>Personal Ideology Grid redone</li>
-  <li>Five Steps · Love Heroically flowchart redone</li>
-  <li>Sacred Authority chart (if revised)</li>
+  <li>Send the owl logo brief + references (indigo draft = direction, teal-bg owl = structure, barn-owl photo = soul, ink-wash = mood only)</li>
+  <li>Owl mark: vector master, 3 lockups (full / mark + name / mark alone), flat one-color + black versions, blue/violet palette</li>
+  <li>Favicon set (16 / 32 / 180px) from the owl</li>
+  <li>Exalted Quest interior typeset in InDesign — running heads, dashboards as designed art, sample before full typeset</li>
+  <li>Exalted Quest cover polished from the author draft</li>
+  <li>Re-skin WH2U + Love Heroically covers/site with the owl once it is final</li>
+  <li>LH ebook: embed the display fonts (Cinzel, Cormorant Garamond, the dingbat — or swap the scene break to a Unicode &#10022;), leave Georgia to the reader, to match the WH2U ebook</li>
+</ul>
+
+<h3>Marketing</h3>
+<ul class="checklist">
+  <li>If Bharavi&rsquo;s intro to Lexi goes quiet (~a week), reach out to Lexi directly — narrow ask: demand/competition data on the symptom-keywords already targeted, plus backlinks. Not content; that is built.</li>
+</ul>
+
+<h3>Loose ends</h3>
+<ul class="checklist">
+  <li>Confirm the corrected Beyond Blame chart (<em>Suppression</em> fixed) is the version live on GitHub</li>
+  <li>William: settled ($75 for setup, proofreading kept) — tip at project close</li>
+  <li>Exalted Quest launch target: mid-July</li>
+</ul>
+
+<h3>Later — nice-to-have, not urgent</h3>
+<ul class="checklist">
+  <li>Analytics (Plausible, Netlify Analytics, or GA4)</li>
+  <li>Custom <code>404.html</code> at repo root</li>
+  <li>Convert book covers to <code>.webp</code> (~30% smaller, same quality)</li>
+  <li>Accessibility pass (WCAG AA contrast, screen-reader)</li>
 </ul>
 
 <hr class="rule" />
@@ -205,72 +216,10 @@ python embed_metadata.py images\</code></pre>
   </tbody>
 </table>
 
-<div class="note"><strong>Complete rules and extended metadata</strong> (alt text, keywords, IPTC descriptions, page usage) live in <code>KL_GraphicsInventory_2026-04-21c.xlsx</code>. The admin page only shows the filename mapping; the xlsx is the full source of truth.</div>
+<div class="note"><strong>Complete rules and extended metadata</strong> (alt text, keywords, IPTC descriptions, page usage) live in <code>KL_GraphicsInventory_2026-06-24b.xlsx</code>. The admin page only shows the filename mapping; the xlsx is the full source of truth.</div>
 
 <hr class="rule" />
 
-<!-- FULL LAUNCH CHECKLIST -->
-<h2><span class="eyebrow">When You're Ready</span>Full Launch Checklist</h2>
-
-<p class="section-intro">This is the sequence for flipping from "private working draft" to "visible to the world." Do this when Louise's graphics are substantially complete and you're ready to share the site publicly.</p>
-
-<h3>Before launch day</h3>
-<ul class="checklist">
-  <li>All (or enough) Louise graphics embedded with metadata</li>
-  <li>Click-test every internal link on every page — catch 404s before readers do</li>
-  <li>Mobile render audit — open every page on an actual phone, not just browser DevTools</li>
-  <li>Any remaining vertical pages written and added</li>
-  <li>Any prose edits you've been circling on (especially the "she keeps the master plan" drift in <code>index.html</code> prose about the Wise One)</li>
-</ul>
-
-<h3>Launch day</h3>
-<ol class="step-list">
-  <li>
-    <strong>Remove the <code>noindex</code> tags from every page.</strong> In GitHub, open the web file editor, OR clone locally and find-replace:
-    <pre><code># Find this line in every .html file EXCEPT decoder.html:
-&lt;meta name="robots" content="noindex, nofollow" /&gt;
-
-# Delete it.</code></pre>
-    Commit with message: <code>"Launch: remove noindex tags for public launch"</code>
-  </li>
-  <li>
-    <strong>Create a sitemap.</strong> Either use a Netlify plugin (recommended: <code>@netlify/plugin-sitemap</code>) or generate a static <code>sitemap.xml</code> listing all public pages. Lives at <code>kindredlights.org/sitemap.xml</code>.
-  </li>
-  <li>
-    <strong>Create robots.txt.</strong> A two-line file at repo root:
-    <pre><code>User-agent: *
-Sitemap: https://kindredlights.org/sitemap.xml</code></pre>
-  </li>
-  <li>
-    <strong>Set up Google Search Console.</strong> Visit <code>search.google.com/search-console</code>. Add <code>kindredlights.org</code> as a property. Verify ownership (Netlify makes this easy via DNS or a meta tag). Submit your sitemap.
-  </li>
-  <li>
-    <strong>Test Open Graph previews.</strong> Before sharing, paste <code>kindredlights.org</code> into:
-    <ul>
-      <li>iMessage (to yourself)</li>
-      <li>Facebook post composer (without posting)</li>
-      <li>LinkedIn post composer (without posting)</li>
-    </ul>
-    Each should show a proper title, description, and image. If any are broken, the <code>og:</code> meta tags on that page need adjustment.
-  </li>
-  <li>
-    <strong>Do one final click-through.</strong> Every page. Every button. Mobile and desktop.
-  </li>
-  <li>
-    <strong>Announce at your pace.</strong> Social media, email list, wherever feels right. No external pressure here.
-  </li>
-</ol>
-
-<h3>Post-launch (nice-to-have, not urgent)</h3>
-<ul class="checklist">
-  <li>Analytics (Netlify Analytics $9/mo, or Plausible, or Google Analytics)</li>
-  <li>Custom 404 page (<code>404.html</code> in repo root — Netlify serves it automatically)</li>
-  <li>Convert book covers to .webp for faster load (~30% size reduction at same quality)</li>
-  <li>Accessibility audit (WCAG AA color contrast, full screen-reader pass)</li>
-  <li>Trigger Decoder full parity upgrade (tooltips, JSON-LD, canonical metadata to match rest of site)</li>
-</ul>
-
-<hr class="rule" />
 
 <!-- QUICK REFERENCE -->
 <h2><span class="eyebrow">Keep Handy</span>Quick Reference</h2>
@@ -279,7 +228,7 @@ Sitemap: https://kindredlights.org/sitemap.xml</code></pre>
 <pre><code>C:\Users\marie\web graphics metadata\
   ├── images\              ← 25 canonical image files
   ├── embed_metadata.py    ← the embed script
-  └── KL_GraphicsInventory_2026-04-21c.xlsx</code></pre>
+  └── KL_GraphicsInventory_2026-06-24b.xlsx</code></pre>
 
 <h3>ExifTool location</h3>
 <pre><code>C:\Tools\exiftool\
@@ -386,7 +335,7 @@ kindredlights-website/api-test.html  ← repo path</code></pre>
 
 <hr class="rule" />
 
-<p class="foot">Updated April 21, 2026 · Not perfectly. But heroically. ✦</p>
+<p class="foot">Updated June 24, 2026 · Not perfectly. But heroically. ✦</p>
 
 </div>
 </body>
