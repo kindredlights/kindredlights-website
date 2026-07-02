@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keep Going | Kindred Lights</title>
+  <meta name="description" content="You've read the book. Here's how to take the practice for a walk — the Five Steps live, a printable toolkit to keep, the circle, and the path onward." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F4F0EC; --midnight: #3C8ABC; --deep-sky: #1F4A6B; --deep-blue: #81A8CB;
+      --sky-bold: #2A6FA8; --sky-dusk: #1A3A5C;
+      --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
+      --periwinkle: #adafdf; --text-dark: #2b2b2b; --text-mid: #4a4a4a;
+      --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
+      --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
+      --max: 780px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: 0.08s; } .reveal.d2 { transition-delay: 0.18s; } .reveal.d3 { transition-delay: 0.28s; }
+
+    /* Simple brand header */
+    header.top { background: #E1E8F5; border-bottom: 1px solid rgba(201,168,76,0.2); padding: 16px 24px; display: flex; align-items: center; justify-content: center; }
+    header.top a { font-family: var(--font-display); font-size: 0.82rem; letter-spacing: 0.22em; color: var(--midnight); text-transform: uppercase; }
+    header.top a em { color: var(--gold-dark); font-style: normal; }
+
+    /* Hero */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 72px 24px 40px; text-align: center; }
+    .hero .eyebrow { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 18px; }
+    .hero h1 { font-family: var(--font-display); font-size: 2.3rem; font-weight: 600; color: var(--deep-sky); line-height: 1.25; margin-bottom: 20px; }
+    .hero p { font-family: var(--font-soul); font-size: 1.4rem; font-style: italic; color: var(--text-mid); line-height: 1.5; max-width: 620px; margin: 0 auto; }
+
+    /* Sections */
+    .band { max-width: var(--max); margin: 0 auto; padding: 26px 24px; }
+    .band .label { font-family: var(--font-nav); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 14px; text-align: center; }
+
+    /* Cards */
+    .card { display: block; background: #fff; border: 1px solid rgba(201,168,76,0.22); border-radius: 6px; padding: 30px 30px 28px; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(31,74,107,0.12); border-color: var(--gold); }
+    .card .eyebrow { font-family: var(--font-nav); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 10px; }
+    .card h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--deep-sky); margin-bottom: 10px; line-height: 1.3; }
+    .card p { font-family: var(--font-body); font-size: 1rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 16px; }
+    .card .go { font-family: var(--font-nav); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); }
+    .card:hover .go { color: var(--gold); }
+
+    /* Hero card = the primary invitation (the live practice) */
+    .card.primary { background: linear-gradient(160deg, #1F4A6B 0%, #1A3A5C 100%); border: 1px solid var(--gold); padding: 40px 34px; text-align: center; }
+    .card.primary .eyebrow { color: var(--gold-light); }
+    .card.primary h2 { color: #fff; font-size: 1.75rem; }
+    .card.primary p { color: rgba(244,240,236,0.82); font-family: var(--font-soul); font-size: 1.25rem; font-style: italic; max-width: 520px; margin: 0 auto 20px; }
+    .card.primary .btn { display: inline-block; background: var(--gold); color: var(--sky-dusk); font-family: var(--font-nav); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 34px; border-radius: 4px; transition: background 0.2s; }
+    .card.primary .btn:hover { background: var(--gold-light); }
+    .card.primary .fineprint { display: block; margin-top: 16px; font-family: var(--font-body); font-size: 0.9rem; color: rgba(244,240,236,0.6); font-style: normal; }
+
+    /* Two-up row for the books */
+    .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .duo .card h2 { font-size: 1.2rem; }
+    .duo .card p { font-size: 0.95rem; }
+
+    /* Pass it forward (lightest) */
+    .forward { max-width: var(--max); margin: 0 auto; padding: 30px 24px 10px; text-align: center; }
+    .forward .label { font-family: var(--font-nav); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 12px; }
+    .forward p { font-family: var(--font-soul); font-size: 1.2rem; font-style: italic; color: var(--text-mid); max-width: 560px; margin: 0 auto 18px; line-height: 1.5; }
+    .forward .links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .forward .links a { font-family: var(--font-nav); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; color: var(--gold-dark); border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: color 0.2s; }
+    .forward .links a:hover { color: var(--gold); }
+    .forward .note { display: block; margin-top: 20px; font-family: var(--font-body); font-size: 0.85rem; color: var(--text-mid); opacity: 0.75; max-width: 540px; margin-left: auto; margin-right: auto; }
+
+    /* Closing */
+    .closing { background: linear-gradient(160deg, #1F4A6B 0%, #1A3A5C 100%); margin-top: 40px; padding: 46px 24px; text-align: center; }
+    .closing p { font-family: var(--font-soul); font-size: 1.35rem; font-style: italic; color: #fff; line-height: 1.6; margin-bottom: 10px; }
+    .closing .sig { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); }
+
+    .spacer { height: 8px; }
+    @media (max-width: 640px) {
+      .hero { padding-top: 52px; } .hero h1 { font-size: 1.8rem; } .hero p { font-size: 1.2rem; }
+      .duo { grid-template-columns: 1fr; }
+      .card.primary h2 { font-size: 1.45rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <a href="index.html">Kindred <em>Lights</em></a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="eyebrow reveal">For Readers</span>
+    <h1 class="reveal d1">You've read the book.<br />Here's how to keep going.</h1>
+    <p class="reveal d2">The framework was the map. These are the ways to take it for a walk &mdash; the practice, live; the tools to keep by your side; and the people walking it with you.</p>
+  </section>
+
+  <!-- 1. GO DEEPER — the live practice (primary) -->
+  <div class="band">
+    <span class="label reveal">Take the Practice for a Walk</span>
+    <a class="card primary reveal d1" href="trigger-decoder.html">
+      <span class="eyebrow">The Five Steps, Live</span>
+      <h2>Walk the Five Steps with your own problem</h2>
+      <p>Not another thing to read &mdash; a guided walk through the practice with whatever is actually triggering you, right now. This is where it stops being an idea and starts working.</p>
+      <span class="btn">Try the Trigger Decoder &rarr;</span>
+      <span class="fineprint">Your printable companion toolkit comes with it, at the end.</span>
+    </a>
+  </div>
+
+  <!-- 2. THE KEEPSAKE — the toolkit -->
+  <div class="band">
+    <span class="label reveal">Keep These by Your Side</span>
+    <!-- TODO: point href at the toolkit download OR a light email-capture page (e.g. /toolkit) -->
+    <a class="card reveal d1" href="#TOOLKIT-DOWNLOAD">
+      <span class="eyebrow">The Companion Toolkit &mdash; Free</span>
+      <h2>The Five-Step card, the Emotions Toolkit &amp; the Release Toolkit</h2>
+      <p>The pieces worth keeping close: a one-page reference for the Five Steps to set on your desk or nightstand, a map of how the ego and the Wise One see each hard emotion, and a dozen ways to release blocked emotional energy. Yours to download and keep.</p>
+      <span class="go">Get the toolkit &rarr;</span>
+    </a>
+  </div>
+
+  <!-- 3. BELONG — the Circle -->
+  <div class="band">
+    <span class="label reveal">Walk It With Others</span>
+    <a class="card reveal d1" href="circle.html">
+      <span class="eyebrow">The Circle of Kindred Lights</span>
+      <h2>You're not walking this alone</h2>
+      <p>A witness wall where practitioners share what they've noticed &mdash; the Five Steps in action, catching Sir Ego at his antics, the moments of being held that only become visible looking back. The circle is gathering.</p>
+      <span class="go">Step into the circle &rarr;</span>
+    </a>
+  </div>
+
+  <!-- 4. THE PATH CONTINUES — the two books -->
+  <div class="band">
+    <span class="label reveal">The Path Continues</span>
+    <div class="duo">
+      <!-- TODO: confirm the WH2U page URL on your site -->
+      <a class="card reveal d1" href="world.html">
+        <span class="eyebrow">The Diagnosis</span>
+        <h2>What Happened to US?</h2>
+        <p>If you started with the practice, this is the wider map &mdash; the same pattern, scaled from your living room to the whole divided world.</p>
+        <span class="go">Read more &rarr;</span>
+      </a>
+      <a class="card reveal d2" href="love-heroically.html">
+        <span class="eyebrow">The Practice</span>
+        <h2>Love Heroically</h2>
+        <p>If you started with the diagnosis, this is the way through &mdash; the Five Steps as a practice manual for the triggered moment.</p>
+        <span class="go">Read more &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 5. PASS IT FORWARD — the review (lightest, last) -->
+  <section class="forward">
+    <span class="label reveal">Pass It Forward</span>
+    <p class="reveal d1">If a book met you somewhere real, a few honest words are how the next person &mdash; still looking &mdash; finds their way in.</p>
+    <div class="links reveal d2">
+      <a href="https://www.amazon.com/review/create-review?asin=B0H57CDM99" target="_blank" rel="noopener">Review &middot; What Happened to US?</a>
+      <a href="https://www.amazon.com/review/create-review?asin=B0H51LXWWN" target="_blank" rel="noopener">Review &middot; Love Heroically</a>
+    </div>
+    <span class="note reveal d2">Only if the book genuinely met you. An honest word &mdash; even one sentence &mdash; is the whole gift. We never trade or ask for anything but the truth of your experience.</span>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <p class="reveal">We are walking this together, hand in hand,<br />into the Age of Love.</p>
+    <span class="sig reveal d1">We Are All Kindred Lights</span>
+  </section>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+
+</body>
+</html>
