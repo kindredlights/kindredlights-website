@@ -11,17 +11,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --cream: #F4F0EC; --midnight: #3C8ABC; --deep-sky: #1F4A6B; --deep-blue: #81A8CB;
-      --sky-bold: #2A6FA8; --sky-dusk: #1A3A5C;
-      --gold: #C9A84C; --gold-light: #E8D48A; --gold-dark: #8B6914;
-      --periwinkle: #adafdf; --text-dark: #2b2b2b; --text-mid: #4a4a4a;
+      /* Palette matches explore.html — sky-bold body, cloud (near-white) cards */
+      --sky-bold:      #4F9AD4;
+      --sky-shadow:    #1F4A6B;
+      --sky-dusk:      #345878;
+      --cloud:         #F4F8FB;
+      --gold:          #C9A84C;
+      --gold-light:    #E8D48A;
+      --gold-dark:     #8B6914;
+      --text-on-sky:   rgba(247,243,238,0.92);
+      /* Legacy aliases so existing rules keep working */
+      --cream:         var(--cloud);
+      --midnight:      var(--sky-shadow);
+      --deep-sky:      var(--sky-shadow);
+      --deep-blue:     #81A8CB;
+      --periwinkle:    #adafdf;
+      --text-dark:     #2b2b2b;
+      --text-mid:      #4a4a4a;
       --font-display: "Cinzel", serif; --font-soul: "Cormorant Garamond", serif;
       --font-body: "Lato", sans-serif; --font-nav: "Raleway", sans-serif;
       --max: 780px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.6; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-dark); background: var(--sky-bold); overflow-x: hidden; line-height: 1.6; }
     img { display: block; max-width: 100%; height: auto; }
     a { text-decoration: none; color: inherit; }
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -35,17 +48,17 @@
 
     /* Hero */
     .hero { max-width: var(--max); margin: 0 auto; padding: 72px 24px 40px; text-align: center; }
-    .hero .eyebrow { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 18px; }
-    .hero h1 { font-family: var(--font-display); font-size: 2.3rem; font-weight: 600; color: var(--deep-sky); line-height: 1.25; margin-bottom: 20px; }
-    .hero p { font-family: var(--font-soul); font-size: 1.4rem; font-style: italic; color: var(--text-mid); line-height: 1.5; max-width: 620px; margin: 0 auto; }
+    .hero .eyebrow { font-family: var(--font-nav); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 18px; }
+    .hero h1 { font-family: var(--font-display); font-size: 2.3rem; font-weight: 600; color: #FFFFFF; line-height: 1.25; margin-bottom: 20px; }
+    .hero p { font-family: var(--font-soul); font-size: 1.4rem; font-style: italic; color: var(--text-on-sky); line-height: 1.5; max-width: 620px; margin: 0 auto; }
 
     /* Sections */
     .band { max-width: var(--max); margin: 0 auto; padding: 26px 24px; }
-    .band .label { font-family: var(--font-nav); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 14px; text-align: center; }
+    .band .label { font-family: var(--font-nav); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 14px; text-align: center; }
 
     /* Cards */
-    .card { display: block; background: #fff; border: 1px solid rgba(201,168,76,0.22); border-radius: 6px; padding: 30px 30px 28px; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(31,74,107,0.12); border-color: var(--gold); }
+    .card { display: block; background: #fff; border: 1px solid rgba(201,168,76,0.22); border-radius: 6px; padding: 30px 30px 28px; box-shadow: 0 6px 22px rgba(15,34,53,0.14); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(15,34,53,0.22); border-color: var(--gold); }
     .card .eyebrow { font-family: var(--font-nav); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 10px; }
     .card h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--deep-sky); margin-bottom: 10px; line-height: 1.3; }
     .card p { font-family: var(--font-body); font-size: 1rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 16px; }
@@ -66,14 +79,18 @@
     .duo .card h2 { font-size: 1.2rem; }
     .duo .card p { font-size: 0.95rem; }
 
-    /* Pass it forward (lightest) */
-    .forward { max-width: var(--max); margin: 0 auto; padding: 30px 24px 10px; text-align: center; }
-    .forward .label { font-family: var(--font-nav); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 12px; }
-    .forward p { font-family: var(--font-soul); font-size: 1.2rem; font-style: italic; color: var(--text-mid); max-width: 560px; margin: 0 auto 18px; line-height: 1.5; }
-    .forward .links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .forward .links a { font-family: var(--font-nav); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; color: var(--gold-dark); border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: color 0.2s; }
-    .forward .links a:hover { color: var(--gold); }
-    .forward .note { display: block; margin-top: 20px; font-family: var(--font-body); font-size: 0.85rem; color: var(--text-mid); opacity: 0.75; max-width: 540px; margin-left: auto; margin-right: auto; }
+    /* Pass it forward — white review cards, matching the circle.html treatment */
+    .forward { max-width: var(--max); margin: 0 auto; padding: 20px 24px 10px; }
+    .forward .label { font-family: var(--font-nav); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 14px; text-align: center; }
+    .forward > p { font-family: var(--font-soul); font-size: 1.2rem; font-style: italic; color: var(--text-on-sky); max-width: 560px; margin: 0 auto 26px; line-height: 1.5; text-align: center; }
+    .forward .links { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .forward .link-card { display: block; background: var(--cloud); border-radius: 10px; padding: 26px 24px; border-top: 3px solid var(--gold); box-shadow: 0 6px 22px rgba(15,34,53,0.14); text-align: left; transition: background 0.2s, border-color 0.2s, transform 0.15s; }
+    .forward .link-card:hover { background: #FFFFFF; border-color: var(--gold-light); transform: translateY(-3px); }
+    .forward .card-eyebrow { font-family: var(--font-nav); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 10px; }
+    .forward .card-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--sky-shadow); letter-spacing: 0.03em; margin-bottom: 8px; }
+    .forward .card-desc { font-family: var(--font-body); font-size: 0.94rem; color: var(--text-dark); line-height: 1.6; margin-bottom: 0; }
+    .forward .card-arrow { font-family: var(--font-nav); font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-top: 14px; display: inline-block; }
+    .forward .note { display: block; margin-top: 26px; font-family: var(--font-body); font-size: 0.88rem; color: rgba(247,243,238,0.72); max-width: 540px; margin-left: auto; margin-right: auto; text-align: center; line-height: 1.6; }
 
     /* Closing */
     .closing { background: linear-gradient(160deg, #1F4A6B 0%, #1A3A5C 100%); margin-top: 40px; padding: 46px 24px; text-align: center; }
@@ -85,6 +102,7 @@
       .hero { padding-top: 52px; } .hero h1 { font-size: 1.8rem; } .hero p { font-size: 1.2rem; }
       .duo { grid-template-columns: 1fr; }
       .card.primary h2 { font-size: 1.45rem; }
+      .forward .links { grid-template-columns: 1fr; gap: 16px; }
     }
   </style>
 </head>
@@ -166,15 +184,25 @@
     </div>
   </div>
 
-  <!-- 5. PASS IT FORWARD — the review (lightest, last) -->
+  <!-- 5. PASS IT FORWARD — the review (white cards on the sky) -->
   <section class="forward">
     <span class="label reveal">Pass It Forward</span>
     <p class="reveal d1">If a book met you somewhere real, a few honest words are how the next person &mdash; still looking &mdash; finds their way in.</p>
-    <div class="links reveal h2">
-      <a href="https://www.amazon.com/review/create-review?asin=B0H57CDM99" target="_blank" rel="noopener">Review &middot; What Happened to US?</a>
-      <a href="https://www.amazon.com/review/create-review?asin=B0H51LXWWN" target="_blank" rel="noopener">Review &middot; Love Heroically</a>
+    <div class="links reveal d2">
+      <a href="https://www.amazon.com/review/create-review?asin=B0H57CDM99" class="link-card" target="_blank" rel="noopener">
+        <span class="card-eyebrow">A Few Honest Words</span>
+        <div class="card-title">Review &middot; What Happened to US?</div>
+        <p class="card-desc">If the diagnosis met you &mdash; if you felt the pattern name itself &mdash; help the next overwhelmed reader find the doorway.</p>
+        <span class="card-arrow">Leave a review &rarr;</span>
+      </a>
+      <a href="https://www.amazon.com/review/create-review?asin=B0H51LXWWN" class="link-card" target="_blank" rel="noopener">
+        <span class="card-eyebrow">A Few Honest Words</span>
+        <div class="card-title">Review &middot; Love Heroically</div>
+        <p class="card-desc">If the practice met you in a real triggered moment, help the next person walking the same fire find the steps.</p>
+        <span class="card-arrow">Leave a review &rarr;</span>
+      </a>
     </div>
-    <span class="note reveal d2">Only if the book genuinely met you. An honest word &mdash; even one sentence &mdash; is the whole gift. We never trade or ask for anything but the truth of your experience.</span>
+    <span class="note reveal d3">Only if the book genuinely met you. An honest word &mdash; even one sentence &mdash; is the whole gift. We never trade or ask for anything but the truth of your experience.</span>
   </section>
 
   <!-- CLOSING -->

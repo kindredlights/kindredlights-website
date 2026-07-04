@@ -243,6 +243,24 @@
     .room-card:hover .room-cta { color: var(--sky-shadow); gap: 12px; }
     .room-cta.soon { color: var(--text-mid); opacity: 0.7; }
 
+    /* LITE BANDS — Section A (What's Your Problem?) + Section B (Coming From Another Path?)
+       Lighter treatment than the room cards: no card background, no icon tiles.
+       Bold linked title (Cinzel, white) + one italic sentence (Cormorant Garamond),
+       laid out as a responsive two-column list that stacks to one column on mobile. */
+    .lite-band { background: var(--sky-bold); padding: 24px 32px 40px; }
+    .lite-band + .lite-band { padding-top: 8px; }
+    .lite-inner { max-width: var(--max); margin: 0 auto; }
+    .lite-heading { text-align: center; margin-bottom: 28px; }
+    .lite-heading .eyebrow { color: var(--gold-light); margin-bottom: 12px; display: block; }
+    .lite-heading h2 { font-family: var(--font-display); font-size: clamp(1.5rem,2.6vw,2rem); font-weight: 600; color: #FFFFFF; letter-spacing: 0.04em; line-height: 1.2; margin-bottom: 12px; }
+    .lite-heading .lite-intro { font-family: var(--font-soul); font-size: 1.12rem; font-style: italic; color: var(--text-on-sky); line-height: 1.5; margin: 0; }
+    .lite-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 44px; }
+    .lite-item { display: block; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.14); transition: transform 0.2s, border-color 0.2s; }
+    .lite-item:hover { transform: translateX(4px); border-bottom-color: var(--gold-light); }
+    .lite-item:hover .lite-title { color: var(--gold-light); }
+    .lite-title { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; letter-spacing: 0.04em; color: #FFFFFF; display: block; margin-bottom: 6px; transition: color 0.2s; }
+    .lite-desc { font-family: var(--font-soul); font-size: 1.02rem; color: var(--text-on-sky); font-style: italic; line-height: 1.55; display: block; }
+
     /* BOTTOM BAND — invitation, voice on sky */
     .bottom-band { background: var(--sky-bold); padding: 72px 32px; position: relative; overflow: hidden; }
     .bottom-band-bg { display: none; }
@@ -280,6 +298,8 @@
       .lh-buttons { justify-content: center; }
       .rooms { padding: 28px 24px 48px; }
       .rooms-grid { grid-template-columns: 1fr; gap: 24px; }
+      .lite-band { padding: 20px 24px 32px; }
+      .lite-grid { grid-template-columns: 1fr; gap: 0; }
       .bottom-band { padding: 56px 24px; }
       .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
     }
@@ -521,6 +541,80 @@
         </div>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<!-- LITE BAND — Section A: What's Your Problem? -->
+<section class="lite-band">
+  <div class="lite-inner">
+    <div class="lite-heading reveal">
+      <span class="eyebrow">For What's Weighing on You</span>
+      <h2>What's Your Problem?</h2>
+      <p class="lite-intro">The same framework, met to your specific struggle.</p>
+    </div>
+    <div class="lite-grid">
+      <a href="anxiety.html" class="lite-item reveal d1">
+        <span class="lite-title">Anxiety</span>
+        <span class="lite-desc">For the anxiety no technique has reached &mdash; past breathwork, therapy, medication, and meditation.</span>
+      </a>
+      <a href="narc.html" class="lite-item reveal d1">
+        <span class="lite-title">After the Narcissist</span>
+        <span class="lite-desc">Finding your own reality again after someone spent years rewriting it.</span>
+      </a>
+      <a href="grief.html" class="lite-item reveal d2">
+        <span class="lite-title">Grief That Won&rsquo;t Resolve</span>
+        <span class="lite-desc">For the loss that has outlasted the stages, the timelines, everyone&rsquo;s patience.</span>
+      </a>
+      <a href="addiction.html" class="lite-item reveal d2">
+        <span class="lite-title">Addiction &amp; Recovery</span>
+        <span class="lite-desc">Sober, and still haunted &mdash; the deeper work beyond willpower and the first year.</span>
+      </a>
+      <a href="health.html" class="lite-item reveal d3">
+        <span class="lite-title">Illness as Messenger</span>
+        <span class="lite-desc">The questions that arrive after the diagnosis, for you or someone you love.</span>
+      </a>
+      <a href="parenting.html" class="lite-item reveal d3">
+        <span class="lite-title">When Parenting Triggers You</span>
+        <span class="lite-desc">The trigger isn&rsquo;t the child &mdash; it&rsquo;s the place in you where it lands.</span>
+      </a>
+      <a href="awakening.html" class="lite-item reveal d4">
+        <span class="lite-title">Awakening Without Bypassing</span>
+        <span class="lite-desc">You understand the teaching and still can&rsquo;t reach it mid-trigger. Awakening that integrates.</span>
+      </a>
+      <a href="empath.html" class="lite-item reveal d4">
+        <span class="lite-title">The Empath</span>
+        <span class="lite-desc">For the sensitive one told they&rsquo;re &ldquo;too much&rdquo; &mdash; past absorbing, into what the gift was for.</span>
+      </a>
+      <a href="forgiveness.html" class="lite-item reveal d5">
+        <span class="lite-title">Self-Forgiveness</span>
+        <span class="lite-desc">For the guilt and shame the mind can&rsquo;t set down, after the books and therapy did their part.</span>
+      </a>
+      <a href="work.html" class="lite-item reveal d5">
+        <span class="lite-title">Work Without Losing Yourself</span>
+        <span class="lite-desc">When the work that was supposed to mean something started costing you everything.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LITE BAND — Section B: Coming From Another Path? -->
+<section class="lite-band">
+  <div class="lite-inner">
+    <div class="lite-heading reveal">
+      <span class="eyebrow">For What You&rsquo;ve Already Been Practicing</span>
+      <h2>Coming From Another Path?</h2>
+      <p class="lite-intro">For readers arriving from a tradition they already know.</p>
+    </div>
+    <div class="lite-grid">
+      <a href="acim.html" class="lite-item reveal d1">
+        <span class="lite-title">A Course in Miracles</span>
+        <span class="lite-desc">You know it isn&rsquo;t real &mdash; and the energy fires anyway. A practice for when the metaphysics goes quiet mid-moment.</span>
+      </a>
+      <a href="untethered.html" class="lite-item reveal d1">
+        <span class="lite-title">The Untethered Soul</span>
+        <span class="lite-desc">You&rsquo;ve witnessed the energy. This is where you meet the one who keeps generating it.</span>
+      </a>
     </div>
   </div>
 </section>
