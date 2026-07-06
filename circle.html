@@ -358,6 +358,57 @@
   </div>
 </section>
 
+<!-- ADD YOUR LIGHT — witness submission form (posts to Kit form 9653023 via hidden iframe) -->
+<section style="background: #4F9AD4; padding: 8px 32px 72px;">
+  <div style="max-width: 620px; margin: 0 auto; text-align: center;">
+    <span class="c-cards-label reveal">Add Your Light</span>
+    <h2 class="c-cards-h2 reveal" style="margin-bottom: 18px;">Share what you have noticed.</h2>
+    <p class="reveal" style="font-family: var(--font-soul); font-size: 1.1rem; font-style: italic; color: rgba(247,243,238,0.92); line-height: 1.7; margin-bottom: 34px;">
+      If you have walked this practice with your own material and have something to bring &mdash; a moment the Five Steps worked, a time you caught your own Sir Ego, a moment you realized you had been held &mdash; share it here. A few honest sentences is the whole gift.
+    </p>
+
+    <iframe name="witness-target" id="witness-target" style="display:none;width:0;height:0;border:0;" onload="onWitnessLoad()"></iframe>
+
+    <form action="https://app.kit.com/forms/9653023/subscriptions" method="post" target="witness-target" id="witness-form" onsubmit="return onWitnessSubmit()" style="text-align: left;">
+      <label style="display:block; font-family: var(--font-nav); font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color: var(--gold-light); margin-bottom:8px;">Your witness</label>
+      <textarea name="fields[thoughts]" required rows="5" placeholder="What did you notice? The trigger, what you did, what shifted&hellip;" style="width:100%; font-family: var(--font-body); font-size:1rem; padding:14px; border:1px solid rgba(255,255,255,0.4); border-radius:6px; background:#FFFFFF; color:#2b2b2b; line-height:1.6; margin-bottom:22px; resize:vertical;"></textarea>
+
+      <label style="display:block; font-family: var(--font-nav); font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color: var(--gold-light); margin-bottom:8px;">How you&rsquo;d like to be credited</label>
+      <input type="text" name="fields[how_to_credit]" required placeholder="First name, initials, &lsquo;a kindred light&rsquo; &mdash; however you wish to appear" style="width:100%; font-family: var(--font-body); font-size:1rem; padding:14px; border:1px solid rgba(255,255,255,0.4); border-radius:6px; background:#FFFFFF; color:#2b2b2b; margin-bottom:22px;" />
+
+      <label style="display:block; font-family: var(--font-nav); font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color: var(--gold-light); margin-bottom:8px;">May I share your words on the Circle page?</label>
+      <select name="fields[share_choice]" required style="width:100%; font-family: var(--font-body); font-size:1rem; padding:14px; border:1px solid rgba(255,255,255,0.4); border-radius:6px; background:#FFFFFF; color:#2b2b2b; margin-bottom:22px; cursor:pointer;">
+        <option value="" disabled selected>Please choose&hellip;</option>
+        <option value="Post on the Circle wall">Yes &mdash; post on the Circle wall, credited as above</option>
+        <option value="Keep private">No &mdash; keep private, for Kindred Lights only</option>
+      </select>
+
+      <label style="display:block; font-family: var(--font-nav); font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color: var(--gold-light); margin-bottom:8px;">Your email</label>
+      <input type="email" name="email_address" required placeholder="your@email.com" style="width:100%; font-family: var(--font-body); font-size:1rem; padding:14px; border:1px solid rgba(255,255,255,0.4); border-radius:6px; background:#FFFFFF; color:#2b2b2b; margin-bottom:8px;" />
+      <p style="font-family: var(--font-body); font-size:0.82rem; color: rgba(247,243,238,0.6); margin:0 0 26px;">So I can reach you if needed &mdash; and only for that. No list, no newsletter.</p>
+
+      <button type="submit" style="display:block; width:100%; font-family: var(--font-nav); font-size:0.82rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--sky-dusk, #1A3A5C); background: var(--gold); border:0; border-radius:6px; padding:16px; cursor:pointer;">Share with the circle</button>
+    </form>
+
+    <div id="witness-success" style="display:none; background: rgba(255,255,255,0.12); border:1px solid var(--gold); border-radius:8px; padding:30px; text-align:center;">
+      <p style="font-family: var(--font-soul); font-size:1.2rem; font-style:italic; color:#FFFFFF; line-height:1.7; margin:0;">
+        Thank you for adding your light. Every one of these is read with care. If you chose the wall, your words may appear there &mdash; credited just as you asked &mdash; as the circle gathers. We are all kindred lights. &#10022;
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  var witnessSubmitted = false;
+  function onWitnessSubmit() { witnessSubmitted = true; return true; }
+  function onWitnessLoad() {
+    if (witnessSubmitted) {
+      document.getElementById('witness-form').style.display = 'none';
+      document.getElementById('witness-success').style.display = 'block';
+    }
+  }
+</script>
+
 <!-- EMAIL SIGNUP -->
 <section class="c-signup-section">
   <div class="c-signup-inner">
