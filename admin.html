@@ -104,12 +104,6 @@
   <li><em>Later:</em> analytics (Plausible / GA4), custom <code>404.html</code>, convert covers to <code>.webp</code>, accessibility pass</li>
 </ul>
 
-<div class="note"><strong>Recent edits &middot; July 3&ndash;4:</strong>
-  Added two lighter sections to <code>explore.html</code> beneath the room cards &mdash; <em>What&rsquo;s Your Problem?</em> (10 topical doorways: anxiety, narc, grief, addiction, health, parenting, awakening, empath, forgiveness, work) and <em>Coming From Another Path?</em> (bridges to ACIM and Untethered Soul, in each page&rsquo;s own voice). Bold linked title + one italic sentence, two columns, stacks on mobile. No framework jargon in the topical taglines &mdash; reader&rsquo;s-language only.
-  Re-skinned <code>trigger-mastery.html</code> from cream to sky-bold so it matches the rest of the site; Pass It Forward links now render as white review cards with a gold top border, matching the <code>circle.html</code> treatment (no longer hidden as thin underlined text).
-  Added a &quot;What Readers Are Finding&quot; review section to <code>ageofego.html</code> (Hollywood Book Reviews, Pacific Book Review, Reedsy Discovery). Updated the &quot;Available Now&quot; block on the same page to link to the Amazon listing directly since WH2U is live. Same Reedsy Discovery pull-quote added to the standalone <code>ageofego.org</code> site&rsquo;s reviews section as a third card.
-  <em>Still to do:</em> Add Reedsy quote to Amazon Editorial Reviews via KDP dashboard. Update WH2U back cover with the pull quote (waiting on Louise&rsquo;s reprint workflow).</div>
-
 <h2><span class="eyebrow">In Production · Launch mid-July</span>Exalted Quest</h2>
 <p class="section-intro"><strong>Status:</strong> The memoir. Title finalized &mdash; <em>Exalted Quest: The Path of Love</em>. Interior brief delivered to Louise; she starts typesetting <strong>7/6</strong>. Cover is the author draft (placeholder); Louise to polish. Owl + EQ expected done by end of July. Page held <code>noindex</code> until launch.</p>
 <ul class="checklist">
@@ -274,6 +268,46 @@ python embed_metadata.py images\</code></pre>
 <hr class="rule" />
 
 <!-- TRIGGER DECODER TESTING -->
+<h2><span class="eyebrow">When a Witness Comes In</span>Posting a Circle Entry</h2>
+
+<p class="section-intro">Entries flow into Kit (form 9653023). To post one to the wall on <code>circle.html</code>: read it in Kit, check the consent, copy two fields, paste into the reusable block below, commit. You are the curator &mdash; nothing appears until you place it.</p>
+
+<h3>The workflow, one entry at a time</h3>
+<ol class="step-list">
+  <li>
+    <strong>Open the submission in Kit.</strong> Subscribers &rarr; find the entry (search the email if needed). On their profile, read the three custom fields: <code>thoughts</code> (their witness), <code>how_to_credit</code> (how to sign them), <code>share_choice</code>.
+  </li>
+  <li>
+    <strong>Check the consent.</strong> If <code>share_choice</code> = <strong>&ldquo;Post on the Circle wall&rdquo;</strong> &rarr; you may post it. If <strong>&ldquo;Keep private&rdquo;</strong> &rarr; leave it, it&rsquo;s just for you. (Consent is captured in their own submission &mdash; no need to ask again.)
+    <div class="note"><strong>Unconfirmed is fine.</strong> You can read fields and post regardless of confirmed/unconfirmed status. Confirmation only matters for emailing them, which you&rsquo;re not doing.</div>
+  </li>
+  <li>
+    <strong>Copy their <code>thoughts</code> and <code>how_to_credit</code> text.</strong>
+  </li>
+  <li>
+    <strong>In <code>circle.html</code>, find the witness wall</strong> &mdash; the section marked <code>&lt;!-- THE FIRST LIGHTS --&gt;</code> (heading &ldquo;The Wall Begins&rdquo;). Paste a copy of the block below inside the entry grid.
+  </li>
+  <li>
+    <strong>Fill the two blanks and set the category.</strong> Replace the witness text and the credit; change the category label to whichever fits: <code>Five Steps in Action</code>, <code>Catching Sir Ego</code>, or <code>Held</code>.
+  </li>
+  <li>
+    <strong>Commit and push to GitHub.</strong> Netlify auto-deploys within 2 minutes. The entry is live on the wall.
+  </li>
+</ol>
+
+<h3>Reusable entry block (copy this for each new witness)</h3>
+<p>Paste one copy per entry inside the <code>&lt;div style="display: grid; ..."&gt;</code> in the witness-wall section. Fill the two <code>REPLACE</code> spots; edit the category label on the first line.</p>
+<pre><code>&lt;!-- WITNESS ENTRY --&gt;
+&lt;div class="reveal" style="background:#FFFFFF; border-radius:10px; padding:30px 30px 26px; box-shadow:0 10px 30px rgba(15,34,53,0.14);"&gt;
+  &lt;div style="font-family:var(--font-nav); font-size:0.68rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-dark,#8B6914); margin-bottom:14px;"&gt;Five Steps in Action&lt;/div&gt;
+  &lt;p style="font-family:var(--font-soul); font-size:1.2rem; font-style:italic; line-height:1.7; color:#2b2b2b; margin:0 0 16px;"&gt;REPLACE &mdash; their witness text&lt;/p&gt;
+  &lt;div style="font-family:var(--font-nav); font-size:0.8rem; letter-spacing:0.06em; color:#6a6a6a;"&gt;&amp;mdash; REPLACE &mdash; how they wish to be credited&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<div class="note"><strong>Category options for the first line:</strong> <code>Five Steps in Action</code> &middot; <code>Catching Sir Ego</code> &middot; <code>Held</code>. To remove an entry later, just delete its block and push.</div>
+
+<h3>When this gets to be a lot</h3>
+<p>Hand-posting is right for a trickle. When it becomes a stream, the next step is automating Kit &rarr; a sheet or database &rarr; the wall (the Astro-archive idea) &mdash; searchable, tagged, no copy-paste. Not yet; revisit when posting by hand feels like a chore.</p>
+
 <h2><span class="eyebrow">After v3 Goes Live</span>Testing the Trigger Decoder</h2>
 <p class="section-intro">Two ways to test, depending on what you want to see:</p>
 
@@ -346,7 +380,7 @@ kindredlights-website/api-test.html  ← repo path</code></pre>
 
 <hr class="rule" />
 
-<p class="foot">Updated July 4, 2026 · Not perfectly. But heroically. ✦</p>
+<p class="foot">Updated June 24, 2026 · Not perfectly. But heroically. ✦</p>
 
 </div>
 </body>
