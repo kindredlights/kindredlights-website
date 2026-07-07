@@ -599,6 +599,68 @@
     <p class="bio-body">That is why this work exists in the form it does, now: because the path is walkable, and someone who has walked it can describe how.</p>
   </div>
 </section>
+<!-- ============================================================
+     LET'S CONNECT — portable block (email + optional message)
+     Posts to Kit form 9376803. Paste this whole block into a page
+     wherever you want the section: Love Heroically (replace the old
+     one), Home (index.html), and About (about.html).
+     Notes:
+     - The message uses your existing custom field: fields[thoughts].
+       Contact notes land in Kit alongside Circle entries, but they
+       come from a DIFFERENT form (9376803) and are NOT tagged
+       circle-witness, so they're easy to tell apart. If you'd rather
+       keep them fully separate, create a new custom field "message"
+       in Kit and change fields[thoughts] -> fields[message] below.
+     - Message is OPTIONAL (low friction: they can just leave an email,
+       or add a note). Email stays required.
+     ============================================================ -->
+<section id="notify" style="background:#1F4A6B; padding:72px 24px; text-align:center;">
+  <div style="max-width:620px; margin:0 auto;">
+    <span style="font-family:var(--font-nav,'Raleway',sans-serif); font-size:0.75rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold-light,#E8D48A); display:block; margin-bottom:14px;">In Touch</span>
+    <h2 style="font-family:var(--font-display,'Cinzel',Georgia,serif); font-size:clamp(1.6rem,3vw,2.1rem); font-weight:600; color:#FFFFFF; margin:0 0 14px;">Let&rsquo;s Connect</h2>
+    <p style="font-family:var(--font-soul,'Cormorant Garamond',Georgia,serif); font-size:1.2rem; font-style:italic; color:rgba(247,243,238,0.85); line-height:1.6; margin:0 0 28px;">If something here resonates, leave your email &mdash; and a note, if you like. I&rsquo;d love to hear from you.</p>
+
+    <iframe name="klc-target" id="klc-target" style="display:none;width:0;height:0;border:0;" onload="klcLoad()"></iframe>
+
+    <form action="https://app.kit.com/forms/9376803/subscriptions" method="post" target="klc-target" id="klc-form" onsubmit="return klcSubmit()" style="text-align:left; max-width:520px; margin:0 auto;">
+      <input type="email" name="email_address" required placeholder="your@email.com" aria-label="Email address"
+        style="width:100%; font-family:var(--font-body,'Lato',sans-serif); font-size:1rem; padding:14px; border:1px solid rgba(255,255,255,0.35); border-radius:6px; background:#FFFFFF; color:#2b2b2b; margin-bottom:14px;" />
+
+      <textarea name="fields[thoughts]" rows="4" placeholder="Anything you&rsquo;d like to share (optional)" aria-label="Your message"
+        style="width:100%; font-family:var(--font-body,'Lato',sans-serif); font-size:1rem; padding:14px; border:1px solid rgba(255,255,255,0.35); border-radius:6px; background:#FFFFFF; color:#2b2b2b; line-height:1.6; resize:vertical; margin-bottom:18px;"></textarea>
+
+      <button type="submit"
+        style="display:block; width:100%; font-family:var(--font-nav,'Raleway',sans-serif); font-size:0.82rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#1A3A5C; background:var(--gold,#C9A84C); border:0; border-radius:6px; padding:15px; cursor:pointer;">Send &rarr;</button>
+    </form>
+
+    <div id="klc-success" style="display:none; margin-top:8px;">
+      <p style="font-family:var(--font-soul,'Cormorant Garamond',Georgia,serif); font-size:1.25rem; font-style:italic; color:#FFFFFF; line-height:1.6; margin:0;">Thank you &mdash; I&rsquo;d love to hear from you. &#10022;</p>
+    </div>
+
+    <p style="font-family:var(--font-body,'Lato',sans-serif); font-size:0.9rem; color:rgba(247,243,238,0.5); margin-top:18px;">The Wise One doesn&rsquo;t pursue. The kindred find each other.</p>
+  </div>
+</section>
+
+<script>
+  var klcInProgress = false;
+  function klcSubmit() {
+    var email = document.querySelector('#klc-form input[name="email_address"]');
+    if (!email || !email.value || email.value.indexOf('@') === -1) return false;
+    var btn = document.querySelector('#klc-form button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
+    klcInProgress = true;
+    return true;
+  }
+  function klcLoad() {
+    if (!klcInProgress) return;
+    klcInProgress = false;
+    var form = document.getElementById('klc-form');
+    var ok = document.getElementById('klc-success');
+    if (form) form.style.display = 'none';
+    if (ok) ok.style.display = 'block';
+  }
+</script>
+<!-- ============ END LET'S CONNECT BLOCK ============ -->
 
 <!-- CTA BAND -->
 <div class="cta-band">
