@@ -1619,13 +1619,8 @@ function renderRecognizeRelax(data) {
     + '<p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.95);letter-spacing:0.06em;text-align:center;margin-bottom:0;">Don&rsquo;t make the monkeys extinct.</p>'
     + '</div>'
 
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.65);line-height:1.78;margin-bottom:18px;font-style:italic;text-align:center;">You chose to see this differently. That choice is the practice.</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.65);line-height:1.78;margin-bottom:8px;font-style:italic;text-align:center;">You chose to see this differently. That choice is the practice.</p>'
 
-    // Open button — visible immediately since data is already loaded
-    + '<div id="open-btn-container">'
-    + '<button class="btn-submit" onclick="userClickedWilling()" style="width:100%;">'
-    + '<span class="btn-text">I&rsquo;m open &mdash; show me what&rsquo;s really happening &#10022;</span>'
-    + '</button></div>'
     + '</div>'
     + '</div>';
 
@@ -1633,6 +1628,12 @@ function renderRecognizeRelax(data) {
   document.getElementById('response-area').classList.add('visible');
   document.getElementById('start-over').style.display = 'block';
   document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Continue directly into the rest of the reading — no button gate.
+  // The data has been available since the API returned; the previous button
+  // click was operationally unnecessary and confused readers into thinking the
+  // reading had ended.
+  routeByTypology(data);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -1690,17 +1691,16 @@ function routeByTypology(data) {
 // ══════════════════════════════════════════════════════════════
 function renderStep1Bridge(bridgeText) {
   const html = '<div class="resonance-card" id="step1-bridge-card">'
-    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.82;margin-bottom:18px;">' + escHtml(bridgeText) + '</p>'
-    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.6);line-height:1.78;margin-bottom:24px;font-style:italic;">Take a breath with this for a moment. Then, when you&rsquo;re ready &mdash;</p>'
-    + '<button class="btn-submit" onclick="continueFromBridge()" style="width:100%;">'
-    + '<span class="btn-text">Show me what&rsquo;s underneath &#10022;</span>'
-    + '</button>'
+    + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.82;margin-bottom:14px;">' + escHtml(bridgeText) + '</p>'
+    + '<p style="font-family:var(--font-body);font-size:0.96rem;color:rgba(255,255,255,0.6);line-height:1.78;font-style:italic;text-align:center;margin-bottom:0;">Take a breath with this for a moment.</p>'
     + '</div>';
 
-  document.getElementById('response-area').innerHTML = html;
-  document.getElementById('response-area').classList.add('visible');
-  document.getElementById('start-over').style.display = 'block';
-  document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('response-area').insertAdjacentHTML('beforeend', html);
+
+  // Auto-continue into the full map — no button gate.
+  if (window._pendingTypologyData) {
+    renderFullMap(window._pendingTypologyData);
+  }
 }
 
 
@@ -1710,18 +1710,17 @@ function renderStep1Bridge(bridgeText) {
 function renderStep2Bridge(bridgeText) {
   const html = '<div class="resonance-card" id="step2-bridge-card">'
     + '<p style="font-family:var(--font-body);font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.82;margin-bottom:18px;">' + escHtml(bridgeText) + '</p>'
-    + '<div style="background:rgba(173,175,223,0.10);border-radius:8px;padding:18px 22px;margin-bottom:24px;border-left:3px solid var(--periwinkle);">'
+    + '<div style="background:rgba(173,175,223,0.10);border-radius:8px;padding:18px 22px;border-left:3px solid var(--periwinkle);">'
     + '<p style="font-family:var(--font-soul);font-size:1.05rem;color:rgba(255,255,255,0.88);line-height:1.78;font-style:italic;text-align:center;margin-bottom:0;">One breath. Notice one place in your body. Let it be there.</p>'
     + '</div>'
-    + '<button class="btn-submit" onclick="continueFromBridge()" style="width:100%;">'
-    + '<span class="btn-text">I&rsquo;m ready &#10022;</span>'
-    + '</button>'
     + '</div>';
 
-  document.getElementById('response-area').innerHTML = html;
-  document.getElementById('response-area').classList.add('visible');
-  document.getElementById('start-over').style.display = 'block';
-  document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('response-area').insertAdjacentHTML('beforeend', html);
+
+  // Auto-continue into the full map — no button gate.
+  if (window._pendingTypologyData) {
+    renderFullMap(window._pendingTypologyData);
+  }
 }
 
 
@@ -1880,8 +1879,9 @@ function renderFullMap(data) {
     + '</div>';
 
   const responseArea = document.getElementById('response-area');
-  responseArea.innerHTML = mapHtml;
-  responseArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  responseArea.insertAdjacentHTML('beforeend', mapHtml);
+  // No scrollIntoView here — the user is already reading the flow from the top
+  // of the Recognize/Relax section rendered above. Scrolling would yank them back.
 }
 
 
