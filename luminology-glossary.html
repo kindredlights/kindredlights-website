@@ -386,6 +386,31 @@
     .forthcoming-note-inner { background: var(--cloud) !important; padding: 24px 28px !important; border-radius: 8px; box-shadow: 0 6px 22px rgba(15,34,53,0.12); border-left: 3px solid #C9A84C !important; max-width: 720px; margin: 0 auto !important; }
     .forthcoming-note-text p { color: var(--text-deep) !important; }
     .forthcoming-note-text .eyebrow { color: #8B6914 !important; }
+
+    /* ═══ BOOK SHELF ═══ */
+    .book-shelf-section { background: var(--sky-bold) !important; padding: 40px 24px 28px 24px !important; }
+    .book-shelf-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+    .book-shelf-eyebrow { display: block; font-family: "Raleway", sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #E8D48A; margin-bottom: 28px; }
+    .book-shelf { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: end; margin-bottom: 8px; }
+    .shelf-book { display: flex; flex-direction: column; align-items: center; text-decoration: none; opacity: 0.72; transition: opacity 0.3s ease, transform 0.3s ease; border: none !important; }
+    .shelf-book:hover { opacity: 1; transform: translateY(-4px); border: none !important; }
+    .shelf-book img { width: 100%; max-width: 130px; height: auto; aspect-ratio: 1333 / 2000; object-fit: cover; box-shadow: 0 8px 20px rgba(15, 34, 53, 0.4); border-radius: 3px; margin-bottom: 14px; }
+    .shelf-book-num { font-family: "Raleway", sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #E8D48A; margin-bottom: 4px; }
+    .shelf-book-title { font-family: "Cormorant Garamond", serif; font-size: 0.95rem; font-style: italic; color: #F4F8FB; line-height: 1.3; }
+    .shelf-book-current { opacity: 1; }
+    .shelf-book-current img { max-width: 155px; box-shadow: 0 12px 32px rgba(15, 34, 53, 0.55), 0 0 0 2px #C9A84C, 0 0 28px rgba(201, 168, 76, 0.4); }
+    .shelf-book-current .shelf-book-num { color: #C9A84C; }
+    .shelf-book-current .shelf-book-title { color: #fff; }
+    .book-shelf-line { max-width: 560px; margin: 20px auto 0 auto; height: 2px; background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.35), transparent); }
+    @media (max-width: 640px) {
+      .book-shelf-section { padding: 28px 16px 20px 16px !important; }
+      .book-shelf { gap: 14px; }
+      .book-shelf-eyebrow { font-size: 0.62rem; margin-bottom: 20px; }
+      .shelf-book img { max-width: 90px; margin-bottom: 10px; }
+      .shelf-book-current img { max-width: 105px; }
+      .shelf-book-num { font-size: 0.56rem; letter-spacing: 0.18em; }
+      .shelf-book-title { font-size: 0.78rem; }
+    }
     /* NAV-FIX-2026-05-12c */
     .nav-brand { display: flex !important; align-items: center !important; gap: 12px !important; text-decoration: none !important; border: none !important; }
     .nav-brand:hover { border: none !important; text-decoration: none !important; }
@@ -538,10 +563,35 @@
   <p class="tagline">A Framework for Awakening</p>
   <p class="intro">A living glossary of the core concepts, players, and principles of the Kindred Lights cosmology — the complete architecture of human consciousness, ego, and the soul's journey home.</p>
 </header>
+<!-- BOOK SHELF -->
+<section class="book-shelf-section">
+  <div class="book-shelf-inner">
+    <span class="book-shelf-eyebrow">The Hero&rsquo;s Path of Love</span>
+    <div class="book-shelf">
+      <a href="lh.html" class="shelf-book">
+        <img src="images/love-heroically-the-five-steps-to-freedom-book-cover.jpg" alt="Love Heroically: The Five Steps to Freedom &mdash; book cover by Kindred Lights" loading="lazy" decoding="async" />
+        <span class="shelf-book-num">Book One</span>
+        <span class="shelf-book-title">Love Heroically</span>
+      </a>
+      <a href="explore-truth.html" class="shelf-book">
+        <img src="images/beyond-blame-and-shame-the-truth-of-who-you-are-book-cover.jpg" alt="Beyond Blame and Shame: The Truth of Who You Are &mdash; book cover by Kindred Lights" loading="lazy" decoding="async" />
+        <span class="shelf-book-num">Book Two</span>
+        <span class="shelf-book-title">Beyond Blame &amp; Shame</span>
+      </a>
+      <a href="luminology-glossary.html" class="shelf-book shelf-book-current" aria-current="page">
+        <img src="images/luminology-a-framework-for-awakening-book-cover.jpg" alt="Luminology: A Framework for Awakening &mdash; book cover by Kindred Lights" loading="lazy" decoding="async" />
+        <span class="shelf-book-num">Book Three &middot; You are here</span>
+        <span class="shelf-book-title">Luminology</span>
+      </a>
+    </div>
+    <div class="book-shelf-line"></div>
+  </div>
+</section>
+
 <!-- FORTHCOMING BOOK NOTE -->
 <section class="forthcoming-note">
   <div class="forthcoming-note-inner">
-    <img src="images/luminology-glossary-luminous.jpg" alt="Luminology Glossary — the word luminous defined, glowing with light" class="forthcoming-note-cover" loading="lazy" decoding="async" />
+    <img src="images/luminology-a-framework-for-awakening-book-cover.jpg" alt="Luminology: A Framework for Awakening &mdash; book cover by Kindred Lights" class="forthcoming-note-cover" loading="lazy" decoding="async" />
     <div class="forthcoming-note-text">
       <span class="eyebrow">A note from Kindred Lights</span>
       <p>This glossary articulates the framework — the architecture of <em>Luminology: A Framework for Awakening</em>, a forthcoming book in the Hero&rsquo;s Path of Love.</p>
