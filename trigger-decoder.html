@@ -2109,6 +2109,47 @@ function generateReadingPDF() {
       y += 4;
     }
 
+    // Renders a paragraph with inline italic segments.
+    // segments: array of { text, italic } — words render in the specified style,
+    // wrapping across lines at word boundaries. Used for bullets where a single
+    // word (Receive, Respond) needs italic while the rest stays normal.
+    function bodyTextSegments(segments) {
+      const fontSize = 11;
+      const lineHeight = fontSize * 1.45;
+      doc.setFontSize(fontSize);
+      doc.setTextColor(0, 0, 0);
+
+      // Break segments into tokens: word + optional trailing whitespace
+      const tokens = [];
+      segments.forEach(function(seg) {
+        const matches = seg.text.match(/\S+\s*/g) || [];
+        matches.forEach(function(m) { tokens.push({ text: m, italic: seg.italic }); });
+      });
+
+      ensureSpace(lineHeight + 2);
+      let cursorX = MARGIN_X;
+
+      tokens.forEach(function(tok) {
+        doc.setFont('times', tok.italic ? 'italic' : 'normal');
+        const w = doc.getTextWidth(tok.text);
+        if (cursorX + w - MARGIN_X > TEXT_W && cursorX > MARGIN_X) {
+          // wrap
+          y += lineHeight;
+          ensureSpace(lineHeight + 2);
+          cursorX = MARGIN_X;
+          const trimmed = tok.text.replace(/^\s+/, '');
+          const wTrimmed = doc.getTextWidth(trimmed);
+          doc.text(trimmed, cursorX, y);
+          cursorX += wTrimmed;
+        } else {
+          doc.text(tok.text, cursorX, y);
+          cursorX += w;
+        }
+      });
+
+      y += lineHeight + 4;
+    }
+
     function smallLabel(text) {
       ensureSpace(20);
       doc.setFont('helvetica', 'bold');
@@ -2200,6 +2241,39 @@ function generateReadingPDF() {
         bodyText(userShould, { italic: true, size: 10.5 });
       }
     }
+
+    // ─── ENCOURAGEMENT + BENEFITS ──────────────────────────────
+    // Warm framing that turns the PDF from a document to be read into
+    // a walk to be experienced. The benefits point at what actually
+    // happens in Receive (Step 4) and Respond (Step 5) — after the hard
+    // part of feeling and releasing in Steps 2 and 3.
+    spacer(10);
+    smallLabel('Take your time with this');
+    spacer(2);
+    bodyText('This is a walk, not a read. Read slowly. Sit with the pauses. When it asks you to feel something, feel it before you keep going. There is no wrong way.');
+    spacer(2);
+    bodyTextSegments([
+      { text: 'If you actually sit with it, three things tend to happen \u2014 in ' },
+      { text: 'Receive', italic: true },
+      { text: ' (Step 4) and ' },
+      { text: 'Respond', italic: true },
+      { text: ' (Step 5), after the hard part:' }
+    ]);
+    spacer(4);
+    bodyTextSegments([
+      { text: '\u2022  An insight arrives in ' },
+      { text: 'Receive', italic: true },
+      { text: ' (Step 4) that you did not have before. Not from thinking harder \u2014 from something quieter that had been waiting for you to stop pushing.' }
+    ]);
+    bodyTextSegments([
+      { text: '\u2022  In ' },
+      { text: 'Respond', italic: true },
+      { text: ' (Step 5), you respond differently. Not by forcing yourself to. The old response just does not fit anymore, and the new one comes through on its own.' }
+    ]);
+    bodyText('\u2022  Something in the situation shifts, a little, from that response. Not always immediately visible. But repeated over time, this is how relationships change, how the outer world reorganizes around the interior work. No willpower required. It builds on itself.');
+    spacer(4);
+    bodyText('You have all the time you need.', { italic: true });
+    spacer(6);
 
     // ─── FIVE STEPS FLOWCHART (summary graphic) ─────────────────
     try {
